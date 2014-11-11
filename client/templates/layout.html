@@ -1,5 +1,8 @@
 <template name="layout">
 
+    {{#each currentUserData}}
+        {{_id}}
+    {{/each}}
     <div class="content">
         {{> yield }}
     </div>

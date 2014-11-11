@@ -19,6 +19,7 @@ Template.join.events({
         var email = template.$('[name=email]').val();
         var password = template.$('[name=password]').val();
         var confirm = template.$('[name=confirm]').val();
+        var username = template.$('[name=username]').val();
 
         var errors = {};
 
@@ -40,14 +41,19 @@ Template.join.events({
         }
 
         Accounts.createUser({
+            username: 'testing',
             email: email,
-            password: password
+            password: password,
+            username: username,
+            profile: {
+                name: 'Dane'
+            }
         }, function(error) {
             if (error) {
                 return Session.set(ERRORS_KEY, {'none': error.reason});
             }
 
-            Router.go('home');
+            Router.go('/');
         });
     }
 });

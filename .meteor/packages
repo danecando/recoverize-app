@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 iron:router
 email
@@ -13,3 +12,8 @@ underscore
 mrt:moment
 spiderable
 accounts-password
+facts
+meteorhacks:subs-manager
+meteorhacks:kadira
+meteorhacks:npm
+npm-container
