@@ -3,10 +3,11 @@ var Joi = Meteor.npmRequire('joi');
 // Extend the user collection
 Accounts.onCreateUser(function(options, user) {
 
-    // keep default profile
+    // Keep default profile
     user.profile = options.profile;
 
     user.followers = [];
+    user.following = [];
     user.posts = [];
     user.checklist = [];
 
@@ -19,15 +20,32 @@ Meteor.users.allow({
     },
     update: function(userId, doc) {
         return doc._id === userId;
-    },
-    remove: function(userId, doc) {
-        return doc._id === userId;
+    }
+});
+
+Meteor.publish('test', function() {
+    return Test.find();
+});
+
+Test.allow({
+    insert: function() {
+        return true;
     }
 });
 
 Meteor.publish('posts', function() {
     return Posts.find();
 });
+
+Meteor.publish('follow', function() {
+    return Follow.find();
+});
+
+Follow.allow({
+    insert: function(userId, doc) {
+        return true;
+    }
+})
 
 //Meteor.publish(null, function () {
 //    var UserId = this.UserId,

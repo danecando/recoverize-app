@@ -1,6 +1,48 @@
-Template.home.events({
-    'click .logout': function(event) {
-        event.preventDefault();
-        Meteor.logout();
+/**
+ * Global Variables
+ */
+
+var MENU_KEY = 'menuOpen';
+Session.setDefault(MENU_KEY, false);
+
+var SHOW_CONNECTION_ISSUE_KEY = 'showConnectionIssue';
+Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false);
+
+var CONNECTION_ISSUE_TIMEOUT = 5000;
+
+/**
+ * on client connection
+ */
+Meteor.startup(function() {
+
+    // set up a swipe left / right handler
+    $(document.body).touchwipe({
+        wipeLeft: function () {
+            Session.set(MENU_KEY, false);
+        },
+        wipeRight: function () {
+            Session.set(MENU_KEY, true);
+        },
+        preventDefaultEvents: false
+    });
+
+});
+
+/**
+ * Helpers
+ */
+Template.layout.helpers({
+
+    cordova: function() {
+        console.log([this]);
+        return Meteor.isCordova && 'cordova';
     }
-})
+
+});
+
+/**
+ * Events
+ */
+Template.layout.events({
+
+});

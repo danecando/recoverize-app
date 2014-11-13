@@ -1,10 +1,10 @@
 <template name="layout">
+  <main id="app" class="{{menuOpen}} {{cordova}}">
 
-    {{#each currentUserData}}
-        {{_id}}
-    {{/each}}
+
     <div class="content">
-        {{> yield }}
+      {{> yield }}
     </div>
 
+  </main>
 </template>

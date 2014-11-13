@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
 email
 fastclick
@@ -14,6 +13,8 @@ spiderable
 accounts-password
 facts
 meteorhacks:subs-manager
-meteorhacks:kadira
 meteorhacks:npm
 npm-container
+aldeed:collection2
+aldeed:simple-schema
+http
