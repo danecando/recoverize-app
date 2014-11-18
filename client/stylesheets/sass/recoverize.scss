@@ -2,3 +2,185 @@
 @import 'neat';
 @import 'base/base';
 
+/* ===========================
+ *  Default element styles
+ * =========================== */
+body {
+  background: url('/images/background.jpeg') no-repeat;
+//  background-size: auto 155%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+a {
+  color: #fff;
+
+  &:hover {
+    color: #ccc;
+  }
+}
+
+/* ===========================
+ *  Generic Classes
+ * =========================== */
+
+.fixed {
+  position: fixed;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.logo {
+  font-family: $brand-font;
+  color: white;
+  text-shadow: 1px 1px 0 $brand;
+  text-align: center;
+}
+
+.badge-container {
+  position: relative;
+
+  .badge {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: em(14);
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
+    line-height: em(4);
+    height: 15px;
+    width: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #fff;
+  }
+}
+
+/* ===========================
+ *  App layout
+ * =========================== */
+
+#app {
+  @include outer-container;
+}
+
+/**
+ * App Menu
+ */
+
+#menu {
+  @include span-columns(12);
+  position: absolute;
+  left: -100vw;
+  min-height: 100vh;
+  padding: 15px;
+
+  .menu-open & {
+    left: 0;
+  }
+
+  a {
+    display: block;
+    padding: 3px 10px;
+
+    font-size: em(13);
+    font-weight: 500;
+    letter-spacing: em(1);
+    text-transform: uppercase;
+
+    &:hover {
+      color: #fff;
+    }
+
+  }
+
+  .row {
+    display: flex;
+
+    > div {
+      justify-content: center;
+    }
+  }
+
+  .user-pages {
+    margin: 10px 0;
+
+    .row:last-of-type .button {
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+    .row .button:last-of-type {
+      border-left: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .button {
+      width: 50%;
+      height: 50px;
+      line-height: 45px;
+      background: rgba(255, 255, 255, .1);
+      @include transition(background .25s ease-in-out);
+
+      text-align: center;
+
+      &:hover {
+        background: rgba(255, 255, 255, .2);
+        @include transition(background .25s ease-in-out);
+      }
+    }
+  }
+
+  .sign-in {
+    @include display(flex);
+
+    margin: 10px 0;
+    text-align: center;
+    li {
+      width: 50%;
+      @include justify-content(center);
+
+      a {
+        border: 1px solid white;
+        font-size: em(12);
+      }
+    }
+  }
+
+  .pages a {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    font-size: em(12);
+
+    &:hover {
+      border-bottom: 1px solid rgba(255, 255, 255, .35);
+    }
+  }
+
+  @include media($tablet-screen-up) {
+    @include span-columns(3);
+    position: relative;
+    left: 0;
+  }
+}
+
+// end app menu
+
+
+#container {
+  @include span-columns(12);
+  min-height: 100vh;
+  padding: 15px;
+
+  background: rgba(255, 255, 255, .93);
+
+  @include media($tablet-screen-up) {
+    @include span-columns(9);
+  }
+}
+
+.menu-open #menu {
+  left: 0 !important;
+}
+
+.menu-open #container {
+  position: absolute;
+  left: 100vw !important;
+}

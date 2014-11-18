@@ -1,10 +1,75 @@
 <template name="layout">
   <main id="app" class="{{menuOpen}} {{cordova}}">
 
+    <section id="menu">
+      <nav class="fixed">
+        <section class="branding">
+          <h1 class="logo">recoverize</h1>
+        </section>
+        <section class="user">
+          {{#if currentUser}}
+            <div class="user-pages">
+              <div class="row">
+                <div class="button profile">
+                  <a href="/profile">
+                    <i class="fa fa-user fa-lg"></i>
+                  </a>
+                </div>
+                <div class="button notifications">
+                  <a href="/notifications">
+                    <div class="badge-container">
+                      <span class="badge">2</span>
+                      <i class="fa fa-bell fa-lg"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="button status">
+                  <a href="/status">
+                    <i class="fa fa-pencil fa-lg"></i>
+                  </a>
+                </div>
+                <div class="button messages">
+                  <a href="/status/create">
+                    <div class="badge-container">
+                      <span class="badge">1</span>
+                      <i class="fa fa-envelope fa-lg"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          {{else}}
+            <ul class="sign-in">
+              <li><a href="/signin">Sign In</a></li>
+              <li><a href="/join">Join</a></li>
+            </ul>
+          {{/if}}
+        </section>
+        <ul class="pages">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/readings">Daily Reading</a></li>
+          <li><a href="/checklist">Daily Checklist</a></li>
+          <li><a href="/feed">News Feed</a></li>
+          <li><a href="/chat">Chat Room</a></li>
+          <li><a href="/users">User List</a></li>
+          <li><a href="/speakers">Speaker Tapes</a></li>
+          <li><a href="/stories">Recovery Stories</a></li>
+          <li><a href="/gratitude">Gratitude Wall</a></li>
+        </ul>
+      </nav>
+    </section>
 
-    <div class="content">
+    <section id="container">
+      <nav class="top-bar">
+        <ul class="action-nav">
+          <li><a class="button back" href="#"><i class="fa fa-long-arrow-left fa-2x"></i></a></li>
+          <li><a class="button menu-toggle" href="#"><i class="fa fa-navicon fa-2x"></i></a></li>
+        </ul>
+      </nav>
       {{> yield }}
-    </div>
+    </section>
 
   </main>
 </template>

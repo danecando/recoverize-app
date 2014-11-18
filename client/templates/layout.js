@@ -32,9 +32,10 @@ Meteor.startup(function() {
  * Helpers
  */
 Template.layout.helpers({
-
+    menuOpen: function() {
+        return Session.get(MENU_KEY) && 'menu-open';
+    },
     cordova: function() {
-        console.log([this]);
         return Meteor.isCordova && 'cordova';
     }
 
@@ -44,5 +45,9 @@ Template.layout.helpers({
  * Events
  */
 Template.layout.events({
+
+    'click .menu-toggle': function() {
+        Session.set(MENU_KEY, !Session.get(MENU_KEY));
+    }
 
 });

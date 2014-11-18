@@ -4,8 +4,13 @@
 // Variables
 @import 'variables';
 
+@import 'normalize';
+@import '../fa/font-awesome';
+@import 'fonts';
+@import 'animate';
+
 // Neat Settings -- uncomment if using Neat -- must be imported before Neat
-// @import 'grid-settings';
+@import 'grid-settings';
 
 // Mixins
 @import 'mixins/flash';

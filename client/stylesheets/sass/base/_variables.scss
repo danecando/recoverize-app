@@ -1,8 +1,9 @@
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
-$base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$base-font-family: "AzoSans", Arial, sans-serif;
+$header-font-family: "AzoSans", Arial, sans-serif;
+$brand-font: 'Lobster Two', cursive;
 
 // Sizes
 $base-font-size: 1em;
@@ -13,10 +14,10 @@ $base-border-radius: em(3);
 
 // Colors
 $brand: #E85608;
-$brand-dark: #903200;
-$brand-dark-med: #B94100;
+$brand-darker: #903200;
+$brand-dark: #B94100;
 $brand-light: #FA7C38;
-$brand-light-med: #FF9963;
+$brand-lighter: #FF9963;
 
 $blue: #477DCA;
 $dark-gray: #333;

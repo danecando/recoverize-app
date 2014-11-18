@@ -2,17 +2,123 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68dfb9b5-bcc2-4002-a0a2-c4d10d155a11" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/templates/app/home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/client/templates/app/home.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/collections.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/bootstrap.js" afterPath="$PROJECT_DIR$/server/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/kadira.js" afterPath="$PROJECT_DIR$/server/kadira.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_animation.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_animation.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_appearance.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_appearance.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_asset-pipeline.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_asset-pipeline.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_assign.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_assign.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_backface-visibility.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_backface-visibility.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background-image.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background-image.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_base.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_base.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-image.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-image.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-radius.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-radius.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon-deprecated-upcoming.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon-deprecated-upcoming.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_box-sizing.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_box-sizing.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_box-sizing.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_box-sizing.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_button.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_button.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_button.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_button.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_buttons.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_buttons.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_calc.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_calc.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_clearfix.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_clearfix.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_clearfix.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_clearfix.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_color-lightness.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_color-lightness.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_columns.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_columns.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_convert-units.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_convert-units.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_direction-context.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_direction-context.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_directional-values.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_directional-values.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_disable-warnings.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_disable-warnings.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_display-context.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_display-context.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_ellipsis.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_ellipsis.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_fill-parent.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_fill-parent.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_filter.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_filter.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/f35fb3b7da16ba715cfd1bd56d2d14aeecdb3182/_flash.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/f35fb3b7da16ba715cfd1bd56d2d14aeecdb3182/_flash.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_flashes.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_flashes.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_flex-box.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_flex-box.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_flex-grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_flex-grid.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-face.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-face.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_font-family.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_font-family.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-feature-settings.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-feature-settings.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_forms.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_forms.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_golden-ratio.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_golden-ratio.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_gradient-positions-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_gradient-positions-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_grid-width.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_grid-width.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_grid.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_hide-text.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_hide-text.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_hide-text.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_hide-text.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hidpi-media-query.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hidpi-media-query.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_html5-input-types.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_html5-input-types.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hyphens.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hyphens.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_image-rendering.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_image-rendering.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_is-num.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_is-num.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_keyframes.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_keyframes.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-angle-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-angle-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-gradient-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-gradient-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_linear-gradient.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_linear-gradient.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-positions-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-positions-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-side-corner-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-side-corner-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_lists.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_lists.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_media.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_media.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_modular-scale.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_modular-scale.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat-helpers.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat-helpers.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_new-breakpoint.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_new-breakpoint.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_omega.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_omega.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_outer-container.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_outer-container.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_pad.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_pad.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_perspective.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_perspective.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_placeholder.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_placeholder.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_position.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_position.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_prefixer.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_prefixer.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_prefixer.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_prefixer.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_private.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_private.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_private.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_private.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_px-to-em.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_px-to-em.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-em.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-em.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-rem.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-rem.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-arg-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-arg-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-gradient-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-gradient-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_radial-gradient.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_radial-gradient.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-positions-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-positions-parser.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_render-gradients.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_render-gradients.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_retina-image.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_retina-image.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_row.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_row.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_shape-size-stripper.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_shape-size-stripper.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_shift.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_shift.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_size.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_size.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_span-columns.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_span-columns.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_str-to-num.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_str-to-num.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_strip-units.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_strip-units.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_tables.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_tables.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_timing-functions.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_timing-functions.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_tint-shade.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_tint-shade.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_to-deprecate.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_to-deprecate.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transform.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transform.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_transition-property-name.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_transition-property-name.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transition.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transition.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_triangle.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_triangle.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_typography.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_typography.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_unpack.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_unpack.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_user-select.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_user-select.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_variables.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_variables.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_visual-grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_visual-grid.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_visual-grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_visual-grid.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_word-wrap.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_word-wrap.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/a67bfc50bf9ebaf8796631b77a9440a1e74fed70/recoverize.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/a67bfc50bf9ebaf8796631b77a9440a1e74fed70/recoverize.scssc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/config.codekit" afterPath="$PROJECT_DIR$/client/stylesheets/config.codekit" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/app/dashboard.js" afterPath="$PROJECT_DIR$/client/templates/app/dashboard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/auth/join.js" afterPath="$PROJECT_DIR$/client/templates/auth/join.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/layout.html" afterPath="$PROJECT_DIR$/client/templates/layout.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/layout.js" afterPath="$PROJECT_DIR$/client/templates/layout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/user/profile-update.html" afterPath="$PROJECT_DIR$/client/templates/user/profile-update.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publish.js" afterPath="$PROJECT_DIR$/server/publish.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/css/recoverize.css" afterPath="$PROJECT_DIR$/client/stylesheets/css/recoverize.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/router.js" afterPath="$PROJECT_DIR$/lib/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="recoverize.iws" />
@@ -36,28 +142,106 @@
     <favorites_list name="recoverize" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/templates/app/dashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35529715" vertical-offset="0" max-vertical-offset="1175">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/templates/app/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/templates/layout.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.57471263" vertical-offset="0" max-vertical-offset="2000">
+                  <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="layout.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/templates/layout.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="1450">
+                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_animate.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_animate.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="79100">
+                  <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_base.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="875">
+                  <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_grid-settings.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="625">
+                  <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_fonts.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_fonts.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="276" max-vertical-offset="1050">
+                  <caret line="36" column="68" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="recoverize.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="4775">
+                  <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="1650">
+                  <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="recoverize.scss" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.052246604" vertical-offset="1825" max-vertical-offset="4775">
+                  <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,7 +251,6 @@
       <list>
         <option value="$PROJECT_DIR$/client/styles/sass/recoverize.scss" />
         <option value="$PROJECT_DIR$/client/templates/hello.html" />
-        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss" />
         <option value="$PROJECT_DIR$/client/templates/main.html" />
         <option value="$PROJECT_DIR$/client/templates/login/login.html" />
         <option value="$PROJECT_DIR$/client/stylesheets/jquery.touchwipe.js" />
@@ -84,9 +267,7 @@
         <option value="$PROJECT_DIR$/server/accounts.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/packages.json" />
-        <option value="$PROJECT_DIR$/client/templates/auth/join.js" />
         <option value="$PROJECT_DIR$/tests/mocha/server/sampleServerTest.js" />
-        <option value="$PROJECT_DIR$/lib/router.js" />
         <option value="$PROJECT_DIR$/lib/collections.js" />
         <option value="$PROJECT_DIR$/collections/follow.js" />
         <option value="$PROJECT_DIR$/server/kadira.js" />
@@ -95,16 +276,27 @@
         <option value="$PROJECT_DIR$/client/templates/app/home.js" />
         <option value="$PROJECT_DIR$/lib/collections/follow.js" />
         <option value="$PROJECT_DIR$/lib/collections/test.js" />
-        <option value="$PROJECT_DIR$/server/publish.js" />
         <option value="$PROJECT_DIR$/client/templates/app/test.html" />
         <option value="$PROJECT_DIR$/client/templates/app/test.js" />
         <option value="$PROJECT_DIR$/client/templates/app/dashboard.html" />
         <option value="$PROJECT_DIR$/client/templates/app/home.html" />
         <option value="$PROJECT_DIR$/router.js" />
-        <option value="$PROJECT_DIR$/client/templates/layout.html" />
         <option value="$PROJECT_DIR$/client/head.html" />
-        <option value="$PROJECT_DIR$/client/templates/layout.js" />
+        <option value="$PROJECT_DIR$/client/templates/user/profile-update.html" />
+        <option value="$PROJECT_DIR$/client/templates/auth/join.js" />
         <option value="$PROJECT_DIR$/client/templates/app/dashboard.js" />
+        <option value="$PROJECT_DIR$/server/publish.js" />
+        <option value="$PROJECT_DIR$/lib/router.js" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_normalize.scss" />
+        <option value="$PROJECT_DIR$/client/stylesheets/css/recoverize.css" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_fonts.scss" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_animate.scss" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss" />
+        <option value="$PROJECT_DIR$/client/templates/layout.js" />
+        <option value="$PROJECT_DIR$/client/templates/layout.html" />
+        <option value="$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss" />
       </list>
     </option>
   </component>
@@ -112,9 +304,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="874" />
+    <option name="x" value="1440" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -164,6 +357,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,9 +376,106 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recoverize-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -201,6 +492,10 @@
     <property name="SearchEverywhereHistoryKey" value="live&#9;ACTION&#9;SaveAsTemplate" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/fonts" />
+      <recent name="$PROJECT_DIR$/client/stylesheets/sass/fa" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/templates" />
       <recent name="$PROJECT_DIR$/lib" />
@@ -210,10 +505,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Meteor.recoverize">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -221,10 +520,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="meteor-app-runner" factoryName="Meteor">
@@ -301,7 +596,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -309,7 +604,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -317,11 +612,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -347,18 +642,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="650">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1025">
           <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -373,27 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="225">
           <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/css/recoverize.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19379845" vertical-offset="0" max-vertical-offset="16425">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1625">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="250">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -439,13 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/auth/join.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="1350">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="875">
@@ -457,7 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="200">
           <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -479,7 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="40" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -487,7 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="475">
           <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -495,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.0" vertical-offset="0" max-vertical-offset="625">
           <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -503,7 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="250" max-vertical-offset="1075">
           <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -511,15 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="200">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/publish.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="1650">
-          <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -535,7 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -543,7 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -551,15 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/user/profile-update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -567,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -575,7 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -583,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -591,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,31 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12919897" vertical-offset="1250" max-vertical-offset="2325">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54909563" vertical-offset="0" max-vertical-offset="1325">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29069766" vertical-offset="0" max-vertical-offset="774">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -639,15 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3875969" vertical-offset="0" max-vertical-offset="774">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/templates/auth/join.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25839794" vertical-offset="0" max-vertical-offset="1600">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -663,7 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -671,7 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,14 +870,143 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
           <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/auth/join.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="351" max-vertical-offset="1350">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/auth/join.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="826" max-vertical-offset="1600">
+          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/user/profile-update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="200">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/app/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35529715" vertical-offset="0" max-vertical-offset="1175">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="925">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/publish.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_normalize.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.93540055" vertical-offset="9926" max-vertical-offset="10800">
+          <caret line="426" column="1" selection-start-line="426" selection-start-column="1" selection-end-line="426" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64599484" vertical-offset="0" max-vertical-offset="2200">
+          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/fa/_bordered-pulled.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25839794" vertical-offset="0" max-vertical-offset="774">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54909563" vertical-offset="0" max-vertical-offset="2325">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/css/recoverize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="57325">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_fonts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="276" max-vertical-offset="1050">
+          <caret line="36" column="68" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="625">
+          <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_animate.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="79100">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="875">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="1450">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57471263" vertical-offset="0" max-vertical-offset="2000">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.052246604" vertical-offset="1825" max-vertical-offset="4775">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
           <folding />
         </state>
       </provider>
