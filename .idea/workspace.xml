@@ -2,123 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68dfb9b5-bcc2-4002-a0a2-c4d10d155a11" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_animation.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_animation.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_appearance.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_appearance.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_asset-pipeline.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_asset-pipeline.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_assign.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_assign.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_backface-visibility.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_backface-visibility.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background-image.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background-image.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_background.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_base.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_base.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-image.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-image.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-radius.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_border-radius.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon-deprecated-upcoming.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon-deprecated-upcoming.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/ddc9f9ec384598f0eb3e89bf74578e3b72e1ea3d/_bourbon.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_box-sizing.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_box-sizing.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_box-sizing.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_box-sizing.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_button.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_button.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_button.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_button.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_buttons.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_buttons.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_calc.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_calc.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_clearfix.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_clearfix.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_clearfix.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_clearfix.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_color-lightness.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_color-lightness.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_columns.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_columns.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_convert-units.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_convert-units.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_direction-context.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_direction-context.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_directional-values.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_directional-values.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_disable-warnings.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_disable-warnings.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_display-context.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_display-context.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_ellipsis.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_ellipsis.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_fill-parent.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_fill-parent.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_filter.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_filter.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/f35fb3b7da16ba715cfd1bd56d2d14aeecdb3182/_flash.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/f35fb3b7da16ba715cfd1bd56d2d14aeecdb3182/_flash.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_flashes.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_flashes.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_flex-box.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_flex-box.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_flex-grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_flex-grid.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-face.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-face.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_font-family.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_font-family.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-feature-settings.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_font-feature-settings.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_forms.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_forms.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_golden-ratio.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_golden-ratio.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_gradient-positions-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_gradient-positions-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_grid-width.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_grid-width.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_grid.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_hide-text.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/5686d16a8b8e96a83bf0959fa7558c9e8462b81a/_hide-text.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_hide-text.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_hide-text.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hidpi-media-query.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hidpi-media-query.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_html5-input-types.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_html5-input-types.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hyphens.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_hyphens.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_image-rendering.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_image-rendering.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_is-num.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_is-num.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_keyframes.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_keyframes.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-angle-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-angle-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-gradient-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-gradient-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_linear-gradient.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_linear-gradient.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-positions-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-positions-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-side-corner-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_linear-side-corner-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_lists.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_lists.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_media.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_media.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_modular-scale.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_modular-scale.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat-helpers.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat-helpers.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/8415ed764aa39020dc6cd0c47a8d3924a90daf8e/_neat.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_new-breakpoint.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_new-breakpoint.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_omega.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_omega.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_outer-container.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_outer-container.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_pad.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_pad.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_perspective.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_perspective.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_placeholder.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_placeholder.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_position.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_position.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_prefixer.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_prefixer.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_prefixer.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_prefixer.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_private.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d0ad2686db7b78b56dc4362d2abdc80e026ea72/_private.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_private.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_private.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_px-to-em.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/2d18c097873b0580b26b637ebf97cec82f37e045/_px-to-em.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-em.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-em.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-rem.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_px-to-rem.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-arg-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-arg-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-gradient-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-gradient-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_radial-gradient.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_radial-gradient.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-positions-parser.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_radial-positions-parser.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_render-gradients.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_render-gradients.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_retina-image.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_retina-image.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_row.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_row.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_shape-size-stripper.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_shape-size-stripper.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_shift.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_shift.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_size.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_size.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_span-columns.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_span-columns.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_str-to-num.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/940751e9e6d064888af416e1fd3c7ac66fc12b4d/_str-to-num.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_strip-units.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_strip-units.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_tables.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_tables.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_timing-functions.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_timing-functions.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_tint-shade.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_tint-shade.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_to-deprecate.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_to-deprecate.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transform.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transform.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_transition-property-name.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_transition-property-name.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transition.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_transition.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_triangle.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_triangle.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_typography.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_typography.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_unpack.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/72773e327525443e0064f9369a87d53735f1d13e/_unpack.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_user-select.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/10d12f4bb8a3918c755874fa39d4a9f2e7d3390e/_user-select.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_variables.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/82affe21cd25350f4f5892f48e6deb1d81f2bd5b/_variables.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_visual-grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/aa3c3180bc5921d334f50e42aeac9b70c29f23c2/_visual-grid.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_visual-grid.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/b7fa91922afefde34b170c450c3d958d8c77ed67/_visual-grid.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_word-wrap.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/936fba1770a8b16e23168c7474a958606f40a270/_word-wrap.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/a67bfc50bf9ebaf8796631b77a9440a1e74fed70/recoverize.scssc" afterPath="$PROJECT_DIR$/client/stylesheets/sass/.sass-cache/a67bfc50bf9ebaf8796631b77a9440a1e74fed70/recoverize.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/base/_base.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/base/_grid-settings.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/base/_variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/config.codekit" afterPath="$PROJECT_DIR$/client/stylesheets/config.codekit" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/app/dashboard.js" afterPath="$PROJECT_DIR$/client/templates/app/dashboard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/auth/join.js" afterPath="$PROJECT_DIR$/client/templates/auth/join.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/layout.html" afterPath="$PROJECT_DIR$/client/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/layout.js" afterPath="$PROJECT_DIR$/client/templates/layout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/templates/user/profile-update.html" afterPath="$PROJECT_DIR$/client/templates/user/profile-update.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/publish.js" afterPath="$PROJECT_DIR$/server/publish.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/css/recoverize.css" afterPath="$PROJECT_DIR$/client/stylesheets/css/recoverize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss" afterPath="$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/router.js" afterPath="$PROJECT_DIR$/lib/router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="recoverize.iws" />
@@ -148,7 +32,7 @@
           <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/templates/layout.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.57471263" vertical-offset="0" max-vertical-offset="2000">
+                <state vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="2000">
                   <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
                   <folding />
                 </state>
@@ -229,11 +113,21 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="recoverize.scss" pinned="false" current-in-tab="true">
+          <file leaf-file-name="recoverize.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.052246604" vertical-offset="1825" max-vertical-offset="4775">
+                <state vertical-scroll-proportion="0.0" vertical-offset="1825" max-vertical-offset="4775">
                   <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.8098224" vertical-offset="0" max-vertical-offset="957">
+                  <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
@@ -265,7 +159,6 @@
         <option value="$PROJECT_DIR$/server/collections/users.js" />
         <option value="$PROJECT_DIR$/client/templates/auth/join.html" />
         <option value="$PROJECT_DIR$/server/accounts.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/packages.json" />
         <option value="$PROJECT_DIR$/tests/mocha/server/sampleServerTest.js" />
         <option value="$PROJECT_DIR$/lib/collections.js" />
@@ -297,6 +190,7 @@
         <option value="$PROJECT_DIR$/client/templates/layout.js" />
         <option value="$PROJECT_DIR$/client/templates/layout.html" />
         <option value="$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -357,7 +251,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -476,6 +369,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,14 +399,10 @@
     </key>
   </component>
   <component name="RunManager" selected="Meteor.recoverize">
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -520,6 +410,10 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="meteor-app-runner" factoryName="Meteor">
@@ -605,18 +499,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990025" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -702,13 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="875">
-          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -943,7 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="57325">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -997,7 +883,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57471263" vertical-offset="0" max-vertical-offset="2000">
+        <state vertical-scroll-proportion="0.0" vertical-offset="550" max-vertical-offset="2000">
           <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding />
         </state>
@@ -1005,8 +891,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/stylesheets/sass/recoverize.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.052246604" vertical-offset="1825" max-vertical-offset="4775">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1825" max-vertical-offset="4775">
           <caret line="75" column="16" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8098224" vertical-offset="0" max-vertical-offset="957">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
           <folding />
         </state>
       </provider>
