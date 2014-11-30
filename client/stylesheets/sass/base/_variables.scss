@@ -13,12 +13,13 @@ $header-line-height: $base-font-size * 1.25;
 $base-border-radius: em(3);
 
 // Colors
-$brand: #E85608;
-$brand-darker: #903200;
-$brand-dark: #B94100;
-$brand-light: #FA7C38;
-$brand-lighter: #FF9963;
+$brand-darker: #B94100;
+$brand-dark: #E85608;
+$brand-color: #FA7C38;
+$brand-light: #FF9963;
+$brand-blue: #123865;
 
+$green: #009A31;
 $blue: #477DCA;
 $dark-gray: #333;
 $medium-gray: #999;
@@ -45,16 +46,16 @@ $base-border-color: $light-gray;
 
 // Flash Colors
 $alert-color: $light-yellow;
-$error-color: $light-red;
+$error-color: #ff0033;
 $notice-color: $light-yellow;
-$success-color: $light-green;
+$success-color: green;
 
 // Forms
 $form-border-color: $base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
-$form-border-color-focus: $base-accent-color;
-$form-border-radius: $base-border-radius;
-$form-box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+$form-border-color-focus: $blue;
+$form-border-radius: 0;
+$form-box-shadow: inset 0 0 0 rgba(0,0,0,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;

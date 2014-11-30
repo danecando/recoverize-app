@@ -44,10 +44,7 @@ Template.join.events({
             username: 'testing',
             email: email,
             password: password,
-            username: username,
-            profile: {
-                name: 'Dane'
-            }
+            username: username
         }, function(error) {
             if (error) {
                 return Session.set(ERRORS_KEY, {'none': error.reason});

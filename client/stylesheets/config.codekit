@@ -11,15 +11,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/sass\/base\/_animate.scss": {
+	"\/sass\/base\/_badges.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/sass\/base\/_animate.scss",
-		"outputAbbreviatedPath": "\/sass\/css\/_animate.css",
+		"inputAbbreviatedPath": "\/sass\/base\/_badges.scss",
+		"outputAbbreviatedPath": "\/sass\/css\/_badges.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,

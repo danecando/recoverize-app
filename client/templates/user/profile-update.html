@@ -1,3 +1,99 @@
 <template name="profileUpdate">
-  <h1>Profile Update</h1>
+
+  <section class="page-head">
+    <h2 class="title">Update your profile</h2>
+  </section>
+
+  <ul class="top-links">
+    <li><a class="view-profile" href="/profile">View Profile</a></li>
+  </ul>
+
+  <form action="">
+    <section class="profile-settings">
+      <h3>Profile</h3>
+      <ul class="fields">
+        <li>
+          <label for="name">Name <small class="desc">John S.</small></label>
+          <input type="text" name="name" value="{{user.profile.name}}">
+        </li>
+        <li>
+          <label for="location">Location <small class="desc">City / State</small></label>
+          <input type="text" name="location" value="{{user.profile.location}}">
+        </li>
+        <li>
+          <label for="program">Program</label>
+          <select name="program" id="program">
+            <option value="aa">Alcoholics Anonymous</option>
+            <option value="na">Narcotics Anonymous</option>
+            <option value="ca">Cocaine Anonymous</option>
+          </select>
+        </li>
+        <li class="select-inline">
+          <label for="soberDate">Sober Date</label>
+          <select name="soberMonth" id="sober-month">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <select name="soberDay" id="sober-day">
+            {{#each days}}
+              <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+          <select name="soberYear" id="sober-year">
+            {{#each years}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+        </li>
+        <li>
+          <label for="quote">Quote <small class="desc">Max Length 140 Characters</small></label>
+          <textarea name="quote" id="quote" cols="30" rows="2">{{user.profile.quote}}</textarea>
+        </li>
+        <li class="response">error</li>
+      </ul>
+      <button id="save-changes" {{updated}}>Save Changes</button>
+    </section>
+
+    <section class="account-settings">
+      <h3>Account Settings</h3>
+      <ul class="fields">
+        <li>
+          <label for="username">Username</label>
+          <input type="text" name="username" value="{{user.username}}">
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input type="text" name="email" value="{{user.emails.[0].address}}">
+        </li>
+        <li>
+          <label for="oldpw">Old Password <small class="desc">For password change or account deletion</small></label>
+          <input type="text" name="oldpw">
+        </li>
+        <li class="split">
+          <label for="newpw">New Password</label>
+          <input type="text" name="newpw">
+        </li>
+        <li class="split">
+          <label for="confirmpw">Confirm Password</label>
+          <input type="text" name="confirmpw">
+        </li>
+        <li>
+          <button id="delete-account">Delete My Account</button>
+          <label><small class="desc">Account is not recoverable after being deleted!</small></label>
+        </li>
+        <li class="response"></li>
+      </ul>
+      <button id="save-changes" {{updated}}>Save Changes</button>
+    </section>
+  </form>
 </template>

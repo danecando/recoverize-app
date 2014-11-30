@@ -15,7 +15,10 @@ select {
 
 label {
   font-weight: bold;
-  margin-bottom: $base-line-height / 4;
+  text-transform: uppercase;
+  font-size: em(12);
+  letter-spacing: em(1);
+  margin-bottom: $base-line-height / 8;
 
   &.required:after {
     content: "*";
@@ -47,8 +50,16 @@ select[multiple=multiple] {
 
   &:focus {
     border-color: $form-border-color-focus;
-    box-shadow: $form-box-shadow-focus;
+    box-shadow: 0 0 0;
     outline: none;
+  }
+
+  &.error {
+    border-color: $error-color;
+  }
+
+  &.success {
+    border-color: $success-color;
   }
 }
 
@@ -75,4 +86,13 @@ select {
   width: auto;
   max-width: 100%;
   margin-bottom: $base-line-height;
+  background: white;
+  border-color: $base-border-color;
+  height: em(36);
+
+  .select-inline & {
+    display: inline-block;
+  }
 }
+
+

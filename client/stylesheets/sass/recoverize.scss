@@ -3,14 +3,21 @@
 @import 'base/base';
 
 /* ===========================
- *  Default element styles
+ *  Base element styles
  * =========================== */
-body {
-  background: url('/images/background.jpeg') no-repeat;
-//  background-size: auto 155%;
-  background-size: cover;
-  background-attachment: fixed;
+
+* {
+  @include box-sizing(border-box);
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; // for some Androids
 }
+
+html, button, input, textarea, select {
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 a {
   color: #fff;
@@ -20,39 +27,110 @@ a {
   }
 }
 
+
 /* ===========================
  *  Generic Classes
  * =========================== */
 
-.fixed {
-  position: fixed;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+.title {
+  font-size: em(20);
+  text-transform: uppercase;
+  border-bottom: 3px solid #eee;
+  padding: 5px;
+}
+
+.button {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 2px 5px;
+}
+
+.mobile-only {
+  display: none;
+  @include media($tablet-screen-down) {
+    display: block;
+  }
+}
+
+.branding {
+  margin: 10px 0;
 }
 
 .logo {
   font-family: $brand-font;
-  color: white;
-  text-shadow: 1px 1px 0 $brand;
+  font-size: em(48);
+  color: #ffffff;
+  text-shadow: 1px 1px 0 $brand-dark;
   text-align: center;
+
+  .version {
+    font-size: em(4);
+    color: white;
+    padding: 3px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 25%;
+    text-shadow: 0 0 0;
+    position: relative;
+    bottom: em(25);
+    right: em(10);
+    background: $brand-color;
+    font-family: $base-font-family;
+  }
 }
 
-.badge-container {
-  position: relative;
+.desc {
+  color: $medium-gray;
+  margin: 0 10px;
+}
+
+@include media($tablet-screen-up) {
+  ul .split {
+    display: inline-block;
+    width: 49.75%;
+  }
+}
+
+/* ===========================
+ *  Top Nav (mobile)
+ * =========================== */
+.top-bar {
+  position: fixed;
+  width: 100vw;
+  z-index: 5;
+  background: #111c32;
+
+  a {
+    padding: 10px;
+    display: block;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  .action-nav {
+    float: left;
+  }
+
+  .notification-nav {
+    float: right;
+  }
+
+  .back {
+    display: none;
+    background: white;
+    color: #10131c;
+
+    .cordova & {
+      display: inline-block;
+    }
+  }
 
   .badge {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    font-size: em(14);
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.5);
-    line-height: em(4);
-    height: 15px;
-    width: 15px;
-    padding: 5px;
-    border-radius: 50%;
-    color: #fff;
+    background: none;
+    top: 0;
+    left: -65%;
   }
 }
 
@@ -60,24 +138,84 @@ a {
  *  App layout
  * =========================== */
 
+body,
+#container,
+#app,
+#menu,
+#page,
+#page-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
 #app {
-  @include outer-container;
+  top: 43px;
+
+  @include media($tablet-screen-up) {
+    top: 0;
+    @include outer-container;
+  }
+}
+
+#menu {
+  width: 270px;
+  overflow-y: auto;
+  webkit-overflow-scrolling: touch;
+}
+
+#page {
+  @include transition(all 200ms ease-out);
+  @include transform(translate3d(0, 0, 0));
+  opacity: 1;
+  overflow-y: auto;
+  webkit-overflow-scrolling: touch;
+
+  @include media($tablet-screen-up) {
+    left: 270px;
+  }
+
+  .menu-open & {
+    @include transform(translate3d(270px, 0, 0));
+
+    @include media($tablet-screen-up) {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+      left: 270px;
+    }
+  }
+}
+
+#page-overlay {
+  cursor: pointer;
+
+  @include media($tablet-screen-up) {
+    display: none;
+  }
+
+  .menu-open & {
+    @include transform(translate3d(270px, 0, 0));
+    z-index: 1;
+  }
 }
 
 /**
  * App Menu
  */
 
-#menu {
-  @include span-columns(12);
-  position: absolute;
-  left: -100vw;
-  min-height: 100vh;
-  padding: 15px;
+#container {
+  background: url('/images/background.jpeg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
-  .menu-open & {
-    left: 0;
-  }
+#menu {
+  padding: 15px;
 
   a {
     display: block;
@@ -95,10 +233,10 @@ a {
   }
 
   .row {
-    display: flex;
+    @include display(flex);
 
     > div {
-      justify-content: center;
+      @include justify-content(center);
     }
   }
 
@@ -139,48 +277,124 @@ a {
 
       a {
         border: 1px solid white;
-        font-size: em(12);
+        font-size: em(13);
+        font-weight: bold;
+        padding: 5px 0;
       }
     }
   }
 
+  .pages {
+    margin: 30px 0;
+  }
   .pages a {
-    padding: 8px 0;
+    padding: 5px 0;
+    margin-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
-    font-size: em(12);
+    font-size: em(16);
+    font-weight: 300;
+    text-transform: capitalize;
 
     &:hover {
       border-bottom: 1px solid rgba(255, 255, 255, .35);
     }
-  }
-
-  @include media($tablet-screen-up) {
-    @include span-columns(3);
-    position: relative;
-    left: 0;
   }
 }
 
 // end app menu
 
 
-#container {
-  @include span-columns(12);
-  min-height: 100vh;
+#page {
   padding: 15px;
+  background: #fff;
+}
 
-  background: rgba(255, 255, 255, .93);
+/* ===========================
+ *  Notifications
+ * =========================== */
 
-  @include media($tablet-screen-up) {
-    @include span-columns(9);
+#notifications {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+  width: 100%;
+  z-index: 100;
+}
+
+.notification {
+  min-width: 270px;
+  width: 75%;
+  margin: 0 auto;
+  background: rgba(50, 50, 50, .75);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
+
+/* ===========================
+ *  Update Profile
+ * =========================== */
+
+
+.top-links {
+  li {
+    display: inline-block;
+
+    a {
+      border: 1px solid #eee;
+      font-size: em(12);
+      padding: 5px 10px;
+      color: $brand-blue;
+    }
   }
 }
 
-.menu-open #menu {
-  left: 0 !important;
+.account-settings,
+.profile-settings {
+  margin: 40px 0;
+
+  h3 {
+    background: #eee;
+    font-weight: normal;
+    padding: 5px;
+    font-size: em(16);
+    text-align: center;
+  }
+
+  .fields {
+    padding: 15px;
+    background: #fafafa;
+  }
+
+  #save-changes {
+    width: 100%;
+    border-radius: 0;
+    background: $green;
+    @include transition(background .25s ease-in-out);
+
+    &:disabled {
+      background: $light-gray;
+    }
+  }
+
+  #delete-account {
+    margin-right: 15px;
+    background: $error-color;
+
+    &:hover {
+      background: darken($error-color, 10%);
+    }
+
+    + label {
+      display: inline-block;
+      .desc {
+        margin: 0;
+      }
+    }
+  }
 }
 
-.menu-open #container {
-  position: absolute;
-  left: 100vw !important;
+.warning {
+  color: $error-color;
 }
