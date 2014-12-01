@@ -4,13 +4,9 @@ var UPDATED = 'updated';
 // reactive vars
 
 
-
-
-
 Template.profileUpdate.created = function() {
     Session.setDefault('updated', false);
     Session.setDefault('days', 31);
-    Session.set('errors', {});
 };
 
 
@@ -68,7 +64,19 @@ Template.profileUpdate.events({
         event.preventDefault();
 
         // profile fields
-        var name = template.$('[name=name]').val();
+        var $name = template.$('[name=name]');
+        if (Meteor.user().profile.name != $name.val()) {
+            Meteor.users.update({_id: Meteor.userId() }, { $set: { profile: { name: $name.val() }}}, function(error, result) {
+                if (error) {
+                    $name.addClass('error');
+                    template.$('.response').text(error);
+                    return;
+                }
+            });
+        }
+
+        console.log('not called');
+
         var location = template.$('[name=location]').val();
         var program = template.$('[name=program]').val();
         var sober = {
@@ -77,6 +85,8 @@ Template.profileUpdate.events({
             year: template.$('[name=soberYear]').val()
         };
         var quote = template.$('[name=quote]').val();
+
+        //Meteor.users.update({ _id: Meteor.userId() }, { $set: { profile: { name: name }}});
 
         // account settings
         var username = template.$('[name=username]').val();
