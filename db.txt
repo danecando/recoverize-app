@@ -1,0 +1,1 @@
+mongodb://<dbuser>:<dbpassword>@ds061360.mongolab.com:61360/recoverize-dev

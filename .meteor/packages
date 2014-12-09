@@ -10,11 +10,12 @@ fastclick
 underscore
 mrt:moment
 spiderable
-accounts-password
 facts
 meteorhacks:subs-manager
 meteorhacks:npm
 npm-container
 aldeed:collection2
-aldeed:simple-schema
 http
+accounts-password
+aldeed:simple-schema
+
