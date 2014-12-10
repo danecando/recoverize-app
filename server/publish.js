@@ -1,26 +1,26 @@
 // Extend the user collection
-Accounts.onCreateUser(function(options, user) {
+//Accounts.onCreateUser(function(options, user) {
+//
+//    // Keep default profile
+//    user.profile = options.profile
+//
+//    return user
+//})
 
-    // Keep default profile
-    user.profile = options.profile
+// Publish user data (self account data published by default)
+//Meteor.publish('userData', function() {
+//    return Meteor.users.find()
+//})
 
-    return user
-})
-
-// Publish user data
-Meteor.publish('userData', function() {
-    return Meteor.users.find()
-})
-
-// User collection permissions
-Meteor.users.allow({
-    insert: function(userId, doc) {
-        return doc._id === userId
-    },
-    update: function(userId, doc) {
-        return doc._id === userId
-    }
-})
+// User collection permissions (only needed for fields outside of profile)
+//Meteor.users.allow({
+//    insert: function(userId, doc) {
+//        return doc._id === userId
+//    },
+//    update: function(userId, doc) {
+//        return doc._id === userId
+//    }
+//})
 
 Meteor.publish('messages', function(){
     return Message.find({}, {sort: {timestamp: -1}, limit: 20})
