@@ -1,0 +1,15 @@
+
+<template name="chat">
+
+    <ul class="messages-list">
+        {{#each messages}}
+            <li> <span class="username"> {{this.username}} </span> {{this.message}} <small> {{this.timestamp}} </small> </li>
+        {{/each}}
+    </ul>
+
+    <div class="input-area">
+        <input type="text">
+        <button>send</button>
+    </div>
+
+</template>

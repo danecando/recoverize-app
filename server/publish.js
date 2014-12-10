@@ -43,3 +43,7 @@ Follow.allow({
         return true;
     }
 })
+
+Meteor.publish('messages', function(){
+    return Message.find({}, {sort: {timestamp: -1}, limit: 20});
+});
