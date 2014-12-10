@@ -12,7 +12,7 @@ Template.chat.events({
 
 Template.chat.helpers({
     messages: function() {
-        return Message.find({}, {sort: {timestamp: +1}});
+        return Chat.find({}, {sort: {timestamp: +1}});
     }
 });
 
@@ -20,7 +20,7 @@ function sendMessage() {
     var input = $('.input-area input');
 
     if(input.val().trim() !== '') {
-        Meteor.call('addMessage', input.val());
+        Meteor.call('addChat', input.val());
         input.val('')
     }
 }
