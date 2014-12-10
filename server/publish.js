@@ -25,3 +25,7 @@
 Meteor.publish('chat', function(){
     return Chat.find({}, {sort: {timestamp: -1}, limit: 20})
 })
+              
+Meteor.publish('notification', function(username){
+  return Notification.find({username: username});
+})
