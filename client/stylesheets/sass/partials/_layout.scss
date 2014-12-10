@@ -1,0 +1,79 @@
+/* ===========================
+ *  Layout Util's
+ * =========================== */
+.mobile-only {
+  display: none;
+  @include media($tablet-screen-down) {
+    display: block;
+  }
+}
+
+/* ===========================
+ *  App layout
+ * =========================== */
+
+body,
+#container,
+#app,
+#menu,
+#page,
+#page-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+#app {
+  top: 43px;
+
+  @include media($tablet-screen-up) {
+    top: 0;
+    @include outer-container;
+  }
+}
+
+#menu {
+  width: 270px;
+  overflow-y: auto;
+  webkit-overflow-scrolling: touch;
+}
+
+#page {
+  @include transition(all 200ms ease-out);
+  @include transform(translate3d(0, 0, 0));
+  opacity: 1;
+  overflow-y: auto;
+  webkit-overflow-scrolling: touch;
+
+  @include media($tablet-screen-up) {
+    left: 270px;
+  }
+
+  .menu-open & {
+    @include transform(translate3d(270px, 0, 0));
+
+    @include media($tablet-screen-up) {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+      left: 270px;
+    }
+  }
+}
+
+#page-overlay {
+  cursor: pointer;
+
+  @include media($tablet-screen-up) {
+    display: none;
+  }
+
+  .menu-open & {
+    @include transform(translate3d(270px, 0, 0));
+    z-index: 1;
+  }
+}

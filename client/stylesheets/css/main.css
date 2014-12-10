@@ -637,6 +637,23 @@ input[type="submit"] {
     border-radius: 50%;
     color: #ffffff; }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; }
+
+html, button, input, textarea, select {
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+a {
+  color: #fff; }
+  a:hover {
+    color: #ccc; }
+
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2299,103 +2316,13 @@ input[type="submit"] {
   content: ""; }
 
 /* ===========================
- *  Base element styles
+ *  Layout Util's
  * =========================== */
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-tap-highlight-color: transparent; }
-
-html, button, input, textarea, select {
-  outline: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-a {
-  color: #fff; }
-  a:hover {
-    color: #ccc; }
-
-/* ===========================
- *  Generic Classes
- * =========================== */
-.title {
-  font-size: 1.25em;
-  text-transform: uppercase;
-  border-bottom: 3px solid #eee;
-  padding: 5px; }
-
-.button {
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 2px 5px; }
-
 .mobile-only {
   display: none; }
   @media screen and (max-width: 48em) {
     .mobile-only {
       display: block; } }
-
-.branding {
-  margin: 10px 0; }
-
-.logo {
-  font-family: "Lobster Two", cursive;
-  font-size: 3em;
-  color: #ffffff;
-  text-shadow: 1px 1px 0 #E85608;
-  text-align: center; }
-  .logo .version {
-    font-size: 0.25em;
-    color: white;
-    padding: 3px;
-    border-top-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-top-right-radius: 25%;
-    text-shadow: 0 0 0;
-    position: relative;
-    bottom: 1.5625em;
-    right: 0.625em;
-    background: #FA7C38;
-    font-family: "AzoSans", Arial, sans-serif; }
-
-.desc {
-  color: #999;
-  margin: 0 10px; }
-
-@media screen and (min-width: 48em) {
-  ul .split {
-    display: inline-block;
-    width: 49.75%; } }
-/* ===========================
- *  Top Nav (mobile)
- * =========================== */
-.top-bar {
-  position: fixed;
-  width: 100vw;
-  z-index: 5;
-  background: #111c32; }
-  .top-bar a {
-    padding: 10px;
-    display: block; }
-  .top-bar li {
-    display: inline-block; }
-  .top-bar .action-nav {
-    float: left; }
-  .top-bar .notification-nav {
-    float: right; }
-  .top-bar .back {
-    display: none;
-    background: white;
-    color: #10131c; }
-    .cordova .top-bar .back {
-      display: inline-block; }
-  .top-bar .badge {
-    background: none;
-    top: 0;
-    left: -65%; }
 
 /* ===========================
  *  App layout
@@ -2476,6 +2403,79 @@ body,
     -o-transform: translate3d(270px, 0, 0);
     transform: translate3d(270px, 0, 0);
     z-index: 1; }
+
+/* ===========================
+ *  Generic Classes
+ * =========================== */
+.title {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  border-bottom: 3px solid #eee;
+  padding: 5px; }
+
+.button {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 2px 5px; }
+
+.branding {
+  margin: 10px 0; }
+
+.logo {
+  font-family: "Lobster Two", cursive;
+  font-size: 3em;
+  color: #ffffff;
+  text-shadow: 1px 1px 0 #E85608;
+  text-align: center; }
+  .logo .version {
+    font-size: 0.25em;
+    color: white;
+    padding: 3px;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 25%;
+    text-shadow: 0 0 0;
+    position: relative;
+    bottom: 1.5625em;
+    right: 0.625em;
+    background: #FA7C38;
+    font-family: "AzoSans", Arial, sans-serif; }
+
+.desc {
+  color: #999;
+  margin: 0 10px; }
+
+@media screen and (min-width: 48em) {
+  ul .split {
+    display: inline-block;
+    width: 49.75%; } }
+/* ===========================
+ *  Top Nav (mobile)
+ * =========================== */
+.top-bar {
+  position: fixed;
+  width: 100vw;
+  z-index: 5;
+  background: #111c32; }
+  .top-bar a {
+    padding: 10px;
+    display: block; }
+  .top-bar li {
+    display: inline-block; }
+  .top-bar .action-nav {
+    float: left; }
+  .top-bar .notification-nav {
+    float: right; }
+  .top-bar .back {
+    display: none;
+    background: white;
+    color: #10131c; }
+    .cordova .top-bar .back {
+      display: inline-block; }
+  .top-bar .badge {
+    background: none;
+    top: 0;
+    left: -65%; }
 
 /**
  * App Menu
