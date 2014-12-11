@@ -31,10 +31,18 @@ Meteor.publish(null, function(){
         this.ready()
         return
     }
-    return Notification.findByUserId()
+    return Notification.myNotifications()
 })
 
 // @todo: expose public fields only
 Meteor.publish('userPublic', function(username){
     return Meteor.users.find({username: username})
+})
+
+Meteor.publish('message', function(){
+    if(!this.userId){
+        this.ready()
+        return
+    }
+    return Message.myMessages(this.userId)
 })

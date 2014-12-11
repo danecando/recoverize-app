@@ -1,0 +1,16 @@
+
+<template name="message">
+    message with {{username}}
+
+    <ul class="messages-list">
+        {{#each messages}}
+            <li> <span class="username"> {{this.from}} </span> {{linkMentions this.message}} <small> {{this.timestamp}} </small> </li>
+        {{/each}}
+    </ul>
+
+    <div class="input-area">
+        <input type="text">
+        <button>send</button>
+    </div>
+
+</template>
