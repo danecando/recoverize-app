@@ -25,7 +25,13 @@
 Meteor.publish('chat', function(){
     return Chat.find({}, {sort: {timestamp: -1}, limit: 20})
 })
-              
+
 Meteor.publish('notification', function(username){
-  return Notification.find({username: username});
+    return Notification.find({username: username})
+})
+
+// @todo: expose public fields only
+Meteor.publish('userPublic', function(username){
+    console.log(Meteor.users.find({username: username}).fetch())
+    return Meteor.users.find({username: username})
 })
