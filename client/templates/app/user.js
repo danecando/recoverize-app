@@ -1,0 +1,4 @@
+
+Template.user.helpers({
+    
+});
