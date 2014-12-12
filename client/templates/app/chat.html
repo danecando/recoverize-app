@@ -3,7 +3,11 @@
 
     <ul class="messages-list">
         {{#each messages}}
-            <li> <span class="username"> {{this.username}} </span> {{linkMentions this.message}} <small> {{this.timestamp}} </small> </li>
+            <li>
+                <a href="/users/{{this.username}}" class="userLink">{{this.username}}</a>
+                <span>: {{linkMentions this.message}}</span>
+                <small> {{this.timestamp}} </small> 
+            </li>
         {{/each}}
     </ul>
 

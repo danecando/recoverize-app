@@ -1,0 +1,14 @@
+
+<template name="user">
+
+    {{#if user}}
+        <h1>welcome to {{username}}'s profile</h1>
+        <div>user since: {{user.createdAt}}</div>
+        <div>TODO: other data</div>
+        <br>
+        <a href="/messages/{{username}}"><button>message me!</button></a>
+    {{else}}
+        <h1>{{username}} does not exist</h1>
+    {{/if}}
+
+</template>

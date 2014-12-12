@@ -10,6 +10,13 @@ Template.message.events({
     }
 })
 
+Template.message.rendered = function(){
+    // make sure an user doesn't chat with himself
+    if(Meteor.user() && this.data.username === Meteor.user().username){
+        Router.go('/messages')
+    }
+}
+
 Template.message.helpers({
     messages: function() {
         return Message.find({ $or: [{from: this.username}, {to: this.username}] })

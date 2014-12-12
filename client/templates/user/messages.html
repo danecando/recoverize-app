@@ -1,7 +1,12 @@
 
 <template name="messages">
-    <h1>open sessions:</h1>
-    {{#each messagesList}}
-        <a href="/messages/{{this.username}}" class="userLink"><h3>{{this.username}} </h3> <h5>new messages: {{this.newMessageCount}}</h5></a>
-    {{/each}}
+    {{#if messagesList}}
+        <h1>open sessions:</h1>
+        {{#each messagesList}}
+            <a href="/messages/{{this.username}}" class="userLink"><h3>{{this.username}} </h3> <h5>new messages: {{this.newMessageCount}}</h5></a>
+        {{/each}}
+    {{else}}
+        <h1>you have no message sessions!</h1>
+        <a href="/chat" class="userLink"><h2>go chat with some people!</h2></a>
+    {{/if}}
 </template>

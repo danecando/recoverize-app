@@ -1,6 +1,10 @@
 
 <template name="notifications">
-    {{#each notifications}}
-        <a href="{{this.path}}" class="userLink"><h3> {{this.type}} </h3></a> 
-    {{/each}}
+    {{#if notifications}}
+        {{#each notifications}}
+            <a href="{{this.path}}" class="userLink"><h3> {{this.type}} </h3></a> 
+        {{/each}}
+    {{else}}
+        <h1>you have no notifications!</h1>
+    {{/if}}
 </template>

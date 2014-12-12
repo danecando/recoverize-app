@@ -1,11 +1,15 @@
 
 <template name="message">
 
-    <h1>message with {{username}}</h1>
+    <h1>message with <a href="/users/{{username}}" class="userLink">{{username}}</a></h1>
 
     <ul class="messages-list">
         {{#each messages}}
-            <li> <span class="username"> {{this.from}} </span> {{linkMentions this.message}} <small> {{this.timestamp}} </small> </li>
+            <li>
+                <a href="/users/{{this.from}}" class="userLink">{{this.from}}</a>
+                <span>: {{linkMentions this.message}}</span>
+                <small> {{this.timestamp}} </small> 
+            </li>
         {{/each}}
     </ul>
 
