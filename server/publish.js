@@ -1,8 +1,8 @@
 // Extend the user collection
 Accounts.onCreateUser(function(options, user) {
 
-    // Keep default profile
-    user.profile = options.profile
+    // Create profile object
+    user.profile = {}
 
     return user
 })

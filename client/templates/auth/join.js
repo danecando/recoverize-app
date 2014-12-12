@@ -40,16 +40,25 @@ Template.join.events({
             return;
         }
 
-        Accounts.createUser({
+        var user = {
             email: email,
             password: password,
-            username: username
-        }, function(error) {
+            confirm: confirm,
+            username: username,
+            roles: ['user']
+        }
+
+        Meteor.call('createAccount', user, function(error, result) {
+
             if (error) {
-                return Session.set(ERRORS_KEY, {'none': error.reason});
+                errors.create = error
             }
 
-            Router.go('/profile/update');
-        });
+            if (result) {
+                Meteor.loginWithPassword(user.email, user.password, function(error) {
+                    Router.go('/user/profile')
+                })
+            }
+        })
     }
 });
