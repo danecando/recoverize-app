@@ -48,6 +48,13 @@ UI.registerHelper('followsCurrentUser', function(username){
 })
 
 /**
+ * return current users username or 'Guest' as fallback
+ */
+UI.registerHelper('currentUserUsername', function(){
+    return Meteor.user() ? Meteor.user().username : 'Guest'
+})
+
+/**
  * reactive relative time using momentjs
  */
 ;(function(){
