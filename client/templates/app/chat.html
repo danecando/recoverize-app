@@ -6,7 +6,7 @@
             <li>
                 <a href="/users/{{this.username}}" class="userLink">{{this.username}}</a>
                 <span>: {{linkMentions this.message}}</span>
-                <small> {{this.timestamp}} </small> 
+                <small> {{relativeTime this.timestamp}} </small> 
             </li>
         {{/each}}
     </ul>

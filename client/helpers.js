@@ -24,3 +24,23 @@ UI.registerHelper('notificationCount', function(){
 UI.registerHelper('messageNotificationCount', function(){
     return Notification.find({type: 'message', checked: false}).count()
 })
+
+/**
+ * reactive relative time using momentjs
+ */
+;(function(){
+    var timeTick = new Deps.Dependency()
+
+    Meteor.setInterval(function(){
+        timeTick.changed()
+    }, 1000)
+
+    var reactive = function(mmt){
+        timeTick.depend()
+        return mmt.fromNow()
+    }
+
+    UI.registerHelper('relativeTime', function(context){
+        return reactive(moment(context))
+    })
+})()
