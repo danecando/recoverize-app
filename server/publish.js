@@ -1,20 +1,20 @@
 // Extend the user collection
-//Accounts.onCreateUser(function(options, user) {
-//
-//    // Keep default profile
-//    user.profile = options.profile
-//
-//    return user
-//})
+Accounts.onCreateUser(function(options, user) {
+
+    // Keep default profile
+    user.profile = options.profile
+
+    return user
+})
 
 // Publish user data (self account data published by default)
-Meteor.publish('userData', function() {
-    if (this.userId) {
-        return Meteor.users.find({ _id: this.userId })
-    } else {
-        this.ready()
-    }
-})
+//Meteor.publish('userData', function() {
+//    if (this.userId) {
+//        return Meteor.users.find({ _id: this.userId })
+//    } else {
+//        this.ready()
+//    }
+//})
 
 // User collection permissions (only needed for fields outside of profile)
 //Meteor.users.allow({

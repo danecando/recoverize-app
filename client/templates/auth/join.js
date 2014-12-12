@@ -41,7 +41,6 @@ Template.join.events({
         }
 
         Accounts.createUser({
-            username: 'testing',
             email: email,
             password: password,
             username: username
