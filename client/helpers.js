@@ -26,6 +26,28 @@ UI.registerHelper('messageNotificationCount', function(){
 })
 
 /**
+ * returns true if currentUser follows @username
+ */
+UI.registerHelper('currentUserFollows', function(username){
+    if(username){
+        return Meteor.user().follows.indexOf(username) !== -1
+    }else{
+        return false
+    }
+})
+
+/**
+ * return true if @username follows currentUser
+ */
+UI.registerHelper('followsCurrentUser', function(username){
+    if(username){
+        return Meteor.user().followers.indexOf(usernme) !== -1
+    }else{
+        return false
+    }
+})
+
+/**
  * reactive relative time using momentjs
  */
 ;(function(){

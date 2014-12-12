@@ -5,8 +5,20 @@
         <h1>welcome to {{username}}'s profile</h1>
         <div>user since: {{user.createdAt}}</div>
         <div>TODO: other data</div>
+
         <br>
+        <h5>followed by: {{user.followersCount}}</h5>
+        <h5>follows: {{user.followsCount}}</h5>
+        <br>
+
         <a href="/messages/{{username}}"><button>message me!</button></a>
+
+        {{#if currentUserFollows username}}
+            <button class="unfollowBtn">unfollow me!</button>
+        {{else}}
+            <button class="followBtn">follow me!</button>
+        {{/if}}
+
     {{else}}
         <h1>{{username}} does not exist</h1>
     {{/if}}

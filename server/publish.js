@@ -7,15 +7,6 @@ Accounts.onCreateUser(function(options, user) {
     return user
 })
 
-// Publish user data (self account data published by default)
-//Meteor.publish('userData', function() {
-//    if (this.userId) {
-//        return Meteor.users.find({ _id: this.userId })
-//    } else {
-//        this.ready()
-//    }
-//})
-
 // User collection permissions (only needed for fields outside of profile)
 //Meteor.users.allow({
 //    insert: function(userId, doc) {
@@ -25,6 +16,16 @@ Accounts.onCreateUser(function(options, user) {
 //        return doc._id === userId
 //    }
 //})
+
+// Publish user data (self account data published by default)
+Meteor.publish(null, function() {
+    if (this.userId) {
+       return Meteor.users.find({ _id: this.userId })
+    } else {
+       this.ready()
+       return
+    }
+})
 
 Meteor.publish('chat', function(){
     return Chat.find({}, {sort: {timestamp: -1}, limit: 20})
