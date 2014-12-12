@@ -2,8 +2,13 @@
 <template name="messages">
     {{#if messagesList}}
         <h1>open sessions:</h1>
+        <br>
         {{#each messagesList}}
-            <a href="/messages/{{this.username}}" class="userLink"><h3>{{this.username}} </h3> <h5>new messages: {{this.newMessageCount}}</h5></a>
+            <a href="/messages/{{this.username}}" class="userLink">
+                <h3> {{this.username}} </h3> 
+                <h7>| unread messages: {{this.unreadMessageCount}} | last message: {{relativeTime this.lastMessageTimestamp}} |</h7>
+                <br>
+            </a>
         {{/each}}
     {{else}}
         <h1>you have no message sessions!</h1>
