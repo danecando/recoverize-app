@@ -31,7 +31,7 @@ Meteor.publish(null, function(){
         this.ready()
         return
     }
-    return Notification.myNotifications()
+    return Notification.myNotifications(this.userId)
 })
 
 // @todo: expose public fields only

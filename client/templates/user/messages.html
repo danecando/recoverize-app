@@ -1,6 +1,7 @@
 
 <template name="messages">
+    <h1>open sessions:</h1>
     {{#each messagesList}}
-        <div>asdawdawd</div>
+        <a href="/messages/{{this}}" class="userLink"><h3>{{this}}</h3></a>
     {{/each}}
 </template>
