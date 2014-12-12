@@ -8,9 +8,13 @@
 //})
 
 // Publish user data (self account data published by default)
-//Meteor.publish('userData', function() {
-//    return Meteor.users.find()
-//})
+Meteor.publish('userData', function() {
+    if (this.userId) {
+        return Meteor.users.find({ _id: this.userId })
+    } else {
+        this.ready()
+    }
+})
 
 // User collection permissions (only needed for fields outside of profile)
 //Meteor.users.allow({
