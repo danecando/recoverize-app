@@ -55,6 +55,13 @@ UI.registerHelper('currentUserUsername', function(){
 })
 
 /**
+ * return current users serenity or 0 as fallback
+ */
+UI.registerHelper('currentUserSerenity', function(){
+    return Meteor.user() ? Meteor.user().serenity : 0
+})
+
+/**
  * reactive relative time using momentjs
  */
 ;(function(){
