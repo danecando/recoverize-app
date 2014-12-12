@@ -15,12 +15,12 @@ UI.registerHelper('linkMentions', function(context){
  * shows current users notification count
  */
 UI.registerHelper('notificationCount', function(){
-    return Notification.find({type: {$not: 'message'}}).count()
+    return Notification.find({type: {$not: 'message'}, checked: false}).count()
 })
 
 /**
  * shows current users message notification count
  */
 UI.registerHelper('messageNotificationCount', function(){
-    return Notification.find({type: 'message'}).count()
+    return Notification.find({type: 'message', checked: false}).count()
 })

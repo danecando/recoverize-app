@@ -1,6 +1,6 @@
 
 <template name="notifications">
     {{#each notifications}}
-        <div> {{this.type}} </div> 
+        <a href="{{this.path}}" class="userLink"><h3> {{this.type}} </h3></a> 
     {{/each}}
 </template>
