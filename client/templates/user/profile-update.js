@@ -63,9 +63,11 @@ Template.profileUpdate.events({
     'click #save-changes': function(event, template) {
         event.preventDefault();
 
+        console.log(Meteor.user());
+
         // profile fields
         var $name = template.$('[name=name]');
-        if (Meteor.user().profile.name != $name.val()) {
+        if (Meteor.users().profile.name != $name.val()) {
             Meteor.users.update({_id: Meteor.userId() }, { $set: { profile: { name: $name.val() }}}, function(error, result) {
                 if (error) {
                     $name.addClass('error');
