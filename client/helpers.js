@@ -61,6 +61,11 @@ UI.registerHelper('currentUserSerenity', function(){
     return Meteor.user() ? Meteor.user().serenity : 0
 })
 
+UI.registerHelper('presenceOf', function(username){
+    var user = Presences.findOne({username: username})
+    return user ? user.state : 'offline'
+})
+
 /**
  * reactive relative time using momentjs
  */

@@ -18,7 +18,7 @@ Accounts.onCreateUser(function(options, user) {
 //})
 
 // Publish user data (self account data published by default)
-Meteor.publish(null, function() {
+Meteor.publish('userData', function() {
     if (this.userId) {
        return Meteor.users.find({ _id: this.userId })
     } else {
@@ -31,7 +31,16 @@ Meteor.publish('chat', function(){
     return Chat.find({}, {sort: {timestamp: -1}, limit: 20})
 })
 
-Meteor.publish(null, function(){
+Meteor.publish('presence', function(){
+    if(this.userId){
+        return Presences.find({username: {$exists: true}})
+    }else{
+        this.ready()
+        return
+    }
+})
+
+Meteor.publish('notification', function(){
     if(!this.userId){
         this.ready()
         return
