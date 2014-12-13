@@ -1,6 +1,14 @@
 
 <template name="chat">
 
+    <h6>users:</h6>
+    {{#each listOfUsers}}
+        <h7>{{this.username}} <small>{{this.state}}</small></h7> <br>
+    {{/each}}
+
+    <br>
+    <br>
+
     <ul class="messages-list">
         {{#each messages}}
             <li>
