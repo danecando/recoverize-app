@@ -25,6 +25,21 @@
   white-space: nowrap;
 }
 
+.response {
+  margin-top: 12px;
+  padding: 5px;
+  background: #fafafa;
+  font-size: em(14);
+  border: 0;
+
+  &.error {
+    border: 1px solid $light-red;
+  }
+
+  &.success {
+    border: 1px solid $light-green;
+  }
+}
 
 .branding {
   margin: 10px 0;
@@ -219,10 +234,17 @@
   background: #eee;
 
   .title {
+    position: relative;
     color: #333F57;
     font-weight: normal;
     text-align: center;
     text-transform: none;
+
+    i {
+      position: absolute;
+      left: 2px;
+      top: 3px;
+    }
   }
 }
 
@@ -250,7 +272,7 @@
 }
 
 /* ===========================
- *  Update Profile
+ *  Account / Profile Update
  * =========================== */
 
 .view-profile {
@@ -282,7 +304,18 @@
       font-size: em(12);
       padding: 5px 10px;
       color: $brand-blue;
+
+      &:hover {
+        border: 1px solid #ccc;
+      }
     }
+
+    #save-changes {
+      background: $green;
+      color: white;
+      border: 0;
+    }
+
   }
 }
 
@@ -304,7 +337,7 @@
   #save-changes {
     width: 100%;
     border-radius: 0;
-    background: $green;
+    background: #14B846;
     @include transition(background .25s ease-in-out);
 
     &:disabled {
@@ -314,6 +347,7 @@
 
   #delete-account {
     margin-right: 15px;
+    padding: 8px 16px;
     background: $error-color;
 
     &:hover {

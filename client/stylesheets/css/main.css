@@ -2419,6 +2419,17 @@ body,
   padding: 2px 5px;
   white-space: nowrap; }
 
+.response {
+  margin-top: 12px;
+  padding: 5px;
+  background: #fafafa;
+  font-size: 0.875em;
+  border: 0; }
+  .response.error {
+    border: 1px solid #FBE3E4; }
+  .response.success {
+    border: 1px solid #E6EFC2; }
+
 .branding {
   margin: 10px 0; }
 
@@ -2581,10 +2592,15 @@ body,
   padding: 7px 10px;
   background: #eee; }
   .page-head .title {
+    position: relative;
     color: #333F57;
     font-weight: normal;
     text-align: center;
     text-transform: none; }
+    .page-head .title i {
+      position: absolute;
+      left: 2px;
+      top: 3px; }
 
 /* ===========================
  *  Notifications
@@ -2607,7 +2623,7 @@ body,
   text-align: center; }
 
 /* ===========================
- *  Update Profile
+ *  Account / Profile Update
  * =========================== */
 .view-profile img {
   height: 55px;
@@ -2652,6 +2668,12 @@ body,
       font-size: 0.75em;
       padding: 5px 10px;
       color: #123865; }
+      .top-links li .button:hover {
+        border: 1px solid #ccc; }
+    .top-links li #save-changes {
+      background: #009A31;
+      color: white;
+      border: 0; }
 
 .account-settings h3,
 .profile-settings h3 {
@@ -2667,7 +2689,7 @@ body,
 .profile-settings #save-changes {
   width: 100%;
   border-radius: 0;
-  background: #009A31;
+  background: #14B846;
   -webkit-transition: background 0.25s ease-in-out;
   -moz-transition: background 0.25s ease-in-out;
   transition: background 0.25s ease-in-out; }
@@ -2677,6 +2699,7 @@ body,
 .account-settings #delete-account,
 .profile-settings #delete-account {
   margin-right: 15px;
+  padding: 8px 16px;
   background: #ff0033; }
   .account-settings #delete-account:hover,
   .profile-settings #delete-account:hover {

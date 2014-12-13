@@ -1,13 +1,13 @@
 <template name="accountSettings">
 
   <section class="page-head">
-    <h2 class="title">Account Management</h2>
+    <h2 class="title"><i class="fa fa-cog"></i> Account Management</h2>
   </section>
 
   <ul class="top-links">
     <li class="view-profile"><a href="#"><img src="https://avatars3.githubusercontent.com/u/3721977?v=3&s=460" alt=""/></a></li>
-    <li class="edit-profile"><a class="button" href="/profile">Edit Profile</a></li>
-    <li class="save-changes"><a href="#" class="button">Save Changes</a></li>
+    <li class="update-profile"><a class="button" href="/profile">Update Profile</a></li>
+    <!--<li><a href="#" id="save-changes" class="button">Save Changes</a></li>-->
   </ul>
 
   <form action="">
@@ -35,9 +35,9 @@
         </li>
         <li>
           <button id="delete-account">Delete My Account</button>
-          <label><small class="desc">Account is not recoverable after being deleted!</small></label>
+          <label><small class="desc">Account is not recoverable!!</small></label>
         </li>
-        <li class="response"></li>
+        <li class="response error">This username is already taken</li>
       </ul>
       <button id="save-changes" {{updated}}>Save Changes</button>
     </section>
