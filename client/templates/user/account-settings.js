@@ -1,22 +1,12 @@
-var UPDATED = 'updated'
 
-
-Template.profileUpdate.created = function() {
+Template.accountSettings.created = function() {
     Session.setDefault('updated', false)
 }
-
 
 /**
  * Helpers
  */
-Template.profileUpdate.helpers({
-
-    errorMessages: function() {
-        return _.values(Session.get('errors'));
-    },
-    errorClass: function(key) {
-        return Session.get(ERRORS_KEY)[key] && 'error';
-    },
+Template.accountSettings.helpers({
     user: function() {
         return Meteor.user();
     },
@@ -29,7 +19,7 @@ Template.profileUpdate.helpers({
 /**
  * Events
  */
-Template.profileUpdate.events({
+Template.accountSettings.events({
 
     // enable save button if any fields have been updated
     'change :input': function(event, template) {
@@ -39,21 +29,25 @@ Template.profileUpdate.events({
     'click #save-changes': function(event, template) {
         event.preventDefault();
 
-        var username = template.$('[name=username]').val();
-        var email = template.$('[name=email]').val();
-        var oldpw = template.$('[name=oldpw]').val();
-        var newpw = template.$('[name=newpw]').val();
-        var confirmpw = template.$('[name=confirmpw]').val();
-
-        if (!oldpw && newpw || !oldpw && email) {
-            $oldpw.addClass('error')
-            template.$('.response').text('Must verify current password')
+        var user = {
+            username: template.$('[name=username]').val(),
+            email: template.$('[name=email]').val(),
+            oldpw: template.$('[name=oldpw]').val(),
+            newpw: template.$('[name=newpw]').val(),
+            confirmpw: template.$('[name=confirmpw]').val()
         }
 
-        if (newpw !== confirmpw) {
-            $newpw.addClass('error')
-            $confirmpw.addClass('error')
-            template.$('.response').text('Passwords do not match')
+        if (!user.oldpw && user.newpw) {
+            template.$('[name=oldpw]').addClass('error')
+            template.$('.response').addClass('error').text('Must verify current password')
+            return
+        }
+
+        if (user.newpw !== user.confirmpw) {
+            template.$('[name=newpw]').addClass('error')
+            template.$('[name=confirmpw]').addClass('error')
+            template.$('.response').addClass('error').text('Passwords do not match')
+            return
         }
 
         Meteor.call('updateAccount', user, function(error, result) {
@@ -62,18 +56,11 @@ Template.profileUpdate.events({
                 console.error(error)
             }
 
+            if (result) {
+                template.$('.response').addClass('success').text(result)
+            }
+
         })
-
-
-        //var $name = template.$('[name=name]');
-        //Meteor.users.update({_id: Meteor.userId() }, { $set: { profile: { name: $name.val() }}}, function(error, result) {
-        //    if (error) {
-        //        $name.addClass('error');
-        //        console.error(error + result);
-        //        return;
-        //    }
-        //});
-
     }
 
 });

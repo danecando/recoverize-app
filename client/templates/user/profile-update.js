@@ -1,8 +1,3 @@
-// globals
-//var ERRORS_KEY = 'updateErrors';
-var UPDATED = 'updated';
-// reactive vars
-
 
 Template.profileUpdate.created = function() {
     Session.setDefault('updated', false);
@@ -15,12 +10,6 @@ Template.profileUpdate.created = function() {
  */
 Template.profileUpdate.helpers({
 
-    errorMessages: function() {
-        return _.values(Session.get('errors'));
-    },
-    errorClass: function(key) {
-        return Session.get(ERRORS_KEY)[key] && 'error';
-    },
     user: function() {
         return Meteor.user();
     },
@@ -63,43 +52,30 @@ Template.profileUpdate.events({
     'click #save-changes': function(event, template) {
         event.preventDefault();
 
-
-        // profile fields
-        var location = template.$('[name=location]').val();
-        var program = template.$('[name=program]').val();
-        var sober = {
-            month: template.$('[name=soberMonth]').val(),
-            day: template.$('[name=soberDay]').val(),
-            year: template.$('[name=soberYear]').val()
-        };
-        var quote = template.$('[name=quote]').val();
-
-        //Meteor.users.update({ _id: Meteor.userId() }, { $set: { profile: { name: name }}});
-
-        // account settings
-        var username = template.$('[name=username]').val();
-        var email = template.$('[name=email]').val();
-        var oldpw = template.$('[name=oldpw]').val();
-        var newpw = template.$('[name=newpw]').val();
-        var confirmpw = template.$('[name=confirmpw]').val();
-
-
-        if (newpw !== confirmpw) {
-            $newpw.addClass('error')
-            $confirmpw.addClass('error')
-            template.$('.response').text('Passwords need to match')
+        var user = {
+            name: template.$('[name=name]').val(),
+            location: template.$('[name=location]').val(),
+            gender: template.$('[name=gender]').val(),
+            program: template.$('[name=program]').val(),
+            homegroup: template.$('[name=homegroup]').val(),
+            sober: {
+                month: template.$('[name=soberMonth]').val(),
+                day: template.$('[name=soberDay]').val(),
+                year: template.$('[name=soberYear]').val()
+            },
+            quote: template.$('[name=quote]').val()
         }
 
+        Meteor.call('updateProfile', user, function(error, result) {
 
-        var $name = template.$('[name=name]');
-        Meteor.users.update({_id: Meteor.userId() }, { $set: { profile: { name: $name.val() }}}, function(error, result) {
             if (error) {
-                $name.addClass('error');
-                console.error(error + result);
-                return;
+                template.$('.response').addClass('error').text(error)
             }
-        });
 
+            if (result) {
+                template.$('.response').addClass('success').text(result)
+            }
+        })
     },
 
     'change #sober-month': function(event, template) {
@@ -119,6 +95,5 @@ Template.profileUpdate.events({
 
         Session.set('days', days);
     }
-
 
 });
