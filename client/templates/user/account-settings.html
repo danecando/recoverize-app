@@ -1,0 +1,45 @@
+<template name="accountSettings">
+
+  <section class="page-head">
+    <h2 class="title">Account Management</h2>
+  </section>
+
+  <ul class="top-links">
+    <li class="view-profile"><a href="#"><img src="https://avatars3.githubusercontent.com/u/3721977?v=3&s=460" alt=""/></a></li>
+    <li class="edit-profile"><a class="button" href="/profile">Edit Profile</a></li>
+    <li class="save-changes"><a href="#" class="button">Save Changes</a></li>
+  </ul>
+
+  <form action="">
+    <section class="account-settings">
+      <ul class="fields">
+        <li>
+          <label for="username">Username</label>
+          <input type="text" name="username" value="{{user.username}}">
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input type="text" name="email" value="{{user.emails.[0].address}}">
+        </li>
+        <li>
+          <label for="oldpw">Old Password <small class="desc">For password change or account deletion</small></label>
+          <input type="text" name="oldpw">
+        </li>
+        <li class="split">
+          <label for="newpw">New Password</label>
+          <input type="text" name="newpw">
+        </li>
+        <li class="split">
+          <label for="confirmpw">Confirm Password</label>
+          <input type="text" name="confirmpw">
+        </li>
+        <li>
+          <button id="delete-account">Delete My Account</button>
+          <label><small class="desc">Account is not recoverable after being deleted!</small></label>
+        </li>
+        <li class="response"></li>
+      </ul>
+      <button id="save-changes" {{updated}}>Save Changes</button>
+    </section>
+  </form>
+</template>

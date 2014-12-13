@@ -65,15 +65,6 @@ Template.profileUpdate.events({
 
 
         // profile fields
-        var $name = template.$('[name=name]');
-        Meteor.users.update({_id: Meteor.userId() }, { $set: { profile: { name: $name.val() }}}, function(error, result) {
-            if (error) {
-                $name.addClass('error');
-                console.error(error + result);
-                return;
-            }
-        });
-
         var location = template.$('[name=location]').val();
         var program = template.$('[name=program]').val();
         var sober = {
@@ -91,6 +82,23 @@ Template.profileUpdate.events({
         var oldpw = template.$('[name=oldpw]').val();
         var newpw = template.$('[name=newpw]').val();
         var confirmpw = template.$('[name=confirmpw]').val();
+
+
+        if (newpw !== confirmpw) {
+            $newpw.addClass('error')
+            $confirmpw.addClass('error')
+            template.$('.response').text('Passwords need to match')
+        }
+
+
+        var $name = template.$('[name=name]');
+        Meteor.users.update({_id: Meteor.userId() }, { $set: { profile: { name: $name.val() }}}, function(error, result) {
+            if (error) {
+                $name.addClass('error');
+                console.error(error + result);
+                return;
+            }
+        });
 
     },
 

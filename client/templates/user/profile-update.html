@@ -21,12 +21,23 @@
           <input type="text" name="location" value="{{user.profile.location}}">
         </li>
         <li>
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </li>
+        <li>
           <label for="program">Program</label>
           <select name="program" id="program">
             <option value="aa">Alcoholics Anonymous</option>
             <option value="na">Narcotics Anonymous</option>
             <option value="ca">Cocaine Anonymous</option>
           </select>
+        </li>
+        <li>
+          <label for="homegroup">Homegroup</label>
+          <input type="text" name="homegroup" value="{{user.profile.homegroup}}">
         </li>
         <li class="select-inline">
           <label for="soberDate">Sober Date</label>
@@ -59,41 +70,10 @@
           <label for="quote">Quote <small class="desc">Max Length 140 Characters</small></label>
           <textarea name="quote" id="quote" cols="30" rows="2">{{user.profile.quote}}</textarea>
         </li>
-        <li class="response">error</li>
-      </ul>
-      <button id="save-changes" {{updated}}>Save Changes</button>
-    </section>
-
-    <section class="account-settings">
-      <h3>Account Settings</h3>
-      <ul class="fields">
-        <li>
-          <label for="username">Username</label>
-          <input type="text" name="username" value="{{user.username}}">
-        </li>
-        <li>
-          <label for="email">Email</label>
-          <input type="text" name="email" value="{{user.emails.[0].address}}">
-        </li>
-        <li>
-          <label for="oldpw">Old Password <small class="desc">For password change or account deletion</small></label>
-          <input type="text" name="oldpw">
-        </li>
-        <li class="split">
-          <label for="newpw">New Password</label>
-          <input type="text" name="newpw">
-        </li>
-        <li class="split">
-          <label for="confirmpw">Confirm Password</label>
-          <input type="text" name="confirmpw">
-        </li>
-        <li>
-          <button id="delete-account">Delete My Account</button>
-          <label><small class="desc">Account is not recoverable after being deleted!</small></label>
-        </li>
         <li class="response"></li>
       </ul>
       <button id="save-changes" {{updated}}>Save Changes</button>
     </section>
+
   </form>
 </template>

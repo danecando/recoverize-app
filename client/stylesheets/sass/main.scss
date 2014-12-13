@@ -16,15 +16,13 @@
 
 .title {
   font-size: em(20);
-  text-transform: uppercase;
-  border-bottom: 3px solid #eee;
-  padding: 5px;
 }
 
 .button {
   font-weight: bold;
   text-transform: uppercase;
   padding: 2px 5px;
+  white-space: nowrap;
 }
 
 
@@ -123,6 +121,7 @@
 
 #menu {
   padding: 15px;
+  border-right: 3px solid rgba(255, 255, 255, 0.35);
 
   a {
     display: block;
@@ -212,8 +211,19 @@
 
 
 #page {
-  padding: 15px;
   background: #fff;
+}
+
+.page-head {
+  padding: 7px 10px;
+  background: #eee;
+
+  .title {
+    color: #333F57;
+    font-weight: normal;
+    text-align: center;
+    text-transform: none;
+  }
 }
 
 /* ===========================
@@ -243,12 +253,31 @@
  *  Update Profile
  * =========================== */
 
+.view-profile {
+
+  img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+  }
+}
 
 .top-links {
+  margin: 25px 0 20px;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
   li {
     display: inline-block;
+    vertical-align: bottom;
+    margin-left: 10px;
 
-    a {
+    &:first-of-type {
+      marign-left: 0;
+    }
+
+    .button {
       border: 1px solid #eee;
       font-size: em(12);
       padding: 5px 10px;
@@ -259,7 +288,6 @@
 
 .account-settings,
 .profile-settings {
-  margin: 40px 0;
 
   h3 {
     background: #eee;
@@ -271,7 +299,6 @@
 
   .fields {
     padding: 15px;
-    background: #fafafa;
   }
 
   #save-changes {

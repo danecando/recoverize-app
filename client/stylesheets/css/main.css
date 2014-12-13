@@ -2404,19 +2404,20 @@ body,
     transform: translate3d(270px, 0, 0);
     z-index: 1; }
 
+.container {
+  padding: 15px; }
+
 /* ===========================
  *  Generic Classes
  * =========================== */
 .title {
-  font-size: 1.25em;
-  text-transform: uppercase;
-  border-bottom: 3px solid #eee;
-  padding: 5px; }
+  font-size: 1.25em; }
 
 .button {
   font-weight: bold;
   text-transform: uppercase;
-  padding: 2px 5px; }
+  padding: 2px 5px;
+  white-space: nowrap; }
 
 .branding {
   margin: 10px 0; }
@@ -2486,7 +2487,8 @@ body,
   background-attachment: fixed; }
 
 #menu {
-  padding: 15px; }
+  padding: 15px;
+  border-right: 3px solid rgba(255, 255, 255, 0.35); }
   #menu a {
     display: block;
     padding: 3px 10px;
@@ -2573,8 +2575,16 @@ body,
       border-bottom: 1px solid rgba(255, 255, 255, 0.35); }
 
 #page {
-  padding: 15px;
   background: #fff; }
+
+.page-head {
+  padding: 7px 10px;
+  background: #eee; }
+  .page-head .title {
+    color: #333F57;
+    font-weight: normal;
+    text-align: center;
+    text-transform: none; }
 
 /* ===========================
  *  Notifications
@@ -2599,52 +2609,84 @@ body,
 /* ===========================
  *  Update Profile
  * =========================== */
-.top-links li {
-  display: inline-block; }
-  .top-links li a {
-    border: 1px solid #eee;
-    font-size: 0.75em;
-    padding: 5px 10px;
-    color: #123865; }
+.view-profile img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%; }
 
-.account-settings,
-.profile-settings {
-  margin: 40px 0; }
-  .account-settings h3,
-  .profile-settings h3 {
-    background: #eee;
-    font-weight: normal;
-    padding: 5px;
-    font-size: 1em;
-    text-align: center; }
-  .account-settings .fields,
-  .profile-settings .fields {
-    padding: 15px;
-    background: #fafafa; }
-  .account-settings #save-changes,
-  .profile-settings #save-changes {
-    width: 100%;
-    border-radius: 0;
-    background: #009A31;
-    -webkit-transition: background 0.25s ease-in-out;
-    -moz-transition: background 0.25s ease-in-out;
-    transition: background 0.25s ease-in-out; }
-    .account-settings #save-changes:disabled,
-    .profile-settings #save-changes:disabled {
-      background: #DDD; }
-  .account-settings #delete-account,
-  .profile-settings #delete-account {
-    margin-right: 15px;
-    background: #ff0033; }
-    .account-settings #delete-account:hover,
-    .profile-settings #delete-account:hover {
-      background: #cc0029; }
-    .account-settings #delete-account + label,
-    .profile-settings #delete-account + label {
-      display: inline-block; }
-      .account-settings #delete-account + label .desc,
-      .profile-settings #delete-account + label .desc {
-        margin: 0; }
+.top-links {
+  margin: 25px 0 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+  .top-links li {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 10px; }
+    .top-links li:first-of-type {
+      marign-left: 0; }
+    .top-links li .button {
+      border: 1px solid #eee;
+      font-size: 0.75em;
+      padding: 5px 10px;
+      color: #123865; }
+
+.account-settings h3,
+.profile-settings h3 {
+  background: #eee;
+  font-weight: normal;
+  padding: 5px;
+  font-size: 1em;
+  text-align: center; }
+.account-settings .fields,
+.profile-settings .fields {
+  padding: 15px; }
+.account-settings #save-changes,
+.profile-settings #save-changes {
+  width: 100%;
+  border-radius: 0;
+  background: #009A31;
+  -webkit-transition: background 0.25s ease-in-out;
+  -moz-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out; }
+  .account-settings #save-changes:disabled,
+  .profile-settings #save-changes:disabled {
+    background: #DDD; }
+.account-settings #delete-account,
+.profile-settings #delete-account {
+  margin-right: 15px;
+  background: #ff0033; }
+  .account-settings #delete-account:hover,
+  .profile-settings #delete-account:hover {
+    background: #cc0029; }
+  .account-settings #delete-account + label,
+  .profile-settings #delete-account + label {
+    display: inline-block; }
+    .account-settings #delete-account + label .desc,
+    .profile-settings #delete-account + label .desc {
+      margin: 0; }
 
 .warning {
   color: #ff0033; }
