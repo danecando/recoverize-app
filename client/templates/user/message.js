@@ -1,12 +1,22 @@
 
 Template.message.events({
-    'keydown .input-area input': function (e) {
+    'keydown .input-area input': function(e){
         if(e.which === 13) {
-            sendMessage(this.username);
+            sendMessage(this.username)
         }
     },
-    'click .input-area button': function () {
-        sendMessage(this.username);
+    'click .input-area button': function(){
+        sendMessage(this.username)
+    },
+    'click .loadOlderMessages': function(){
+        var oldestBucket = MessageBuckets.findOne(
+            {$and: [{members: Meteor.user().username}, {members: this.username}]},  
+            {sort: {num: +1}}
+        )
+        if(oldestBucket){
+            oldestBucket = oldestBucket.num
+        }
+        Meteor.subscribe('message', this.username, oldestBucket-1)
     }
 })
 
@@ -19,7 +29,7 @@ Template.message.rendered = function(){
 
 Template.message.helpers({
     messages: function() {
-        return MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: this.username}]})
+        return MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: this.username}]}, {sort: {num: +1}})
             .fetch()
             .reduce(function(arr, bucket){
                 bucket.messages.forEach(function(message){
@@ -27,6 +37,17 @@ Template.message.helpers({
                 })
                 return arr
             }, [])
+    },
+    moreResults: function(){
+        var oldestBucket = MessageBuckets.findOne(
+            {$and: [{members: Meteor.user().username}, {members: this.username}]},  
+            {sort: {num: +1}}
+        )
+        if(oldestBucket){
+            return oldestBucket.num > 0
+        }else{
+            return false
+        }
     }
 })
 

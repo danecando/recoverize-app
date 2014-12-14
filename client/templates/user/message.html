@@ -4,6 +4,11 @@
     <h1>message with <a href="/users/{{username}}" class="userLink">{{username}}</a></h1>
 
     <ul class="messages-list">
+
+        {{#if moreResults}}
+            <button class="loadOlderMessages"> click to load older messages</button>
+        {{/if}}
+
         {{#each messages}}
             <li>
                 <a href="/users/{{this.from}}" class="userLink">{{this.username}}</a>

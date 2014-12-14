@@ -53,9 +53,9 @@ Meteor.publish('userPublic', function(username){
     return Meteor.users.find({username: username})
 })
 
-Meteor.publish('message', function(username){
+Meteor.publish('message', function(username, page){
     if(this.userId && username){
-        return MessageBuckets.myMessagesWith(this.userId, username)
+        return MessageBuckets.myMessagesWith(this.userId, username, page)
     } else if (this.userId){
         return MessageSessions.myMessages(this.userId)
     } else {
