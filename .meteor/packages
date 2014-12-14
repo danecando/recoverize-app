@@ -20,7 +20,5 @@ accounts-password
 aldeed:simple-schema
 meteorhacks:kadira
 alanning:roles
-hillmark:meteor-identicon
 velocity:html-reporter
 mike:mocha
-
