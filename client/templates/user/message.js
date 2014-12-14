@@ -33,7 +33,7 @@ Template.message.helpers({
      * @return {Array}
      */
     messages: function() {
-        return MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: this.username}]}, {sort: {num: +1}})
+        return MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: this.username}]}, {sort: {page: +1}})
             .fetch()
             .reduce(function(arr, page){
                 page.messages.forEach(function(message){
@@ -77,11 +77,11 @@ function getOldestPage(username){
 
     var oldestBucket = MessageBuckets.findOne(
         {$and: [{members: Meteor.user().username}, {members: username}]},  
-        {sort: {num: +1}}
+        {sort: {page: +1}}
     )
 
     if(oldestBucket){
-        return oldestBucket.num
+        return oldestBucket.page
     }else{
         return 0
     }
