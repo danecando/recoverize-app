@@ -1,17 +1,24 @@
-
 <template name="messages">
+
+    <section class="page-head">
+        <h2 class="title"><i class="fa fa-envelope"></i>  Messages</h2>
+    </section>
+
     {{#if messagesList}}
-        <h1>open sessions:</h1>
-        <br>
+    <section class="message-list">
         {{#each messagesList}}
-            <a href="/messages/{{this.username}}" class="userLink">
-                <h3> {{this.username}} </h3> 
-                <h7>| unread messages: {{this.unreadMessageCount}} |</h7>
-                <br>
-            </a>
+            <div class="message">
+                <a href="/messages/{{this.username}}" class="userLink">
+                    <h3> {{this.username}} </h3>
+                    <h7>| unread messages: {{this.unreadMessageCount}} |</h7>
+                </a>
+            </div>
         {{/each}}
+    </section>
     {{else}}
+    <section class="no-messages">
         <h1>you have no message sessions!</h1>
         <a href="/chat" class="userLink"><h2>go chat with some people!</h2></a>
+    </section>
     {{/if}}
 </template>

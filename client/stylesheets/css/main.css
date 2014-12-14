@@ -460,9 +460,6 @@ a {
   text-decoration: none; }
   a:hover {
     color: #2c5999; }
-  a:active, a:focus {
-    color: #2c5999;
-    outline: none; }
 
 hr {
   border-bottom: 1px solid #DDD;
@@ -2419,13 +2416,16 @@ body,
   padding: 2px 5px;
   white-space: nowrap; }
 
+.warning {
+  color: #ff0033; }
+
 .response {
-  margin-top: 12px;
   padding: 5px;
   background: #fafafa;
   font-size: 0.875em;
   border: 0;
-  opacity: 0; }
+  opacity: 0;
+  text-align: center; }
   .response.error {
     border: 1px solid #FBE3E4;
     opacity: 1;
@@ -2526,7 +2526,7 @@ body,
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex; }
-    #menu .row > div {
+    #menu .row .button {
       -webkit-box-pack: center;
       -moz-box-pack: center;
       box-pack: center;
@@ -2722,5 +2722,6 @@ body,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
 
-.warning {
-  color: #ff0033; }
+/* ===========================
+ *  Messages
+ * =========================== */

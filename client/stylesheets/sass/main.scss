@@ -25,13 +25,17 @@
   white-space: nowrap;
 }
 
+.warning {
+  color: $error-color;
+}
+
 .response {
-  margin-top: 12px;
   padding: 5px;
   background: #fafafa;
   font-size: em(14);
   border: 0;
   opacity: 0;
+  text-align: center;
 
   &.error {
     border: 1px solid $light-red;
@@ -161,7 +165,7 @@
   .row {
     @include display(flex);
 
-    > div {
+    .button {
       @include justify-content(center);
     }
   }
@@ -363,6 +367,7 @@
   }
 }
 
-.warning {
-  color: $error-color;
-}
+/* ===========================
+ *  Messages
+ * =========================== */
+
