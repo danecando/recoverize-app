@@ -40,8 +40,6 @@ Template.join.events({
             return;
         }
 
-        var identicon =
-
         var user = {
             email: email,
             password: password,
