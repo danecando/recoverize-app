@@ -1,8 +1,11 @@
 // Extend the user collection
 Accounts.onCreateUser(function(options, user) {
 
+    var crypto = Npm.require('crypto')
+    user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
+
     // Create profile object
-    user.profile = {}
+    user.profile = { }
 
     return user
 })
