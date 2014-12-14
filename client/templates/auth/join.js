@@ -40,12 +40,13 @@ Template.join.events({
             return;
         }
 
+        var identicon =
+
         var user = {
             email: email,
             password: password,
             confirm: confirm,
-            username: username,
-            roles: ['user']
+            username: username
         }
 
         Meteor.call('createAccount', user, function(error, result) {
