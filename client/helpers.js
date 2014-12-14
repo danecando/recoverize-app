@@ -67,6 +67,18 @@ UI.registerHelper('presenceOf', function(username){
 })
 
 /**
+ * profile pic or identicon helper
+ */
+UI.registerHelper('profilePic', function() {
+    if (Meteor.user().profile.profilePic) {
+        return Meteor.user().profile.profilePic
+    } else {
+        var identicon = new Identicon(Meteor.user().identicon, 256).toString()
+        return 'data:image/png;base64,' + identicon.toString()
+    }
+})
+
+/**
  * reactive relative time using momentjs
  */
 ;(function(){
