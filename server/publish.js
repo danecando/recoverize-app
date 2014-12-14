@@ -53,10 +53,13 @@ Meteor.publish('userPublic', function(username){
     return Meteor.users.find({username: username})
 })
 
-Meteor.publish('message', function(){
-    if(!this.userId){
+Meteor.publish('message', function(username){
+    if(this.userId && username){
+        return MessageBuckets.myMessagesWith(this.userId, username)
+    } else if (this.userId){
+        return MessageSessions.myMessages(this.userId)
+    } else {
         this.ready()
         return
     }
-    return Message.myMessages(this.userId)
 })

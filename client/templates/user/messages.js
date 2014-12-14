@@ -1,16 +1,11 @@
 
 Template.messages.helpers({
     messagesList: function(){
-        return Message.find().fetch().reduce(function(arr, message){
-            var name = message.to === Meteor.user().username ? message.from : message.to
-            if(!arr.some(function(obj){return obj.username===name}) && name !== Meteor.user().username){
-                arr.push({
-                    username: name, 
-                    unreadMessageCount: Notification.find({path:'/messages/'+name+'/', checked: false}).count(),
-                    lastMessageTimestamp: Message.findOne({ $or: [{from: name},{to: name}]}, {sort: {timestamp: -1}}).timestamp
-                })
+        return MessageSessions.find().map(function(session){
+            return {
+                username: session.members.indexOf(Meteor.user().username) === -1 ? session.members[0] : session.members[1],
+                unreadMessageCount: Notification.find({path:'/messages/'+name+'/', checked: false}).count()
             }
-            return arr
-        }, [])
+        })
     }
 })

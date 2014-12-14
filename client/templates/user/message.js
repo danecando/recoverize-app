@@ -12,14 +12,21 @@ Template.message.events({
 
 Template.message.rendered = function(){
     // make sure an user doesn't chat with himself
-    if(Meteor.user() && this.data.username === Meteor.user().username){
-        Router.go('/messages')
-    }
+    // if(Meteor.user() && this.data.username === Meteor.user().username){
+    //     Router.go('/messages')
+    // }
 }
 
 Template.message.helpers({
     messages: function() {
-        return Message.find({ $or: [{from: this.username}, {to: this.username}] })
+        return MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: this.username}]})
+            .fetch()
+            .reduce(function(arr, bucket){
+                bucket.messages.forEach(function(message){
+                    arr.push(message)
+                })
+                return arr
+            }, [])
     }
 })
 
