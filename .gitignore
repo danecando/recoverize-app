@@ -33,3 +33,6 @@ node_modules
 
 .idea
 packages/tests-proxy/tests
+
+#vim
+.swp
