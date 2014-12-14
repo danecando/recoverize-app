@@ -1,5 +1,11 @@
+// todo: fix up updated session variable between pages
+
 
 Template.accountSettings.created = function() {
+    Session.setDefault('updated', false)
+}
+
+Template.accountSettings.destroyed = function() {
     Session.setDefault('updated', false)
 }
 
@@ -8,10 +14,10 @@ Template.accountSettings.created = function() {
  */
 Template.accountSettings.helpers({
     user: function() {
-        return Meteor.user();
+        return Meteor.user()
     },
     updated: function() {
-        if (!Session.get('updated')) return 'disabled';
+        if (!Session.get('updated')) return 'disabled'
     }
 });
 
@@ -23,11 +29,16 @@ Template.accountSettings.events({
 
     // enable save button if any fields have been updated
     'change :input': function(event, template) {
-        Session.set('updated', true);
+        Session.set('updated', true)
     },
-
+    'click #delete-account': function(event, template) {
+        event.preventDefault()
+        if (confirm('Are you sure you want to delete your account?')) {
+            Meteor.call('deleteAccount')
+        }
+    },
     'click #save-changes': function(event, template) {
-        event.preventDefault();
+        event.preventDefault()
 
         var user = {
             username: template.$('[name=username]').val(),
@@ -51,15 +62,8 @@ Template.accountSettings.events({
         }
 
         Meteor.call('updateAccount', user, function(error, result) {
-            // todo: server side validation and update
-            if (error) {
-                console.error(error)
-            }
-
-            if (result) {
-                template.$('.response').addClass('success').text(result)
-            }
-
+            if (error) template.$('.response').addClass('error').text(error.reason)
+            else template.$('.response').addClass('success').text('Your account has been updated')
         })
     }
 

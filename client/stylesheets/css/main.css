@@ -2424,11 +2424,20 @@ body,
   padding: 5px;
   background: #fafafa;
   font-size: 0.875em;
-  border: 0; }
+  border: 0;
+  opacity: 0; }
   .response.error {
-    border: 1px solid #FBE3E4; }
+    border: 1px solid #FBE3E4;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out; }
   .response.success {
-    border: 1px solid #E6EFC2; }
+    border: 1px solid #E6EFC2;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out; }
 
 .branding {
   margin: 10px 0; }
@@ -2667,13 +2676,15 @@ body,
       border: 1px solid #eee;
       font-size: 0.75em;
       padding: 5px 10px;
-      color: #123865; }
+      color: #123865;
+      -webkit-transition: border 200ms ease-in-out;
+      -moz-transition: border 200ms ease-in-out;
+      transition: border 200ms ease-in-out; }
       .top-links li .button:hover {
-        border: 1px solid #ccc; }
-    .top-links li #save-changes {
-      background: #009A31;
-      color: white;
-      border: 0; }
+        border: 1px solid #123865;
+        -webkit-transition: border 400ms ease-in-out;
+        -moz-transition: border 400ms ease-in-out;
+        transition: border 400ms ease-in-out; }
 
 .account-settings h3,
 .profile-settings h3 {

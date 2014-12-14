@@ -4,6 +4,9 @@ Template.profileUpdate.created = function() {
     Session.setDefault('days', 31);
 };
 
+Template.profileUpdate.destroyed = function() {
+    Session.setDefault('updated', false);
+}
 
 /**
  * Helpers
@@ -67,14 +70,9 @@ Template.profileUpdate.events({
         }
 
         Meteor.call('updateProfile', user, function(error, result) {
+            if (error) template.$('.response').addClass('error').text(error)
+            else template.$('.response').addClass('success').text("Your profile has been updated")
 
-            if (error) {
-                template.$('.response').addClass('error').text(error)
-            }
-
-            if (result) {
-                template.$('.response').addClass('success').text(result)
-            }
         })
     },
 

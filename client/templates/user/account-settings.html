@@ -7,14 +7,13 @@
   <ul class="top-links">
     <li class="view-profile"><a href="#"><img src="https://avatars3.githubusercontent.com/u/3721977?v=3&s=460" alt=""/></a></li>
     <li class="update-profile"><a class="button" href="/profile">Update Profile</a></li>
-    <!--<li><a href="#" id="save-changes" class="button">Save Changes</a></li>-->
   </ul>
 
   <form action="">
     <section class="account-settings">
       <ul class="fields">
         <li>
-          <label for="username">Username</label>
+          <label for="username">Username <small class="desc">Letters & numbers only</small></label>
           <input type="text" name="username" value="{{user.username}}">
         </li>
         <li>
@@ -37,9 +36,9 @@
           <button id="delete-account">Delete My Account</button>
           <label><small class="desc">Account is not recoverable!!</small></label>
         </li>
-        <li class="response"></li>
       </ul>
-      <button id="save-changes" {{updated}}>Save Changes</button>
+        <div class="response"></div>
+        <button id="save-changes" {{updated}}>Save Changes</button>
     </section>
   </form>
 </template>
