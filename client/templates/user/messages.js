@@ -15,8 +15,8 @@ Template.messages.helpers({
     getProfilePic: function(username) {
 
         var user =  Meteor.users.find({ username: username })
-        console.log(user)
-        return user.identicon
+        //console.log(user)
+        //return user.identicon
     }
 })
 
