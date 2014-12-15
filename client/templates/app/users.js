@@ -10,7 +10,12 @@ Template.user.helpers({
         return Status.find({username: this.username}, {sort: {timestamp: -1}})
     },
     currentUserSerenityList: function(statusId){
-        return Status.findOne(statusId).serenityList.indexOf(Meteor.user().username) !== -1
+        var status = Status.findOne(statusId)
+        if(status && status.serenityList){
+            return status.serenityList.indexOf(Meteor.user().username) !== -1
+        }else{
+            return false
+        }
     }
 })
 
