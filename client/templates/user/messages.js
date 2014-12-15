@@ -9,6 +9,8 @@ Template.messages.helpers({
                 totalMessageCount: session.messageCount,
                 lastMessage: getLastMessage(otherMember)
             }
+        }).sort(function(b, a){
+            return a.lastMessage.timestamp - b.lastMessage.timestamp
         })
     }
 })
@@ -23,6 +25,7 @@ function getLastMessage(otherMember){
         return lastMsg.messages[lastMsg.messages.length-1]
     }
     else{
-        return null
+        // messageList helper requires a timestamp!
+        return {timestamp:0}
     }
 }
