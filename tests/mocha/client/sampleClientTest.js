@@ -91,7 +91,7 @@ if (!(typeof MochaWeb === 'undefined')){
  */
 function getAgent(name){
     return {
-        username: name || getRandomString(),
+        username: name+getRandomString().slice(4),
         password: getRandomString(),
         email: getRandomEmail(),
         roles: ['user']
