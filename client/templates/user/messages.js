@@ -3,7 +3,6 @@ Template.messages.helpers({
     messagesList: function(){
         return MessageSessions.find().map(function(session){
             var otherMember = getOtherMember(session.members[0], session.members[1])
-            Meteor.subscribe('message', otherMember)
             return {
                 username: otherMember,
                 unreadMessageCount: Notification.find({path:'/messages/'+otherMember+'/', checked: false}).count(),
@@ -11,12 +10,6 @@ Template.messages.helpers({
                 lastMessage: getLastMessage(otherMember)
             }
         })
-    },
-    getProfilePic: function(username) {
-
-        var user =  Meteor.users.find({ username: username })
-        //console.log(user)
-        //return user.identicon
     }
 })
 

@@ -31,7 +31,7 @@ Meteor.publish('userData', function() {
 })
 
 Meteor.publish('chat', function(){
-    return Chat.find({}, {sort: {timestamp: -1}, limit: 20})
+    return Chat.find({}, {sort: {timestamp: -1}, limit: 50})
 })
 
 Meteor.publish('presence', function(){
@@ -59,8 +59,20 @@ Meteor.publish('userPublic', function(username){
     ]
 })
 
-Meteor.publish('messagesWith', function(usernames) {
-    return Meteor.users.find({ username: { $in: usernames } })
+/**
+ * returns the profilePic and identicon of a specified username(s)
+ */
+Meteor.publish('profilePic', function(usernames) {
+    if(!usernames){
+        return []
+    }
+    if(!Array.isArray(usernames)){
+        usernames = [usernames]
+    }
+    return Meteor.users.find(
+        {username: {$in: usernames}},
+        {fields: {'profile.profilePic': true, 'identicon': true, 'username': true}}
+    )
 })
 
 Meteor.publish('message', function(username, page){

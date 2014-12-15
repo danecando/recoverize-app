@@ -67,15 +67,29 @@ UI.registerHelper('presenceOf', function(username){
 })
 
 /**
- * profile pic or identicon helper
+ * get profilePic of currentUser (by default) or specified `username`
+ * returns Identicon as profilePic fallback
  */
-UI.registerHelper('profilePic', function(user) {
+UI.registerHelper('profilePic', function(username) {
+    var user
 
-    if (Meteor.user().profile.profilePic) {
-        return Meteor.user().profile.profilePic
-    } else {
-        var identicon = new Identicon(Meteor.user().identicon, 256).toString()
+    if(!username && Meteor.user()){
+        user = Meteor.user()
+    }else if(username && typeof username === 'string'){
+        user = Meteor.users.findOne({username: username})
+    }else{
+        return false
+    }
+
+    if(!user) return false
+
+    if(user.profile && user.profile.profilePic) {
+        return user.profile.profilePic
+    }else if(user.identicon){
+        var identicon = new Identicon(user.identicon, 256).toString()
         return 'data:image/png;base64,' + identicon.toString()
+    }else{
+        return false
     }
 })
 
