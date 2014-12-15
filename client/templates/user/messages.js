@@ -11,6 +11,12 @@ Template.messages.helpers({
                 lastMessage: getLastMessage(otherMember)
             }
         })
+    },
+    getProfilePic: function(username) {
+
+        var user =  Meteor.users.find({ username: username })
+        console.log(user)
+        return user.identicon
     }
 })
 

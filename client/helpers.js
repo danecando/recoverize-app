@@ -69,7 +69,8 @@ UI.registerHelper('presenceOf', function(username){
 /**
  * profile pic or identicon helper
  */
-UI.registerHelper('profilePic', function() {
+UI.registerHelper('profilePic', function(user) {
+
     if (Meteor.user().profile.profilePic) {
         return Meteor.user().profile.profilePic
     } else {

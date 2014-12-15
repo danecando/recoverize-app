@@ -59,6 +59,10 @@ Meteor.publish('userPublic', function(username){
     ]
 })
 
+Meteor.publish('messagesWith', function(usernames) {
+    return Meteor.users.find({ username: { $in: usernames } })
+})
+
 Meteor.publish('message', function(username, page){
     if(this.userId && username){
         return MessageBuckets.myMessagesWith(this.userId, username, page)

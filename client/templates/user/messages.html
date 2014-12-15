@@ -5,10 +5,12 @@
     </section>
 
     {{#if messagesList}}
-    <section class="message-list">
+    <section class="thread-list">
         {{#each messagesList}}
-            <div class="message">
+            <div class="message-thread">
                 <a href="/messages/{{this.username}}" class="userLink">
+                  {{getProfilePic}}
+                  <!--<img src="{{profilePic getProfilePic this.username}}">-->
                     <h3> {{this.username}} </h3>
                     <h7>| unread messages: {{this.unreadMessageCount}} | last message: "{{this.lastMessage.username}}: {{this.lastMessage.message}}" | last message time: {{relativeTime this.lastMessage.timestamp}} </h7>
                 </a>
@@ -21,4 +23,8 @@
         <a href="/chat" class="userLink"><h2>go chat with some people!</h2></a>
     </section>
     {{/if}}
+
+  {{#each chattingWith}}
+    {{this.username}}
+  {{/each}}
 </template>
