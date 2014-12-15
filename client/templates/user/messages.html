@@ -7,7 +7,7 @@
     {{#if messagesList}}
       <section class="thread-list">
           {{#each messagesList}}
-            <div class="thread-item">
+            <div class="thread-item {{#if this.unreadMessageCount}}unread{{/if}}">
               <div class="profile-picture">
                 <a href="/users/{{this.username}}">
                   <img src="http://placehold.it/60x60" alt="username"/>

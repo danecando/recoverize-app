@@ -377,7 +377,14 @@
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+  @include transition(background 200ms ease-in-out);
+
+  &:hover {
+    @include transition(background 200ms ease-in-out);
+    background: #fcfcfc;
+  }
 }
+
 .profile-picture {
   float: left;
   padding: 0 5px;
@@ -389,6 +396,11 @@
     border-radius: 2px;
     width: 100%;
     height: 100%;
+  }
+
+  @include media($tablet-screen-up) {
+    width: 10%;
+    padding: 0 10px;
   }
 }
 
@@ -409,6 +421,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    .unread & {
+      font-weight: bold;
+    }
   }
 
   .username {
@@ -416,6 +432,19 @@
     font-weight: bold;
     color: $dark-gray;
     text-transform: uppercase;
+  }
+
+  @include media($tablet-screen-up) {
+    width: 60%;
+    padding: 0 15px;
+
+    h4 {
+      font-size: em(20);
+    }
+
+    p {
+      font-size: em(13);
+    }
   }
 }
 
@@ -425,6 +454,15 @@
   padding: 0 5px;
   text-align: right;
   font-size: em(10);
+
+  @include media($tablet-screen-up) {
+    width: 25%;
+  }
+}
+
+.new-messages {
+  position: relative;
+  height: 18px;
 }
 
 .message-badge {
@@ -432,6 +470,7 @@
   border-radius: 2px;
   background: $brand-blue;
   font-size: em(18);
+  font-weight: bold;
   text-align: center;
   vertical-align: middle;
   color: white;
@@ -440,7 +479,3 @@
   top: 0;
 }
 
-.new-messages {
-  position: relative;
-  height: 18px;
-}

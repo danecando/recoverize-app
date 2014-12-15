@@ -2735,11 +2735,19 @@ body,
   display: flex;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px solid #eee; }
+  border-bottom: 1px solid #eee;
+  -webkit-transition: background 200ms ease-in-out;
+  -moz-transition: background 200ms ease-in-out;
+  transition: background 200ms ease-in-out; }
   .thread-item:after {
     content: "";
     display: table;
     clear: both; }
+  .thread-item:hover {
+    -webkit-transition: background 200ms ease-in-out;
+    -moz-transition: background 200ms ease-in-out;
+    transition: background 200ms ease-in-out;
+    background: #fcfcfc; }
 
 .profile-picture {
   float: left;
@@ -2751,6 +2759,10 @@ body,
     border-radius: 2px;
     width: 100%;
     height: 100%; }
+  @media screen and (min-width: 48em) {
+    .profile-picture {
+      width: 10%;
+      padding: 0 10px; } }
 
 .message-thread {
   float: left;
@@ -2766,11 +2778,21 @@ body,
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
+    .unread .message-thread p {
+      font-weight: bold; }
   .message-thread .username {
     font-size: 0.6875em;
     font-weight: bold;
     color: #333;
     text-transform: uppercase; }
+  @media screen and (min-width: 48em) {
+    .message-thread {
+      width: 60%;
+      padding: 0 15px; }
+      .message-thread h4 {
+        font-size: 1.25em; }
+      .message-thread p {
+        font-size: 0.8125em; } }
 
 .message-meta {
   float: left;
@@ -2778,19 +2800,23 @@ body,
   padding: 0 5px;
   text-align: right;
   font-size: 0.625em; }
+  @media screen and (min-width: 48em) {
+    .message-meta {
+      width: 25%; } }
+
+.new-messages {
+  position: relative;
+  height: 18px; }
 
 .message-badge {
   padding: 0 5px;
   border-radius: 2px;
   background: #123865;
   font-size: 1.125em;
+  font-weight: bold;
   text-align: center;
   vertical-align: middle;
   color: white;
   position: absolute;
   right: 10px;
   top: 0; }
-
-.new-messages {
-  position: relative;
-  height: 18px; }
