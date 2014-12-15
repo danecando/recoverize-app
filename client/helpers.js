@@ -79,6 +79,21 @@ UI.registerHelper('profilePic', function() {
 })
 
 /**
+ * generate color for users
+ */
+UI.registerHelper('userColor', function(username) {
+    var hash = 5381;
+    for (var i = 0; i < username.length; i++) {
+        hash = ((hash << 5) + hash) + username.charCodeAt(i)
+    }
+
+    var r = (hash & 0xFF0000) >> 16;
+    var g = (hash & 0x00FF00) >> 8;
+    var b = hash & 0x0000FF;
+    return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2)
+})
+
+/**
  * reactive relative time using momentjs
  */
 ;(function(){
