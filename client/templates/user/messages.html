@@ -1,25 +1,42 @@
 <template name="messages">
 
-    <section class="page-head">
-        <h2 class="title"><i class="fa fa-envelope"></i>  Messages</h2>
-    </section>
+  <section class="page-head">
+    <h2 class="title"><i class="fa fa-envelope"></i>  Messages</h2>
+  </section>
 
     {{#if messagesList}}
-    <section class="thread-list">
-        {{#each messagesList}}
-            <div class="message-thread">
-                <a href="/messages/{{this.username}}" class="userLink">
-                    <h3> {{this.username}} </h3>
-                    <h7>| unread messages: {{this.unreadMessageCount}} | last message: "{{this.lastMessage.username}}: {{this.lastMessage.message}}" | last message time: {{relativeTime this.lastMessage.timestamp}} </h7>
+      <section class="thread-list">
+          {{#each messagesList}}
+            <div class="thread-item">
+              <div class="profile-picture">
+                <a href="/users/{{this.username}}">
+                  <img src="http://placehold.it/60x60" alt="username"/>
                 </a>
+              </div>
+              <div class="message-thread">
+                <a href="/messages/{{this.username}}" class="userLink">
+                  <h4 style="color: {{userColor this.username}}">{{this.username}}</h4>
+                  <p><!--<span class="username">{{this.lastMessage.username}}</span>--> {{this.lastMessage.message}}</p>
+                </a>
+              </div>
+              <div class="message-meta">
+                  {{#if this.unreadMessageCount}}
+                    <div class="new-messages">
+                      <div class="message-badge">
+                          {{this.unreadMessageCount}}
+                      </div>
+                    </div>
+                  {{/if}}
+                <time class="timestamp">{{relativeTime this.lastMessage.timestamp}}</time>
+              </div>
             </div>
-        {{/each}}
-    </section>
+          {{/each}}
+      </section>
     {{else}}
-    <section class="no-messages">
+      <section class="no-messages">
         <h1>you have no message sessions!</h1>
         <a href="/chat" class="userLink"><h2>go chat with some people!</h2></a>
-    </section>
+      </section>
     {{/if}}
 
 

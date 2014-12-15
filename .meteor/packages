@@ -22,3 +22,5 @@ meteorhacks:kadira
 alanning:roles
 velocity:html-reporter
 mike:mocha
+meteorhacks:fast-render
+

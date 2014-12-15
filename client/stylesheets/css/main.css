@@ -2725,3 +2725,72 @@ body,
 /* ===========================
  *  Messages
  * =========================== */
+.thread-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; }
+  .thread-item:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.profile-picture {
+  float: left;
+  padding: 0 5px;
+  width: 15%;
+  height: auto; }
+  .profile-picture img {
+    vertical-align: bottom;
+    border-radius: 2px;
+    width: 100%;
+    height: 100%; }
+
+.message-thread {
+  float: left;
+  padding: 0 5px;
+  width: 55%; }
+  .message-thread h4 {
+    font-size: 1em; }
+  .message-thread p {
+    font-size: 0.6875em;
+    margin-bottom: 0;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .message-thread .username {
+    font-size: 0.6875em;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase; }
+
+.message-meta {
+  float: left;
+  width: 30%;
+  padding: 0 5px;
+  text-align: right;
+  font-size: 0.625em; }
+
+.message-badge {
+  padding: 0 5px;
+  border-radius: 2px;
+  background: #123865;
+  font-size: 1.125em;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 0; }
+
+.new-messages {
+  position: relative;
+  height: 18px; }
