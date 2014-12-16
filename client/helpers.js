@@ -109,6 +109,14 @@ UI.registerHelper('userColor', function(username) {
 })
 
 /**
+ * Message direction
+ */
+UI.registerHelper('messageDirection', function(from) {
+    if (from === Meteor.user().username) return 'to'
+    else return 'from'
+})
+
+/**
  * reactive relative time using momentjs
  */
 ;(function(){

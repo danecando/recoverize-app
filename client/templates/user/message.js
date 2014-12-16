@@ -5,15 +5,19 @@
  */
 
 Template.message.events({
-    'keydown .input-area input': function(e){
+    'keydown .message-input input': function(e){
         if(e.which === 13) {
             sendMessage(this.username)
         }
     },
-    'click .input-area button': function(){
+    'click #send-message': function(){
         sendMessage(this.username)
     },
-    'click .loadOlderPage': function(){
+    //'submit .message-input form': function(event, template) {
+    //    event.preventDefault()
+    //    sendMessage(this.username)
+    //},
+    'click .older-messages': function(){
         Meteor.subscribe('message', this.username, getOldestPage(this.username) -1)
     }
 })
@@ -59,7 +63,7 @@ Template.message.helpers({
 function sendMessage(to) {
     if(!to) return
 
-    var input = $('.input-area input')
+    var input = $('.message-input input')
     if(input.val().trim() !== '') {
         Meteor.call('addMessage', input.val(), to)
         input.val('')

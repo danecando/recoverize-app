@@ -1,26 +1,37 @@
-
 <template name="message">
 
-    <h1>message with <a href="/users/{{username}}" class="userLink">{{username}}</a></h1>
+  <section class="page-head">
+    <a href="/messages" class="messages-link">
+      <i class="fa fa-angle-left"></i>
+      <span class="envelope-btn"><i class="fa fa-envelope-o"></i></span>
+      <span class="messages-text">Messages</span>
+    </a>
+    <!-- @todo change this to other users profile -->
+    <h2 class="title message-with"><a href="/users/{{username}}"><img src="{{profilePic}}" alt="{{username}}">{{username}}</a></h2>
+  </section>
 
-    <ul class="messages-list">
-
+  <section class="messaging">
+    <div class="conversation">
         {{#if olderPages}}
-            <button class="loadOlderPage"> click to load older messages</button>
+          <button class="older-messages">load older messages</button>
         {{/if}}
-
         {{#each messages}}
-            <li>
-                <a href="/users/{{this.from}}" class="userLink">{{this.username}}</a>
-                <span>: {{linkMentions this.message}}</span>
-                <small> {{relativeTime this.timestamp}} </small> 
-            </li>
+        <div class="message {{messageDirection this.username}}">
+          <div class="bubble">
+            {{linkMentions this.message}}
+            <time>{{relativeTime this.timestamp}}</time>
+          </div>
+        </div>
         {{/each}}
-    </ul>
-
-    <div class="input-area">
-        <input type="text">
-        <button>send</button>
     </div>
+
+    <div class="message-input">
+        <input type="text" name="message" autocomplete="off">
+        <button id="send-message">Send</button>
+    </div>
+
+  </section>
+
+
 
 </template>
