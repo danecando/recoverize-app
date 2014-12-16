@@ -117,7 +117,7 @@
 
   .back {
     display: none;
-    background: white;
+    background: #eee;
     color: #10131c;
 
     .cordova & {
@@ -637,5 +637,26 @@
     padding: em(13);
     font-weight: normal;
     font-size: em(15);
+  }
+}
+
+.user-connection {
+  position: absolute;
+  right: 5px;
+  top: 13px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+
+  &.online {
+    background: $green;
+  }
+
+  &.offline {
+    background: red;
+  }
+
+  &.away {
+    background: yellow;
   }
 }
