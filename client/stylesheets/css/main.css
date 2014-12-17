@@ -2897,7 +2897,7 @@ body,
     clear: both; }
   .message time {
     float: right;
-    margin: 5px 0 4px 5px;
+    margin: 5px 0 4px 15px;
     font-size: 0.75em;
     color: #999; }
   .message.to time {

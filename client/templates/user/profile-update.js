@@ -55,8 +55,17 @@ Template.profileUpdate.events({
     'click #save-changes': function(event, template) {
         event.preventDefault();
 
+        var file = template.$('[name=profilePic]')[0].files[0]
+        var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
+        var uploader = new Slingshot.Upload("myFileUploads")
+        uploader.send(file, function (error, downloadUrl) {
+            if (error) template.$('.response').addClass('error').text(error)
+        })
+
+
         var user = {
             name: template.$('[name=name]').val(),
+            profilePic: fileUrl,
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val(),
             program: template.$('[name=program]').val(),
