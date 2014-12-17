@@ -6,9 +6,7 @@
       <span class="envelope-btn"><i class="fa fa-envelope-o"></i></span>
       <span class="messages-text">Messages</span>
     </a>
-    <!-- @todo change this to other users profile -->
-    <h2 class="title message-with"><a href="/users/{{username}}"><img src="{{profilePic}}" alt="{{username}}">{{username}}</a></h2>
-    <div class="user-connection {{presenceOf username}}"></div>
+    <h2 class="title message-with"><a style="color: {{userColor username}}" href="/users/{{username}}"><img src="{{profilePic username}}" alt="{{username}}">{{username}}</a><span class="user-connection {{presenceOf username}}"></span></h2>
   </section>
 
   <section class="messaging">
