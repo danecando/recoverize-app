@@ -12,23 +12,37 @@
       <!--<h4 class="sidebar-title">Online Users:</h4>-->
       <ul class="user-list">
         {{#each listOfUsers}}
-          <li style="color: {{userColor this.username}}">
-
-            {{this.username}}
-            <span class="user-connection {{this.state}}"></span></li>
+          <li>
+            <a style="color: {{userColor username}}" href="/users/{{this.username}}">
+              <div class="profile-picture">
+                <img src="{{profilePic username}}" alt="{{username}}">
+              </div>
+              <div class="username">
+                {{this.username}}
+              </div>
+              <span class="user-connection {{this.state}}"></span>
+            </a>
+          </li>
         {{/each}}
       </ul>
     </div>
 
     <div class="chat-area">
-      <ul class="chat-messages">
+      <ol class="chat-messages">
         {{#each messages}}
-          <li>
-            <a style="color: {{userColor this.username}}" href="/users/{{this.username}}" class="userLink">{{this.username}}</a><span>: {{linkMentions this.message}}</span>
-            <small> {{relativeTime this.timestamp}} </small>
+          <li style="border-left: 2px solid {{userColor this.username}}">
+            <div class="chat-message">
+              <span class="user">
+                <a style="color: {{userColor this.username}}" href="/users/{{this.username}}" class="userLink">{{this.username}}</a>:
+              </span>
+              <span class="message">
+                {{linkMentions this.message}}
+              </span>
+            </div>
+            <time>{{relativeTime this.timestamp}}</time>
           </li>
         {{/each}}
-    </ul>
+      </ol>
     </div>
 
     <div class="bottom-bar">

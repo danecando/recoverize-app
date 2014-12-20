@@ -714,18 +714,11 @@
   }
 }
 
-#page.chat {
-  background: transparent;
-}
 
 .chat-container {
   @include calc(height, '100% - 34px');
-  background: #111c32;
+  background: #eee;
   position: relative;
-
-  @include media($tablet-screen-up) {
-    background: rgba(255, 255, 255, 0.35);
-  }
 }
 
 .chat-sidebar {
@@ -743,26 +736,40 @@
     @include transition(left 500ms ease-in-out);
   }
 
-  .sidebar-title {
-    text-align: center;
-    background: $brand-blue;
-    color: white;
-    font-size: em(13);
-    padding: em(5);
-    text-transform: uppercase;
-  }
-
   .user-list {
 
     li {
       padding: 5px;
       background: #eee;
       border-bottom: 1px solid #fff;
-//      margin: 1px 5;
+    }
+
+    a {
+      @include display(flex);
+      @include flex-direction(row);
+      @include align-items(center);
+      width: 100%;
+
+      font-size: em(13);
+      color: $brand-blue;
+    }
+
+    .profile-picture {
+      height: 20px;
+      width: 20px;
+      padding: 0;
+
+      img {
+        vertical-align: top;
+      }
+    }
+
+    .username {
+      margin-left: em(5);
     }
 
     .user-connection {
-      float: right;
+      margin-left: auto;
     }
   }
 }
@@ -788,14 +795,46 @@
   @include calc(height, '100% - 29px');
   overflow: hidden;
   overflow-y: scroll;
-  padding: em(0) em(10);
+  color: #333;
   background: white;
-//  background: linear-gradient(#f0f0f0, #fff);
 
   .ul-open & {
     left: 175px;
     @include transition(left 500ms ease-in-out);
 
+  }
+}
+
+.chat-messages {
+  li {
+    @include clearfix;
+    padding: em(2) em(5);
+  }
+
+  li:nth-of-type(odd) {
+    background: #fafafa;
+  }
+
+  .chat-message {
+    float: left;
+
+    .user {
+      font-weight: bold;
+      font-size: em(13);
+      margin-right: 4px;
+    }
+
+    .message {
+      font-size: em(14);
+      letter-spacing: em(-.5);
+      word-wrap: break-word;
+    }
+  }
+  time {
+    padding: em(4) 0;
+    float: right;
+    font-size: em(12);
+    color: $medium-gray;
   }
 }
 
@@ -841,9 +880,9 @@
 
     }
     button {
-      float: left;
+      float: right;
       padding: em(7) 0;
-      width: 60.5px;
+      width: 60px;
       background: $brand-blue;
 
       &:hover {
