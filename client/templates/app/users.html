@@ -1,53 +1,90 @@
 
 <template name="user">
 
-    {{#if user}}
-        <h1>welcome to {{username}}'s profile</h1>
-        <br>
-        <h3>state: {{presenceOf user.username}}</h3>
-        <br>
-        <div>user since: {{user.createdAt}}</div>
-        <h6>serenity: {{user.serenity}}</h6>
-        <div>TODO: other data</div>
+  <div class="user-profile {{username}}">
 
-        <br>
-        <h5>followed by: {{user.followersCount}}</h5>
-        <h5>follows: {{user.followsCount}}</h5>
-        <br>
-
-        {{#if isCurrentUser}}
-            <br>
-            <h5> enter new status: </h5>
-            <input type="text" class="newStatus">
-            <br>
-        {{/if}}
-        
-        <br>
-        {{#each statusList}}
-            <div>{{this.status}}</div>
-            <small> | posted: {{relativeTime this.timestamp}} | serenity: {{this.serenity}} |</small>
-
-            {{#if currentUserSerenityList this._id}}
-                <button class="serenityDownBtn" data-statusId="{{this._id}}"> serenity- </button>                
-            {{else}}
-                <button class="serenityUpBtn" data-statusId="{{this._id}}"> serenity+ </button>
-            {{/if}}
-
-            <br><br>
-        {{/each}}
-
-        <br><br>
-
-        <a href="/messages/{{username}}"><button>message me!</button></a>
-
-        {{#if currentUserFollows username}}
-            <button class="unfollowBtn">unfollow me!</button>
-        {{else}}
-            <button class="followBtn">follow me!</button>
-        {{/if}}
-
+    {{#if user.profile.name}}
+      <h1 class="username">{{user.profile.name}} <small>({{username}})</small></h1>
     {{else}}
-        <h1>{{username}} does not exist</h1>
+      <h1 class="username">{{username}}</h1>
     {{/if}}
+
+    <section class="colored-head" style="background: {{userColor username}}">
+      <div class="profile-picture">
+        <img src="{{user.profile.profilePic}}" alt="{{username}}">
+      </div>
+      <div class="user-social">
+        <ul class="social-info">
+          <li>Serenity Points: <span class="info-value">{{user.serenity}}</span></li>
+          <li>Followers: <span class="info-value">{{user.followersCount}}</span></li>
+          <li>Following: <span class="info-value">{{user.followsCount}}</span></li>
+        </ul>
+        {{#unless isCurrentUser}}
+          <div class="social-buttons">
+            {{#if currentUserFollows username}}
+              <button class="unfollowBtn">Unfollow</button>
+            {{else}}
+              <button class="followBtn">Follow</button>
+            {{/if}}
+            <a class="button" href="/messages/{{username}}">Message</a>
+          </div>
+        {{/unless}}
+      </div>
+    </section>
+
+    <section class="profile-fields">
+
+    </section>
+
+  </div>
+
+  {{#if user}}
+    <h1>welcome to {{username}}'s profile</h1>
+    <br>
+    <h3>state: {{presenceOf user.username}}</h3>
+    <br>
+    <div>user since: {{user.createdAt}}</div>
+    <h6>serenity: {{user.serenity}}</h6>
+    <div>TODO: other data</div>
+
+    <br>
+    <h5>followed by: {{user.followersCount}}</h5>
+    <h5>follows: {{user.followsCount}}</h5>
+    <br>
+
+    {{#if isCurrentUser}}
+      <br>
+      <h5> enter new status: </h5>
+      <input type="text" class="newStatus">
+      <br>
+    {{/if}}
+
+    <br>
+    {{#each statusList}}
+      <div>{{this.status}}</div>
+      <small> | posted: {{relativeTime this.timestamp}} | serenity: {{this.serenity}} |</small>
+
+      {{#if currentUserSerenityList this._id}}
+        <button class="serenityDownBtn" data-statusId="{{this._id}}"> serenity- </button>
+      {{else}}
+        <button class="serenityUpBtn" data-statusId="{{this._id}}"> serenity+ </button>
+      {{/if}}
+
+      <br><br>
+    {{/each}}
+
+    <br><br>
+
+    <a href="/messages/{{username}}"><button>message me!</button></a>
+
+    {{#if currentUserFollows username}}
+      <button class="unfollowBtn">unfollow me!</button>
+    {{else}}
+      <button class="followBtn">follow me!</button>
+    {{/if}}
+
+  {{else}}
+    <h1>{{username}} does not exist</h1>
+  {{/if}}
 
 </template>

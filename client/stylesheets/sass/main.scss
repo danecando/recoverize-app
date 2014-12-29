@@ -5,6 +5,7 @@
 @import 'vendor/fa/font-awesome';
 
 // components
+@import 'components/badges';
 
 // partials
 @import 'partials/layout';
@@ -445,26 +446,27 @@
     @include transition(background 200ms ease-in-out);
     background: #fcfcfc;
   }
+
+  .profile-picture {
+    float: left;
+    padding: 0 5px;
+    width: 15%;
+    height: auto;
+
+    img {
+      vertical-align: bottom;
+      border-radius: 2px;
+      width: 100%;
+      height: 100%;
+    }
+
+    @include media($tablet-screen-up) {
+      width: 10%;
+      padding: 0 10px;
+    }
+  }
 }
 
-.profile-picture {
-  float: left;
-  padding: 0 5px;
-  width: 15%;
-  height: auto;
-
-  img {
-    vertical-align: bottom;
-    border-radius: 2px;
-    width: 100%;
-    height: 100%;
-  }
-
-  @include media($tablet-screen-up) {
-    width: 10%;
-    padding: 0 10px;
-  }
-}
 
 .message-thread {
   float: left;
@@ -550,7 +552,7 @@
 }
 
 .conversation {
-  @include calc(height, '100% - 33px');
+  @include calc(height, '100% - 24px');
   overflow: hidden;
   background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow-y: auto;
@@ -643,12 +645,14 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 39px;
+  height: 29px;
 
   input[name="message"] {
     float: left;
-    height: 39px;
+    height: 29px;
     @include calc(width, '100% - 65px');
+    margin-bottom: 0;
+    letter-spacing: em(-.5);
     margin-bottom: 0;
     border: 0;
     border-top: 1px solid #eee;
@@ -658,7 +662,7 @@
     background: $brand-blue;
     float: left;
     width: 65px;
-    padding: em(14);
+    padding: em(8);
     font-weight: normal;
     font-size: em(15);
   }
@@ -817,6 +821,7 @@
 
   .chat-message {
     float: left;
+//    width: 85%;
 
     .user {
       font-weight: bold;
@@ -835,6 +840,8 @@
     float: right;
     font-size: em(12);
     color: $medium-gray;
+    text-align: right;
+//    width: 15%;
   }
 }
 
@@ -883,6 +890,7 @@
       float: right;
       padding: em(7) 0;
       width: 60px;
+
       background: $brand-blue;
 
       &:hover {
@@ -890,4 +898,24 @@
       }
     }
   }
+}
+
+/* ===========================
+ *  User Profiles
+ * =========================== */
+
+.user-profile {
+
+  .colored-head {
+  }
+
+  .profile-picture {
+    text-align: center;
+    img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
+  }
+
 }

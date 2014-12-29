@@ -618,22 +618,6 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap; }
 
-.badge-container {
-  position: relative; }
-  .badge-container .badge {
-    position: absolute;
-    top: 10%;
-    left: 26%;
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.5);
-    line-height: 0.25em;
-    height: 15px;
-    width: 15px;
-    padding: 5px;
-    border-radius: 50%;
-    color: #ffffff; }
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2312,6 +2296,22 @@ a {
 .fa-meanpath:before {
   content: ""; }
 
+.badge-container {
+  position: relative; }
+  .badge-container .badge {
+    position: absolute;
+    top: 10%;
+    left: 26%;
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.5);
+    line-height: 0.25em;
+    height: 15px;
+    width: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    color: #ffffff; }
+
 /* ===========================
  *  Layout Util's
  * =========================== */
@@ -2790,21 +2790,20 @@ body,
     -moz-transition: background 200ms ease-in-out;
     transition: background 200ms ease-in-out;
     background: #fcfcfc; }
-
-.profile-picture {
-  float: left;
-  padding: 0 5px;
-  width: 15%;
-  height: auto; }
-  .profile-picture img {
-    vertical-align: bottom;
-    border-radius: 2px;
-    width: 100%;
-    height: 100%; }
-  @media screen and (min-width: 48em) {
-    .profile-picture {
-      width: 10%;
-      padding: 0 10px; } }
+  .thread-item .profile-picture {
+    float: left;
+    padding: 0 5px;
+    width: 15%;
+    height: auto; }
+    .thread-item .profile-picture img {
+      vertical-align: bottom;
+      border-radius: 2px;
+      width: 100%;
+      height: 100%; }
+    @media screen and (min-width: 48em) {
+      .thread-item .profile-picture {
+        width: 10%;
+        padding: 0 10px; } }
 
 .message-thread {
   float: left;
@@ -2871,8 +2870,8 @@ body,
   height: calc(100% - 40px); }
 
 .conversation {
-  height: -webkit-calc(100% - 33px);
-  height: calc(100% - 33px);
+  height: -webkit-calc(100% - 24px);
+  height: calc(100% - 24px);
   overflow: hidden;
   background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow-y: auto; }
@@ -2948,12 +2947,14 @@ body,
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 39px; }
+  height: 29px; }
   .message-input input[name="message"] {
     float: left;
-    height: 39px;
+    height: 29px;
     width: -webkit-calc(100% - 65px);
     width: calc(100% - 65px);
+    margin-bottom: 0;
+    letter-spacing: -0.03125em;
     margin-bottom: 0;
     border: 0;
     border-top: 1px solid #eee; }
@@ -2961,7 +2962,7 @@ body,
     background: #123865;
     float: left;
     width: 65px;
-    padding: 0.875em;
+    padding: 0.5em;
     font-weight: normal;
     font-size: 0.9375em; }
 
@@ -3118,7 +3119,8 @@ body,
   padding: 0.25em 0;
   float: right;
   font-size: 0.75em;
-  color: #999; }
+  color: #999;
+  text-align: right; }
 
 .ul-btn {
   background: #eee;
@@ -3181,3 +3183,13 @@ body,
       background: #123865; }
       .bottom-bar .chat-input button:hover {
         background: #123865; }
+
+/* ===========================
+ *  User Profiles
+ * =========================== */
+.user-profile .profile-picture {
+  text-align: center; }
+  .user-profile .profile-picture img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%; }
