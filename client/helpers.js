@@ -1,11 +1,4 @@
 /**
- * if equals helpers
- */
-UI.registerHelper('$eq', function (a, b) {
-    return (a === b); //Only text, numbers, boolean - not array & objects
-});
-
-/**
  * matches @mentions in a chunk of text and replaces them with a link
  */
 UI.registerHelper('linkMentions', function(context){
