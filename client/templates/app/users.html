@@ -1,56 +1,56 @@
 
 <template name="user">
 
+  {{#if user}}
   <div class="user-profile {{username}}">
 
-    {{#if user.profile.name}}
-      <h1 class="username">{{user.profile.name}} <small>({{username}})</small></h1>
-    {{else}}
-      <h1 class="username">{{username}}</h1>
-    {{/if}}
+    <section class="colored-head">
 
-    <section class="colored-head" style="background: {{userColor username}}">
-      <div class="profile-picture">
-        <img src="{{user.profile.profilePic}}" alt="{{username}}">
-      </div>
-      <div class="user-social">
-        <ul class="social-info">
-          <li>Serenity Points: <span class="info-value">{{user.serenity}}</span></li>
-          <li>Followers: <span class="info-value">{{user.followersCount}}</span></li>
-          <li>Following: <span class="info-value">{{user.followsCount}}</span></li>
-        </ul>
-        {{#unless isCurrentUser}}
-          <div class="social-buttons">
-            {{#if currentUserFollows username}}
-              <button class="unfollowBtn">Unfollow</button>
-            {{else}}
-              <button class="followBtn">Follow</button>
-            {{/if}}
-            <a class="button" href="/messages/{{username}}">Message</a>
-          </div>
-        {{/unless}}
+      {{#if user.profile.name}}
+        <h1 class="username">{{user.profile.name}} <small>({{username}})</small></h1>
+      {{else}}
+        <h1 class="username">{{username}}</h1>
+      {{/if}}
+
+      <div class="profile-top">
+        <div class="profile-picture">
+          <img src="{{user.profile.profilePic}}" alt="{{username}}">
+        </div>
+        <div class="user-social">
+          <ul class="social-info">
+            <li>Serenity Points: <span class="info-value">{{user.serenity}}</span></li>
+            <li>
+              <ul class="popularity">
+                <li>Followers: <span class="info-value">{{user.followersCount}}</span></li>
+                <li>Following: <span class="info-value">{{user.followsCount}}</span></li>
+              </ul>
+            </li>
+          </ul>
+          {{#unless isCurrentUser}}
+            <div class="social-buttons">
+              {{#if currentUserFollows username}}
+                <a href="#" class="btn btn-unfollow unfollowBtn"><i class="fa fa-minus-circle"></i> Unfollow</a>
+              {{else}}
+                <a href="#" class="btn btn-follow followBtn"><i class="fa fa-plus-circle"></i> Follow</a>
+              {{/if}}
+              <a class="btn messages-link" href="/messages/{{username}}"><i class="fa fa-exchange"></i> Message</a>
+            </div>
+          {{/unless}}
+        </div>
       </div>
     </section>
 
     <section class="profile-fields">
+      {{#if user.profile.quote}}
+        <h3 class="quote">{{user.profile.quote}}</h3>
+      {{/if}}
 
+      <p class="share-intro">Hello, my name is {{#if user.profile.name}}{{user.profile.name}}{{else}}{{username}}{{/if}}, I'm an {{programIntro user.profile.program}} {{#if user.profile.location}}from <strong>{{user.profile.location}}</strong>{{/if}}. I have been {{cleanOrSober user.profile.program}} for <strong>{{elapsedDays user.profile.soberDate}}</strong> days. {{#if user.profile.homegroup}}My homegroup is <strong>{{user.profile.homegroup}}</strong>!{{/if}}</p>
     </section>
 
   </div>
 
-  {{#if user}}
-    <h1>welcome to {{username}}'s profile</h1>
-    <br>
-    <h3>state: {{presenceOf user.username}}</h3>
-    <br>
-    <div>user since: {{user.createdAt}}</div>
-    <h6>serenity: {{user.serenity}}</h6>
-    <div>TODO: other data</div>
 
-    <br>
-    <h5>followed by: {{user.followersCount}}</h5>
-    <h5>follows: {{user.followsCount}}</h5>
-    <br>
 
     {{#if isCurrentUser}}
       <br>
@@ -72,16 +72,6 @@
 
       <br><br>
     {{/each}}
-
-    <br><br>
-
-    <a href="/messages/{{username}}"><button>message me!</button></a>
-
-    {{#if currentUserFollows username}}
-      <button class="unfollowBtn">unfollow me!</button>
-    {{else}}
-      <button class="followBtn">follow me!</button>
-    {{/if}}
 
   {{else}}
     <h1>{{username}} does not exist</h1>

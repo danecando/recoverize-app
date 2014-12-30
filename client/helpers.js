@@ -1,3 +1,9 @@
+/**
+ * if equals helpers
+ */
+UI.registerHelper('$eq', function (a, b) {
+    return (a === b); //Only text, numbers, boolean - not array & objects
+});
 
 /**
  * matches @mentions in a chunk of text and replaces them with a link
@@ -108,12 +114,55 @@ UI.registerHelper('userColor', function(username) {
     return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2)
 })
 
+
+/**
+ * Program intro
+ */
+UI.registerHelper('programIntro', function(program) {
+    switch(program) {
+        case 'aa':
+            return 'alcoholic'
+        break
+        case 'na':
+            return 'addict'
+        break
+        default:
+            return 'addict'
+        break
+    }
+})
+
+/**
+ * Clean or sober
+ */
+UI.registerHelper('cleanOrSober', function(program) {
+    switch(program) {
+        case 'aa':
+            return 'sober'
+        break
+        case 'na':
+            return 'clean'
+        break
+        default:
+            return 'clean'
+        break
+    }
+})
+
 /**
  * Message direction
  */
 UI.registerHelper('messageDirection', function(from) {
     if (from === Meteor.user().username) return 'to'
     else return 'from'
+})
+
+
+/**
+ * Elapsed time
+ */
+UI.registerHelper('elapsedDays', function(date) {
+    return moment().diff(date, 'days')
 })
 
 /**
