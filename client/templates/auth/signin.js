@@ -14,6 +14,17 @@ Template.signin.helpers({
 });
 
 Template.signin.events({
+    'click .btn-facebook': function(event, template) {
+        Meteor.loginWithFacebook({ requestPermissions: ['email']},
+        function(error) {
+            if (error) console.log(error)
+        })
+    },
+    'click .btn-twitter': function(event, template) {
+        Meteor.loginWithTwitter(function(error) {
+            console.log(error)
+        })
+    },
     'submit': function(event, template) {
         event.preventDefault();
 

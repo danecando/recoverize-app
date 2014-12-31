@@ -197,6 +197,10 @@
 
       text-align: center;
 
+      a {
+        color: white;
+      }
+
       &:hover {
         background: rgba(255, 255, 255, .2);
         @include transition(background .25s ease-in-out);
@@ -214,6 +218,7 @@
       @include justify-content(center);
 
       a {
+        color: white;
         border: 1px solid white;
         font-size: em(13);
         font-weight: bold;
@@ -226,6 +231,7 @@
     margin: 30px 0;
   }
   .pages a {
+    color: white;
     padding: 5px 0;
     margin-bottom: 10px;
     border-bottom: 1px solid rgba(255, 255, 255, .1);
