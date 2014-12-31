@@ -98,3 +98,12 @@ Meteor.publish('message', function(username, page){
         return
     }
 })
+
+Meteor.publish('timeline', function() {
+    if(this.userId) {
+        return Status.find()
+    } else {
+        this.ready()
+        return
+    }
+})

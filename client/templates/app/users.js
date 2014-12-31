@@ -5,17 +5,6 @@ Template.user.helpers({
     },
     isCurrentUser: function(){
         return this.username === Meteor.user().username
-    },
-    statusList: function(){
-        return Status.find({username: this.username}, {sort: {timestamp: -1}})
-    },
-    currentUserSerenityList: function(statusId){
-        var status = Status.findOne(statusId)
-        if(status && status.serenityList){
-            return status.serenityList.indexOf(Meteor.user().username) !== -1
-        }else{
-            return false
-        }
     }
 })
 
@@ -31,14 +20,6 @@ Template.user.events({
             Meteor.call('createStatus', e.target.value)
             e.target.value = ''
         } 
-    },
-    'click .serenityUpBtn': function(e){
-        var statusId = $(e.target).attr('data-statusId')
-        Meteor.call('statusSerenityUp', statusId)
-    },
-    'click .serenityDownBtn': function(e){
-        var statusId = $(e.target).attr('data-statusId')
-        Meteor.call('statusSerenityDown', statusId)
     }
 })
 
