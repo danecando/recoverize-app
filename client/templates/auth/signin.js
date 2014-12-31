@@ -1,57 +1,59 @@
-var ERRORS_KEY = 'signinErrors';
+var ERRORS_KEY = 'signinErrors'
 
 Template.signin.created = function() {
-    Session.set(ERRORS_KEY, {});
+    Session.set(ERRORS_KEY, {})
 };
 
 Template.signin.helpers({
     errorMessages: function() {
-        return _.values(Session.get(ERRORS_KEY));
+        return _.values(Session.get(ERRORS_KEY))
     },
     errorClass: function(key) {
-        return Session.get(ERRORS_KEY)[key] && 'error';
+        return Session.get(ERRORS_KEY)[key] && 'error'
     }
-});
+})
 
 Template.signin.events({
     'click .btn-facebook': function(event, template) {
         Meteor.loginWithFacebook({ requestPermissions: ['email']},
         function(error) {
             if (error) console.log(error)
+            else Router.go('/')
         })
     },
     'click .btn-twitter': function(event, template) {
         Meteor.loginWithTwitter(function(error) {
-            console.log(error)
+            if (error) console.log(error)
+            else Router.go('/')
         })
     },
     'submit': function(event, template) {
-        event.preventDefault();
+        event.preventDefault()
 
-        var email = template.$('[name=email]').val();
-        var password = template.$('[name=password]').val();
+        var email = template.$('[name=email]').val()
+        var password = template.$('[name=password]').val()
 
-        var errors = {};
+        var errors = {}
 
         if (! email) {
-            errors.email = 'Email is required';
+            errors.email = 'Email is required'
         }
 
         if (! password) {
-            errors.password = 'Password is required';
+            errors.password = 'Password is required'
         }
 
         Session.set(ERRORS_KEY, errors);
         if (_.keys(errors).length) {
-            return;
+            return
         }
 
         Meteor.loginWithPassword(email, password, function(error) {
             if (error) {
-                return Session.set(ERRORS_KEY, {'none': error.reason});
+                return Session.set(ERRORS_KEY, {'none': error.reason})
             }
 
-            Router.go('/');
-        });
+            Router.go('/')
+        })
     }
-});
+})

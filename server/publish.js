@@ -1,11 +1,24 @@
 // Extend the user collection
 Accounts.onCreateUser(function(options, user) {
 
+    user.profile = user.profile || { }
+
+    // setup user account for creation via facebook
+    if (user.services.facebook) {
+        user.emails = []
+        user.emails.push({ address: user.services.facebook.email, verified: true })
+        user.username = user.services.facebook.email.substring(0, user.services.facebook.email.indexOf("@")) + (Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000).toString()
+        user.profile.name = user.services.facebook.name
+    }
+
+    // setup user account for creation via twitter
+    if (user.services.twitter) {
+        user.username = user.services.twitter.screenName + (Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000).toString()
+        user.profile.profilePic = user.services.twitter.profile_image_url_https
+    }
+
     var crypto = Npm.require('crypto')
     user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
-
-    // Create profile object
-    user.profile = { }
 
     return user
 })
