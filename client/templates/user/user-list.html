@@ -2,9 +2,10 @@
 <template name="userlist">
 
   <h1>user list</h1>
+  <br><br>
 
   {{#each listOfUsers}}
-    <h6>{{this.username}} <small> member since: {{relativeTime this.createdAt}} </small></h6>
+    <h6>{{this.username}} | {{presenceOf this.username}}<br><small> member since: {{relativeTime this.createdAt}} </small></h6> <br><br>
   {{/each}}
 
 </template>
