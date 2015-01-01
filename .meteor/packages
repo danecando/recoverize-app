@@ -20,7 +20,6 @@ accounts-password
 aldeed:simple-schema
 meteorhacks:kadira
 alanning:roles
-velocity:html-reporter
 mike:mocha
 meteorhacks:fast-render
 edgee:slingshot
