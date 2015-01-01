@@ -1,6 +1,6 @@
 
-// Template.userList.helpers({
-//     userList: function(){
-//         return Meteor.users.find()
-//     }
-// })
+Template.userlist.helpers({
+    listOfUsers: function(){
+        return Meteor.users.find()
+    }
+})
