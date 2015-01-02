@@ -1,7 +1,13 @@
 
-<!-- <template name="useList">
-  {{#each users}}
-    <h6>{{this.username}} {{profilePic this.username}}</h6>
+<template name="userlist">
+
+  <h1>user list</h1>
+  <br><br>
+
+  <input class="userList-filter" type="text">
+
+  {{#each listOfUsers}}
+    <h6>{{this.username}} | {{presenceOf this.username}}<br><small> member since: {{relativeTime this.createdAt}} </small></h6> <br><br>
   {{/each}}
+
 </template>
- -->

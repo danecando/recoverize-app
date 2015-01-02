@@ -66,10 +66,18 @@ Meteor.publish('notification', function(){
 
 // @todo: expose public fields only
 Meteor.publish('userPublic', function(username){
-    return [
-        Meteor.users.find({username: username}),
-        Status.find({username: username})
-    ]
+    
+    if(username) {
+        return [
+            Meteor.users.find({username: username}),
+            Status.find({username: username})
+        ]
+    } else {
+        return [
+            Meteor.users.find(),
+            Status.find()
+        ]
+    }
 })
 
 /**
