@@ -32,7 +32,6 @@ node_modules
 .sass-cache
 
 .idea
-packages/tests-proxy/tests
 
 #vim
 .swp

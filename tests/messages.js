@@ -1,5 +1,5 @@
 
-if(typeof MochatWeb !== 'undefined'){
+if(typeof MochaWeb !== 'undefined'){
 
     describe('2+2', function(){
         it('should be 4', function(){
