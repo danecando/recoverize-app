@@ -7,9 +7,10 @@ Template.chat.destroyed = function() {
 }
 
 Template.chat.events({
-    'keydown .chat-input input': function(e){
+    'keydown .chat-input textarea': function(e){
         if(e.which === 13) {
-            sendMessage();
+            e.preventDefault();
+            sendMessage()
         }
     },
     'click .chat-input button': function(){
@@ -35,7 +36,7 @@ Template.chat.helpers({
 });
 
 function sendMessage(){
-    var input = $('.chat-input input');
+    var input = $('.chat-input textarea');
 
     if(input.val().trim() !== '') {
         Meteor.call('addChat', input.val())

@@ -104,7 +104,7 @@
   position: fixed;
   width: 100vw;
   z-index: 5;
-  background: #111c32;
+//  background: #111c32;
 
    a {
     padding: 10px;
@@ -710,11 +710,13 @@
   z-index: 10;
   height: 34px;
   padding: 7px 10px;
-  background: linear-gradient(#fafafa, #e5e5e5);
-  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
+  background: #2c5999;
+//  background: linear-gradient(#fafafa, #e5e5e5);
+//  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
 
   .title {
     color: $brand-blue;
+    color: white;
 //    text-align: center;
     font-size: em(16);
     letter-spacing: em(-.25);
@@ -722,6 +724,7 @@
     .topic {
       font-size: em(14);
       color: $dark-gray;
+      color: white;
       font-weight: 400;
     }
   }
@@ -809,7 +812,7 @@
   width: 100%;
   left: 0;
   @include transition(left 500ms ease-in-out);
-  @include calc(height, '100% - 29px');
+  @include calc(height, '100% - 35px');
   overflow: hidden;
   overflow-y: scroll;
   color: #333;
@@ -860,51 +863,71 @@
 
 .ul-btn {
   background: #eee;
-  padding: em(9) em(12);
-  color: $brand-blue;
-  font-size: em(14);
-  width: 44px;
+  color: white;
+  padding: em(12) em(10) em(10);
+  background: $secondary-blue;
+  font-size: em(11);
+  font-weight: normal;
 
   i {
-    font-size: em(12);
+    font-size: em(15);
     position: relative;
     bottom: 1px;
   }
 
   &:hover {
-    background: $brand-blue;
-    color: #eee;
+    background: $secondary-blue;
+    color: white;
   }
 }
 
 .bottom-bar {
-  position: fixed;
+  position: absolute;
   @include display(flex);
   @include flex-direction(row);
   @include justify-content(center);
   bottom: 0;
-  height: 30px;
+  height: 35px;
   width: 100%;
   .chat-input {
     width: 100%;
+    z-index: 10;
 
-    input {
+    textarea {
       float: left;
+      height: 35px;
       @include calc(width, '100% - 60px');
       border: 0;
       font-size: em(13);
       letter-spacing: em(-.5);
       margin-bottom: 0;
       padding: em(7);
-      border-top: 1px solid #eee;
+      background: #f5f5f5;
+      resize: none;
+
+      &:focus {
+        height: 60px;
+        position: absolute;
+        bottom: 0;
+        @include transition(height 200ms ease-in);
+
+        + button {
+          height: 60px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
 
     }
     button {
       float: right;
       padding: em(7) 0;
+      height: 35px;
       width: 60px;
 
-      background: $brand-blue;
+
+      background: $secondary-blue;
 
       &:hover {
         background: $brand-blue;
