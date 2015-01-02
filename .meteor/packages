@@ -28,4 +28,3 @@ service-configuration
 meteorhacks:ssr
 miro:mailchimp
 meteorhacks:zones
-mike:mocha
