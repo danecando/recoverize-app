@@ -2402,6 +2402,31 @@ body,
 /* ===========================
  *  Generic Classes
  * =========================== */
+.text-input {
+  float: left;
+  height: 35px;
+  width: -webkit-calc(100% - 60px);
+  width: calc(100% - 60px);
+  border: 0;
+  font-size: 0.8125em;
+  letter-spacing: -0.03125em;
+  margin-bottom: 0;
+  padding: 0.4375em;
+  background: #f5f5f5;
+  resize: none; }
+  .text-input:focus {
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: height 200ms ease-in;
+    -moz-transition: height 200ms ease-in;
+    transition: height 200ms ease-in; }
+    .text-input:focus + button {
+      height: 60px !important;
+      position: absolute;
+      bottom: 0;
+      right: 0; }
+
 .title {
   font-size: 1.25em; }
 
@@ -2606,17 +2631,17 @@ body,
   z-index: 10;
   height: 34px;
   padding: 7px 10px;
-  background: linear-gradient(#fafafa, #e5e5e5);
-  box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.25); }
+  background: #2c5999; }
   .page-head .title {
     position: relative;
-    color: #333F57;
+    color: white;
     font-weight: normal;
     text-align: center;
     font-size: 1.0625em;
     text-transform: none; }
     .page-head .title i {
       position: absolute;
+      color: white;
       left: 2px;
       top: 3px; }
   .page-head .messages-link {
@@ -2624,12 +2649,12 @@ body,
     z-index: 5;
     left: 0;
     top: 0;
-    padding: 0.5em 0.5625em;
+    padding: 0.375em;
     font-size: 0.9375em;
-    color: #123865; }
+    color: white; }
     .page-head .messages-link i {
       float: left;
-      font-size: 1.25em;
+      font-size: 1.125em;
       padding: 0.1875em 0; }
     .page-head .messages-link span {
       float: left;
@@ -2653,9 +2678,10 @@ body,
       height: 20px;
       position: relative;
       top: 4px;
-      right: 5px; }
+      right: 5px;
+      border: 2px solid white; }
     .page-head .message-with a {
-      color: #123865; }
+      color: white; }
 
 /* ===========================
  *  Notifications
@@ -2869,16 +2895,16 @@ body,
 /* ===========================
  *  Message Thread
  * =========================== */
-.messaging {
-  height: -webkit-calc(100% - 40px);
-  height: calc(100% - 40px); }
+.message-container {
+  height: -webkit-calc(100% - 34px);
+  height: calc(100% - 34px); }
 
 .conversation {
-  height: -webkit-calc(100% - 24px);
-  height: calc(100% - 24px);
-  overflow: hidden;
+  height: -webkit-calc(100% - 29px);
+  height: calc(100% - 29px);
   background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
-  overflow-y: auto; }
+  overflow: hidden;
+  overflow-y: scroll; }
 
 .older-messages {
   width: 100%;
@@ -2948,24 +2974,21 @@ body,
   bottom: 2px; }
 
 .message-input {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 29px; }
-  .message-input input[name="message"] {
+  height: 35px; }
+  .message-input textarea {
     float: left;
-    height: 29px;
+    height: 35px;
+    background: #eee;
     width: -webkit-calc(100% - 65px);
-    width: calc(100% - 65px);
-    margin-bottom: 0;
-    letter-spacing: -0.03125em;
-    margin-bottom: 0;
-    border: 0;
-    border-top: 1px solid #eee; }
+    width: calc(100% - 65px); }
   .message-input #send-message {
-    background: #123865;
+    background: #2c5999;
     float: left;
     width: 65px;
+    height: 100%;
     padding: 0.5em;
     font-weight: normal;
     font-size: 0.9375em; }
@@ -3130,9 +3153,9 @@ body,
 .ul-btn {
   background: #eee;
   color: white;
-  padding: 0.75em 0.625em 0.625em;
+  padding: 0.875em 0.625em 0.5em;
   background: #2c5999;
-  font-size: 0.6875em;
+  font-size: 0.625em;
   font-weight: normal; }
   .ul-btn i {
     font-size: 0.9375em;
@@ -3173,30 +3196,6 @@ body,
   .bottom-bar .chat-input {
     width: 100%;
     z-index: 10; }
-    .bottom-bar .chat-input textarea {
-      float: left;
-      height: 35px;
-      width: -webkit-calc(100% - 60px);
-      width: calc(100% - 60px);
-      border: 0;
-      font-size: 0.8125em;
-      letter-spacing: -0.03125em;
-      margin-bottom: 0;
-      padding: 0.4375em;
-      background: #f5f5f5;
-      resize: none; }
-      .bottom-bar .chat-input textarea:focus {
-        height: 60px;
-        position: absolute;
-        bottom: 0;
-        -webkit-transition: height 200ms ease-in;
-        -moz-transition: height 200ms ease-in;
-        transition: height 200ms ease-in; }
-        .bottom-bar .chat-input textarea:focus + button {
-          height: 60px;
-          position: absolute;
-          bottom: 0;
-          right: 0; }
     .bottom-bar .chat-input button {
       float: right;
       padding: 0.4375em 0;

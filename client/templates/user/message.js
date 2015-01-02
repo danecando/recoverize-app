@@ -1,12 +1,12 @@
-
 /**
  * this template expects data.username
  * data.username is the username of the user currentUser is chatting with
  */
 
 Template.message.events({
-    'keydown .message-input input': function(e){
+    'keydown .message-input textarea': function(e){
         if(e.which === 13) {
+            e.preventDefault()
             sendMessage(this.username)
         }
     },
@@ -23,6 +23,9 @@ Template.message.events({
 })
 
 Template.message.rendered = function(){
+    var $messageWindow = document.querySelector('.conversation')
+    $messageWindow.scrollTop = $messageWindow.scrollHeight
+
     // make sure an user doesn't chat with himself
     // @todo handle this before this template is even rendered
     if(Meteor.user() && this.data.username === Meteor.user().username){
@@ -63,7 +66,7 @@ Template.message.helpers({
 function sendMessage(to) {
     if(!to) return
 
-    var input = $('.message-input input')
+    var input = $('.message-input textarea')
     if(input.val().trim() !== '') {
         Meteor.call('addMessage', input.val(), to)
         input.val('')
