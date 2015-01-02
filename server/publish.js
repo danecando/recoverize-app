@@ -66,10 +66,18 @@ Meteor.publish('notification', function(){
 
 // @todo: expose public fields only
 Meteor.publish('userPublic', function(username){
-    return [
-        Meteor.users.find({username: username}),
-        Status.find({username: username})
-    ]
+    
+    if(username) {
+        return [
+            Meteor.users.find({username: username}),
+            Status.find({username: username})
+        ]
+    } else {
+        return [
+            Meteor.users.find(),
+            Status.find()
+        ]
+    }
 })
 
 /**
@@ -93,6 +101,19 @@ Meteor.publish('message', function(username, page){
         return MessageBuckets.myMessagesWith(this.userId, username, page)
     } else if (this.userId){
         return MessageSessions.myMessages(this.userId)
+    } else {
+        this.ready()
+        return
+    }
+})
+
+Meteor.publish('timeline', function() {
+    if(this.userId) {
+        // 604800000 = 1 week in ms
+        return Status.find(
+            {timestamp: {$gt: Date.now() - 604800000}},
+            {sort: {serenity: -1}, limit: 50}
+        )
     } else {
         this.ready()
         return

@@ -51,8 +51,6 @@
 
   </div>
 
-
-
     {{#if isCurrentUser}}
       <br>
       <h5> enter new status: </h5>
@@ -61,18 +59,7 @@
     {{/if}}
 
     <br>
-    {{#each statusList}}
-      <div>{{this.status}}</div>
-      <small> | posted: {{relativeTime this.timestamp}} | serenity: {{this.serenity}} |</small>
-
-      {{#if currentUserSerenityList this._id}}
-        <button class="serenityDownBtn" data-statusId="{{this._id}}"> serenity- </button>
-      {{else}}
-        <button class="serenityUpBtn" data-statusId="{{this._id}}"> serenity+ </button>
-      {{/if}}
-
-      <br><br>
-    {{/each}}
+    {{> statuslist}}
 
   {{else}}
     <h1>{{username}} does not exist</h1>

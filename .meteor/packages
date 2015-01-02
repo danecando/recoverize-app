@@ -20,8 +20,6 @@ accounts-password
 aldeed:simple-schema
 meteorhacks:kadira
 alanning:roles
-velocity:html-reporter
-mike:mocha
 meteorhacks:fast-render
 edgee:slingshot
 accounts-facebook
@@ -29,3 +27,5 @@ accounts-twitter
 service-configuration
 meteorhacks:ssr
 miro:mailchimp
+meteorhacks:zones
+mike:mocha
