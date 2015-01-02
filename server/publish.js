@@ -109,7 +109,11 @@ Meteor.publish('message', function(username, page){
 
 Meteor.publish('timeline', function() {
     if(this.userId) {
-        return Status.find()
+        // 604800000 = 1 week in ms
+        return Status.find(
+            {timestamp: {$gt: Date.now() - 604800000}},
+            {sort: {serenity: -1}, limit: 50}
+        )
     } else {
         this.ready()
         return
