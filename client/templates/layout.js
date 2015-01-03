@@ -5,8 +5,6 @@
 var MENU_KEY = 'menuOpen'
 Session.setDefault(MENU_KEY, false)
 
-Session.setDefault('BACK_KEY', false)
-
 var SHOW_CONNECTION_ISSUE_KEY = 'showConnectionIssue'
 Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false)
 
@@ -56,9 +54,6 @@ Template.layout.events({
     'click #page-overlay': function(event) {
         Session.set(MENU_KEY, false)
         event.preventDefault()
-    },
-    'click .action-nav .back': function() {
-        history.back()
     },
     'click #menu nav a': function() {
         Session.set(MENU_KEY, false)
