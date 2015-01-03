@@ -1095,7 +1095,8 @@
  .notifications-page {
    background: linear-gradient(lighten($secondary-blue, 15), $secondary-blue);
    min-height: 100%;
-   height: auto;
+   overflow: hidden;
+   overflow-y: scroll;
 
    .new-notifications {
      @include display(flex);

@@ -3353,7 +3353,8 @@ body,
 .notifications-page {
   background: linear-gradient(#477dca, #2c5999);
   min-height: 100%;
-  height: auto; }
+  overflow: hidden;
+  overflow-y: scroll; }
   .notifications-page .new-notifications {
     display: -webkit-box;
     display: -moz-box;
