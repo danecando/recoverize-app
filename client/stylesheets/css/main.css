@@ -2711,7 +2711,7 @@ body,
 .view-profile img {
   height: 55px;
   width: 55px;
-  border-radius: 50%; }
+  border-radius: 2px; }
 
 .top-links {
   margin: 25px 0 20px;
@@ -2795,6 +2795,20 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
+.account-settings input[name=profilePic],
+.profile-settings input[name=profilePic] {
+  display: none; }
+.account-settings #image-select,
+.profile-settings #image-select {
+  display: block;
+  padding: 15px;
+  border: 2px dotted #eee; }
+  .account-settings #image-select .select-button,
+  .profile-settings #image-select .select-button {
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: #eee;
+    color: #333; }
 
 /* ===========================
  *  Messages

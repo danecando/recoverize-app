@@ -7,7 +7,6 @@
   <ul class="top-links">
     <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
     <li class="account-settings"><a class="button" href="/account">Account Settings</a></li>
-    <!--<li><a href="#" id="save-changes" class="button">Save Changes</a></li>-->
   </ul>
 
   <form action="">
@@ -17,9 +16,15 @@
           <label for="name">Name <small class="desc">John S.</small></label>
           <input type="text" name="name" value="{{user.profile.name}}">
         </li>
-        <li>
-          <label for="profilePic">Profile Picture</label>
-          <input type="file" name="profilePic" accept="image/*">
+        <li class="profile-picture">
+          <div class="no-picture">
+            <label for="profilePic">Profile Picture <small class="desc">Max size 500kb, 800x800</small></label>
+            <input type="file" name="profilePic" accept="image/*">
+            <a href="#" id="image-select"><span class="select-button">Click to Choose</span></a>
+          </div>
+          <div class="picture-exists">
+
+          </div>
         </li>
         <li>
           <label for="location">Location <small class="desc">City / State</small></label>

@@ -397,7 +397,7 @@
   img {
     height: 55px;
     width: 55px;
-    border-radius: 50%;
+    border-radius: 2px;
   }
 }
 
@@ -471,6 +471,23 @@
       .desc {
         margin: 0;
       }
+    }
+  }
+
+  input[name=profilePic] {
+    display: none;
+  }
+
+  #image-select {
+    display: block;
+    padding: 15px;
+    border: 2px dotted #eee;
+
+    .select-button {
+      padding: 5px 10px;
+      border-radius: 2px;
+      background: #eee;
+      color: #333;
     }
   }
 }

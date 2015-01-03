@@ -1,8 +1,15 @@
+Template.profileUpdate.rendered = function() {
+    //if (Meteor.user().profile.profilePic) {
+    //    $('.no-picture').css('display', 'none')
+    //} else {
+    //    $('.picture-exists').css('display', 'none')
+    //}
+}
 
 Template.profileUpdate.created = function() {
     Session.setDefault('updated', false);
     Session.setDefault('days', 31);
-};
+}
 
 Template.profileUpdate.destroyed = function() {
     Session.setDefault('updated', false);
@@ -51,12 +58,37 @@ Template.profileUpdate.events({
     'change :input': function(event, template) {
         Session.set('updated', true);
     },
+    'click #image-select': function(event, template) {
+        event.preventDefault()
+        template.$('input[name=profilePic]').click()
+    },
+    'change input[name=profilePic]': function(event, template) {
+
+    },
+    'click input[name=profilePic]': function(event, template) {
+        if (Meteor.isCordova) {
+            window.imagePicker.getPictures(
+                function (results) {
+                    for (var i = 0; i < results.length; i++) {
+                        if (typeof results[i] == 'string') {
+                            template.$('[name=profilePic]')[0].files[0] = results[i]
+                        }
+                    }
+                }, function (error) {
+                    console.log('Error: ' + error);
+                }, {
+                    maximumImagesCount: 1
+                }
+            )
+        }
+    },
 
     'click #save-changes': function(event, template) {
         event.preventDefault();
 
         // todo: load defaults create thingy if profile picture is already uploaded
-        //var file = template.$('[name=profilePic]')[0].files[0]
+        var file = template.$('[name=profilePic]')[0].files[0]
+        alert(file)
         //var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
         //var uploader = new Slingshot.Upload("myFileUploads")
         //uploader.send(file, function (error, downloadUrl) {
@@ -105,3 +137,12 @@ Template.profileUpdate.events({
     }
 
 });
+
+function dataURItoBlob(dataURI) {
+    var binary = atob(dataURI.split(',')[1]);
+    var array = [];
+    for(var i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i));
+    }
+    return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+}

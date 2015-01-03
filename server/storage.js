@@ -3,6 +3,7 @@ Slingshot.createDirective("myFileUploads", Slingshot.S3Storage, {
     allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
     maxSize: 0,
     acl: "public-read",
+    domain: 'https://d6gyptuog2clr.cloudfront.net',
 
     authorize: function () {
         //Deny uploads if user is not logged in.
