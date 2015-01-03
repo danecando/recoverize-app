@@ -12,7 +12,8 @@ Template.userlist.events({
         var value = $(e.target).val().trim().toLowerCase()
 
         if(value) {
-            Session.set('userList-filter', {username: value})
+            Meteor.subscribe('userList', value)
+            Session.set('userList-filter', {username: {$regex: value}})
         } else {
             Session.set('userList-filter', {})
         }
