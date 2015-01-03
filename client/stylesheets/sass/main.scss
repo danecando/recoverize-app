@@ -770,7 +770,8 @@
 
 
 .chat-container {
-  @include calc(height, '100% - 34px');
+//  @include calc(height, '100% - 34px');
+  height: 100%;
   background: #eee;
   position: relative;
 }
@@ -842,7 +843,6 @@
 
 .chat-area {
   position: absolute;
-  height: 100%;
   width: 100%;
   left: 0;
   @include transition(left 500ms ease-in-out);
@@ -989,10 +989,10 @@
 
     img {
       margin-top: em(10);
-      border: 3px solid white; // rgba(255, 255, 255, .3);
+      border: 3px solid white;
       height: 200px;
       width: 200px;
-      border-radius: 50%;
+      border-radius: em(2);
     }
   }
 

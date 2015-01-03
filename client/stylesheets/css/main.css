@@ -3035,8 +3035,7 @@ body,
       text-align: center; } }
 
 .chat-container {
-  height: -webkit-calc(100% - 34px);
-  height: calc(100% - 34px);
+  height: 100%;
   background: #eee;
   position: relative; }
 
@@ -3112,7 +3111,6 @@ body,
 
 .chat-area {
   position: absolute;
-  height: 100%;
   width: 100%;
   left: 0;
   -webkit-transition: left 500ms ease-in-out;
@@ -3276,7 +3274,7 @@ body,
     border: 3px solid white;
     height: 200px;
     width: 200px;
-    border-radius: 50%; }
+    border-radius: 0.125em; }
 .user-profile .user-social {
   color: white;
   margin: 1.5625em 0; }
