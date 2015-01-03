@@ -630,6 +630,9 @@ html, button, input, textarea, select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2711,7 +2714,7 @@ body,
 .view-profile img {
   height: 55px;
   width: 55px;
-  border-radius: 50%; }
+  border-radius: 2px; }
 
 .top-links {
   margin: 25px 0 20px;
@@ -2795,6 +2798,20 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
+.account-settings input[name=profilePic],
+.profile-settings input[name=profilePic] {
+  display: none; }
+.account-settings #image-select,
+.profile-settings #image-select {
+  display: block;
+  padding: 15px;
+  border: 2px dotted #eee; }
+  .account-settings #image-select .select-button,
+  .profile-settings #image-select .select-button {
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: #eee;
+    color: #333; }
 
 /* ===========================
  *  Messages
@@ -3329,3 +3346,85 @@ body,
   text-align: center;
   padding: 0.3125em;
   border-radius: 0.1875em; }
+
+/* ===========================
+ *  Notifications
+ * =========================== */
+.notifications-page {
+  background: linear-gradient(#477dca, #2c5999);
+  min-height: 100%;
+  height: auto; }
+  .notifications-page .new-notifications {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    padding: 1.5625em 0;
+    text-align: center; }
+    .notifications-page .new-notifications .notification-amount {
+      color: white;
+      font-size: 1.125em;
+      margin-right: 10px; }
+  .notifications-page button {
+    padding: 0.375em;
+    border-radius: 0em;
+    font-size: 0.875em;
+    background: white;
+    color: #2c5999; }
+  .notifications-page .notification {
+    background: #123865;
+    margin-bottom: 1.5625em; }
+    .notifications-page .notification a {
+      color: white; }
+  .notifications-page.no-notifications {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    text-align: center;
+    color: white; }
+    .notifications-page.no-notifications h1 {
+      font-weight: 300;
+      letter-spacing: 0.0625em; }
