@@ -2,17 +2,15 @@
   position: relative;
 
   .badge {
+    display: inline-block;
     position: absolute;
-    top: 10%;
-    left: 26%;
+    top: 0;
+    right: 0;
     font-size: em(14);
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.5);
-    line-height: em(4);
-    height: 15px;
-    width: 15px;
-    padding: 5px;
-    border-radius: 50%;
+    padding: em(6);
+    line-height: 1;
+    border-radius: em(2);
     color: #ffffff;
   }
 }

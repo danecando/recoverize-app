@@ -2294,17 +2294,15 @@ html, button, input, textarea, select {
 .badge-container {
   position: relative; }
   .badge-container .badge {
+    display: inline-block;
     position: absolute;
-    top: 10%;
-    left: 26%;
+    top: 0;
+    right: 0;
     font-size: 0.875em;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.5);
-    line-height: 0.25em;
-    height: 15px;
-    width: 15px;
-    padding: 5px;
-    border-radius: 50%;
+    padding: 0.375em;
+    line-height: 1;
+    border-radius: 0.125em;
     color: #ffffff; }
 
 /* ===========================
@@ -2506,10 +2504,31 @@ body,
   width: 100vw;
   z-index: 5; }
   .top-bar a {
-    padding: 10px;
+    padding: 0.5625em;
     display: block; }
   .top-bar li {
     display: inline-block; }
+  .top-bar .branding {
+    position: relative;
+    top: 0.0625em;
+    font-family: "Lobster Two", cursive;
+    line-height: 1em;
+    text-shadow: 1px 1px 0 #E85608;
+    color: white;
+    margin: 0; }
+    .top-bar .branding .version {
+      font-size: 0.25em;
+      color: white;
+      padding: 3px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 25%;
+      text-shadow: 0 0 0;
+      position: relative;
+      bottom: 0.625em;
+      right: 0.3125em;
+      background: #FA7C38;
+      font-family: "AzoSans", Arial, sans-serif; }
   .top-bar .action-nav {
     float: left; }
   .top-bar .notification-nav {
@@ -2522,8 +2541,8 @@ body,
       display: inline-block; }
   .top-bar .badge {
     background: none;
-    top: 0;
-    left: -65%; }
+    top: -5px;
+    left: -70%; }
 
 /**
  * App Menu
@@ -2675,7 +2694,9 @@ body,
         padding: 0.375em 0; } }
   .page-head .message-with {
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    position: relative;
+    bottom: 3px; }
     .page-head .message-with img {
       height: 20px;
       position: relative;
@@ -3255,7 +3276,7 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: linear-gradient(#7185a6, #b9c3d3);
+  background: linear-gradient(#2c5999, #6794d3);
   border-bottom: 3px solid #7185a6;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
