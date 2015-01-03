@@ -53,7 +53,7 @@ Template.layout.events({
         Session.set(MENU_KEY, false)
         event.preventDefault()
     },
-    'click #menu nav a': function() {
+    'click #menu nav a, click .notification-nav a': function() {
         Session.set(MENU_KEY, false)
     }
 
