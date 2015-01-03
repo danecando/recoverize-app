@@ -376,6 +376,8 @@
   .message-with {
     text-align: center;
     font-weight: bold;
+    position: relative;
+    bottom: 3px;
 
     img {
       height: 20px;
@@ -1000,7 +1002,7 @@
   }
 
   .colored-head {
-    background: linear-gradient(#7185a6, lighten(#7185a6, 23));
+    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
     border-bottom: 3px solid #7185a6;
     padding-top: em(15);
   }

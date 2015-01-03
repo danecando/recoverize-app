@@ -2694,7 +2694,9 @@ body,
         padding: 0.375em 0; } }
   .page-head .message-with {
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    position: relative;
+    bottom: 3px; }
     .page-head .message-with img {
       height: 20px;
       position: relative;
@@ -3274,7 +3276,7 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: linear-gradient(#7185a6, #b9c3d3);
+  background: linear-gradient(#2c5999, #6794d3);
   border-bottom: 3px solid #7185a6;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
