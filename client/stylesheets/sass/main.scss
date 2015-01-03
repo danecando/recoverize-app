@@ -132,15 +132,39 @@
   position: fixed;
   width: 100vw;
   z-index: 5;
-//  background: #111c32;
 
-   a {
-    padding: 10px;
+  a {
+    padding: em(9);
     display: block;
   }
 
   li {
     display: inline-block;
+  }
+
+  .branding {
+    position: relative;
+    top: em(1);
+    font-family: $brand-font;
+    line-height: em(16);
+    text-shadow: 1px 1px 0 $brand-dark;
+    color: white;
+    margin: 0;
+
+    .version {
+      font-size: em(4);
+      color: white;
+      padding: 3px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 25%;
+      text-shadow: 0 0 0;
+      position: relative;
+      bottom: em(10);
+      right: em(5);
+      background: $brand-color;
+      font-family: $base-font-family;
+    }
   }
 
   .action-nav {
