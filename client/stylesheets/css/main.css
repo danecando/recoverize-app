@@ -2418,6 +2418,8 @@ body,
     height: 60px;
     position: absolute;
     bottom: 0;
+    width: -webkit-calc(100% - 95px);
+    width: calc(100% - 95px);
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
     transition: height 200ms ease-in; }
@@ -2984,6 +2986,9 @@ body,
     background: #eee;
     width: -webkit-calc(100% - 65px);
     width: calc(100% - 65px); }
+    .message-input textarea:focus {
+      width: -webkit-calc(100% - 65px);
+      width: calc(100% - 65px); }
   .message-input #send-message {
     background: #2c5999;
     float: left;
