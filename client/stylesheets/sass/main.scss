@@ -167,6 +167,8 @@
     }
   }
 
+  .menu-toggle {}
+
   .action-nav {
     float: left;
   }
@@ -187,8 +189,8 @@
 
   .badge {
     background: none;
-    top: 0;
-    left: -65%;
+    top: -5px;
+    left: -70%;
   }
 }
 

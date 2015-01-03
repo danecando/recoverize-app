@@ -2294,17 +2294,15 @@ html, button, input, textarea, select {
 .badge-container {
   position: relative; }
   .badge-container .badge {
+    display: inline-block;
     position: absolute;
-    top: 10%;
-    left: 26%;
+    top: 0;
+    right: 0;
     font-size: 0.875em;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.5);
-    line-height: 0.25em;
-    height: 15px;
-    width: 15px;
-    padding: 5px;
-    border-radius: 50%;
+    padding: 0.375em;
+    line-height: 1;
+    border-radius: 0.125em;
     color: #ffffff; }
 
 /* ===========================
@@ -2543,8 +2541,8 @@ body,
       display: inline-block; }
   .top-bar .badge {
     background: none;
-    top: 0;
-    left: -65%; }
+    top: -5px;
+    left: -70%; }
 
 /**
  * App Menu
