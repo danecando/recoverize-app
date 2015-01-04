@@ -10,6 +10,9 @@ html, button, input, textarea, select {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 //a {
 //  color: #fff;

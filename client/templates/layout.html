@@ -3,12 +3,12 @@
 
     <nav class="top-bar mobile-only">
       <ul class="action-nav">
-        <li><a class="button back" href="{{history.back}}"><i class="fa fa-chevron-left fa-lg"></i></a></li>
         <li><a class="button menu-toggle" href="#"><i class="fa fa-navicon fa-lg"></i></a></li>
+        <li><h2 class="branding">r <span class="version">2.0</span></h2></li>
       </ul>
       <ul class="notification-nav">
         <li>
-          <a href="#">
+          <a href="/notifications">
             <div class="badge-container">
               <span class="badge"> {{notificationCount}} </span>
               <i class="fa fa-bell-o fa-lg"></i>
@@ -16,7 +16,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/messages">
             <div class="badge-container">
               <span class="badge"> {{messageNotificationCount}} </span>
               <i class="fa fa-envelope-o fa-lg"></i>
@@ -45,7 +45,9 @@
                   <div class="button notifications">
                     <a href="/notifications">
                       <div class="badge-container">
-                        <span class="badge"> {{notificationCount}} </span>
+                        <div class="badge">
+                          <span class="badge-count">{{notificationCount}}</span>
+                        </div>
                         <i class="fa fa-bell fa-lg"></i>
                       </div>
                     </a>

@@ -10,10 +10,37 @@
 // partials
 @import 'partials/layout';
 
-
 /* ===========================
  *  Generic Classes
  * =========================== */
+
+.text-input {
+  float: left;
+  height: 35px;
+  @include calc(width, '100% - 60px');
+  border: 0;
+  font-size: em(13);
+  letter-spacing: em(-.5);
+  margin-bottom: 0;
+  padding: em(7);
+  background: #f5f5f5;
+  resize: none;
+
+  &:focus {
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    @include calc(width, '100% - 95px');
+    @include transition(height 200ms ease-in);
+
+    + button {
+      height: 60px !important;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
 
 .title {
   font-size: em(20);
@@ -104,16 +131,42 @@
   position: fixed;
   width: 100vw;
   z-index: 5;
-  background: #111c32;
 
-   a {
-    padding: 10px;
+  a {
+    padding: em(9);
     display: block;
   }
 
   li {
     display: inline-block;
   }
+
+  .branding {
+    position: relative;
+    top: em(1);
+    font-family: $brand-font;
+    line-height: em(16);
+    text-shadow: 1px 1px 0 $brand-dark;
+    color: white;
+    margin: 0;
+
+    .version {
+      font-size: em(4);
+      color: white;
+      padding: 3px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 25%;
+      text-shadow: 0 0 0;
+      position: relative;
+      bottom: em(10);
+      right: em(5);
+      background: $brand-color;
+      font-family: $base-font-family;
+    }
+  }
+
+  .menu-toggle {}
 
   .action-nav {
     float: left;
@@ -135,8 +188,8 @@
 
   .badge {
     background: none;
-    top: 0;
-    left: -65%;
+    top: -5px;
+    left: -70%;
   }
 }
 
@@ -257,12 +310,14 @@
   z-index: 10;
   height: 34px;
   padding: 7px 10px;
-  background: linear-gradient(#fafafa, #e5e5e5);
-  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
+  background: $secondary-blue;
+//  background: linear-gradient(#fafafa, #e5e5e5);
+//  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
 
   .title {
     position: relative;
-    color: #333F57;
+//    color: #333F57;
+    color: white;
     font-weight: normal;
     text-align: center;
     font-size: em(17);
@@ -270,6 +325,7 @@
 
     i {
       position: absolute;
+      color: white;
       left: 2px;
       top: 3px;
     }
@@ -280,13 +336,13 @@
     z-index: 5;
     left: 0;
     top: 0;
-    padding: em(8) em(9);
+    padding: em(6);
     font-size: em(15);
-    color: $brand-blue;
+    color: white;
 
     i {
       float: left;
-      font-size: em(20);
+      font-size: em(18);
       padding: em(3) 0;
     }
     span {
@@ -319,16 +375,19 @@
   .message-with {
     text-align: center;
     font-weight: bold;
+    position: relative;
+    bottom: 3px;
 
     img {
       height: 20px;
       position: relative;
       top: 4px;
       right: 5px;
+      border: 2px solid white;
     }
 
     a {
-      color: $brand-blue;
+      color: white;
     }
   }
 }
@@ -365,7 +424,7 @@
   img {
     height: 55px;
     width: 55px;
-    border-radius: 50%;
+    border-radius: 2px;
   }
 }
 
@@ -439,6 +498,23 @@
       .desc {
         margin: 0;
       }
+    }
+  }
+
+  input[name=profilePic] {
+    display: none;
+  }
+
+  #image-select {
+    display: block;
+    padding: 15px;
+    border: 2px dotted #eee;
+
+    .select-button {
+      padding: 5px 10px;
+      border-radius: 2px;
+      background: #eee;
+      color: #333;
     }
   }
 }
@@ -560,15 +636,15 @@
  *  Message Thread
  * =========================== */
 
-.messaging {
-  @include calc(height, '100% - 40px');
+.message-container {
+  @include calc(height, '100% - 34px');
 }
 
 .conversation {
-  @include calc(height, '100% - 24px');
-  overflow: hidden;
+  @include calc(height, '100% - 29px');
   background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
-  overflow-y: auto;
+  overflow: hidden;
+  overflow-y: scroll;
 //  background: linear-gradient(45deg, rgba(183, 207, 224, 0.64) 10%, #eef2f3 90%); /* W3C */
 }
 
@@ -655,26 +731,28 @@
 }
 
 .message-input {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 29px;
+  height: 35px;
 
-  input[name="message"] {
+  textarea {
     float: left;
-    height: 29px;
+    height: 35px;
+    background: #eee;
     @include calc(width, '100% - 65px');
-    margin-bottom: 0;
-    letter-spacing: em(-.5);
-    margin-bottom: 0;
-    border: 0;
-    border-top: 1px solid #eee;
+
+    &:focus {
+      @include calc(width, '100% - 65px');
+
+    }
   }
 
   #send-message {
-    background: $brand-blue;
+    background: $secondary-blue;
     float: left;
     width: 65px;
+    height: 100%;
     padding: em(8);
     font-weight: normal;
     font-size: em(15);
@@ -710,11 +788,13 @@
   z-index: 10;
   height: 34px;
   padding: 7px 10px;
-  background: linear-gradient(#fafafa, #e5e5e5);
-  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
+  background: #2c5999;
+//  background: linear-gradient(#fafafa, #e5e5e5);
+//  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
 
   .title {
     color: $brand-blue;
+    color: white;
 //    text-align: center;
     font-size: em(16);
     letter-spacing: em(-.25);
@@ -722,6 +802,7 @@
     .topic {
       font-size: em(14);
       color: $dark-gray;
+      color: white;
       font-weight: 400;
     }
   }
@@ -733,7 +814,8 @@
 
 
 .chat-container {
-  @include calc(height, '100% - 34px');
+//  @include calc(height, '100% - 34px');
+  height: 100%;
   background: #eee;
   position: relative;
 }
@@ -805,11 +887,10 @@
 
 .chat-area {
   position: absolute;
-  height: 100%;
   width: 100%;
   left: 0;
   @include transition(left 500ms ease-in-out);
-  @include calc(height, '100% - 29px');
+  @include calc(height, '100% - 35px');
   overflow: hidden;
   overflow-y: scroll;
   color: #333;
@@ -860,51 +941,44 @@
 
 .ul-btn {
   background: #eee;
-  padding: em(9) em(12);
-  color: $brand-blue;
-  font-size: em(14);
-  width: 44px;
+  color: white;
+  padding: em(14) em(10) em(8);
+  background: $secondary-blue;
+  font-size: em(10);
+  font-weight: normal;
 
   i {
-    font-size: em(12);
+    font-size: em(15);
     position: relative;
     bottom: 1px;
   }
 
   &:hover {
-    background: $brand-blue;
-    color: #eee;
+    background: $secondary-blue;
+    color: white;
   }
 }
 
 .bottom-bar {
-  position: fixed;
+  position: absolute;
   @include display(flex);
   @include flex-direction(row);
   @include justify-content(center);
   bottom: 0;
-  height: 30px;
+  height: 35px;
   width: 100%;
   .chat-input {
     width: 100%;
+    z-index: 10;
 
-    input {
-      float: left;
-      @include calc(width, '100% - 60px');
-      border: 0;
-      font-size: em(13);
-      letter-spacing: em(-.5);
-      margin-bottom: 0;
-      padding: em(7);
-      border-top: 1px solid #eee;
-
-    }
     button {
       float: right;
       padding: em(7) 0;
+      height: 35px;
       width: 60px;
 
-      background: $brand-blue;
+
+      background: $secondary-blue;
 
       &:hover {
         background: $brand-blue;
@@ -944,7 +1018,7 @@
   }
 
   .colored-head {
-    background: linear-gradient(#7185a6, lighten(#7185a6, 23));
+    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
     border-bottom: 3px solid #7185a6;
     padding-top: em(15);
   }
@@ -959,10 +1033,10 @@
 
     img {
       margin-top: em(10);
-      border: 3px solid white; // rgba(255, 255, 255, .3);
+      border: 3px solid white;
       height: 200px;
       width: 200px;
-      border-radius: 50%;
+      border-radius: em(2);
     }
   }
 
@@ -1040,3 +1114,58 @@
   }
 
 }
+
+/* ===========================
+ *  Notifications
+ * =========================== */
+
+ .notifications-page {
+   @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
+//   background: linear-gradient(lighten($secondary-blue, 15), $secondary-blue);
+   min-height: 100%;
+   overflow: hidden;
+   overflow-y: scroll;
+
+   .new-notifications {
+     @include display(flex);
+     @include align-items(center);
+     @include justify-content(center);
+     padding: em(25) 0;
+     text-align: center;
+
+     .notification-amount {
+       color: white;
+       font-size: em(18);
+       margin-right: 10px;
+     }
+   }
+   button {
+     padding: em(6);
+     border-radius: em(0);
+     font-size: em(14);
+     background: white;
+     color: $secondary-blue;
+   }
+
+   .notification {
+     background: $brand-blue;
+     margin-bottom: em(25);
+
+     a {
+       color: white;
+     }
+   }
+
+   &.no-notifications {
+     @include display(flex);
+     @include align-items(center);
+     @include justify-content(center);
+     text-align: center;
+     color: white;
+
+     h1 {
+       font-weight: 300;
+       letter-spacing: em(1);
+     }
+   }
+ }

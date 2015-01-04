@@ -2,15 +2,13 @@
  * Global Variables
  */
 
-var MENU_KEY = 'menuOpen';
-Session.setDefault(MENU_KEY, false);
+var MENU_KEY = 'menuOpen'
+Session.setDefault(MENU_KEY, false)
 
-Session.setDefault('BACK_KEY', false);
+var SHOW_CONNECTION_ISSUE_KEY = 'showConnectionIssue'
+Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false)
 
-var SHOW_CONNECTION_ISSUE_KEY = 'showConnectionIssue';
-Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false);
-
-var CONNECTION_ISSUE_TIMEOUT = 5000;
+var CONNECTION_ISSUE_TIMEOUT = 5000
 
 /**
  * on client connection
@@ -20,30 +18,28 @@ Meteor.startup(function() {
     // set up a swipe left / right handler
     $(document.body).touchwipe({
         wipeLeft: function () {
-            Session.set(MENU_KEY, false);
+            Session.set(MENU_KEY, false)
         },
         wipeRight: function () {
-            Session.set(MENU_KEY, true);
+            Session.set(MENU_KEY, true)
         },
         preventDefaultEvents: false
-    });
+    })
 
-    Session.set('BACK_KEY', false);
-
-});
+})
 
 /**
  * Helpers
  */
 Template.layout.helpers({
     menuOpen: function() {
-        return Session.get(MENU_KEY) && 'menu-open';
+        return Session.get(MENU_KEY) && 'menu-open'
     },
     cordova: function() {
-        return Meteor.isCordova && 'cordova';
+        return Meteor.isCordova && 'cordova'
     }
 
-});
+})
 
 /**
  * Events
@@ -51,14 +47,14 @@ Template.layout.helpers({
 Template.layout.events({
 
     'click .menu-toggle': function() {
-        Session.set(MENU_KEY, !Session.get(MENU_KEY));
+        Session.set(MENU_KEY, !Session.get(MENU_KEY))
     },
     'click #page-overlay': function(event) {
-        Session.set(MENU_KEY, false);
-        event.preventDefault();
+        Session.set(MENU_KEY, false)
+        event.preventDefault()
     },
-    'click .action-nav .back': function() {
-        history.back();
+    'click #menu nav a, click .notification-nav a': function() {
+        Session.set(MENU_KEY, false)
     }
 
-});
+})

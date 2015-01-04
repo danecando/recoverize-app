@@ -41,7 +41,6 @@ Template.accountSettings.events({
         event.preventDefault()
 
         var user = {
-            username: template.$('[name=username]').val(),
             email: template.$('[name=email]').val(),
             oldpw: template.$('[name=oldpw]').val(),
             newpw: template.$('[name=newpw]').val(),
