@@ -2942,7 +2942,8 @@ body,
 .conversation {
   height: -webkit-calc(100% - 29px);
   height: calc(100% - 29px);
-  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
   overflow: hidden;
   overflow-y: scroll; }
 
@@ -2975,30 +2976,15 @@ body,
   .message .bubble {
     position: relative;
     display: inline-block;
-    border-radius: 1.25em;
+    border-radius: 0.3125em;
     margin: 0 10px;
     padding: 15px 20px;
-    font-size: 0.9375em;
-    box-shadow: 1px 2px 5px rgba(60, 60, 60, 0.25); }
-    .message .bubble:before {
-      border-color: #2095FE;
-      border-radius: 50% 50% 50% 50%;
-      border-style: solid;
-      border-width: 0 20px;
-      bottom: 0;
-      clip: rect(20px, 40px, 32px, 0px);
-      content: " ";
-      height: 30px;
-      position: absolute;
-      right: -50px;
-      width: 30px;
-      z-index: 1; }
+    font-size: 0.9375em; }
   .message.to .bubble {
     float: right;
-    background-color: #2095FE;
+    background-color: #123865;
     color: #fff;
-    margin-left: 10vw;
-    box-shadow: -1px 2px 4px rgba(60, 60, 60, 0.2); }
+    margin-left: 10vw; }
     .message.to .bubble:before {
       right: -0.5em; }
   .message.from .bubble {
@@ -3293,7 +3279,8 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: linear-gradient(#2c5999, #6794d3);
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
   border-bottom: 3px solid #7185a6;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
