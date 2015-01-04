@@ -3372,7 +3372,8 @@ body,
  *  Notifications
  * =========================== */
 .notifications-page {
-  background: linear-gradient(#477dca, #2c5999);
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   min-height: 100%;
   overflow: hidden;
   overflow-y: scroll; }
