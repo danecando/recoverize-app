@@ -1001,7 +1001,8 @@
   }
 
   .colored-head {
-    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
+    @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
+//    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
     border-bottom: 3px solid #7185a6;
     padding-top: em(15);
   }
