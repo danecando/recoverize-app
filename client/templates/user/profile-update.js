@@ -71,7 +71,16 @@ Template.profileUpdate.events({
                 function (results) {
                     for (var i = 0; i < results.length; i++) {
                         if (typeof results[i] == 'string') {
-                            template.$('[name=profilePic]')[0].files[0] = results[i]
+                            var fileName = results[i].substring(results[i].lastIndexOf('/')+1)
+                            var filePath = results[i].substring(0, results[i].lastIndexOf('/'))
+                            window.resolveLocalFileSystemURL(filePath, function(dir) {
+                                console.log(JSON.stringify(dir))
+                                dir.getFile(fileName, {create: true, exclusive: false}, function(file) {
+
+                                    template.$('[name=profilePic]')[0].files[0] = file
+                                    Session.set('updated', true);
+                                })
+                            })
                         }
                     }
                 }, function (error) {
@@ -88,17 +97,21 @@ Template.profileUpdate.events({
 
         // todo: load defaults create thingy if profile picture is already uploaded
         var file = template.$('[name=profilePic]')[0].files[0]
-        alert(file)
-        //var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
-        //var uploader = new Slingshot.Upload("myFileUploads")
-        //uploader.send(file, function (error, downloadUrl) {
-        //    if (error) template.$('.response').addClass('error').text(error)
-        //})
+        console.log(JSON.stringify(file))
+        if (file) {
+            var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
+            var uploader = new Slingshot.Upload("myFileUploads")
+            uploader.send(file, function (error, downloadUrl) {
+                if (error) template.$('.response').addClass('error').text(error)
+                console.log(downloadUrl)
+            })
+        }
+
 
 
         var user = {
             name: template.$('[name=name]').val(),
-            //profilePic: fileUrl,
+            profilePic: fileUrl,
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val(),
             program: template.$('[name=program]').val(),
