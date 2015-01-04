@@ -424,7 +424,7 @@
   img {
     height: 55px;
     width: 55px;
-    border-radius: 50%;
+    border-radius: 2px;
   }
 }
 
@@ -498,6 +498,23 @@
       .desc {
         margin: 0;
       }
+    }
+  }
+
+  input[name=profilePic] {
+    display: none;
+  }
+
+  #image-select {
+    display: block;
+    padding: 15px;
+    border: 2px dotted #eee;
+
+    .select-button {
+      padding: 5px 10px;
+      border-radius: 2px;
+      background: #eee;
+      color: #333;
     }
   }
 }
@@ -1097,3 +1114,58 @@
   }
 
 }
+
+/* ===========================
+ *  Notifications
+ * =========================== */
+
+ .notifications-page {
+   @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
+//   background: linear-gradient(lighten($secondary-blue, 15), $secondary-blue);
+   min-height: 100%;
+   overflow: hidden;
+   overflow-y: scroll;
+
+   .new-notifications {
+     @include display(flex);
+     @include align-items(center);
+     @include justify-content(center);
+     padding: em(25) 0;
+     text-align: center;
+
+     .notification-amount {
+       color: white;
+       font-size: em(18);
+       margin-right: 10px;
+     }
+   }
+   button {
+     padding: em(6);
+     border-radius: em(0);
+     font-size: em(14);
+     background: white;
+     color: $secondary-blue;
+   }
+
+   .notification {
+     background: $brand-blue;
+     margin-bottom: em(25);
+
+     a {
+       color: white;
+     }
+   }
+
+   &.no-notifications {
+     @include display(flex);
+     @include align-items(center);
+     @include justify-content(center);
+     text-align: center;
+     color: white;
+
+     h1 {
+       font-weight: 300;
+       letter-spacing: em(1);
+     }
+   }
+ }
