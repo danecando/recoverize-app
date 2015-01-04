@@ -26,8 +26,6 @@ Meteor.startup(function() {
         preventDefaultEvents: false
     })
 
-    Session.set('BACK_KEY', false)
-
 })
 
 /**
