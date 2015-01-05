@@ -4,6 +4,43 @@ Template.profileUpdate.rendered = function() {
     //} else {
     //    $('.picture-exists').css('display', 'none')
     //}
+//
+    var program = Meteor.user().profile.program
+    if (program) {
+        $('#program option').each(function() {
+            if (program == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+    }
+
+    var gender = Meteor.user().profile.gender
+    if (gender) {
+        $('#gender option').each(function() {
+            if (gender == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+    }
+
+    var soberDate = Meteor.user().profile.soberDate
+    if (soberDate) {
+        $('#sober-year option').each(function() {
+            if (soberDate.getFullYear() == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+        $('#sober-month option').each(function() {
+            if (soberDate.getMonth() == $(this).val()-1) {
+                $(this).attr('selected', true)
+            }
+        })
+        $('#sober-day option').each(function() {
+            if (soberDate.getDate() == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+    }
 }
 
 Template.profileUpdate.created = function() {

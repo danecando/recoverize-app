@@ -417,6 +417,23 @@
 }
 
 /* ===========================
+ *  Loading Screen
+ * =========================== */
+
+#loading {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  height: 100%;
+  @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
+
+  h1 {
+    font-weight: 300;
+    color: white;
+  }
+}
+
+/* ===========================
  *  Account / Profile Update
  * =========================== */
 
@@ -1001,6 +1018,10 @@
  *  User Profiles
  * =========================== */
 
+.profile-page {
+  background: #fafafa;
+}
+
 .user-profile {
 
   .username {
@@ -1053,7 +1074,8 @@
 
   .user-social {
     color: white;
-    margin: em(25) 0;
+//    margin: em(25) 0;
+    padding: em(25);
 
     @include media($tablet-screen-up) {
       @include span-columns(6);
@@ -1101,27 +1123,31 @@
 
   .profile-fields {
     background: #f5f5f5;
-    background: #f5f5f5;
+    background: $secondary-blue;
     padding: 15px 0;
-    border-bottom: 2px solid #eee;
   }
 
   .quote {
-    font-family: "Lobster Two", cursive;
-    font-weight: normal;
+//    font-family: "Lobster Two", cursive;
+    margin: em(15) 0;
+    font-size: em(16);
+    font-weight: 300;
     font-style: italic;
-    text-align: center;
-    padding: em(5) 0;
+//    text-align: center;
   }
 
   .share-intro {
-    background: white;
-    width: 80%;
-    min-width: 270px;
-    margin: 0 auto;
+//    background: white;
+    padding: em(15);
+    color: white;
     text-align: center;
-    padding: em(5);
     border-radius: em(3);
+
+    @include media($tablet-screen-up) {
+      width: 80%;
+      margin: 0 auto;
+      padding: em(5);
+    }
   }
 
 }
@@ -1180,3 +1206,25 @@
      }
    }
  }
+
+/* ===========================
+ *  Statuses
+ * =========================== */
+
+.status-list {
+//  background: #fafafa;
+}
+
+.status-box {
+  margin: em(15);
+  padding: em(15);
+  border: 1px solid #eee;
+  border-radius: em(3);
+  background: white;
+//  box-shadow: 0 0 3px 1px rgba(50, 50, 50, .1);
+
+  @include media($tablet-screen-up) {
+    width: 80%;
+    margin: em(15) auto;
+  }
+}
