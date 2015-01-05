@@ -6,6 +6,7 @@
         <li><a class="button menu-toggle" href="#"><i class="fa fa-navicon fa-lg"></i></a></li>
         <li><h2 class="branding">r <span class="version">2.0</span></h2></li>
       </ul>
+      {{#if currentUser}}
       <ul class="notification-nav">
         <li>
           <a href="/notifications">
@@ -24,6 +25,7 @@
           </a>
         </li>
       </ul>
+      {{/if}}
     </nav>
 
     <main id="app">
