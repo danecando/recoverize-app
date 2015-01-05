@@ -6,26 +6,28 @@
       <span class="envelope-btn"><i class="fa fa-envelope-o"></i></span>
       <span class="messages-text">Messages</span>
     </a>
-    <h2 class="title message-with"><a style="color: {{userColor username}}" href="/users/{{username}}"><img src="{{profilePic username}}" alt="{{username}}">{{username}}</a><span class="user-connection {{presenceOf username}}"></span></h2>
+    <h2 class="title message-with"><a href="/users/{{username}}"><img src="{{profilePic username}}" alt="{{username}}">{{username}}</a><span class="user-connection {{presenceOf username}}"></span></h2>
   </section>
 
-  <section class="messaging">
+  <section class="message-container">
     <div class="conversation">
         {{#if olderPages}}
           <button class="older-messages">load older messages</button>
         {{/if}}
-        {{#each messages}}
-        <div class="message {{messageDirection this.username}}">
-          <div class="bubble">
-            {{linkMentions this.message}}
-            <time>{{relativeTime this.timestamp}}</time>
-          </div>
-        </div>
-        {{/each}}
+        <ol class="messages">
+            {{#each messages}}
+            <li class="message {{messageDirection this.username}}">
+              <div class="bubble">
+                {{linkMentions this.message}}
+                <time>{{relativeTime this.timestamp}}</time>
+              </div>
+            </li>
+            {{/each}}
+        </ol>
     </div>
 
     <div class="message-input">
-        <input type="text" name="message" autocomplete="off">
+        <textarea class="text-input" autocomplete="off"></textarea>
         <button id="send-message">Send</button>
     </div>
 

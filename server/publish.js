@@ -66,7 +66,6 @@ Meteor.publish('notification', function(){
 
 // @todo: expose public fields only
 Meteor.publish('userPublic', function(username){
-    
     if(username) {
         return [
             Meteor.users.find({username: username}),
@@ -77,6 +76,26 @@ Meteor.publish('userPublic', function(username){
             Meteor.users.find(),
             Status.find()
         ]
+    }
+})
+
+/**
+ * returns list of users
+ */
+Meteor.publish('userList', function(query){
+
+    var fields = {username: 1, createdAt: 1}
+
+    if(query) {
+        return Meteor.users.find(
+            {username: {$regex: query}},
+            {fields: fields, limit: 10}
+        )
+    } else {
+        return Meteor.users.find(
+            {},
+            {fields: fields, limit: 10, sort: {createdAt: -1}}
+        )
     }
 })
 

@@ -7,14 +7,15 @@
   <ul class="top-links">
     <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
     <li class="update-profile"><a class="button" href="/profile">Update Profile</a></li>
+    <li class="report-bugs"><a class="button" href="/report">Report Bug</a></li>
   </ul>
 
   <form action="">
     <section class="account-settings">
       <ul class="fields">
         <li>
-          <label for="username">Username <small class="desc">Letters & numbers only</small></label>
-          <input type="text" name="username" value="{{user.username}}">
+          <label for="username">Username <small class="desc">Cannot be changed</small></label>
+          <input type="text" name="username" value="{{user.username}}" disabled>
         </li>
         <li>
           <label for="email">Email</label>

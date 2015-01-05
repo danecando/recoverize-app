@@ -544,6 +544,11 @@ select[multiple=multiple] {
   input[type="email"].success, input[type="number"].success, input[type="password"].success, input[type="search"].success, input[type="tel"].success, input[type="text"].success, input[type="url"].success, input[type="color"].success, input[type="date"].success, input[type="datetime"].success, input[type="datetime-local"].success, input[type="month"].success, input[type="time"].success, input[type="week"].success,
   select[multiple=multiple].success {
     border-color: green; }
+  textarea:disabled,
+  input[type="email"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="url"]:disabled, input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="month"]:disabled, input[type="time"]:disabled, input[type="week"]:disabled,
+  select[multiple=multiple]:disabled {
+    background-color: #f5f5f5;
+    color: #999; }
 
 textarea {
   resize: vertical; }
@@ -629,6 +634,9 @@ html, button, input, textarea, select {
   outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+::-webkit-scrollbar {
+  display: none; }
 
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2294,17 +2302,15 @@ html, button, input, textarea, select {
 .badge-container {
   position: relative; }
   .badge-container .badge {
+    display: inline-block;
     position: absolute;
-    top: 10%;
-    left: 26%;
+    top: 0;
+    right: 0;
     font-size: 0.875em;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.5);
-    line-height: 0.25em;
-    height: 15px;
-    width: 15px;
-    padding: 5px;
-    border-radius: 50%;
+    padding: 0.375em;
+    line-height: 1;
+    border-radius: 0.125em;
     color: #ffffff; }
 
 /* ===========================
@@ -2402,6 +2408,33 @@ body,
 /* ===========================
  *  Generic Classes
  * =========================== */
+.text-input {
+  float: left;
+  height: 35px;
+  width: -webkit-calc(100% - 60px);
+  width: calc(100% - 60px);
+  border: 0;
+  font-size: 0.8125em;
+  letter-spacing: -0.03125em;
+  margin-bottom: 0;
+  padding: 0.4375em;
+  background: #f5f5f5;
+  resize: none; }
+  .text-input:focus {
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: -webkit-calc(100% - 95px);
+    width: calc(100% - 95px);
+    -webkit-transition: height 200ms ease-in;
+    -moz-transition: height 200ms ease-in;
+    transition: height 200ms ease-in; }
+    .text-input:focus + button {
+      height: 60px !important;
+      position: absolute;
+      bottom: 0;
+      right: 0; }
+
 .title {
   font-size: 1.25em; }
 
@@ -2477,13 +2510,33 @@ body,
 .top-bar {
   position: fixed;
   width: 100vw;
-  z-index: 5;
-  background: #111c32; }
+  z-index: 5; }
   .top-bar a {
-    padding: 10px;
+    padding: 0.5625em;
     display: block; }
   .top-bar li {
     display: inline-block; }
+  .top-bar .branding {
+    position: relative;
+    top: 0.0625em;
+    font-family: "Lobster Two", cursive;
+    line-height: 1em;
+    text-shadow: 1px 1px 0 #E85608;
+    color: white;
+    margin: 0; }
+    .top-bar .branding .version {
+      font-size: 0.25em;
+      color: white;
+      padding: 3px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 25%;
+      text-shadow: 0 0 0;
+      position: relative;
+      bottom: 0.625em;
+      right: 0.3125em;
+      background: #FA7C38;
+      font-family: "AzoSans", Arial, sans-serif; }
   .top-bar .action-nav {
     float: left; }
   .top-bar .notification-nav {
@@ -2496,8 +2549,8 @@ body,
       display: inline-block; }
   .top-bar .badge {
     background: none;
-    top: 0;
-    left: -65%; }
+    top: -5px;
+    left: -70%; }
 
 /**
  * App Menu
@@ -2607,17 +2660,17 @@ body,
   z-index: 10;
   height: 34px;
   padding: 7px 10px;
-  background: linear-gradient(#fafafa, #e5e5e5);
-  box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.25); }
+  background: #2c5999; }
   .page-head .title {
     position: relative;
-    color: #333F57;
+    color: white;
     font-weight: normal;
     text-align: center;
     font-size: 1.0625em;
     text-transform: none; }
     .page-head .title i {
       position: absolute;
+      color: white;
       left: 2px;
       top: 3px; }
   .page-head .messages-link {
@@ -2625,12 +2678,12 @@ body,
     z-index: 5;
     left: 0;
     top: 0;
-    padding: 0.5em 0.5625em;
+    padding: 0.375em;
     font-size: 0.9375em;
-    color: #123865; }
+    color: white; }
     .page-head .messages-link i {
       float: left;
-      font-size: 1.25em;
+      font-size: 1.125em;
       padding: 0.1875em 0; }
     .page-head .messages-link span {
       float: left;
@@ -2649,14 +2702,17 @@ body,
         padding: 0.375em 0; } }
   .page-head .message-with {
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold;
+    position: relative;
+    bottom: 3px; }
     .page-head .message-with img {
       height: 20px;
       position: relative;
       top: 4px;
-      right: 5px; }
+      right: 5px;
+      border: 2px solid white; }
     .page-head .message-with a {
-      color: #123865; }
+      color: white; }
 
 /* ===========================
  *  Notifications
@@ -2684,7 +2740,7 @@ body,
 .view-profile img {
   height: 55px;
   width: 55px;
-  border-radius: 50%; }
+  border-radius: 2px; }
 
 .top-links {
   margin: 25px 0 20px;
@@ -2742,7 +2798,13 @@ body,
   text-align: center; }
 .account-settings .fields,
 .profile-settings .fields {
-  padding: 15px; }
+  padding: 10px; }
+  .account-settings .fields li,
+  .profile-settings .fields li {
+    margin-bottom: 1.25em; }
+  .account-settings .fields input,
+  .profile-settings .fields input {
+    margin-bottom: 0; }
 .account-settings #save-changes,
 .profile-settings #save-changes {
   width: 100%;
@@ -2768,6 +2830,20 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
+.account-settings input[name=profilePic],
+.profile-settings input[name=profilePic] {
+  display: none; }
+.account-settings #image-select,
+.profile-settings #image-select {
+  display: block;
+  padding: 15px;
+  border: 2px dotted #eee; }
+  .account-settings #image-select .select-button,
+  .profile-settings #image-select .select-button {
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: #eee;
+    color: #333; }
 
 /* ===========================
  *  Messages
@@ -2870,16 +2946,17 @@ body,
 /* ===========================
  *  Message Thread
  * =========================== */
-.messaging {
-  height: -webkit-calc(100% - 40px);
-  height: calc(100% - 40px); }
+.message-container {
+  height: -webkit-calc(100% - 34px);
+  height: calc(100% - 34px); }
 
 .conversation {
-  height: -webkit-calc(100% - 24px);
-  height: calc(100% - 24px);
+  height: -webkit-calc(100% - 29px);
+  height: calc(100% - 29px);
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
   overflow: hidden;
-  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
-  overflow-y: auto; }
+  overflow-y: scroll; }
 
 .older-messages {
   width: 100%;
@@ -2910,30 +2987,15 @@ body,
   .message .bubble {
     position: relative;
     display: inline-block;
-    border-radius: 1.25em;
+    border-radius: 0.3125em;
     margin: 0 10px;
     padding: 15px 20px;
-    font-size: 0.9375em;
-    box-shadow: 1px 2px 5px rgba(60, 60, 60, 0.25); }
-    .message .bubble:before {
-      border-color: #2095FE;
-      border-radius: 50% 50% 50% 50%;
-      border-style: solid;
-      border-width: 0 20px;
-      bottom: 0;
-      clip: rect(20px, 40px, 32px, 0px);
-      content: " ";
-      height: 30px;
-      position: absolute;
-      right: -50px;
-      width: 30px;
-      z-index: 1; }
+    font-size: 0.9375em; }
   .message.to .bubble {
     float: right;
-    background-color: #2095FE;
+    background-color: #123865;
     color: #fff;
-    margin-left: 10vw;
-    box-shadow: -1px 2px 4px rgba(60, 60, 60, 0.2); }
+    margin-left: 10vw; }
     .message.to .bubble:before {
       right: -0.5em; }
   .message.from .bubble {
@@ -2949,24 +3011,24 @@ body,
   bottom: 2px; }
 
 .message-input {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  height: 29px; }
-  .message-input input[name="message"] {
+  height: 35px; }
+  .message-input textarea {
     float: left;
-    height: 29px;
+    height: 35px;
+    background: #eee;
     width: -webkit-calc(100% - 65px);
-    width: calc(100% - 65px);
-    margin-bottom: 0;
-    letter-spacing: -0.03125em;
-    margin-bottom: 0;
-    border: 0;
-    border-top: 1px solid #eee; }
+    width: calc(100% - 65px); }
+    .message-input textarea:focus {
+      width: -webkit-calc(100% - 65px);
+      width: calc(100% - 65px); }
   .message-input #send-message {
-    background: #123865;
+    background: #2c5999;
     float: left;
     width: 65px;
+    height: 100%;
     padding: 0.5em;
     font-weight: normal;
     font-size: 0.9375em; }
@@ -2992,23 +3054,23 @@ body,
   z-index: 10;
   height: 34px;
   padding: 7px 10px;
-  background: linear-gradient(#fafafa, #e5e5e5);
-  box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.25); }
+  background: #2c5999; }
   .chat-head .title {
     color: #123865;
+    color: white;
     font-size: 1em;
     letter-spacing: -0.015625em; }
     .chat-head .title .topic {
       font-size: 0.875em;
       color: #333;
+      color: white;
       font-weight: 400; }
   @media screen and (min-width: 48em) {
     .chat-head {
       text-align: center; } }
 
 .chat-container {
-  height: -webkit-calc(100% - 34px);
-  height: calc(100% - 34px);
+  height: 100%;
   background: #eee;
   position: relative; }
 
@@ -3084,14 +3146,13 @@ body,
 
 .chat-area {
   position: absolute;
-  height: 100%;
   width: 100%;
   left: 0;
   -webkit-transition: left 500ms ease-in-out;
   -moz-transition: left 500ms ease-in-out;
   transition: left 500ms ease-in-out;
-  height: -webkit-calc(100% - 29px);
-  height: calc(100% - 29px);
+  height: -webkit-calc(100% - 35px);
+  height: calc(100% - 35px);
   overflow: hidden;
   overflow-y: scroll;
   color: #333;
@@ -3129,20 +3190,21 @@ body,
 
 .ul-btn {
   background: #eee;
-  padding: 0.5625em 0.75em;
-  color: #123865;
-  font-size: 0.875em;
-  width: 44px; }
+  color: white;
+  padding: 0.875em 0.625em 0.5em;
+  background: #2c5999;
+  font-size: 0.625em;
+  font-weight: normal; }
   .ul-btn i {
-    font-size: 0.75em;
+    font-size: 0.9375em;
     position: relative;
     bottom: 1px; }
   .ul-btn:hover {
-    background: #123865;
-    color: #eee; }
+    background: #2c5999;
+    color: white; }
 
 .bottom-bar {
-  position: fixed;
+  position: absolute;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -3167,25 +3229,17 @@ body,
   justify-content: center;
   -ms-flex-pack: center;
   bottom: 0;
-  height: 30px;
+  height: 35px;
   width: 100%; }
   .bottom-bar .chat-input {
-    width: 100%; }
-    .bottom-bar .chat-input input {
-      float: left;
-      width: -webkit-calc(100% - 60px);
-      width: calc(100% - 60px);
-      border: 0;
-      font-size: 0.8125em;
-      letter-spacing: -0.03125em;
-      margin-bottom: 0;
-      padding: 0.4375em;
-      border-top: 1px solid #eee; }
+    width: 100%;
+    z-index: 10; }
     .bottom-bar .chat-input button {
       float: right;
       padding: 0.4375em 0;
+      height: 35px;
       width: 60px;
-      background: #123865; }
+      background: #2c5999; }
       .bottom-bar .chat-input button:hover {
         background: #123865; }
 
@@ -3236,8 +3290,9 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: linear-gradient(#7185a6, #b9c3d3);
-  border-bottom: 3px solid #7185a6;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  border-bottom: 3px solid #2c5999;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
   text-align: center; }
@@ -3255,7 +3310,7 @@ body,
     border: 3px solid white;
     height: 200px;
     width: 200px;
-    border-radius: 50%; }
+    border-radius: 0.125em; }
 .user-profile .user-social {
   color: white;
   margin: 1.5625em 0; }
@@ -3310,3 +3365,87 @@ body,
   text-align: center;
   padding: 0.3125em;
   border-radius: 0.1875em; }
+
+/* ===========================
+ *  Notifications
+ * =========================== */
+.notifications-page {
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: scroll; }
+  .notifications-page .new-notifications {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    padding: 1.5625em 0;
+    text-align: center; }
+    .notifications-page .new-notifications .notification-amount {
+      color: white;
+      font-size: 1.125em;
+      margin-right: 10px; }
+  .notifications-page button {
+    padding: 0.375em;
+    border-radius: 0em;
+    font-size: 0.875em;
+    background: white;
+    color: #2c5999; }
+  .notifications-page .notification {
+    background: #123865;
+    margin-bottom: 1.5625em; }
+    .notifications-page .notification a {
+      color: white; }
+  .notifications-page.no-notifications {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    text-align: center;
+    color: white; }
+    .notifications-page.no-notifications h1 {
+      font-weight: 300;
+      letter-spacing: 0.0625em; }
