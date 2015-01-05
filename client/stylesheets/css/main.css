@@ -544,6 +544,11 @@ select[multiple=multiple] {
   input[type="email"].success, input[type="number"].success, input[type="password"].success, input[type="search"].success, input[type="tel"].success, input[type="text"].success, input[type="url"].success, input[type="color"].success, input[type="date"].success, input[type="datetime"].success, input[type="datetime-local"].success, input[type="month"].success, input[type="time"].success, input[type="week"].success,
   select[multiple=multiple].success {
     border-color: green; }
+  textarea:disabled,
+  input[type="email"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="url"]:disabled, input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="month"]:disabled, input[type="time"]:disabled, input[type="week"]:disabled,
+  select[multiple=multiple]:disabled {
+    background-color: #f5f5f5;
+    color: #999; }
 
 textarea {
   resize: vertical; }
@@ -2793,7 +2798,13 @@ body,
   text-align: center; }
 .account-settings .fields,
 .profile-settings .fields {
-  padding: 15px; }
+  padding: 10px; }
+  .account-settings .fields li,
+  .profile-settings .fields li {
+    margin-bottom: 1.25em; }
+  .account-settings .fields input,
+  .profile-settings .fields input {
+    margin-bottom: 0; }
 .account-settings #save-changes,
 .profile-settings #save-changes {
   width: 100%;
@@ -3281,7 +3292,7 @@ body,
 .user-profile .colored-head {
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  border-bottom: 3px solid #7185a6;
+  border-bottom: 3px solid #2c5999;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
   text-align: center; }

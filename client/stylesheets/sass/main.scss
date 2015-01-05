@@ -6,6 +6,7 @@
 
 // components
 @import 'components/badges';
+@import 'components/modal';
 
 // partials
 @import 'partials/layout';
@@ -470,7 +471,14 @@
   }
 
   .fields {
-    padding: 15px;
+    padding: 10px;
+
+    li {
+      margin-bottom: em(20);
+    }
+    input {
+      margin-bottom: 0;
+    }
   }
 
   #save-changes {
@@ -1022,7 +1030,7 @@
   .colored-head {
     @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
 //    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
-    border-bottom: 3px solid #7185a6;
+    border-bottom: 3px solid $secondary-blue;
     padding-top: em(15);
   }
 
