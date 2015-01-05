@@ -4,6 +4,7 @@
     <nav class="top-bar mobile-only">
       <ul class="action-nav">
         <li><a class="button menu-toggle" href="#"><i class="fa fa-navicon fa-lg"></i></a></li>
+        <li><h2 class="branding">r <span class="version">2.0</span></h2></li>
       </ul>
       {{#if currentUser}}
       <ul class="notification-nav">
@@ -46,7 +47,9 @@
                   <div class="button notifications">
                     <a href="/notifications">
                       <div class="badge-container">
-                        <span class="badge"> {{notificationCount}} </span>
+                        <div class="badge">
+                          <span class="badge-count">{{notificationCount}}</span>
+                        </div>
                         <i class="fa fa-bell fa-lg"></i>
                       </div>
                     </a>
@@ -90,6 +93,7 @@
           </ul>
           <ul class="pages bottom">
             <li><a href="/account">Account</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li><a href="/logout">Logout</a></li>
             <li><a href="/help">Need Help Stopping?</a></li>
           </ul>
@@ -109,6 +113,9 @@
       Here's a notification
     </div>
   </section>
+
+
+
 
   </div>
 </template>

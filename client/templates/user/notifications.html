@@ -1,10 +1,21 @@
 
 <template name="notifications">
-    {{#if notifications}}
-        {{#each notifications}}
-            <a href="{{this.path}}" class="userLink"><h3> {{this.type}} | {{relativeTime this.timestamp}}</h3></a> 
-        {{/each}}
-    {{else}}
-        <h1>you have no notifications!</h1>
-    {{/if}}
+  <div class="notifications-page {{#unless notifications}}no-notifications{{/unless}}">
+      {{#if notifications}}
+          <div class="new-notifications">
+            <span class="notification-amount">{{notifications.length}} notifications</span>
+            <button id="clear-notifications" class="btn">Clear All</button>
+          </div>
+          {{#each notifications}}
+              <div class="notification">
+                <a href="{{this.path}}" class="userLink">
+                  <h4>{{this.type}}ed  by {{this.who}}</h4>
+                  <time class="small">{{relativeTime this.timestamp}}</time>
+                </a>
+              </div>
+          {{/each}}
+      {{else}}
+        <h1>No new notifications!</h1>
+      {{/if}}
+  </div>
 </template>
