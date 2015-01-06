@@ -3331,7 +3331,6 @@ body,
 .user-profile .colored-head {
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  border-bottom: 3px solid #2c5999;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
   text-align: center; }
@@ -3502,3 +3501,93 @@ body,
     .status-box {
       width: 80%;
       margin: 0.9375em auto; } }
+
+/* ===========================
+ *  Login Page
+ * =========================== */
+.no-bar #menu {
+  border-right: 0; }
+
+.no-bar #app {
+  top: 0; }
+
+.no-bar .top-bar {
+  top: -45px; }
+
+.no-bar .menu-toggle {
+  position: absolute;
+  top: 45px;
+  color: white; }
+
+.no-bar
+.no-bar .top-bar .branding {
+  display: none; }
+
+#login-page {
+  background: url("/images/background.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  text-align: center;
+  color: #FFF;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+  #login-page form {
+    padding: 0.9375em;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: left; }
+    #login-page form :-moz-placeholder {
+      color: white; }
+    #login-page form ::-webkit-input-placeholder {
+      color: white; }
+    #login-page form :-ms-input-placeholder {
+      color: white; }
+    #login-page form input {
+      background: none;
+      border-color: white;
+      color: white; }
+    #login-page form .btn-primary {
+      background: rgba(220, 220, 220, 0.15);
+      color: white;
+      padding: 0.375em 1.125em;
+      font-weight: normal; }
+  #login-page .login-bottom {
+    margin: 1.5625em 0;
+    text-align: center; }
+  #login-page .link-auth-alt {
+    color: white; }
+  #login-page .social-logins {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    margin-bottom: 0.3125em; }
+    #login-page .social-logins li {
+      display: inline-block;
+      width: 45%; }
+    #login-page .social-logins img {
+      max-width: 100%;
+      cursor: pointer; }

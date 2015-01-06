@@ -1051,7 +1051,7 @@
   .colored-head {
     @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
 //    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
-    border-bottom: 3px solid $secondary-blue;
+//    border-bottom: 3px solid $secondary-blue;
     padding-top: em(15);
   }
 
@@ -1227,4 +1227,111 @@
     width: 80%;
     margin: em(15) auto;
   }
+}
+
+/* ===========================
+ *  Login Page
+ * =========================== */
+
+.no-bar #menu {
+  border-right: 0;
+}
+
+.no-bar #app {
+  top: 0;
+}
+
+.no-bar .top-bar {
+  top: -45px;
+}
+
+.no-bar .menu-toggle {
+  position: absolute;
+  top: 45px;
+  color: white;
+}
+
+.no-bar
+
+
+.no-bar .top-bar .branding {
+  display: none;
+}
+
+#login-page {
+  background: url('/images/background.jpeg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  text-align: center;
+  color: #FFF;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+  .wrapper-auth {
+
+//    @include media($tablet-screen-up) {
+//      padding: 10% 0;
+//    }
+  }
+
+  form {
+    padding: em(15);
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: left;
+    :-moz-placeholder {
+      color: white;
+    }
+    ::-webkit-input-placeholder {
+      color: white;
+    }
+    :-ms-input-placeholder {
+      color: white;
+    }
+    input {
+      background: none;
+      border-color: white;
+      color: white;
+
+    }
+
+    .btn-primary {
+      background: rgba(220, 220, 220, .15);
+//      border: 2px solid white;
+      color: white;
+      padding: em(6) em(18);
+      font-weight: normal;
+    }
+  }
+
+ .login-bottom {
+//   position: absolute;
+//   width: 100%;
+//   bottom: 25px;
+   margin: em(25) 0;
+   text-align: center;
+ }
+
+ .link-auth-alt {
+   color: white;
+ }
+
+ .social-logins {
+  text-align: center;
+   margin: 0 auto;
+   max-width: 400px;
+  margin-bottom: em(5);
+
+   li {
+     display: inline-block;
+     width: 45%;
+   }
+
+   img {
+     max-width: 100%;
+     cursor: pointer;
+   }
+ }
 }
