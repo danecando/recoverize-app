@@ -1,45 +1,44 @@
 <template name="signin">
-    <div class="page auth">
-        <nav>
-            <div class="nav-group">
-                <a href="#" class="js-menu nav-item"><span class="icon-list-unordered"></span></a>
-            </div>
-        </nav>
+  <div class="bg-overlay"></div>
+  <div id="login-page">
+    <div class="wrapper-auth">
+      <!--<h1 class="title-auth">Sign In. {{users.count}}</h1>-->
+      <h1 class="logo">recoverize <span class="version">2.0</span></h1>
 
-        <div class="content-scrollable">
-            <div class="wrapper-auth">
-                <h1 class="title-auth">Sign In.</h1>
-                <p class="subtitle-auth" >Signing in allows you to view private lists</p>
-
-                <form>
-                    {{#if errorMessages}}
-                        <div class="list-errors">
-                            {{#each errorMessages}}
-                                <div class="list-item">{{this}}</div>
-                            {{/each}}
-                        </div>
-                    {{/if}}
-
-                    <div class="input-symbol {{errorClass 'email'}}">
-                        <input type="email" name="email" placeholder="Your Email" />
-                        <span class="icon-email" title="Your Email"></span>
-                    </div>
-
-                    <div class="input-symbol {{errorClass 'password'}}">
-                        <input type="password" name="password" placeholder="Password" />
-                        <span class="icon-lock" title="Password"></span>
-                    </div>
-
-                    <button type="submit" class="btn-primary">Sign in</button>
-                </form>
-            </div>
-
-            <ul class="social-logins">
-              <li><button type="button" class="btn btn-social-login btn-facebook"><i class="fa fa-facebook"></i> Sign in with Facebook</button></li>
-              <li><button type="button" class="btn btn-social-login btn-twitter"><i class="fa fa-twitter"></i> Sign in with Twitter</button></li>
-            </ul>
-
-            <a href="{{pathFor 'join'}}" class="link-auth-alt">Need an account? Join Now.</a>
+        <div class="intro-message">
+          <p>Join {{users.count}} members worldwide on the only social recovery app</p>
         </div>
+      <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+                {{#each errorMessages}}
+                  <div class="list-item">{{this}}</div>
+                {{/each}}
+            </div>
+          {{/if}}
+
+        <div class="input-symbol {{errorClass 'email'}}">
+          <input type="email" name="email" placeholder="Email" />
+          <span class="icon-email" title="Your Email"></span>
+        </div>
+
+        <div class="input-symbol {{errorClass 'password'}}">
+          <input type="password" name="password" placeholder="Password" />
+          <span class="icon-lock" title="Password"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign in</button>
+      </form>
+
+      <div class="login-bottom">
+        <ul class="social-logins">
+          <li id="facebook-login"><img src="/images/facebook_signin.jpg" alt=""/></li>
+          <li id="twitter-login"><img src="/images/twitter_signin.jpg" alt=""/></li>
+        </ul>
+        <a href="{{pathFor 'join'}}" class="link-auth-alt">Need an account? Join Now.</a>
+      </div>
     </div>
+    </div>
+
+
 </template>

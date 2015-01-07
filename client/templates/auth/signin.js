@@ -2,7 +2,13 @@ var ERRORS_KEY = 'signinErrors'
 
 Template.signin.created = function() {
     Session.set(ERRORS_KEY, {})
-};
+    $('#container').addClass('no-bar')
+
+}
+
+Template.signin.destroyed = function() {
+    $('#container').removeClass('no-bar')
+}
 
 Template.signin.helpers({
     errorMessages: function() {
@@ -10,18 +16,21 @@ Template.signin.helpers({
     },
     errorClass: function(key) {
         return Session.get(ERRORS_KEY)[key] && 'error'
+    },
+    users: function(){
+        return Meteor.users.find()
     }
 })
 
 Template.signin.events({
-    'click .btn-facebook': function(event, template) {
+    'click #facebook-login': function(event, template) {
         Meteor.loginWithFacebook({ requestPermissions: ['email']},
         function(error) {
             if (error) console.log(error)
             else Router.go('/')
         })
     },
-    'click .btn-twitter': function(event, template) {
+    'click #twitter-login': function(event, template) {
         Meteor.loginWithTwitter(function(error) {
             if (error) console.log(error)
             else Router.go('/')
