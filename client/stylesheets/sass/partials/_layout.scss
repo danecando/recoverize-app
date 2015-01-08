@@ -39,8 +39,14 @@ body,
 
 #menu {
   width: 270px;
+  left: -270px;
   overflow-y: auto;
   webkit-overflow-scrolling: touch;
+  @include transition(all 200ms ease-out);
+
+  .menu-open & {
+    @include transform(translate3d(270px, 0, 0));
+  }
 }
 
 #page {

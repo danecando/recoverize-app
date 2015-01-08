@@ -2355,8 +2355,18 @@ body,
 
 #menu {
   width: 270px;
+  left: -270px;
   overflow-y: auto;
-  webkit-overflow-scrolling: touch; }
+  webkit-overflow-scrolling: touch;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+  .menu-open #menu {
+    -webkit-transform: translate3d(270px, 0, 0);
+    -moz-transform: translate3d(270px, 0, 0);
+    -ms-transform: translate3d(270px, 0, 0);
+    -o-transform: translate3d(270px, 0, 0);
+    transform: translate3d(270px, 0, 0); }
 
 #page {
   -webkit-transition: all 200ms ease-out;
@@ -2434,7 +2444,9 @@ body,
         display: none; } }
   #splash #menu {
     left: -270px;
-    z-index: 10;
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
     border-right: 0;
     margin-top: 30px; }
     @media screen and (min-width: 48em) {
@@ -3047,6 +3059,7 @@ body,
   height: calc(100% - 29px);
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
+  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow: hidden;
   overflow-y: scroll; }
 

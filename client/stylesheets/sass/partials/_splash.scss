@@ -25,7 +25,7 @@
 
   #menu {
     left: -270px;
-    z-index: 10;
+    @include transition(all 200ms ease-out);
     border-right: 0;
     margin-top: 30px;
 
