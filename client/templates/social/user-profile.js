@@ -1,5 +1,5 @@
 
-Template.user.helpers({
+Template.userProfile.helpers({
     user: function(){
         return Meteor.users.findOne({username: this.username})
     },
@@ -8,7 +8,7 @@ Template.user.helpers({
     }
 })
 
-Template.user.events({
+Template.userProfile.events({
     'click .followBtn': function(){
         Meteor.call('follow', this.username)
     },
