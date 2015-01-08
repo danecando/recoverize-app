@@ -16,13 +16,13 @@ Template.signin.events({
         Meteor.loginWithFacebook({ requestPermissions: ['email']},
         function(error) {
             if (error) template.$('.error-message').text("Couldn't log you in with Facebook")
-            else Router.go('/new-profile')
+            else Router.go('create-profile')
         })
     },
     'click #twitter-login': function(event, template) {
         Meteor.loginWithTwitter(function(error) {
             if (error) template.$('.error-message').text("Couldn't log you in with Twitter")
-            else Router.go('/new-profile')
+            else Router.go('/create-profile')
         })
     },
     'submit': function(event, template) {
