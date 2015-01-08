@@ -51,7 +51,7 @@ Template.signin.events({
 
         Meteor.loginWithPassword(email, password, function(error) {
             if (error) {
-                template.$('.error-message').text('wrong username / password')
+                template.$('.error-message').text('incorrect username/password')
             }
 
             Router.go('/')

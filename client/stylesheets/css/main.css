@@ -2461,6 +2461,10 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
+.help-link {
+  font-weight: bold !important;
+  letter-spacing: -0.03125em !important; }
+
 .page-container {
   min-height: 100%;
   background: #fff; }
@@ -2816,11 +2820,7 @@ body,
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center;
-  min-height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 5; }
+  -ms-flex-pack: center; }
   #loading h1 {
     font-weight: 300;
     color: white; }
