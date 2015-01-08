@@ -1,84 +1,88 @@
 <template name="profileUpdate">
 
-  <section class="page-head">
-    <h2 class="title"><i class="fa fa-user"></i> Update your profile</h2>
-  </section>
+  <div id="profile-update" class="page-container">
 
-  <ul class="top-links">
-    <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
-    <li class="account-settings"><a class="button" href="/account">Account Settings</a></li>
-    <li class="report-bugs"><a href="/reports" class="button">Report Bug</a></li>
-  </ul>
-
-  <form action="">
-    <section class="profile-settings">
-      <ul class="fields">
-        <li>
-          <label for="name">Name <small class="desc">John S.</small></label>
-          <input type="text" name="name" value="{{user.profile.name}}">
-        </li>
-        <li>
-          <label for="profilePic">Profile Picture</label>
-          <input type="file" name="profilePic" accept="image/*">
-        </li>
-        <li>
-          <label for="location">Location <small class="desc">City / State</small></label>
-          <input type="text" name="location" value="{{user.profile.location}}">
-        </li>
-        <li>
-          <label for="gender">Gender</label>
-          <select name="gender" id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </li>
-        <li>
-          <label for="program">Program</label>
-          <select name="program" id="program">
-            <option value="aa">Alcoholics Anonymous</option>
-            <option value="na">Narcotics Anonymous</option>
-            <option value="ca">Cocaine Anonymous</option>
-          </select>
-        </li>
-        <li>
-          <label for="homegroup">Homegroup</label>
-          <input type="text" name="homegroup" value="{{user.profile.homegroup}}">
-        </li>
-        <li class="select-inline">
-          <label for="soberDate">Sober Date</label>
-          <select name="soberMonth" id="sober-month">
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-          <select name="soberDay" id="sober-day">
-            {{#each days}}
-              <option value="{{this}}">{{this}}</option>
-            {{/each}}
-          </select>
-          <select name="soberYear" id="sober-year">
-            {{#each years}}
-            <option value="{{this}}">{{this}}</option>
-            {{/each}}
-          </select>
-        </li>
-        <li>
-          <label for="quote">Quote <small class="desc">Max Length 140 Characters</small></label>
-          <textarea name="quote" id="quote" cols="30" rows="2">{{user.profile.quote}}</textarea>
-        </li>
-      </ul>
-      <div class="response"></div>
-      <button id="save-changes" {{updated}}>Save Changes</button>
+    <section class="page-head">
+      <h2 class="title"><i class="fa fa-user"></i> Update your profile</h2>
     </section>
 
-  </form>
+    <ul class="top-links">
+      <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
+      <li class="account-settings"><a class="button" href="/account">Account Settings</a></li>
+      <li class="report-bugs"><a href="/reports" class="button">Report Bug</a></li>
+    </ul>
+
+    <form action="">
+      <section class="profile-settings">
+        <ul class="fields">
+          <li>
+            <label for="name">Name <small class="desc">John S.</small></label>
+            <input type="text" name="name" value="{{user.profile.name}}">
+          </li>
+          <li>
+            <label for="profilePic">Profile Picture</label>
+            <input type="file" name="profilePic" accept="image/*">
+          </li>
+          <li>
+            <label for="location">Location <small class="desc">City / State</small></label>
+            <input type="text" name="location" value="{{user.profile.location}}">
+          </li>
+          <li>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </li>
+          <li>
+            <label for="program">Program</label>
+            <select name="program" id="program">
+              <option value="aa">Alcoholics Anonymous</option>
+              <option value="na">Narcotics Anonymous</option>
+              <option value="ca">Cocaine Anonymous</option>
+            </select>
+          </li>
+          <li>
+            <label for="homegroup">Homegroup</label>
+            <input type="text" name="homegroup" value="{{user.profile.homegroup}}">
+          </li>
+          <li class="select-inline">
+            <label for="soberDate">Sober Date</label>
+            <select name="soberMonth" id="sober-month">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+            <select name="soberDay" id="sober-day">
+              {{#each days}}
+                <option value="{{this}}">{{this}}</option>
+              {{/each}}
+            </select>
+            <select name="soberYear" id="sober-year">
+              {{#each years}}
+                <option value="{{this}}">{{this}}</option>
+              {{/each}}
+            </select>
+          </li>
+          <li>
+            <label for="quote">Quote <small class="desc">Max Length 140 Characters</small></label>
+            <textarea name="quote" id="quote" cols="30" rows="2">{{user.profile.quote}}</textarea>
+          </li>
+        </ul>
+        <div class="response"></div>
+        <button id="save-changes" {{updated}}>Save Changes</button>
+      </section>
+
+    </form>
+
+  </div>
 </template>

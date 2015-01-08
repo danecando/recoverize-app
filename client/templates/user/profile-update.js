@@ -1,8 +1,52 @@
+Template.profileUpdate.rendered = function() {
+    //if (Meteor.user().profile.profilePic) {
+    //    $('.no-picture').css('display', 'none')
+    //} else {
+    //    $('.picture-exists').css('display', 'none')
+    //}
+//
+    var program = Meteor.user().profile.program
+    if (program) {
+        $('#program option').each(function() {
+            if (program == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+    }
+
+    var gender = Meteor.user().profile.gender
+    if (gender) {
+        $('#gender option').each(function() {
+            if (gender == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+    }
+
+    var soberDate = Meteor.user().profile.soberDate
+    if (soberDate) {
+        $('#sober-year option').each(function() {
+            if (soberDate.getFullYear() == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+        $('#sober-month option').each(function() {
+            if (soberDate.getMonth() == $(this).val()-1) {
+                $(this).attr('selected', true)
+            }
+        })
+        $('#sober-day option').each(function() {
+            if (soberDate.getDate() == $(this).val()) {
+                $(this).attr('selected', true)
+            }
+        })
+    }
+}
 
 Template.profileUpdate.created = function() {
     Session.setDefault('updated', false);
     Session.setDefault('days', 31);
-};
+}
 
 Template.profileUpdate.destroyed = function() {
     Session.setDefault('updated', false);
@@ -51,22 +95,60 @@ Template.profileUpdate.events({
     'change :input': function(event, template) {
         Session.set('updated', true);
     },
+    'click #image-select': function(event, template) {
+        event.preventDefault()
+        template.$('input[name=profilePic]').click()
+    },
+    'change input[name=profilePic]': function(event, template) {
+
+    },
+    'click input[name=profilePic]': function(event, template) {
+        if (Meteor.isCordova) {
+            window.imagePicker.getPictures(
+                function (results) {
+                    for (var i = 0; i < results.length; i++) {
+                        if (typeof results[i] == 'string') {
+                            var fileName = results[i].substring(results[i].lastIndexOf('/')+1)
+                            var filePath = results[i].substring(0, results[i].lastIndexOf('/'))
+                            window.resolveLocalFileSystemURL(filePath, function(dir) {
+                                console.log(JSON.stringify(dir))
+                                dir.getFile(fileName, {create: true, exclusive: false}, function(file) {
+
+                                    template.$('[name=profilePic]')[0].files[0] = file
+                                    Session.set('updated', true);
+                                })
+                            })
+                        }
+                    }
+                }, function (error) {
+                    console.log('Error: ' + error);
+                }, {
+                    maximumImagesCount: 1
+                }
+            )
+        }
+    },
 
     'click #save-changes': function(event, template) {
         event.preventDefault();
 
         // todo: load defaults create thingy if profile picture is already uploaded
-        //var file = template.$('[name=profilePic]')[0].files[0]
-        //var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
-        //var uploader = new Slingshot.Upload("myFileUploads")
-        //uploader.send(file, function (error, downloadUrl) {
-        //    if (error) template.$('.response').addClass('error').text(error)
-        //})
+        var file = template.$('[name=profilePic]')[0].files[0]
+        console.log(JSON.stringify(file))
+        if (file) {
+            var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
+            var uploader = new Slingshot.Upload("myFileUploads")
+            uploader.send(file, function (error, downloadUrl) {
+                if (error) template.$('.response').addClass('error').text(error)
+                console.log(downloadUrl)
+            })
+        }
+
 
 
         var user = {
             name: template.$('[name=name]').val(),
-            //profilePic: fileUrl,
+            profilePic: fileUrl,
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val(),
             program: template.$('[name=program]').val(),
@@ -105,3 +187,12 @@ Template.profileUpdate.events({
     }
 
 });
+
+function dataURItoBlob(dataURI) {
+    var binary = atob(dataURI.split(',')[1]);
+    var array = [];
+    for(var i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i));
+    }
+    return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+}

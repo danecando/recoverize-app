@@ -1,8 +1,9 @@
 Slingshot.createDirective("myFileUploads", Slingshot.S3Storage, {
     bucket: "recoverize-app",
-    allowedFileTypes: ["image/png", "image/jpeg", "image/gif"],
+    allowedFileTypes: ["image/png", "image/jpeg"],
     maxSize: 0,
     acl: "public-read",
+    domain: 'd6gyptuog2clr.cloudfront.net',
 
     authorize: function () {
         //Deny uploads if user is not logged in.

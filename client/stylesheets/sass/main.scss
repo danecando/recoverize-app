@@ -10,10 +10,19 @@
 
 // partials
 @import 'partials/layout';
+@import 'partials/splash';
 
 /* ===========================
  *  Generic Classes
  * =========================== */
+.input-error {
+  border: 1px solid red !important;
+}
+
+.page-container {
+  min-height: 100%;
+  background: #fff;
+}
 
 .text-input {
   float: left;
@@ -303,7 +312,7 @@
 
 
 #page {
-  background: #fff;
+  //  background: #fff;
 }
 
 .page-head {
@@ -312,12 +321,12 @@
   height: 34px;
   padding: 7px 10px;
   background: $secondary-blue;
-//  background: linear-gradient(#fafafa, #e5e5e5);
-//  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
+  //  background: linear-gradient(#fafafa, #e5e5e5);
+  //  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
 
   .title {
     position: relative;
-//    color: #333F57;
+    //    color: #333F57;
     color: white;
     font-weight: normal;
     text-align: center;
@@ -414,6 +423,25 @@
   border-radius: 5px;
   color: white;
   text-align: center;
+}
+
+/* ===========================
+ *  Loading Screen
+ * =========================== */
+
+#loading {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  min-height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 5;
+
+  h1 {
+    font-weight: 300;
+    color: white;
+  }
 }
 
 /* ===========================
@@ -654,7 +682,7 @@
   //  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow: hidden;
   overflow-y: scroll;
-//  background: linear-gradient(45deg, rgba(183, 207, 224, 0.64) 10%, #eef2f3 90%); /* W3C */
+  //  background: linear-gradient(45deg, rgba(183, 207, 224, 0.64) 10%, #eef2f3 90%); /* W3C */
 }
 
 .older-messages {
@@ -691,31 +719,31 @@
     margin: 0 10px;
     padding: 15px 20px;
     font-size: em(15);
-//    box-shadow: 1px 2px 5px rgba(60, 60, 60, .25);
+    //    box-shadow: 1px 2px 5px rgba(60, 60, 60, .25);
 
-//    &:before {
-//      border-color: $bubble-blue;
-//      border-radius: 50% 50% 50% 50%;
-//      border-style: solid;
-//      border-width: 0 20px;
-//      bottom: 0;
-//      clip: rect(20px, 40px, 32px, 0px);
-//      content: " ";
-//      height: 30px;
-//      position: absolute;
-//      right: -50px;
-//      width: 30px;
-//      z-index: 1;
-//    }
+    //    &:before {
+    //      border-color: $bubble-blue;
+    //      border-radius: 50% 50% 50% 50%;
+    //      border-style: solid;
+    //      border-width: 0 20px;
+    //      bottom: 0;
+    //      clip: rect(20px, 40px, 32px, 0px);
+    //      content: " ";
+    //      height: 30px;
+    //      position: absolute;
+    //      right: -50px;
+    //      width: 30px;
+    //      z-index: 1;
+    //    }
   }
 
   &.to .bubble {
     float: right;
-//    background-color: $bubble-blue;
+    //    background-color: $bubble-blue;
     background-color: $brand-blue;
     color: #fff;
     margin-left: 10vw;
-//    box-shadow: -1px 2px 4px rgba(60, 60, 60, .20);
+    //    box-shadow: -1px 2px 4px rgba(60, 60, 60, .20);
 
 
     &:before {
@@ -799,13 +827,13 @@
   height: 34px;
   padding: 7px 10px;
   background: #2c5999;
-//  background: linear-gradient(#fafafa, #e5e5e5);
-//  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
+  //  background: linear-gradient(#fafafa, #e5e5e5);
+  //  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
 
   .title {
     color: $brand-blue;
     color: white;
-//    text-align: center;
+    //    text-align: center;
     font-size: em(16);
     letter-spacing: em(-.25);
 
@@ -824,7 +852,7 @@
 
 
 .chat-container {
-//  @include calc(height, '100% - 34px');
+  //  @include calc(height, '100% - 34px');
   height: 100%;
   background: #eee;
   position: relative;
@@ -925,7 +953,7 @@
 
   .chat-message {
     float: left;
-//    width: 85%;
+    //    width: 85%;
 
     .user {
       font-weight: bold;
@@ -945,7 +973,7 @@
     font-size: em(12);
     color: $medium-gray;
     text-align: right;
-//    width: 15%;
+    //    width: 15%;
   }
 }
 
@@ -1001,6 +1029,10 @@
  *  User Profiles
  * =========================== */
 
+#user-profile {
+  background: #fafafa;
+}
+
 .user-profile {
 
   .username {
@@ -1029,8 +1061,8 @@
 
   .colored-head {
     @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
-//    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
-    border-bottom: 3px solid $secondary-blue;
+    //    background: linear-gradient($secondary-blue, lighten($secondary-blue, 23));
+    //    border-bottom: 3px solid $secondary-blue;
     padding-top: em(15);
   }
 
@@ -1053,7 +1085,8 @@
 
   .user-social {
     color: white;
-    margin: em(25) 0;
+    //    margin: em(25) 0;
+    padding: em(25);
 
     @include media($tablet-screen-up) {
       @include span-columns(6);
@@ -1101,27 +1134,28 @@
 
   .profile-fields {
     background: #f5f5f5;
-    background: #f5f5f5;
+    background: $secondary-blue;
     padding: 15px 0;
-    border-bottom: 2px solid #eee;
   }
 
   .quote {
-    font-family: "Lobster Two", cursive;
-    font-weight: normal;
+    margin: em(15) 0;
+    font-size: em(16);
+    font-weight: 300;
     font-style: italic;
-    text-align: center;
-    padding: em(5) 0;
   }
 
   .share-intro {
-    background: white;
-    width: 80%;
-    min-width: 270px;
-    margin: 0 auto;
+    padding: em(15);
+    color: white;
     text-align: center;
-    padding: em(5);
     border-radius: em(3);
+
+    @include media($tablet-screen-up) {
+      width: 80%;
+      margin: 0 auto;
+      padding: em(5);
+    }
   }
 
 }
@@ -1130,53 +1164,154 @@
  *  Notifications
  * =========================== */
 
- .notifications-page {
-   @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
-//   background: linear-gradient(lighten($secondary-blue, 15), $secondary-blue);
-   min-height: 100%;
-   overflow: hidden;
-   overflow-y: scroll;
+.notifications-page {
+  @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
+  //   background: linear-gradient(lighten($secondary-blue, 15), $secondary-blue);
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
 
-   .new-notifications {
-     @include display(flex);
-     @include align-items(center);
-     @include justify-content(center);
-     padding: em(25) 0;
-     text-align: center;
+  .new-notifications {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    padding: em(25) 0;
+    text-align: center;
 
-     .notification-amount {
-       color: white;
-       font-size: em(18);
-       margin-right: 10px;
-     }
-   }
-   button {
-     padding: em(6);
-     border-radius: em(0);
-     font-size: em(14);
-     background: white;
-     color: $secondary-blue;
-   }
+    .notification-amount {
+      color: white;
+      font-size: em(18);
+      margin-right: 10px;
+    }
+  }
+  button {
+    padding: em(6);
+    border-radius: em(0);
+    font-size: em(14);
+    background: white;
+    color: $secondary-blue;
+  }
 
-   .notification {
-     background: $brand-blue;
-     margin-bottom: em(25);
+  .notification {
+    background: $brand-blue;
+    margin-bottom: em(25);
 
-     a {
-       color: white;
-     }
-   }
+    a {
+      color: white;
+    }
+  }
 
-   &.no-notifications {
-     @include display(flex);
-     @include align-items(center);
-     @include justify-content(center);
-     text-align: center;
-     color: white;
+  &.no-notifications {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    text-align: center;
+    color: white;
 
-     h1 {
-       font-weight: 300;
-       letter-spacing: em(1);
-     }
-   }
- }
+    h1 {
+      font-weight: 300;
+      letter-spacing: em(1);
+    }
+  }
+}
+
+/* ===========================
+ *  Statuses
+ * =========================== */
+
+.status-list {
+  //  background: #fafafa;
+}
+
+.status-box {
+  margin: em(15);
+  padding: em(15);
+  border: 1px solid #eee;
+  border-radius: em(3);
+  background: white;
+  //  box-shadow: 0 0 3px 1px rgba(50, 50, 50, .1);
+
+  @include media($tablet-screen-up) {
+    width: 80%;
+    margin: em(15) auto;
+  }
+}
+
+/* ===========================
+ *  Login Page
+ * =========================== */
+
+#login-page {
+  min-height: 100vh;
+  text-align: center;
+  color: #FFF;
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  overflow: hidden;
+
+  .flex-container {
+    overflow-y: auto;
+  }
+
+  .error-message {
+    margin-bottom: em(8);
+  }
+
+  form {
+    padding: em(15);
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: left;
+
+    :-moz-placeholder {
+      color: white;
+    }
+    ::-webkit-input-placeholder {
+      color: white;
+    }
+    :-ms-input-placeholder {
+      color: white;
+    }
+
+    input {
+      background: none;
+      border-color: white;
+      color: white;
+
+    }
+
+    .btn-primary {
+      background: rgba(220, 220, 220, .15);
+      color: white;
+      padding: em(6) em(18);
+      font-weight: normal;
+    }
+  }
+
+  .login-bottom {
+    margin: em(25) 0;
+    text-align: center;
+  }
+
+  .link-auth-alt {
+    color: white;
+  }
+
+  .social-logins {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    margin-bottom: em(5);
+
+    li {
+      display: inline-block;
+      width: 45%;
+    }
+
+    img {
+      max-width: 100%;
+      cursor: pointer;
+    }
+  }
+}

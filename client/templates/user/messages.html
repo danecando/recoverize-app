@@ -1,36 +1,38 @@
 <template name="messages">
 
-  <section class="page-head">
-    <h2 class="title"><i class="fa fa-envelope-o"></i>  Messages</h2>
-  </section>
+  <div id="messages" class="page-container">
+
+    <section class="page-head">
+      <h2 class="title"><i class="fa fa-envelope-o"></i>  Messages</h2>
+    </section>
 
     {{#if messagesList}}
       <section class="thread-list">
-          {{#each messagesList}}
-            <div class="thread-item {{#if this.unreadMessageCount}}unread{{/if}}">
-              <div class="profile-picture">
-                <a href="/users/{{this.username}}">
-                  <img src="{{profilePic this.username}}" alt="username"/>
-                </a>
-              </div>
-              <div class="message-thread">
-                <a href="/messages/{{this.username}}" class="userLink">
-                  <h4 style="color: {{userColor this.username}}">{{this.username}}</h4>
-                  <p><!--<span class="username">{{this.lastMessage.username}}</span>--> {{this.lastMessage.message}}</p>
-                </a>
-              </div>
-              <div class="message-meta">
-                  {{#if this.unreadMessageCount}}
-                    <div class="new-messages">
-                      <div class="message-badge">
-                          {{this.unreadMessageCount}}
-                      </div>
-                    </div>
-                  {{/if}}
-                <time class="timestamp">{{relativeTime this.lastMessage.timestamp}}</time>
-              </div>
+        {{#each messagesList}}
+          <div class="thread-item {{#if this.unreadMessageCount}}unread{{/if}}">
+            <div class="profile-picture">
+              <a href="/users/{{this.username}}">
+                <img src="{{profilePic this.username}}" alt="username"/>
+              </a>
             </div>
-          {{/each}}
+            <div class="message-thread">
+              <a href="/messages/{{this.username}}" class="userLink">
+                <h4 style="color: {{userColor this.username}}">{{this.username}}</h4>
+                <p><!--<span class="username">{{this.lastMessage.username}}</span>--> {{this.lastMessage.message}}</p>
+              </a>
+            </div>
+            <div class="message-meta">
+              {{#if this.unreadMessageCount}}
+                <div class="new-messages">
+                  <div class="message-badge">
+                    {{this.unreadMessageCount}}
+                  </div>
+                </div>
+              {{/if}}
+              <time class="timestamp">{{relativeTime this.lastMessage.timestamp}}</time>
+            </div>
+          </div>
+        {{/each}}
       </section>
     {{else}}
       <section class="no-messages">
@@ -38,6 +40,6 @@
         <a href="/chat" class="userLink"><h2>go chat with some people!</h2></a>
       </section>
     {{/if}}
-
+  </div>
 
 </template>

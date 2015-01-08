@@ -1,6 +1,6 @@
+<template name="userProfile">
 
-<template name="user">
-
+  <div id="user-profile" class="page-container">
   {{#if user}}
   <div class="user-profile {{username}}">
 
@@ -17,6 +17,7 @@
           <img src="{{user.profile.profilePic}}" alt="{{username}}">
         </div>
         <div class="user-social">
+          <h5 class="quote">{{user.profile.quote}}</h5>
           <ul class="social-info">
             <li>Serenity Points: <span class="info-value">{{user.serenity}}</span></li>
             <li>
@@ -42,7 +43,7 @@
 
     <section class="profile-fields">
       {{#if user.profile.quote}}
-        <h3 class="quote">{{user.profile.quote}}</h3>
+        <!--<h3 class="quote">{{user.profile.quote}}</h3>-->
       {{/if}}
 
       <p class="share-intro">Hello, my name is {{#if user.profile.name}}{{user.profile.name}}{{else}}{{username}}{{/if}}, I'm an {{programIntro user.profile.program}} {{#if user.profile.location}}from <strong>{{user.profile.location}}</strong>{{/if}}. I have been {{cleanOrSober user.profile.program}} for <strong>{{elapsedDays user.profile.soberDate}}</strong> days. {{#if user.profile.homegroup}}My homegroup is <strong>{{user.profile.homegroup}}</strong>!{{/if}}</p>
@@ -52,17 +53,16 @@
   </div>
 
     {{#if isCurrentUser}}
-      <br>
       <h5> enter new status: </h5>
       <input type="text" class="newStatus">
-      <br>
     {{/if}}
 
-    <br>
+  <div class="status-list">
     {{> statuslist}}
+  </div>
 
   {{else}}
     <h1>{{username}} does not exist</h1>
   {{/if}}
-
+</div>
 </template>

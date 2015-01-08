@@ -43,6 +43,10 @@ Meteor.publish('userData', function() {
     }
 })
 
+Meteor.publish('userCount', function() {
+    return Meteor.users.find({}, { fields: { id: true } })
+})
+
 Meteor.publish('chat', function(){
     return Chat.find({}, {sort: {timestamp: -1}, limit: 50})
 })
