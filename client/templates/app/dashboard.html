@@ -1,16 +1,18 @@
 <template name="dashboard">
-  <h1>home page</h1>
+  <div id="dashboard" class="page-container">
+    <h1>home page</h1>
 
-  <ul>
-      {{#each posts}}
-        <li class="user" style="display: list-item;" data-username="{{username}}" data-userid="{{_id}}">
-            {{username}}
-          <a class="follow" href="/follow/{{username}}">Follow</a>
-        </li>
+    <ul>
+        {{#each posts}}
+          <li class="user" style="display: list-item;" data-username="{{username}}" data-userid="{{_id}}">
+              {{username}}
+            <a class="follow" href="/follow/{{username}}">Follow</a>
+          </li>
 
-      {{/each}}
-  </ul>
+        {{/each}}
+    </ul>
 
-  <!--<a class="follow" href="#">Follow</a>-->
-  <a class="logout" href="#">Logout</a>
+    <!--<a class="follow" href="#">Follow</a>-->
+    <a class="logout" href="#">Logout</a>
+  </div>
 </template>

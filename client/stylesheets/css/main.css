@@ -2461,6 +2461,10 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
+.page-container {
+  min-height: 100%;
+  background: #fff; }
+
 .text-input {
   float: left;
   height: 35px;
@@ -3333,7 +3337,7 @@ body,
 /* ===========================
  *  User Profiles
  * =========================== */
-.profile-page {
+#user-profile {
   background: #fafafa; }
 
 .user-profile .username {

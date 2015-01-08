@@ -1,45 +1,48 @@
 <template name="accountSettings">
 
-  <section class="page-head">
-    <h2 class="title"><i class="fa fa-cog"></i> Account Management</h2>
-  </section>
+  <div id="account-settings" class="page-container">
 
-  <ul class="top-links">
-    <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
-    <li class="update-profile"><a class="button" href="/profile">Update Profile</a></li>
-    <li class="report-bugs"><a class="button" href="/report">Report Bug</a></li>
-  </ul>
+    <section class="page-head">
+      <h2 class="title"><i class="fa fa-cog"></i> Account Management</h2>
+    </section>
 
-  <form action="">
-    <section class="account-settings">
-      <ul class="fields">
-        <li>
-          <label for="username">Username <small class="desc">Cannot be changed</small></label>
-          <input type="text" name="username" value="{{user.username}}" disabled>
-        </li>
-        <li>
-          <label for="email">Email</label>
-          <input type="text" name="email" value="{{user.emails.[0].address}}">
-        </li>
-        <li>
-          <label for="oldpw">Old Password <small class="desc">For password change or account deletion</small></label>
-          <input type="text" name="oldpw">
-        </li>
-        <li class="split">
-          <label for="newpw">New Password</label>
-          <input type="text" name="newpw">
-        </li>
-        <li class="split">
-          <label for="confirmpw">Confirm Password</label>
-          <input type="text" name="confirmpw">
-        </li>
-        <li>
-          <button id="delete-account">Delete My Account</button>
-          <label><small class="desc">Account is not recoverable!!</small></label>
-        </li>
-      </ul>
+    <ul class="top-links">
+      <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
+      <li class="update-profile"><a class="button" href="/profile">Update Profile</a></li>
+      <li class="report-bugs"><a class="button" href="/report">Report Bug</a></li>
+    </ul>
+
+    <form action="">
+      <section class="account-settings">
+        <ul class="fields">
+          <li>
+            <label for="username">Username <small class="desc">Cannot be changed</small></label>
+            <input type="text" name="username" value="{{user.username}}" disabled>
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="text" name="email" value="{{user.emails.[0].address}}">
+          </li>
+          <li>
+            <label for="oldpw">Old Password <small class="desc">For password change or account deletion</small></label>
+            <input type="text" name="oldpw">
+          </li>
+          <li class="split">
+            <label for="newpw">New Password</label>
+            <input type="text" name="newpw">
+          </li>
+          <li class="split">
+            <label for="confirmpw">Confirm Password</label>
+            <input type="text" name="confirmpw">
+          </li>
+          <li>
+            <button id="delete-account">Delete My Account</button>
+            <label><small class="desc">Account is not recoverable!!</small></label>
+          </li>
+        </ul>
         <div class="response"></div>
         <button id="save-changes" {{updated}}>Save Changes</button>
-    </section>
-  </form>
+      </section>
+    </form>
+  </div>
 </template>
