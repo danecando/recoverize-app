@@ -1,0 +1,46 @@
+#splash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  @include media($tablet-screen-up) {
+    @include outer-container;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    z-index: 20;
+    top: 10px;
+    left: 10px;
+    color: white;
+
+    @include media($tablet-screen-up) {
+      display: none;
+    }
+  }
+
+  #menu {
+    left: -270px;
+    z-index: 10;
+    border-right: 0;
+
+    @include media($tablet-screen-up) {
+      left: 0;
+    }
+
+    .menu-open & {
+      @include transform(translate3d(270px, 0, 0));
+
+      @include media($tablet-screen-up) {
+        @include transform(translate3d(0, 0, 0));
+        opacity: 1;
+        left: 270px;
+      }
+    }
+  }
+
+}

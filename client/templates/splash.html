@@ -1,0 +1,46 @@
+<template name="splash">
+  <div id="container" class="{{menuOpen}} {{cordova}}">
+    <main id="splash">
+      <a class="button menu-toggle" href="#"><i class="fa fa-navicon fa-lg"></i></a>
+      <section id="menu">
+        <nav class="fixed">
+          <ul class="pages social">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/timeline">Timeline</a></li>
+            <li><a href="/chat">Chat Room</a></li>
+            <li><a href="/users">Member List</a></li>
+          </ul>
+          <ul class="pages content">
+            <li><a href="/readings">Daily Reading</a></li>
+            <li><a href="/checklist">Daily Checklist</a></li>
+            <li><a href="/speakers">Speaker Tapes</a></li>
+            <li><a href="/stories">Recovery Stories</a></li>
+            <li><a href="/gratitude">Gratitude Wall</a></li>
+          </ul>
+          <ul class="pages bottom">
+            <li><a href="/account">Account</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/help">Need Help Stopping?</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <div id="page-overlay"></div>
+
+      <section id="page">
+          {{> yield }}
+      </section>
+    </main>
+
+    <section id="notifications">
+      <div class="notification">
+        Here's a notification
+      </div>
+    </section>
+
+
+
+
+  </div>
+</template>
