@@ -1243,7 +1243,7 @@
  *  Login Page
  * =========================== */
 
-#login-page {
+#login-page, #join-page {
   min-height: 100vh;
   text-align: center;
   color: #FFF;
@@ -1254,6 +1254,7 @@
 
   .flex-container {
     overflow-y: auto;
+    padding: em(40) 0;
   }
 
   .error-message {
@@ -1268,12 +1269,21 @@
 
     :-moz-placeholder {
       color: white;
+      font-size: em(13);
+      line-height: em(26);
+      letter-spacing: em(1.25);
     }
     ::-webkit-input-placeholder {
       color: white;
+      font-size: em(13);
+      line-height: em(26);
+      letter-spacing: em(1.25);
     }
     :-ms-input-placeholder {
       color: white;
+      font-size: em(13);
+      line-height: em(26);
+      letter-spacing: em(1.25);
     }
 
     input {
@@ -1316,4 +1326,27 @@
       cursor: pointer;
     }
   }
+
+  .optin {
+    font-size: em(12);
+    display: inline-block;
+  }
 }
+
+/* ===========================
+ *  Join Page
+ * =========================== */
+//
+//#join-page {
+//  min-height: 100vh;
+//  text-align: center;
+//  color: #FFF;
+//  @include display(flex);
+//  @include align-items(center);
+//  @include justify-content(center);
+//  overflow: hidden;
+//
+//  .flex-container {
+//    overflow-y: auto;
+//  }
+//}

@@ -34,13 +34,13 @@ Template.signin.events({
         var errors = {}
 
         if (!email) {
-            errors.email = 'Enter your email address'
+            errors.email = 'Email required'
             template.$('[name=email]').addClass('input-error')
             template.$('.error-message').text(errors.email)
         }
 
         if (!password && email) {
-            errors.password = 'Enter your password'
+            errors.password = 'Password required'
             template.$('[name=password]').addClass('input-error')
             template.$('.error-message').text(errors.password)
         }
@@ -50,9 +50,7 @@ Template.signin.events({
         }
 
         Meteor.loginWithPassword(email, password, function(error) {
-            if (error) {
-                template.$('.error-message').text('incorrect username/password')
-            }
+            if (error) template.$('.error-message').text('incorrect username/password')
 
             Router.go('/')
         })
