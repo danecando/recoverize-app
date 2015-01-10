@@ -2526,8 +2526,8 @@ body,
     height: 60px;
     position: absolute;
     bottom: 0;
-    width: -webkit-calc(100% - 95px);
-    width: calc(100% - 95px);
+    width: -webkit-calc(100% - 88px);
+    width: calc(100% - 88px);
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
     transition: height 200ms ease-in; }
@@ -3373,6 +3373,10 @@ body,
       height: 35px;
       width: 60px;
       background: #2c5999; }
+      .bottom-bar .chat-input button:disabled {
+        background: #999; }
+        .bottom-bar .chat-input button:disabled:hover {
+          background: #999; }
       .bottom-bar .chat-input button:hover {
         background: #123865; }
 
