@@ -15,14 +15,32 @@ Template.signin.events({
     'click #facebook-login': function(event, template) {
         Meteor.loginWithFacebook({ requestPermissions: ['email']},
         function(error) {
-            if (error) template.$('.error-message').text("Couldn't log you in with Facebook")
-            else Router.go('create-profile')
+            if (error) {
+                template.$('.error-message').text("Couldn't log you in with Facebook")
+                return
+            }
+
+            if (!Meteor.user().services.facebook.profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
+                Meteor.call('setUserRole', Meteor.user()._id, ['pending'])
+                Router.go('/create-profile')
+            } else {
+                Router.go('/')
+            }
         })
     },
     'click #twitter-login': function(event, template) {
         Meteor.loginWithTwitter(function(error) {
-            if (error) template.$('.error-message').text("Couldn't log you in with Twitter")
-            else Router.go('/create-profile')
+            if (error) {
+                template.$('.error-message').text("Couldn't log you in with Twitter")
+                return
+            }
+
+            if (!Meteor.user().services.twitter.profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
+                Meteor.call('setUserRole', Meteor.user()._id, ['pending'])
+                Router.go('/create-profile')
+            } else {
+                Router.go('/')
+            }
         })
     },
     'submit': function(event, template) {
