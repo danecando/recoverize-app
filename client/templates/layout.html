@@ -35,68 +35,7 @@
           <section class="branding">
             <h1 class="logo">recoverize <span class="version">2.0</span></h1>
           </section>
-          <section class="user">
-            {{#if currentUser}}
-              <div class="user-pages">
-                <div class="row">
-                  <div class="button profile">
-                    <a href="/users/{{currentUserUsername}}">
-                      <i class="fa fa-user fa-lg"></i>
-                    </a>
-                  </div>
-                  <div class="button notifications">
-                    <a href="/notifications">
-                      <div class="badge-container">
-                        <div class="badge">
-                          <span class="badge-count">{{notificationCount}}</span>
-                        </div>
-                        <i class="fa fa-bell fa-lg"></i>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="button status">
-                    <a href="/status">
-                      <i class="fa fa-pencil fa-lg"></i>
-                    </a>
-                  </div>
-                  <div class="button messages">
-                    <a href="/messages">
-                      <div class="badge-container">
-                        <span class="badge"> {{messageNotificationCount}} </span>
-                        <i class="fa fa-envelope fa-lg"></i>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            {{else}}
-              <ul class="sign-in">
-                <li><a href="/signin">Sign In</a></li>
-                <li><a href="/join">Join</a></li>
-              </ul>
-            {{/if}}
-          </section>
-          <ul class="pages social">
-            <li><a href="/">Dashboard</a></li>
-            <li><a href="/timeline">Timeline</a></li>
-            <li><a href="/chat">Chat Room</a></li>
-            <li><a href="/users">Member List</a></li>
-          </ul>
-          <ul class="pages content">
-            <li><a href="/readings">Daily Reading</a></li>
-            <li><a href="/checklist">Daily Checklist</a></li>
-            <li><a href="/speakers">Speaker Tapes</a></li>
-            <li><a href="/stories">Recovery Stories</a></li>
-            <li><a href="/gratitude">Gratitude Wall</a></li>
-          </ul>
-          <ul class="pages bottom">
-            <li><a href="/account">Account</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/logout">Logout</a></li>
-            <li><a href="/help">Need Help Stopping?</a></li>
-          </ul>
+          {{> menu }}
         </nav>
       </section>
 

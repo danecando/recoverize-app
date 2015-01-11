@@ -1,6 +1,5 @@
 // todo: fix up updated session variable between pages
 
-
 Template.accountSettings.created = function() {
     Session.setDefault('updated', false)
 }

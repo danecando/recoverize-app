@@ -4,7 +4,7 @@ Template.profileUpdate.rendered = function() {
     //} else {
     //    $('.picture-exists').css('display', 'none')
     //}
-//
+
     var program = Meteor.user().profile.program
     if (program) {
         $('#program option').each(function() {
@@ -44,12 +44,12 @@ Template.profileUpdate.rendered = function() {
 }
 
 Template.profileUpdate.created = function() {
-    Session.setDefault('updated', false);
-    Session.setDefault('days', 31);
+    Session.setDefault('updated', false)
+    Session.setDefault('days', 31)
 }
 
 Template.profileUpdate.destroyed = function() {
-    Session.setDefault('updated', false);
+    Session.setDefault('updated', false)
 }
 
 /**
@@ -58,16 +58,16 @@ Template.profileUpdate.destroyed = function() {
 Template.profileUpdate.helpers({
 
     user: function() {
-        return Meteor.user();
+        return Meteor.user()
     },
     updated: function() {
-        if (!Session.get('updated')) return 'disabled';
+        if (!Session.get('updated')) return 'disabled'
     },
     days: function() {
-        var days = [];
+        var days = []
 
         for (var i = 1; i <= Session.get('days'); i++) {
-            days.push(i);
+            days.push(i)
         }
 
         return days;
@@ -75,13 +75,13 @@ Template.profileUpdate.helpers({
     years: function() {
         var today = new Date(),
             year = today.getFullYear(),
-            years = [];
+            years = []
 
         for (; year >= 1930; year--) {
-            years.push(year);
+            years.push(year)
         }
 
-        return years;
+        return years
     }
 
 });
@@ -93,14 +93,11 @@ Template.profileUpdate.events({
 
     // enable save button if any fields have been updated
     'change :input': function(event, template) {
-        Session.set('updated', true);
+        Session.set('updated', true)
     },
     'click #image-select': function(event, template) {
         event.preventDefault()
         template.$('input[name=profilePic]').click()
-    },
-    'change input[name=profilePic]': function(event, template) {
-
     },
     'click input[name=profilePic]': function(event, template) {
         if (Meteor.isCordova) {
@@ -115,13 +112,13 @@ Template.profileUpdate.events({
                                 dir.getFile(fileName, {create: true, exclusive: false}, function(file) {
 
                                     template.$('[name=profilePic]')[0].files[0] = file
-                                    Session.set('updated', true);
+                                    Session.set('updated', true)
                                 })
                             })
                         }
                     }
                 }, function (error) {
-                    console.log('Error: ' + error);
+                    console.log('Error: ' + error)
                 }, {
                     maximumImagesCount: 1
                 }
@@ -130,7 +127,7 @@ Template.profileUpdate.events({
     },
 
     'click #save-changes': function(event, template) {
-        event.preventDefault();
+        event.preventDefault()
 
         // todo: load defaults create thingy if profile picture is already uploaded
         var file = template.$('[name=profilePic]')[0].files[0]
@@ -172,27 +169,18 @@ Template.profileUpdate.events({
 
         var month = template.$('#sober-month').val(),
             year = template.$('#sober-year').val(),
-            days = new Date(year, month, 0).getDate();
+            days = new Date(year, month, 0).getDate()
 
-        Session.set('days', days);
+        Session.set('days', days)
     },
 
     'change #sober-year': function(event, template) {
 
         var month = template.$('#sober-month').val(),
             year = template.$('#sober-year').val(),
-            days = new Date(year, month, 0).getDate();
+            days = new Date(year, month, 0).getDate()
 
-        Session.set('days', days);
+        Session.set('days', days)
     }
 
-});
-
-function dataURItoBlob(dataURI) {
-    var binary = atob(dataURI.split(',')[1]);
-    var array = [];
-    for(var i = 0; i < binary.length; i++) {
-        array.push(binary.charCodeAt(i));
-    }
-    return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
-}
+})

@@ -1,41 +1,41 @@
-var ERRORS_KEY = 'joinErrors'
-
-Template.join.created = function() {
-    Session.set(ERRORS_KEY, {})
-};
-
 Template.join.helpers({
-    errorMessages: function() {
-        return _.values(Session.get(ERRORS_KEY))
-    },
-    errorClass: function(key) {
-        return Session.get(ERRORS_KEY)[key] && 'error'
-    }
+
 })
 
 Template.join.events({
     'submit': function(event, template) {
         event.preventDefault()
-        var email = template.$('[name=email]').val()
-        var password = template.$('[name=password]').val()
+        var email = template.$('[name=email]').removeClass('input-error').val()
+        var username = template.$('[name=username]').removeClass('input-error').val()
+        var password = template.$('[name=password]').removeClass('input-error').val()
         var confirm = template.$('[name=confirm]').val()
-        var username = template.$('[name=username]').val()
 
         var errors = {};
 
-        if (! email) {
+        if (!email) {
             errors.email = 'Email required'
+            template.$('[name=email]').addClass('input-error')
+            template.$('.error-message').text(errors.email)
         }
 
-        if (! password) {
+        if (!username && email) {
+            errors.username = 'Username required'
+            template.$('[name=username]').addClass('input-error')
+            template.$('.error-message').text(errors.username)
+        }
+
+        if (!password && email && username) {
             errors.password = 'Password required'
+            template.$('[name=password]').addClass('input-error')
+            template.$('.error-message').text(errors.password)
         }
 
         if (confirm !== password) {
             errors.confirm = 'Please confirm your password'
+            template.$('[name=confirm]').addClass('input-error')
+            template.$('.error-message').text(errors.confirm)
         }
 
-        Session.set(ERRORS_KEY, errors);
         if (_.keys(errors).length) {
             return
         }
@@ -49,20 +49,15 @@ Template.join.events({
 
         if (template.$('[name=optin]').is(':checked')) {
             Meteor.call('optIn', user,  function(error, result) {
-                // todo: setup logging for internal errors
-                if (error) console.log(error)
-                else console.log(result)
+                if (error) template.$('.error-message').text(error.reason)
             })
         }
 
         Meteor.call('createAccount', user, function(error, result) {
-
-            if (error) {
-                errors.create = error
-            }
-
+            if (error) template.$('.error-message').text(error.reason)
             if (result) {
                 Meteor.loginWithPassword(user.email, user.password, function(error) {
+                    if (error) template.$('.error-message').text(error.reason)
                     Router.go('/user/profile')
                 })
             }

@@ -7,18 +7,20 @@ Accounts.onCreateUser(function(options, user) {
     if (user.services.facebook) {
         user.emails = []
         user.emails.push({ address: user.services.facebook.email, verified: true })
-        user.username = user.services.facebook.email.substring(0, user.services.facebook.email.indexOf("@")) + (Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000).toString()
         user.profile.name = user.services.facebook.name
+        user.services.facebook.profileCreated = false
     }
 
     // setup user account for creation via twitter
     if (user.services.twitter) {
-        user.username = user.services.twitter.screenName + (Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000).toString()
         user.profile.profilePic = user.services.twitter.profile_image_url_https
+        user.services.twitter.profileCreated = false
     }
 
-    var crypto = Npm.require('crypto')
-    user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
+    if (user.username) {
+        var crypto = Npm.require('crypto')
+        user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
+    }
 
     return user
 })

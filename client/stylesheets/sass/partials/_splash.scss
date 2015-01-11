@@ -24,11 +24,16 @@
   }
 
   #menu {
+
     left: -270px;
-    z-index: 10;
+    @include transition(all 200ms ease-out);
     border-right: 0;
+    margin-top: em(30);
 
     @include media($tablet-screen-up) {
+      @include display(flex);
+      @include align-items(center);
+      @include justify-content(center);
       left: 0;
     }
 

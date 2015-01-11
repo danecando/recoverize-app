@@ -15,14 +15,32 @@ Template.signin.events({
     'click #facebook-login': function(event, template) {
         Meteor.loginWithFacebook({ requestPermissions: ['email']},
         function(error) {
-            if (error) template.$('.error-message').text("Couldn't log you in with Facebook")
-            else Router.go('/new-profile')
+            if (error) {
+                template.$('.error-message').text("Couldn't log you in with Facebook")
+                return
+            }
+
+            if (!Meteor.user().services.facebook.profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
+                Meteor.call('setUserRole', Meteor.user()._id, ['pending'])
+                Router.go('/create-profile')
+            } else {
+                Router.go('/')
+            }
         })
     },
     'click #twitter-login': function(event, template) {
         Meteor.loginWithTwitter(function(error) {
-            if (error) template.$('.error-message').text("Couldn't log you in with Twitter")
-            else Router.go('/new-profile')
+            if (error) {
+                template.$('.error-message').text("Couldn't log you in with Twitter")
+                return
+            }
+
+            if (!Meteor.user().services.twitter.profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
+                Meteor.call('setUserRole', Meteor.user()._id, ['pending'])
+                Router.go('/create-profile')
+            } else {
+                Router.go('/')
+            }
         })
     },
     'submit': function(event, template) {
@@ -34,13 +52,13 @@ Template.signin.events({
         var errors = {}
 
         if (!email) {
-            errors.email = 'Enter your email address'
+            errors.email = 'Email required'
             template.$('[name=email]').addClass('input-error')
             template.$('.error-message').text(errors.email)
         }
 
         if (!password && email) {
-            errors.password = 'Enter your password'
+            errors.password = 'Password required'
             template.$('[name=password]').addClass('input-error')
             template.$('.error-message').text(errors.password)
         }
@@ -50,9 +68,7 @@ Template.signin.events({
         }
 
         Meteor.loginWithPassword(email, password, function(error) {
-            if (error) {
-                template.$('.error-message').text('wrong username / password')
-            }
+            if (error) template.$('.error-message').text('incorrect username/password')
 
             Router.go('/')
         })

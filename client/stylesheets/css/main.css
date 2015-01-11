@@ -2355,8 +2355,21 @@ body,
 
 #menu {
   width: 270px;
+  left: -270px;
   overflow-y: auto;
-  webkit-overflow-scrolling: touch; }
+  webkit-overflow-scrolling: touch;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+  .menu-open #menu {
+    -webkit-transform: translate3d(270px, 0, 0);
+    -moz-transform: translate3d(270px, 0, 0);
+    -ms-transform: translate3d(270px, 0, 0);
+    -o-transform: translate3d(270px, 0, 0);
+    transform: translate3d(270px, 0, 0); }
+  @media screen and (min-width: 48em) {
+    #menu {
+      left: 0; } }
 
 #page {
   -webkit-transition: all 200ms ease-out;
@@ -2434,10 +2447,38 @@ body,
         display: none; } }
   #splash #menu {
     left: -270px;
-    z-index: 10;
-    border-right: 0; }
+    -webkit-transition: all 200ms ease-out;
+    -moz-transition: all 200ms ease-out;
+    transition: all 200ms ease-out;
+    border-right: 0;
+    margin-top: 1.875em; }
     @media screen and (min-width: 48em) {
       #splash #menu {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        align-items: center;
+        -ms-flex-align: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
         left: 0; } }
     .menu-open #splash #menu {
       -webkit-transform: translate3d(270px, 0, 0);
@@ -2461,6 +2502,10 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
+.help-link {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 0.3125em !important; }
+
 .page-container {
   min-height: 100%;
   background: #fff; }
@@ -2481,8 +2526,8 @@ body,
     height: 60px;
     position: absolute;
     bottom: 0;
-    width: -webkit-calc(100% - 95px);
-    width: calc(100% - 95px);
+    width: -webkit-calc(100% - 88px);
+    width: calc(100% - 88px);
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
     transition: height 200ms ease-in; }
@@ -2816,11 +2861,7 @@ body,
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center;
-  min-height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 5; }
+  -ms-flex-pack: center; }
   #loading h1 {
     font-weight: 300;
     color: white; }
@@ -3046,6 +3087,7 @@ body,
   height: calc(100% - 29px);
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
   background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eee, #fffff), center no-repeat #eee scroll;
+  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow: hidden;
   overflow-y: scroll; }
 
@@ -3331,6 +3373,10 @@ body,
       height: 35px;
       width: 60px;
       background: #2c5999; }
+      .bottom-bar .chat-input button:disabled {
+        background: #999; }
+        .bottom-bar .chat-input button:disabled:hover {
+          background: #999; }
       .bottom-bar .chat-input button:hover {
         background: #123865; }
 
@@ -3560,7 +3606,7 @@ body,
 /* ===========================
  *  Login Page
  * =========================== */
-#login-page {
+#login-page, #join-page {
   min-height: 100vh;
   text-align: center;
   color: #FFF;
@@ -3590,43 +3636,60 @@ body,
   justify-content: center;
   -ms-flex-pack: center;
   overflow: hidden; }
-  #login-page .flex-container {
-    overflow-y: auto; }
-  #login-page .error-message {
+  #login-page .flex-container, #join-page .flex-container {
+    overflow-y: auto;
+    padding: 2.5em 0; }
+  #login-page .error-message, #join-page .error-message {
     margin-bottom: 0.5em; }
-  #login-page form {
+  #login-page form, #join-page form {
     padding: 0.9375em;
     margin: 0 auto;
     max-width: 600px;
     text-align: left; }
-    #login-page form :-moz-placeholder {
-      color: white; }
-    #login-page form ::-webkit-input-placeholder {
-      color: white; }
-    #login-page form :-ms-input-placeholder {
-      color: white; }
-    #login-page form input {
+    #login-page form :-moz-placeholder, #join-page form :-moz-placeholder {
+      color: white;
+      font-size: 0.8125em;
+      line-height: 1.625em;
+      letter-spacing: 0.078125em; }
+    #login-page form ::-webkit-input-placeholder, #join-page form ::-webkit-input-placeholder {
+      color: white;
+      font-size: 0.8125em;
+      line-height: 1.625em;
+      letter-spacing: 0.078125em; }
+    #login-page form :-ms-input-placeholder, #join-page form :-ms-input-placeholder {
+      color: white;
+      font-size: 0.8125em;
+      line-height: 1.625em;
+      letter-spacing: 0.078125em; }
+    #login-page form input, #join-page form input {
       background: none;
       border-color: white;
       color: white; }
-    #login-page form .btn-primary {
+    #login-page form .btn-primary, #join-page form .btn-primary {
       background: rgba(220, 220, 220, 0.15);
       color: white;
       padding: 0.375em 1.125em;
       font-weight: normal; }
-  #login-page .login-bottom {
+  #login-page .login-bottom, #join-page .login-bottom {
     margin: 1.5625em 0;
     text-align: center; }
-  #login-page .link-auth-alt {
+  #login-page .link-auth-alt, #join-page .link-auth-alt {
     color: white; }
-  #login-page .social-logins {
+  #login-page .social-logins, #join-page .social-logins {
     text-align: center;
     margin: 0 auto;
     max-width: 400px;
     margin-bottom: 0.3125em; }
-    #login-page .social-logins li {
+    #login-page .social-logins li, #join-page .social-logins li {
       display: inline-block;
       width: 45%; }
-    #login-page .social-logins img {
+    #login-page .social-logins img, #join-page .social-logins img {
       max-width: 100%;
       cursor: pointer; }
+  #login-page .optin, #join-page .optin {
+    font-size: 0.75em;
+    display: inline-block; }
+
+/* ===========================
+ *  Join Page
+ * =========================== */
