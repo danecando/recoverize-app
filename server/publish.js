@@ -14,6 +14,9 @@ Accounts.onCreateUser(function(options, user) {
     // setup user account for creation via twitter
     if (user.services.twitter) {
         user.profile.profilePic = user.services.twitter.profile_image_url_https
+        if (!Meteor.users.find({ username: user.services.twitter.screenName})) {
+            user.username = user.services.twitter.screenName
+        }
         user.services.twitter.profileCreated = false
     }
 
