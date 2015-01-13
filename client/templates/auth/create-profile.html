@@ -1,23 +1,44 @@
 <template name="createProfile">
-  <div id="create-profile" class="page-container">
-    <h1>Create profile</h1>
+  <div id="create-profile">
 
-    <section id="step-one">
-      <h2>Choose your username</h2>
-      <form action="">
-        <input type="text" name="username">
-        <button class="submit">Done</button>
-      </form>
-    </section>
-    <section id="step-two">
-      <form action="">
-        <h2>Upload your profile picture</h2>
+    <h1 class="logo">recoverize <span class="version">2.0</span></h1>
 
-        <ul class="actions">
-          <li><button class="skip">Skip</button></li>
-          <li><button class="submit">Done</button></li>
-        </ul>
-      </form>
+    <section class="progress-bar">
+      <ul class="step-list">
+        <li class="active">Username</li>
+        <li>Profile Setup</li>
+        <li>Personal Info</li>
+        <li>Recovery Info</li>
+      </ul>
     </section>
+
+    <section class="steps">
+      <div id="step-one">
+        <h3>Create a username</h3>
+        <form action="">
+          <div class="input-group">
+            <span class="info">Used to identify your account. <strong>Can't be changed!</strong></span>
+            <input type="text" name="username" placeholder="ie: johnd2004">
+          </div>
+          <div class="response"></div>
+          <ul class="actions">
+            <li class="next"><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+          </ul>
+
+        </form>
+        <div class="response"></div>
+      </div>
+      <div id="step-two">
+        <form action="">
+          <h2>Upload your profile picture</h2>
+  
+          <ul class="actions">
+            <li><button class="skip">Skip</button></li>
+            <li><button class="submit">Done</button></li>
+          </ul>
+        </form>
+      </div>
+    </section>
+    
   </div>
 </template>
