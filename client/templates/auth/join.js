@@ -55,4 +55,4 @@ Template.join.events({
             }
         })
     }
-});
+})
