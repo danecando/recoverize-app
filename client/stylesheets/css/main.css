@@ -3835,7 +3835,8 @@ body,
     #create-profile .steps .step {
       width: 100%;
       max-width: 425px;
-      margin-top: 0.625em; }
+      margin-top: 0.625em;
+      display: none; }
       @media screen and (min-width: 48em) {
         #create-profile .steps .step {
           margin-top: 1.875em; } }

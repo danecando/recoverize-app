@@ -50,6 +50,13 @@ Template.createProfile.helpers({
  * Events
  */
 Template.createProfile.events({
+    'click .skip': function(event, template) {
+        event.preventDefault()
+        $(event.target).closest('.step').fadeOut(250, function() {
+            $(this).next().fadeIn(250)
+            $('.active').filter(':last').next().addClass('active')
+        })
+    },
     'submit #step-one form': function(event, template) {
         event.preventDefault()
         var username = template.$('[name=username]').val()
@@ -67,11 +74,54 @@ Template.createProfile.events({
             }
         })
     },
-    'click .skip': function(event, template) {
+    'submit #step-two form': function(event, template) {
+
+    },
+    'submit #step-three form': function(event, template) {
         event.preventDefault()
-        $(event.target).closest('.step').fadeOut(200, function() {
-            $(this).next().fadeIn(200)
-            $('.active').filter(':last').next().addClass('active')
+
+        var user = {
+            name: template.$('[name=name]').val(),
+            location: template.$('[name=location]').val(),
+            gender: template.$('[name=gender]').val()
+        }
+
+        Meteor.call('updateProfile', user, function(error, result) {
+            if (error) {
+                template.$('#step-one .response').text(error.error)
+            } else {
+                Session.set('stepStatus', false)
+                $('#step-three').addClass('complete')
+                $('#step-three').fadeOut(250, function() {
+                    $('#step-four').fadeIn(250)
+                })
+                $('.active').filter(':last').next().addClass('active')
+            }
+        })
+    },
+    'submit #step-four form': function(event, template) {
+        event.preventDefault()
+
+        var month = template.$('[name=soberMonth]').val()
+        var day = template.$('[name=soberDay]').val()
+        var year = template.$('[name=soberYear]').val()
+        var soberDate = new Date(year, month-1, day)
+
+        var user = {
+            program: template.$('[name=program]').val(),
+            homegroup: template.$('[name=homegroup]').val(),
+            soberDate: soberDate,
+            quote: template.$('[name=quote]').val()
+        }
+
+        Meteor.call('updateProfile', user, function(error, result) {
+            if (error) {
+                template.$('#step-one .response').text(error.error)
+            } else {
+                Meteor.call('updateUserRoles', Meteor.user()._id, ['member'], function(error, result) {
+                    Router.go('/')
+                })
+            }
         })
     },
     'change #sober-month': function(event, template) {

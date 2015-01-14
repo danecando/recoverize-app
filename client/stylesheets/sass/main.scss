@@ -1504,6 +1504,7 @@
       width: 100%;
       max-width: 425px;
      margin-top: em(10);
+     display: none;
 
      @include media($tablet-screen-up) {
        margin-top: em(30);
