@@ -13,32 +13,110 @@
     </section>
 
     <section class="steps">
-      <div id="step-one">
-        <h3>Create a username</h3>
+      <div id="step-one" class="step">
+        <h3 class="title">Create your username</h3>
         <form action="">
           <div class="input-group">
-            <span class="info">Used to identify your account. <strong>Can't be changed!</strong></span>
+            <span class="info response">Used to identify your account. <strong>Can't be changed!</strong></span>
             <input type="text" name="username" placeholder="ie: johnd2004">
           </div>
-          <div class="response"></div>
           <ul class="actions">
             <li class="next"><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
           </ul>
-
         </form>
-        <div class="response"></div>
       </div>
-      <div id="step-two">
+      <div id="step-two" class="step" style="display: none;">
         <form action="">
-          <h2>Upload your profile picture</h2>
-  
+          <h3 class="title">Upload your profile picture</h3>
+
+          <div class="response"></div>
           <ul class="actions">
             <li><button class="skip">Skip</button></li>
-            <li><button class="submit">Done</button></li>
+            <li><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+          </ul>
+        </form>
+      </div>
+      <div id="step-three" class="step" style="display: none">
+        <form action="">
+          <h3 class="title">Let's get to know you!</h3>
+          <div class="input-group">
+            <label for="name" class="">Display Name <small>(Shown on your profile)</small></label>
+            <input type="text" name="name" placeholder="Bill W">
+          </div>
+          <div class="input-group">
+            <label for="location">Location <small>(Where do you live?)</small></label>
+            <input type="text" name="location" placeholder="Akron, OH">
+          </div>
+          <div class="input-group">
+            <label for="gender">Gender</label>
+            <select name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="response"></div>
+          <ul class="actions">
+            <li><button class="skip">Skip</button></li>
+            <li><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+          </ul>
+        </form>
+      </div>
+      <div id="step-four" class="step" style="display: none">
+        <form action="">
+          <h3 class="title">Introduce yourself!</h3>
+          <div class="input-group">
+            <label for="program">Program</label>
+            <select name="program" id="program">
+              <option value="aa">Alcoholics Anonymous</option>
+              <option value="na">Narcotics Anonymous</option>
+              <option value="ca">Cocaine Anonymous</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="homegroup">Homegroup</label>
+            <input type="text" name="homegroup" placeholder="Pompano Beach Group">
+          </div>
+          <div class="input-group sober-date">
+            <label for="soberDate">Sober Date</label>
+            <div class="selects">
+              <select name="soberMonth" id="sober-month">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+              <select name="soberDay" id="sober-day">
+                {{#each days}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+              <select name="soberYear" id="sober-year">
+                {{#each years}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="quote">Quote</label>
+            <textarea name="quote" id="quote" cols="30" rows="3" placeholder="You were sick, but now you're well again, and there's work to do."></textarea>
+          </div>
+          <div class="response"></div>
+          <ul class="actions">
+            <li><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Finish</button></li>
           </ul>
         </form>
       </div>
     </section>
-    
+
   </div>
 </template>

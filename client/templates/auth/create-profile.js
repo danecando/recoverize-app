@@ -54,13 +54,26 @@ Template.createProfile.events({
         event.preventDefault()
         var username = template.$('[name=username]').val()
         Meteor.call('createUsername', username, function(error, result) {
-            console.log( error)
-            //if (error) template.$('#step-one .response').addClass('error').text(error)
-            //else template.$('#step-one .response').addClass('success').text("Your profile has been updated")
+            if (error) {
+                template.$('#step-one .response').text(error.error)
+                template.$('[name=username]').css('border-color', 'red')
+            } else {
+                Session.set('stepStatus', false)
+                $('#step-one').addClass('complete')
+                $('#step-one').fadeOut(250, function() {
+                    $('#step-two').fadeIn(250)
+                })
+                $('.active').filter(':last').next().addClass('active')
+            }
         })
-
     },
-
+    'click .skip': function(event, template) {
+        event.preventDefault()
+        $(event.target).closest('.step').fadeOut(200, function() {
+            $(this).next().fadeIn(200)
+            $('.active').filter(':last').next().addClass('active')
+        })
+    },
     'change #sober-month': function(event, template) {
 
         var month = template.$('#sober-month').val(),
