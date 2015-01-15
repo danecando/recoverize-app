@@ -8,6 +8,7 @@ Template.createProfile.rendered = function() {
 Template.createProfile.created = function() {
     Session.setDefault('stepStatus', false)
     Session.setDefault('days', 31)
+    Session.setDefault('profilePic', false)
 }
 
 Template.createProfile.destroyed = function() {
@@ -84,6 +85,10 @@ Template.createProfile.events({
             name: template.$('[name=name]').val(),
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val()
+        }
+
+        if (!Session.get('profilePic')) {
+             user.profilePic = (template.$('[name=gender]').val() == 'male') ? "https://d6gyptuog2clr.cloudfront.net/male_avatar.jpg" : "https://d6gyptuog2clr.cloudfront.net/female_avatar.jpg"
         }
 
         Meteor.call('updateProfile', user, function(error, result) {
