@@ -147,3 +147,9 @@ Meteor.publish('timeline', function() {
         return
     }
 })
+
+Meteor.publish('status', function(id) {
+    if(!this.userId) return this.ready()
+
+    return Status.find({_id: id})
+})

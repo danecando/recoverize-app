@@ -2,6 +2,9 @@
   <div id="timeline" class="page-container">
     <h1>timeline</h1>
 
-    {{> statuslist}}
+    {{#each status}}
+      {{> statusp}}
+    {{/each}}
+
   </div>
 </template>
