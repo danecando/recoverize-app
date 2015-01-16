@@ -1,5 +1,5 @@
 
-Template.statuslist.helpers({
+Template.statusp.helpers({
     currentUserSerenityList: function(statusId){
         var status = Status.findOne(statusId)
         if(status && status.serenityList){
@@ -7,13 +7,10 @@ Template.statuslist.helpers({
         }else{
             return false
         }
-    },
-    status: function() {
-        return Status.find({}, {sort: {timestamp: -1}})
     }
 })
 
-Template.statuslist.events({
+Template.statusp.events({
     'click .serenityUpBtn': function(e){
         var statusId = $(e.target).attr('data-statusId')
         Meteor.call('statusSerenityUp', statusId)

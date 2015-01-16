@@ -5,6 +5,9 @@ Template.userProfile.helpers({
     },
     isCurrentUser: function(){
         return this.username === Meteor.user().username
+    },
+    status: function() {
+        return Status.find({}, {sort: {timestamp: -1}})
     }
 })
 

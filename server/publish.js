@@ -14,6 +14,9 @@ Accounts.onCreateUser(function(options, user) {
     // setup user account for creation via twitter
     if (user.services.twitter) {
         user.profile.profilePic = user.services.twitter.profile_image_url_https
+        if (!Meteor.users.find({ username: user.services.twitter.screenName})) {
+            user.username = user.services.twitter.screenName
+        }
         user.services.twitter.profileCreated = false
     }
 
@@ -143,4 +146,10 @@ Meteor.publish('timeline', function() {
         this.ready()
         return
     }
+})
+
+Meteor.publish('status', function(id) {
+    if(!this.userId) return this.ready()
+
+    return Status.find({_id: id})
 })

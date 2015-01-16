@@ -1,4 +1,6 @@
-// todo: fix up updated session variable between pages
+Template.createProfile.rendered = function() {
+
+}
 
 Template.accountSettings.created = function() {
     Session.setDefault('updated', false)
@@ -16,7 +18,7 @@ Template.accountSettings.helpers({
         return Meteor.user()
     },
     updated: function() {
-        if (!Session.get('updated')) return 'disabled'
+        return Session.get('updated')
     }
 });
 
@@ -59,10 +61,19 @@ Template.accountSettings.events({
             return
         }
 
-        Meteor.call('updateAccount', user, function(error, result) {
-            if (error) template.$('.response').addClass('error').text(error.reason)
-            else template.$('.response').addClass('success').text('Your account has been updated')
-        })
+        if (user.newpw) {
+            Accounts.changePassword(user.oldpw, user.newpw, function(error) {
+                if (error) template.$('.response').addClass('error').text(error.reason)
+                else template.$('.response').addClass('success').text('Your account has been updated')
+            })
+        }
+
+        if (Meteor.user().emails[0].address !== user.email) {
+            Meteor.call('updateEmail', user, function (error, result) {
+                if (error) template.$('.response').addClass('error').text(error.reason)
+                else template.$('.response').addClass('success').text('Your account has been updated')
+            })
+        }
     }
 
 });

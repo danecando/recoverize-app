@@ -6,7 +6,6 @@ Template.join.events({
     'submit': function(event, template) {
         event.preventDefault()
         var email = template.$('[name=email]').removeClass('input-error').val()
-        var username = template.$('[name=username]').removeClass('input-error').val()
         var password = template.$('[name=password]').removeClass('input-error').val()
         var confirm = template.$('[name=confirm]').val()
 
@@ -18,13 +17,7 @@ Template.join.events({
             template.$('.error-message').text(errors.email)
         }
 
-        if (!username && email) {
-            errors.username = 'Username required'
-            template.$('[name=username]').addClass('input-error')
-            template.$('.error-message').text(errors.username)
-        }
-
-        if (!password && email && username) {
+        if (!password && email) {
             errors.password = 'Password required'
             template.$('[name=password]').addClass('input-error')
             template.$('.error-message').text(errors.password)
@@ -43,8 +36,7 @@ Template.join.events({
         var user = {
             email: email,
             password: password,
-            confirm: confirm,
-            username: username
+            confirm: confirm
         }
 
         if (template.$('[name=optin]').is(':checked')) {
@@ -58,9 +50,9 @@ Template.join.events({
             if (result) {
                 Meteor.loginWithPassword(user.email, user.password, function(error) {
                     if (error) template.$('.error-message').text(error.reason)
-                    Router.go('/user/profile')
+                    Router.go('/create-profile')
                 })
             }
         })
     }
-});
+})

@@ -1,10 +1,10 @@
 
-<template name="statuslist">
-
-  {{#each status}}
+<template name="statusp">
     <div class="status-box">
 
-    <div>{{this.status}}</div>
+    <div>{{linkMentions this.status}} 
+      <a href="/status/{{this._id}}">[link]</a>
+    </div>
     <small> | posted: {{relativeTime this.timestamp}} | serenity: {{this.serenity}} | by: {{this.username}} </small>
 
     {{#if currentUserSerenityList this._id}}
@@ -13,6 +13,4 @@
       <button class="serenityUpBtn" data-statusId="{{this._id}}"> serenity+ </button>
     {{/if}}
     </div>
-  {{/each}}
-
 </template>
