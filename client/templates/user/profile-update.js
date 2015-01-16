@@ -141,6 +141,10 @@ Template.profileUpdate.events({
             })
         }
 
+        var month = template.$('[name=soberMonth]').val()
+        var day = template.$('[name=soberDay]').val()
+        var year = template.$('[name=soberYear]').val()
+        var soberDate = new Date(year, month-1, day)
 
 
         var user = {
@@ -150,11 +154,7 @@ Template.profileUpdate.events({
             gender: template.$('[name=gender]').val(),
             program: template.$('[name=program]').val(),
             homegroup: template.$('[name=homegroup]').val(),
-            sober: {
-                month: template.$('[name=soberMonth]').val(),
-                day: template.$('[name=soberDay]').val(),
-                year: template.$('[name=soberYear]').val()
-            },
+            soberDate: soberDate,
             quote: template.$('[name=quote]').val()
         }
 
