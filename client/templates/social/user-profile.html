@@ -58,7 +58,9 @@
     {{/if}}
 
   <div class="status-list">
-    {{> statuslist}}
+    {{#each status}}
+      {{> statusp}}
+    {{/each}}
   </div>
 
   {{else}}
