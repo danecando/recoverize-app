@@ -1,0 +1,7 @@
+
+<template name="checklist">
+  {{#each tasks}}
+    <h5>{{this.task}}</h5>
+    <button data-taskId={{this._id}}>check/uncheck</button>
+  {{/each}}
+</template>
