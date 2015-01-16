@@ -2,7 +2,9 @@
 <template name="statusp">
     <div class="status-box">
 
-    <div>{{this.status}}</div>
+    <div>{{this.status}} 
+      <a href="/status/{{this._id}}">[link]</a>
+    </div>
     <small> | posted: {{relativeTime this.timestamp}} | serenity: {{this.serenity}} | by: {{this.username}} </small>
 
     {{#if currentUserSerenityList this._id}}
