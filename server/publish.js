@@ -153,3 +153,9 @@ Meteor.publish('status', function(id) {
 
     return Status.find({_id: id})
 })
+
+Meteor.publish('tasks', function() {
+    if(!this.userId) return this.ready()
+
+    return Tasks.find({userId: this.userId})
+})

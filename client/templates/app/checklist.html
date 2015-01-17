@@ -2,6 +2,12 @@
 <template name="checklist">
   {{#each tasks}}
     <h5>{{this.task}}</h5>
-    <button data-taskId={{this._id}}>check/uncheck</button>
+
+    {{#if this.checked}}
+      <button data-taskId={{this._id}} class="uncheck">uncheck</button>
+    {{else}}
+      <button data-taskId={{this._id}} class="check">check</button>
+    {{/if}}
+
   {{/each}}
 </template>
