@@ -9,7 +9,6 @@
     <ul class="top-links">
       <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
       <li class="update-profile"><a class="button" href="/profile">Update Profile</a></li>
-      <li class="report-bugs"><a class="button" href="/report">Report Bug</a></li>
     </ul>
 
     <form action="">
@@ -25,15 +24,15 @@
           </li>
           <li>
             <label for="oldpw">Old Password <small class="desc">For password change or account deletion</small></label>
-            <input type="text" name="oldpw">
+            <input type="password" name="oldpw">
           </li>
           <li class="split">
             <label for="newpw">New Password</label>
-            <input type="text" name="newpw">
+            <input type="password" name="newpw">
           </li>
           <li class="split">
             <label for="confirmpw">Confirm Password</label>
-            <input type="text" name="confirmpw">
+            <input type="password" name="confirmpw">
           </li>
           <li>
             <button id="delete-account">Delete My Account</button>
@@ -41,7 +40,7 @@
           </li>
         </ul>
         <div class="response"></div>
-        <button id="save-changes" {{updated}}>Save Changes</button>
+        <button id="save-changes" disabled="{{#unless updated}}disabled{{/unless}}">Save Changes</button>
       </section>
     </form>
   </div>
