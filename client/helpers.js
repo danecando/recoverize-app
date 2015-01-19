@@ -11,26 +11,26 @@ UI.registerHelper('linkMentions', function(context){
 })
 
 /**
- * shows current users notification count
+ * returns currentUser's notification count
  */
 UI.registerHelper('notificationCount', function(){
-    return Notification.find({type: {$not: 'message'}, checked: false}).count()
+    return Notification.find({type: {$not: 'message'}}).count()
 })
 
 /**
- * shows current users message notification count
+ * returns currentUser's message notification count
  */
 UI.registerHelper('messageNotificationCount', function(){
-    return Notification.find({type: 'message', checked: false}).count()
+    return Notification.find({type: 'message'}).count()
 })
 
 /**
  * returns true if currentUser follows @username
  */
 UI.registerHelper('currentUserFollows', function(username){
-    if(username){
+    if(username) {
         return Meteor.user().follows.indexOf(username) !== -1
-    }else{
+    } else {
         return false
     }
 })
@@ -54,7 +54,7 @@ UI.registerHelper('currentUserUsername', function(){
 })
 
 /**
- * return current users serenity or 0 as fallback
+ * return serenity points of currentUser
  */
 UI.registerHelper('currentUserSerenity', function(){
     return Meteor.user() ? Meteor.user().serenity : 0
@@ -66,17 +66,16 @@ UI.registerHelper('presenceOf', function(username){
 })
 
 /**
- * get profilePic of currentUser (by default) or specified `username`
- * returns Identicon as profilePic fallback
+ * get profilePic of currentUser (by default) or specified @username
  */
 UI.registerHelper('profilePic', function(username) {
     var user
 
-    if(!username && Meteor.user()){
+    if(!username && Meteor.user()) {
         user = Meteor.user()
-    }else if(username && typeof username === 'string'){
+    } else if (username && typeof username === 'string') {
         user = Meteor.users.findOne({username: username})
-    }else{
+    } else {
         return false
     }
 
@@ -84,10 +83,7 @@ UI.registerHelper('profilePic', function(username) {
 
     if(user.profile && user.profile.profilePic) {
         return user.profile.profilePic
-    }else if(user.identicon){
-        var identicon = new Identicon(user.identicon, 256).toString()
-        return 'data:image/png;base64,' + identicon.toString()
-    }else{
+    } else {
         return false
     }
 })
@@ -107,49 +103,37 @@ UI.registerHelper('userColor', function(username) {
     return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2)
 })
 
-
 /**
  * Program intro
  */
 UI.registerHelper('programIntro', function(program) {
-    switch(program) {
-        case 'aa':
-            return 'alcoholic'
-        break
-        case 'na':
-            return 'addict'
-        break
-        default:
-            return 'addict'
-        break
+    var PROGRAMS = {
+        'aa': 'alcoholic',
+        'na': 'addict'
     }
+
+    return PROGRAMS[program] || 'addict'
 })
 
 /**
  * Clean or sober
  */
 UI.registerHelper('cleanOrSober', function(program) {
-    switch(program) {
-        case 'aa':
-            return 'sober'
-        break
-        case 'na':
-            return 'clean'
-        break
-        default:
-            return 'clean'
-        break
+    var PROGRAMS = {
+        'aa': 'sober',
+        'na': 'clean'
     }
+
+    return PROGRAMS[program] || 'clean'
 })
 
 /**
  * Message direction
  */
 UI.registerHelper('messageDirection', function(from) {
-    if (from === Meteor.user().username) return 'to'
+    if (from == Meteor.user().username) return 'to'
     else return 'from'
 })
-
 
 /**
  * Elapsed time
@@ -166,7 +150,7 @@ UI.registerHelper('elapsedDays', function(date) {
 
     Meteor.setInterval(function(){
         timeTick.changed()
-    }, 1000)
+    }, 10000)
 
     var reactive = function(mmt){
         timeTick.depend()

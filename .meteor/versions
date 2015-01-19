@@ -44,6 +44,7 @@ launch-screen@1.0.1
 livedata@1.0.12
 localstorage@1.0.2
 logging@1.0.6
+matb33:collection-hooks@0.7.7
 meteor@1.1.4
 meteor-platform@1.2.1
 meteorhacks:async@1.0.0
@@ -71,7 +72,7 @@ oauth2@1.1.2
 observe-sequence@1.0.4
 ordered-dict@1.0.2
 raix:eventemitter@0.1.1
-raix:push@2.5.1
+raix:push@2.3.2
 random@1.0.2
 reactive-dict@1.0.5
 reactive-var@1.0.4
