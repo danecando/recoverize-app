@@ -20,6 +20,7 @@ accounts-password
 aldeed:simple-schema
 meteorhacks:kadira
 alanning:roles
+meteorhacks:fast-render
 edgee:slingshot
 accounts-facebook
 accounts-twitter
@@ -30,4 +31,4 @@ meteorhacks:zones
 sacha:spin
 raix:push
 recoverize:daily-readings
-recoverize:aws-upload
+matb33:collection-hooks

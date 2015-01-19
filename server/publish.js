@@ -40,12 +40,9 @@ Accounts.onCreateUser(function(options, user) {
 
 // Publish user data (self account data published by default)
 Meteor.publish('userData', function() {
-    if (this.userId) {
-       return Meteor.users.find({ _id: this.userId })
-    } else {
-       this.ready()
-       return
-    }
+    if (!this.userId) return this.ready()
+
+    return Meteor.users.find({ _id: this.userId })
 })
 
 Meteor.publish('userCount', function() {
@@ -53,23 +50,18 @@ Meteor.publish('userCount', function() {
 })
 
 Meteor.publish('chat', function(){
-    return Chat.find({}, {sort: {timestamp: -1}, limit: 50})
+    return Chat.find({}, {sort: {timestamp: -1}, limit: 100})
 })
 
 Meteor.publish('presence', function(){
-    if(this.userId){
-        return Presences.find({username: {$exists: true}})
-    }else{
-        this.ready()
-        return
-    }
+    if(!this.userId) return this.ready()
+
+    return Presences.find({username: {$exists: true}})
 })
 
 Meteor.publish('notification', function(){
-    if(!this.userId){
-        this.ready()
-        return
-    }
+    if(!this.userId) return this.ready()
+
     return Notification.myNotifications(this.userId)
 })
 
@@ -109,47 +101,50 @@ Meteor.publish('userList', function(query){
 })
 
 /**
- * returns the profilePic and identicon of a specified username(s)
+ * returns the profilePic of specified username(s)
  */
 Meteor.publish('profilePic', function(usernames) {
-    if(!usernames){
-        return []
-    }
-    if(!Array.isArray(usernames)){
+    if(!usernames) return this.ready()
+
+    if(!Array.isArray(usernames)) {
         usernames = [usernames]
     }
+
     return Meteor.users.find(
         {username: {$in: usernames}},
-        {fields: {'profile.profilePic': true, 'identicon': true, 'username': true}}
+        {fields: {'profile.profilePic': true, 'username': true}}
     )
 })
 
 Meteor.publish('message', function(username, page){
-    if(this.userId && username){
+    if(this.userId && username) {
         return MessageBuckets.myMessagesWith(this.userId, username, page)
     } else if (this.userId){
         return MessageSessions.myMessages(this.userId)
     } else {
-        this.ready()
-        return
+        return this.ready()
     }
 })
 
 Meteor.publish('timeline', function() {
-    if(this.userId) {
-        // 604800000 = 1 week in ms
-        return Status.find(
-            {timestamp: {$gt: Date.now() - 604800000}},
-            {sort: {serenity: -1}, limit: 50}
-        )
-    } else {
-        this.ready()
-        return
-    }
+    if(!this.userId) return this.ready()
+
+    var weekInMilli = 604800000
+
+    return Status.find(
+        {timestamp: {$gt: Date.now() - weekInMilli}},
+        {sort: {serenity: -1}, limit: 50}
+    )
 })
 
 Meteor.publish('status', function(id) {
     if(!this.userId) return this.ready()
 
     return Status.find({_id: id})
+})
+
+Meteor.publish('tasks', function() {
+    if(!this.userId) return this.ready()
+
+    return Tasks.find({userId: this.userId})
 })
