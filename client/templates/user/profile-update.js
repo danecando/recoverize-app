@@ -1,9 +1,4 @@
 Template.profileUpdate.rendered = function() {
-    //if (Meteor.user().profile.profilePic) {
-    //    $('.no-picture').css('display', 'none')
-    //} else {
-    //    $('.picture-exists').css('display', 'none')
-    //}
 
     var program = Meteor.user().profile.program
     if (program) {
@@ -45,6 +40,7 @@ Template.profileUpdate.rendered = function() {
 
 Template.profileUpdate.created = function() {
     Session.setDefault('updated', false)
+    Session.setDefault('cordovaFile', false)
     Session.setDefault('days', 31)
 }
 
@@ -56,7 +52,9 @@ Template.profileUpdate.destroyed = function() {
  * Helpers
  */
 Template.profileUpdate.helpers({
-
+    cordova: function() {
+        return !!Meteor.isCordova
+    },
     user: function() {
         return Meteor.user()
     },
@@ -99,46 +97,64 @@ Template.profileUpdate.events({
         event.preventDefault()
         template.$('input[name=profilePic]').click()
     },
-    'click input[name=profilePic]': function(event, template) {
-        if (Meteor.isCordova) {
-            window.imagePicker.getPictures(
-                function (results) {
-                    for (var i = 0; i < results.length; i++) {
-                        if (typeof results[i] == 'string') {
-                            var fileName = results[i].substring(results[i].lastIndexOf('/')+1)
-                            var filePath = results[i].substring(0, results[i].lastIndexOf('/'))
-                            window.resolveLocalFileSystemURL(filePath, function(dir) {
-                                console.log(JSON.stringify(dir))
-                                dir.getFile(fileName, {create: true, exclusive: false}, function(file) {
-
-                                    template.$('[name=profilePic]')[0].files[0] = file
-                                    Session.set('updated', true)
-                                })
-                            })
-                        }
+    'click #cordova-upload': function(event, template) {
+        window.imagePicker.getPictures(
+            function (results) {
+                for (var i = 0; i < results.length; i++) {
+                    var file = {
+                        name: results[i].replace(/^.*[\\\/]/, ''),
+                        uri: results[i]
                     }
-                }, function (error) {
-                    console.log('Error: ' + error)
-                }, {
-                    maximumImagesCount: 1
+                    $('#cordova-upload').text(file.name)
+                    Session.set('cordovaFile', file)
                 }
-            )
-        }
+            })
     },
-
     'click #save-changes': function(event, template) {
         event.preventDefault()
 
-        // todo: load defaults create thingy if profile picture is already uploaded
-        var file = template.$('[name=profilePic]')[0].files[0]
-        console.log(JSON.stringify(file))
-        if (file) {
-            var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
-            var uploader = new Slingshot.Upload("myFileUploads")
-            uploader.send(file, function (error, downloadUrl) {
-                if (error) template.$('.response').addClass('error').text(error)
-                console.log(downloadUrl)
+        if (Session.get('cordovaFile')) {
+            file = Session.get('cordovaFile')
+
+            //window.requestFileSystem(window.TEMPORARY, 1024*1024, function(fs) {
+            //    fs.root.getFile(file.uri, {}, function(fileEntry) {
+            //        fileEntry.file(function(fileObj) {
+            //            var uploader = new Slingshot.Upload("myFileUploads")
+            //            uploader.send(fileObj, function (error, downloadUrl) {
+            //                if (error) template.$('.response').addClass('error').text(error)
+            //                console.log(downloadUrl)
+            //            })
+            //        })
+            //    })
+            //})
+
+            window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
+                fileEntry.file(function(fileObj) {
+                    console.log(JSON.stringify(fileObj))
+                    fileObj.type = "image/jpeg"
+                    var uploader = new Slingshot.Upload("myFileUploads")
+                    uploader.send(fileObj, function (error, downloadUrl) {
+                        if (error) template.$('.response').addClass('error').text(error)
+                        console.log(downloadUrl)
+                    })
+                })
             })
+
+            //AwsUpload.upload(file.uri, file.name)
+        }
+
+        if (!Meteor.isCordova) {
+            var file = template.$('[name=profilePic]')[0].files[0]
+            console.log(file)
+
+            if (file) {
+                var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
+                var uploader = new Slingshot.Upload("myFileUploads")
+                uploader.send(file, function (error, downloadUrl) {
+                    if (error) template.$('.response').addClass('error').text(error)
+                    console.log(downloadUrl)
+                })
+            }
         }
 
         var month = template.$('[name=soberMonth]').val()
@@ -149,7 +165,7 @@ Template.profileUpdate.events({
 
         var user = {
             name: template.$('[name=name]').val(),
-            profilePic: fileUrl,
+            //profilePic: fileUrl,
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val(),
             program: template.$('[name=program]').val(),

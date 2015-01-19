@@ -2942,9 +2942,9 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
-.account-settings input[name=profilePic],
-.profile-settings input[name=profilePic] {
-  display: none; }
+.account-settings .avatar-preview,
+.profile-settings .avatar-preview {
+  float: left; }
 .account-settings #image-select,
 .profile-settings #image-select {
   display: block;
