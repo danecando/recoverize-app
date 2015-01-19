@@ -130,13 +130,28 @@ Template.profileUpdate.events({
 
             window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
                 fileEntry.file(function(fileObj) {
-                    console.log(JSON.stringify(fileObj))
-                    fileObj.type = "image/jpeg"
-                    var uploader = new Slingshot.Upload("myFileUploads")
-                    uploader.send(fileObj, function (error, downloadUrl) {
-                        if (error) template.$('.response').addClass('error').text(error)
-                        console.log(downloadUrl)
-                    })
+
+                    console.log('hello world');
+                    console.log(JSON.stringify(fileObj));
+
+                    var reader = new FileReader()
+
+                    reader.onload = function(event) {
+                        var contents = event.target.result
+                        console.log(contents)
+                    }
+
+                    reader.onerror = function(error) {
+                        console.log(error)
+                    }
+
+                    reader.readAsDataURL(fileObj)
+
+                    //var uploader = new Slingshot.Upload("myFileUploads")
+                    //uploader.send(fileObj, function (error, downloadUrl) {
+                    //    if (error) template.$('.response').addClass('error').text(error)
+                    //    console.log(downloadUrl)
+                    //})
                 })
             })
 
