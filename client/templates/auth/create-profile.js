@@ -1,10 +1,3 @@
-Template.createProfile.rendered = function() {
-    $(':input').on('change keyup paste', function() {
-        if ($(this).val().length) Session.set('stepStatus', true)
-        else Session.set('stepStatus', false)
-    })
-}
-
 Template.createProfile.created = function() {
     Session.setDefault('stepStatus', false)
     Session.setDefault('days', 31)
@@ -51,6 +44,10 @@ Template.createProfile.helpers({
  * Events
  */
 Template.createProfile.events({
+    'change :input, keypress :input': function(event, template) {
+        if ($(event.target).val().length) Session.set('stepStatus', true)
+        else Session.set('stepStatus', false)
+    },
     'click .skip': function(event, template) {
         event.preventDefault()
         $(event.target).closest('.step').fadeOut(250, function() {
