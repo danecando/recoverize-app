@@ -561,10 +561,39 @@
  *  Messages
  * =========================== */
 
+.no-messages {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  @include calc(height, '100vh - 77px');
+  @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
+
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-weight: normal;
+  }
+
+  @include media($tablet-screen-up) {
+    @include calc(height, '100vh - 34px');
+  }
+
+  h2 {
+    margin-bottom: em(10);
+  }
+
+  a {
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px dotted white;
+  }
+}
+
 .thread-item {
   @include clearfix;
   @include display(flex);
-  align-items: center;
+  @include align-items(center);
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   @include transition(background 200ms ease-in-out);

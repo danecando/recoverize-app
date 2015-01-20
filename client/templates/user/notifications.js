@@ -1,7 +1,9 @@
 
 Template.notifications.helpers({
     notifications: function(){
-        return Notification.find({type: {$not: 'message'}})
+        var notify = Notification.find({type: {$not: 'message'}})
+        if (notify.count()) return notify
+        else return false
     }
 })
 
