@@ -6,6 +6,11 @@ var bucket = "recoverize-app",
     secret = Meteor.settings.AWSSecretAccessKey
 
 Meteor.methods({
+    /**
+     * Sign policy for s3 post request
+     * @param fileName
+     * @returns {{bucket: string, awsKey: (FileUploadOptions.params.AWSAccessKeyId|*), policy: (string|*), signature: *}}
+     */
     sign: function(fileName) {
 
         var expiration = new Date(new Date().getTime() + 1000 * 60 * 5).toISOString()
@@ -14,7 +19,7 @@ Meteor.methods({
             "expiration": expiration,
             "conditions": [
                 { "bucket": "recoverize-app" },
-                { "key": fileName },
+                { "key": Meteor.user().username + '/' + fileName },
                 { "acl": 'public-read' },
                 ["starts-with", "$Content-Type", ""],
                 ["content-length-range", 0, 524288000]

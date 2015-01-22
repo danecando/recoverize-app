@@ -24,7 +24,6 @@
             {{#if cordova}}
               <div id="cordova-upload">
                 Click to upload your profile picture
-                <img src="" alt=""/>
               </div>
             {{else}}
               <input type="file" name="profilePic" accept="image/*">
@@ -86,7 +85,7 @@
           </li>
         </ul>
         <div class="response"></div>
-        <button id="save-changes" {{updated}}>Save Changes</button>
+        <button id="save-changes" disabled="{{#unless profileUpdated}}disabled{{/unless}}">Save Changes</button>
       </section>
 
     </form>

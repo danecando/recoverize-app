@@ -39,13 +39,13 @@ Template.profileUpdate.rendered = function() {
 }
 
 Template.profileUpdate.created = function() {
-    Session.setDefault('updated', false)
-    Session.setDefault('cordovaFile', false)
     Session.setDefault('days', 31)
-}
 
-Template.profileUpdate.destroyed = function() {
-    Session.setDefault('updated', false)
+    this.profileUpdated = new ReactiveVar
+    this.profileUpdated.set(false)
+
+    this.cordovaFile = new ReactiveVar
+    this.cordovaFile.set(false)
 }
 
 /**
@@ -58,8 +58,8 @@ Template.profileUpdate.helpers({
     user: function() {
         return Meteor.user()
     },
-    updated: function() {
-        if (!Session.get('updated')) return 'disabled'
+    profileUpdated: function() {
+        return Template.instance().profileUpdated.get()
     },
     days: function() {
         var days = []
@@ -82,16 +82,14 @@ Template.profileUpdate.helpers({
         return years
     }
 
-});
+})
 
 /**
  * Events
  */
 Template.profileUpdate.events({
-
-    // enable save button if any fields have been updated
-    'change :input': function(event, template) {
-        Session.set('updated', true)
+    'change :input, keypress :input': function(event, template) {
+        template.profileUpdated.set(true)
     },
     'click #image-select': function(event, template) {
         event.preventDefault()
@@ -102,72 +100,55 @@ Template.profileUpdate.events({
             function (results) {
                 for (var i = 0; i < results.length; i++) {
                     var file = {
+                        type: results[i].split('.').pop(),
                         name: results[i].replace(/^.*[\\\/]/, ''),
                         uri: results[i]
                     }
+
+                    template.cordovaFile.set(file)
+                    Session.set('updated', true);
                     $('#cordova-upload').text(file.name)
-                    Session.set('cordovaFile', file)
                 }
+            }, function(error) {
+                console.log(error)
             })
     },
     'click #save-changes': function(event, template) {
         event.preventDefault()
 
-        if (Session.get('cordovaFile')) {
-            file = Session.get('cordovaFile')
-
-            //window.requestFileSystem(window.TEMPORARY, 1024*1024, function(fs) {
-            //    fs.root.getFile(file.uri, {}, function(fileEntry) {
-            //        fileEntry.file(function(fileObj) {
-            //            var uploader = new Slingshot.Upload("myFileUploads")
-            //            uploader.send(fileObj, function (error, downloadUrl) {
-            //                if (error) template.$('.response').addClass('error').text(error)
-            //                console.log(downloadUrl)
-            //            })
-            //        })
-            //    })
-            //})
-
+        // upload profile pic from cordova
+        if (template.cordovaFile.get()) {
+            var file = template.cordovaFile.get()
             window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
                 fileEntry.file(function(fileObj) {
-
-                    console.log('hello world');
-                    console.log(JSON.stringify(fileObj));
-
-                    var reader = new FileReader()
-
-                    reader.onload = function(event) {
-                        var contents = event.target.result
-                        console.log(contents)
-                    }
-
-                    reader.onerror = function(error) {
-                        console.log(error)
-                    }
-
-                    reader.readAsDataURL(fileObj)
-
-                    //var uploader = new Slingshot.Upload("myFileUploads")
-                    //uploader.send(fileObj, function (error, downloadUrl) {
-                    //    if (error) template.$('.response').addClass('error').text(error)
-                    //    console.log(downloadUrl)
-                    //})
+                    file.size = fileObj.size
+                    AwsUpload.upload(file, function(path) {
+                        var user = {}
+                        user.profilePic = path
+                        Meteor.call('updateProfile', user, function(error, result) {
+                            if (error) template.$('.response').addClass('error').text(error)
+                            else template.$('.response').addClass('success').text("Your profile has been updated")
+                        })
+                    })
                 })
             })
-
-            //AwsUpload.upload(file.uri, file.name)
         }
 
+        // upload profile pic for web
         if (!Meteor.isCordova) {
             var file = template.$('[name=profilePic]')[0].files[0]
-            console.log(file)
 
             if (file) {
-                var fileUrl = 'https://d6gyptuog2clr.cloudfront.net/' + Meteor.user().username + '/' + file.name
                 var uploader = new Slingshot.Upload("myFileUploads")
                 uploader.send(file, function (error, downloadUrl) {
                     if (error) template.$('.response').addClass('error').text(error)
-                    console.log(downloadUrl)
+
+                    var user = {}
+                    user.profilePic = Meteor.user().username + '/' + file.name
+                    Meteor.call('updateProfile', user, function(error, result) {
+                        if (error) template.$('.response').addClass('error').text(error)
+                        else template.$('.response').addClass('success').text("Your profile has been updated")
+                    })
                 })
             }
         }
@@ -177,10 +158,8 @@ Template.profileUpdate.events({
         var year = template.$('[name=soberYear]').val()
         var soberDate = new Date(year, month-1, day)
 
-
         var user = {
             name: template.$('[name=name]').val(),
-            //profilePic: fileUrl,
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val(),
             program: template.$('[name=program]').val(),
@@ -192,7 +171,6 @@ Template.profileUpdate.events({
         Meteor.call('updateProfile', user, function(error, result) {
             if (error) template.$('.response').addClass('error').text(error)
             else template.$('.response').addClass('success').text("Your profile has been updated")
-
         })
     },
 
