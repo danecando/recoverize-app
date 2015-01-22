@@ -539,8 +539,12 @@
     }
   }
 
+  .avatar-preview {
+    float: left;
+  }
+
   input[name=profilePic] {
-    display: none;
+//    display: none;
   }
 
   #image-select {

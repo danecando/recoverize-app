@@ -32,3 +32,5 @@ sacha:spin
 raix:push
 recoverize:daily-readings
 matb33:collection-hooks
+recoverize:aws-upload
+reactive-var

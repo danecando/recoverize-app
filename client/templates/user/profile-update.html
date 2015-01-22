@@ -20,7 +20,14 @@
           </li>
           <li>
             <label for="profilePic">Profile Picture</label>
-            <input type="file" name="profilePic" accept="image/*">
+            {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
+            {{#if cordova}}
+              <div id="cordova-upload">
+                Click to upload your profile picture
+              </div>
+            {{else}}
+              <input type="file" name="profilePic" accept="image/*">
+            {{/if}}
           </li>
           <li>
             <label for="location">Location <small class="desc">City / State</small></label>
@@ -78,7 +85,7 @@
           </li>
         </ul>
         <div class="response"></div>
-        <button id="save-changes" {{updated}}>Save Changes</button>
+        <button id="save-changes" disabled="{{#unless profileUpdated}}disabled{{/unless}}">Save Changes</button>
       </section>
 
     </form>
