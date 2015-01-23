@@ -127,7 +127,8 @@ Template.profileUpdate.events({
                         user.profilePic = path
                         Meteor.call('updateProfile', user, function(error, result) {
                             if (error) template.$('.response').addClass('error').text(error)
-                            else template.$('.response').addClass('success').text("Your profile has been updated")
+                            else template.$('#save-changes').text("Profile Updated!")
+                                //template.$('.response').addClass('success').text("Your profile has been updated")
                         })
                     })
                 })
@@ -170,7 +171,8 @@ Template.profileUpdate.events({
 
         Meteor.call('updateProfile', user, function(error, result) {
             if (error) template.$('.response').addClass('error').text(error)
-            else template.$('.response').addClass('success').text("Your profile has been updated")
+            else template.$('#save-changes').text("Profile Updated!")
+                // template.$('.response').addClass('success').text("Your profile has been updated")
         })
     },
 

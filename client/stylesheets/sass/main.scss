@@ -453,17 +453,20 @@
 .view-profile {
 
   img {
-    height: 55px;
-    width: 55px;
+    height: 75px;
+    width: 75px;
     border-radius: 2px;
   }
 }
 
 .top-links {
-  margin: 25px 0 20px;
+  padding: 25px 0 20px;
+  margin-bottom: 40px;
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
+  @include texture(180deg, $secondary-blue,lighten($secondary-blue, 15), 83, 1);
+  border-bottom: 2px solid #ddd;
 
   li {
     display: inline-block;
@@ -478,16 +481,25 @@
       border: 1px solid #eee;
       font-size: em(12);
       padding: 5px 10px;
-      color: $brand-blue;
-      @include transition(border 200ms ease-in-out);
+      color: white;
 
       &:hover {
-        border: 1px solid $brand-blue;
-        @include transition(border 400ms ease-in-out);
       }
     }
   }
+
+  h2 {
+    font-weight: normal;
+    font-size: em(18);
+    text-align: left;
+    margin-bottom: em(10);
+
+    a {
+      color: white;
+    }
+  }
 }
+
 
 .account-settings,
 .profile-settings {
@@ -496,7 +508,7 @@
     background: #eee;
     font-weight: normal;
     padding: 5px;
-    font-size: em(16);
+    font-size: em(13);
     text-align: center;
   }
 
@@ -504,10 +516,20 @@
     padding: 10px;
 
     li {
-      margin-bottom: em(20);
+      margin-bottom: em(25);
     }
-    input {
+    input, select, textarea {
       margin-bottom: 0;
+      background: #f5f5f5;
+      border: 1px solid #f5f5f5;
+      border: 0;
+      color: $dark-gray;
+      resize: none;
+      font-size: em(15);
+
+      &:disabled {
+        color: $medium-gray;
+      }
     }
   }
 
@@ -515,10 +537,11 @@
     width: 100%;
     border-radius: 0;
     background: #14B846;
-    @include transition(background .25s ease-in-out);
+    @include transition(all .25s ease-in-out);
 
     &:disabled {
-      background: $light-gray;
+      background: #f5f5f5;
+      color: $medium-gray;
     }
   }
 
@@ -539,25 +562,41 @@
     }
   }
 
-  .avatar-preview {
-    float: left;
-  }
+  .response {
+    padding: em(5);
+    font-size: em(15);
 
-  input[name=profilePic] {
-//    display: none;
-  }
-
-  #image-select {
-    display: block;
-    padding: 15px;
-    border: 2px dotted #eee;
-
-    .select-button {
-      padding: 5px 10px;
-      border-radius: 2px;
-      background: #eee;
-      color: #333;
+    &.error {
+      color: $error-color;
     }
+  }
+
+  #cordova-upload {
+    background: #f5f5f5;
+    padding: em(8);
+
+    button {
+      padding: em(6) em(12);
+    }
+
+    .file-name {
+      font-size: em(14);
+      padding: em(5);
+    }
+  }
+}
+
+.profile-settings {
+
+  .avatar-preview {
+    margin: em(8) 0 em(4);
+    width: 100px;
+    height: 100px;
+  }
+  input[type=file] {
+    padding: em(11);
+    background: #f5f5f5;
+    font-size: em(13);
   }
 }
 

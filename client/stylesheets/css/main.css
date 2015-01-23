@@ -2850,12 +2850,13 @@ body,
  *  Account / Profile Update
  * =========================== */
 .view-profile img {
-  height: 55px;
-  width: 55px;
+  height: 75px;
+  width: 75px;
   border-radius: 2px; }
 
 .top-links {
-  margin: 25px 0 20px;
+  padding: 25px 0 20px;
+  margin-bottom: 40px;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -2880,7 +2881,10 @@ body,
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
+  -ms-flex-pack: center;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  border-bottom: 2px solid #ddd; }
   .top-links li {
     display: inline-block;
     vertical-align: bottom;
@@ -2891,43 +2895,56 @@ body,
       border: 1px solid #eee;
       font-size: 0.75em;
       padding: 5px 10px;
-      color: #123865;
-      -webkit-transition: border 200ms ease-in-out;
-      -moz-transition: border 200ms ease-in-out;
-      transition: border 200ms ease-in-out; }
-      .top-links li .button:hover {
-        border: 1px solid #123865;
-        -webkit-transition: border 400ms ease-in-out;
-        -moz-transition: border 400ms ease-in-out;
-        transition: border 400ms ease-in-out; }
+      color: white; }
+  .top-links h2 {
+    font-weight: normal;
+    font-size: 1.125em;
+    text-align: left;
+    margin-bottom: 0.625em; }
+    .top-links h2 a {
+      color: white; }
 
 .account-settings h3,
 .profile-settings h3 {
   background: #eee;
   font-weight: normal;
   padding: 5px;
-  font-size: 1em;
+  font-size: 0.8125em;
   text-align: center; }
 .account-settings .fields,
 .profile-settings .fields {
   padding: 10px; }
   .account-settings .fields li,
   .profile-settings .fields li {
-    margin-bottom: 1.25em; }
-  .account-settings .fields input,
-  .profile-settings .fields input {
-    margin-bottom: 0; }
+    margin-bottom: 1.5625em; }
+  .account-settings .fields input, .account-settings .fields select, .account-settings .fields textarea,
+  .profile-settings .fields input,
+  .profile-settings .fields select,
+  .profile-settings .fields textarea {
+    margin-bottom: 0;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border: 0;
+    color: #333;
+    resize: none;
+    font-size: 0.9375em; }
+    .account-settings .fields input:disabled, .account-settings .fields select:disabled, .account-settings .fields textarea:disabled,
+    .profile-settings .fields input:disabled,
+    .profile-settings .fields select:disabled,
+    .profile-settings .fields textarea:disabled {
+      color: #999; }
 .account-settings #save-changes,
 .profile-settings #save-changes {
   width: 100%;
   border-radius: 0;
   background: #14B846;
-  -webkit-transition: background 0.25s ease-in-out;
-  -moz-transition: background 0.25s ease-in-out;
-  transition: background 0.25s ease-in-out; }
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out; }
   .account-settings #save-changes:disabled,
   .profile-settings #save-changes:disabled {
-    background: #DDD; }
+    background: #f5f5f5;
+    color: #999; }
 .account-settings #delete-account,
 .profile-settings #delete-account {
   margin-right: 15px;
@@ -2942,20 +2959,33 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
-.account-settings .avatar-preview,
+.account-settings .response,
+.profile-settings .response {
+  padding: 0.3125em;
+  font-size: 0.9375em; }
+  .account-settings .response.error,
+  .profile-settings .response.error {
+    color: #ff0033; }
+.account-settings #cordova-upload,
+.profile-settings #cordova-upload {
+  background: #f5f5f5;
+  padding: 0.5em; }
+  .account-settings #cordova-upload button,
+  .profile-settings #cordova-upload button {
+    padding: 0.375em 0.75em; }
+  .account-settings #cordova-upload .file-name,
+  .profile-settings #cordova-upload .file-name {
+    font-size: 0.875em;
+    padding: 0.3125em; }
+
 .profile-settings .avatar-preview {
-  float: left; }
-.account-settings #image-select,
-.profile-settings #image-select {
-  display: block;
-  padding: 15px;
-  border: 2px dotted #eee; }
-  .account-settings #image-select .select-button,
-  .profile-settings #image-select .select-button {
-    padding: 5px 10px;
-    border-radius: 2px;
-    background: #eee;
-    color: #333; }
+  margin: 0.5em 0 0.25em;
+  width: 100px;
+  height: 100px; }
+.profile-settings input[type=file] {
+  padding: 0.6875em;
+  background: #f5f5f5;
+  font-size: 0.8125em; }
 
 /* ===========================
  *  Messages

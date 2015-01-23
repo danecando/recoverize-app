@@ -7,8 +7,11 @@
     </section>
 
     <ul class="top-links">
-      <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
-      <li class="account-settings"><a class="button" href="/account">Account Settings</a></li>
+      <li class="view-profile"><a href="#"><img src="{{getImgURL profilePic}}" alt="{{user.username}}"/></a></li>
+      <li class="account-settings">
+        <h2><a href="/users/{{user.username}}">@{{user.username}}</a></h2>
+        <a class="button" href="/account">Account Settings</a>
+      </li>
     </ul>
 
     <form action="">
@@ -19,11 +22,11 @@
             <input type="text" name="name" value="{{user.profile.name}}">
           </li>
           <li>
-            <label for="profilePic">Profile Picture</label>
-            {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
+            <label for="profilePic">Profile Picture <small class="desc">Suggested Dimensions: 400x400</small></label>
+            {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
             {{#if cordova}}
               <div id="cordova-upload">
-                Click to upload your profile picture
+                <button>Choose File</button> <span class="file-name">No file chosen</span>
               </div>
             {{else}}
               <input type="file" name="profilePic" accept="image/*">
