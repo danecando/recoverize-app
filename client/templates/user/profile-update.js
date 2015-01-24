@@ -170,6 +170,7 @@ Template.profileUpdate.events({
         }
 
         Meteor.call('updateProfile', user, function(error, result) {
+            console.log(JSON.stringify(error))
             if (error) template.$('.response').addClass('error').text(error)
             else template.$('#save-changes').text("Profile Updated!")
                 // template.$('.response').addClass('success').text("Your profile has been updated")

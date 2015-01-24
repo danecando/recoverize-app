@@ -2961,11 +2961,15 @@ body,
       margin: 0; }
 .account-settings .response,
 .profile-settings .response {
-  padding: 0.3125em;
-  font-size: 0.9375em; }
-  .account-settings .response.error,
-  .profile-settings .response.error {
-    color: #ff0033; }
+  padding: 0.625em;
+  font-size: 0.875em; }
+  .account-settings .response.error:before,
+  .profile-settings .response.error:before {
+    font-family: FontAwesome;
+    content: "\f071";
+    margin-right: 0.3125em;
+    color: #ff0033;
+    font-size: 1em; }
 .account-settings #cordova-upload,
 .profile-settings #cordova-upload {
   background: #f5f5f5;

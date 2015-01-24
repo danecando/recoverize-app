@@ -3,11 +3,8 @@ Template.createProfile.rendered = function() {
 }
 
 Template.accountSettings.created = function() {
-    Session.setDefault('updated', false)
-}
-
-Template.accountSettings.destroyed = function() {
-    Session.setDefault('updated', false)
+    this.profileUpdated = new ReactiveVar
+    this.profileUpdated.set(false)
 }
 
 /**
@@ -17,26 +14,18 @@ Template.accountSettings.helpers({
     user: function() {
         return Meteor.user()
     },
-    updated: function() {
-        return Session.get('updated')
+    profileUpdated: function() {
+        return Template.instance().profileUpdated.get()
     }
-});
+})
 
 
 /**
  * Events
  */
 Template.accountSettings.events({
-
-    // enable save button if any fields have been updated
-    'change :input': function(event, template) {
-        Session.set('updated', true)
-    },
-    'click #delete-account': function(event, template) {
-        event.preventDefault()
-        if (confirm('Are you sure you want to delete your account?')) {
-            Meteor.call('deleteAccount')
-        }
+    'change :input, keypress :input': function(event, template) {
+        template.profileUpdated.set(true)
     },
     'click #save-changes': function(event, template) {
         event.preventDefault()
@@ -64,16 +53,16 @@ Template.accountSettings.events({
         if (user.newpw) {
             Accounts.changePassword(user.oldpw, user.newpw, function(error) {
                 if (error) template.$('.response').addClass('error').text(error.reason)
-                else template.$('.response').addClass('success').text('Your account has been updated')
+                else template.$('#save-changes').text('Account Updated!')
             })
         }
 
         if (Meteor.user().emails[0].address !== user.email) {
             Meteor.call('updateEmail', user, function (error, result) {
                 if (error) template.$('.response').addClass('error').text(error.reason)
-                else template.$('.response').addClass('success').text('Your account has been updated')
+                else template.$('#save-changes').text('Account Updated!')
             })
         }
     }
 
-});
+})

@@ -563,11 +563,20 @@
   }
 
   .response {
-    padding: em(5);
-    font-size: em(15);
+    padding: em(10);
+    font-size: em(14);
 
     &.error {
-      color: $error-color;
+//      color: $error-color;
+//      letter-spacing: em();
+
+      &:before {
+        font-family: FontAwesome;
+        content: "\f071";
+        margin-right: em(5);
+        color: $error-color;
+        font-size: em(16);
+      }
     }
   }
 
