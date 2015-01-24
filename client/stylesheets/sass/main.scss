@@ -19,6 +19,24 @@
   border: 1px solid red !important;
 }
 
+.response {
+  font-size: em(15);
+
+  &.error {
+    padding: em(10);
+
+    &:before {
+      font-family: FontAwesome;
+      content: "\f071";
+      margin-right: em(8);
+      color: $error-color;
+      font-size: em(12);
+      position: relative;
+      bottom: 1px;
+    }
+  }
+}
+
 .help-link {
   background: rgba(255, 255, 255, .1) !important;
   padding: em(5) !important;
@@ -558,24 +576,6 @@
       display: inline-block;
       .desc {
         margin: 0;
-      }
-    }
-  }
-
-  .response {
-    padding: em(10);
-    font-size: em(14);
-
-    &.error {
-//      color: $error-color;
-//      letter-spacing: em();
-
-      &:before {
-        font-family: FontAwesome;
-        content: "\f071";
-        margin-right: em(5);
-        color: $error-color;
-        font-size: em(16);
       }
     }
   }
@@ -1342,10 +1342,7 @@
   .flex-container {
     overflow-y: auto;
     padding: em(40) 0;
-  }
-
-  .error-message {
-    margin-bottom: em(8);
+    width: 450px;
   }
 
   form {
@@ -1381,7 +1378,7 @@
     }
 
     .btn-primary {
-      background: rgba(220, 220, 220, .15);
+      background: rgba(220, 220, 220, .3);
       color: white;
       padding: em(6) em(18);
       font-weight: normal;
@@ -1401,7 +1398,7 @@
     text-align: center;
     margin: 0 auto;
     max-width: 400px;
-    margin-bottom: em(5);
+    margin-bottom: em(10);
 
     li {
       display: inline-block;
@@ -1415,8 +1412,30 @@
   }
 
   .optin {
-    font-size: em(12);
+    font-size: em(13);
+    letter-spacing: 0;
+    font-weight: normal;
     display: inline-block;
+    text-transform: capitalize;
+  }
+
+  .response {
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: em(10);
+
+    &.error {
+      &:before {
+        color: white;
+      }
+    }
+  }
+}
+
+#join-page {
+  .btn-primary {
+    background: $brand-light !important;
+    box-shadow: 1px 1px 0 1px $brand-color;
   }
 }
 
@@ -1459,6 +1478,15 @@
       margin-bottom: 0;
     }
 
+    input[type=file] {
+      padding: 8px;
+      background: rgba(255, 255, 255, .3);
+      color: white;
+      font-size: em(14);
+      text-align: center;
+      border-color: rgba(255, 255, 255, .5);
+    }
+
     select {
       border-radius: 0;
       border: 0;
@@ -1473,8 +1501,28 @@
         border: 0;
       }
     }
+
+    #cordova-upload {
+      margin-top: em(10);
+      padding: em(8);
+      text-align: left;
+      color: white;
+      background: rgba(255, 255, 255, .3);
+      border: 1px solid rgba(255, 255, 255, .5);
+      font-size: em(14);
+
+      button {
+        padding: em(6) em(12);
+      }
+    }
   }
 
+  .avatar-preview {
+    height: 100px;
+    width: 100px;
+    border-radius: 2px;
+    border: 1px solid white;
+  }
   .sober-date {
     .selects {
       @include display(flex);

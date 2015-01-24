@@ -1,18 +1,22 @@
 Template.createProfile.created = function() {
-    Session.setDefault('stepStatus', false)
     Session.setDefault('days', 31)
-    Session.setDefault('profilePic', false)
-}
 
-Template.createProfile.destroyed = function() {
+    this.stepStatus = new ReactiveVar
+    this.stepStatus.set(false)
+
+    this.cordovaFile = new ReactiveVar
+    this.cordovaFile.set(false)
 }
 
 /**
  * Helpers
  */
 Template.createProfile.helpers({
+    cordova: function() {
+        return !!Meteor.isCordova
+    },
     stepReady: function() {
-        return Session.get('stepStatus')
+        return Template.instance().stepStatus.get()
     },
     user: function() {
         return Meteor.user()
@@ -37,16 +41,15 @@ Template.createProfile.helpers({
 
         return years
     }
-
-});
+})
 
 /**
  * Events
  */
 Template.createProfile.events({
     'change :input, keypress :input': function(event, template) {
-        if ($(event.target).val().length) Session.set('stepStatus', true)
-        else Session.set('stepStatus', false)
+        if ($(event.target).val().length) template.stepStatus.set(true)
+        else template.stepStatus.set(false)
     },
     'click .skip': function(event, template) {
         event.preventDefault()
@@ -60,12 +63,11 @@ Template.createProfile.events({
         var username = template.$('[name=username]').val()
         Meteor.call('createUsername', username, function(error, result) {
             if (error) {
-                template.$('#step-one .response').text(error.error)
+                template.$('#step-one .response').addClass('error').text(error.reason)
                 template.$('[name=username]').css('border-color', 'red')
             } else {
-                Session.set('stepStatus', false)
-                $('#step-one').addClass('complete')
-                $('#step-one').fadeOut(250, function() {
+                template.stepStatus.set(false)
+                $('#step-one').addClass('complete').fadeOut(250, function() {
                     $('#step-two').fadeIn(250)
                 })
                 $('.active').filter(':last').next().addClass('active')
@@ -73,24 +75,75 @@ Template.createProfile.events({
         })
     },
     'submit #step-two form': function(event, template) {
+        event.preventDefault()
 
+        // upload profile pic from cordova
+        if (template.cordovaFile.get()) {
+            var file = template.cordovaFile.get()
+            window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
+                fileEntry.file(function(fileObj) {
+                    file.size = fileObj.size
+                    AwsUpload.upload(file, function(path) {
+                        var profile = {}
+                        profile.profilePic = path
+                        Meteor.call('updateProfile', profile, function(error, result) {
+                            if (error) {
+                                template.$('#step-two .response').addClass('error').text(error.reason)
+                                template.$('#cordova-upload').css('border-color', 'red')
+                            }
+                            else {
+                                template.stepStatus.set(false)
+                                $('#step-two').addClass('complete').fadeOut(250, function() {
+                                    $('#step-three').fadeIn(250)
+                                })
+                                $('.active').filter(':last').next().addClass('active')
+                            }
+                        })
+                    })
+                })
+            })
+        }
+
+        // upload profile pic for web
+        if (!Meteor.isCordova) {
+            var file = template.$('[name=profilePic]')[0].files[0]
+
+            if (file) {
+                var uploader = new Slingshot.Upload("myFileUploads")
+                uploader.send(file, function (error, downloadUrl) {
+                    if (error) template.$('.response').addClass('error').text(error)
+
+                    var profile = {}
+                    profile.profilePic = Meteor.user().username + '/' + file.name
+                    Meteor.call('updateProfile', profile, function(error, result) {
+                        if (error) {
+                            template.$('#step-two .response').addClass('error').text(error.reason)
+                            template.$('[type=file]').css('border-color', 'red')
+                        }
+                        else {
+                            template.stepStatus.set(true)
+                            $('#step-two').addClass('complete').fadeOut(250, function() {
+                                $('#step-three').fadeIn(250)
+                            })
+                            $('.active').filter(':last').next().addClass('active')
+                        }
+                    })
+                })
+            }
+        }
     },
     'submit #step-three form': function(event, template) {
         event.preventDefault()
 
-        var user = {
+        var profile = {
             name: template.$('[name=name]').val(),
             location: template.$('[name=location]').val(),
             gender: template.$('[name=gender]').val()
         }
 
-        if (!Session.get('profilePic')) {
-             user.profilePic = (template.$('[name=gender]').val() == 'male') ? "https://d6gyptuog2clr.cloudfront.net/male_avatar.jpg" : "https://d6gyptuog2clr.cloudfront.net/female_avatar.jpg"
-        }
-
-        Meteor.call('updateProfile', user, function(error, result) {
+        Meteor.call('updateProfile', profile, function(error, result) {
             if (error) {
-                template.$('#step-one .response').text(error.error)
+                template.$('#step-one .response').addClass('error').text(error.reason)
             } else {
                 Session.set('stepStatus', false)
                 $('#step-three').addClass('complete')
@@ -107,16 +160,21 @@ Template.createProfile.events({
         var month = template.$('[name=soberMonth]').val()
         var day = template.$('[name=soberDay]').val()
         var year = template.$('[name=soberYear]').val()
-        var soberDate = new Date(year, month-1, day)
 
-        var user = {
+        var profile = {
             program: template.$('[name=program]').val(),
             homegroup: template.$('[name=homegroup]').val(),
-            soberDate: soberDate,
+            soberDate: new Date(year, month-1, day),
             quote: template.$('[name=quote]').val()
         }
 
-        Meteor.call('updateProfile', user, function(error, result) {
+        if (Meteor.user().profile.profilePic) {
+            profile.profilePic = Meteor.user().profile.profilePic
+        } else {
+            profile.profilePic = (Meteor.user().profile.gender == 'male') ? "male_avatar.jpg" : "female_avatar.jpg"
+        }
+
+        Meteor.call('updateProfile', profile, function(error, result) {
             if (error) {
                 template.$('#step-one .response').text(error.error)
             } else {
@@ -142,6 +200,23 @@ Template.createProfile.events({
             days = new Date(year, month, 0).getDate()
 
         Session.set('days', days)
-    }
+    },
+    'click #cordova-upload': function(event, template) {
+        window.imagePicker.getPictures(
+            function (results) {
+                for (var i = 0; i < results.length; i++) {
+                    var file = {
+                        type: results[i].split('.').pop(),
+                        name: results[i].replace(/^.*[\\\/]/, ''),
+                        uri: results[i]
+                    }
 
+                    template.cordovaFile.set(file)
+                    template.stepStatus.set(true)
+                    $('#cordova-upload').text(file.name)
+                }
+            }, function(error) {
+                console.log(error)
+            })
+    }
 })

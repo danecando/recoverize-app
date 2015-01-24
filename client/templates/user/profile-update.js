@@ -106,7 +106,7 @@ Template.profileUpdate.events({
                     }
 
                     template.cordovaFile.set(file)
-                    Session.set('updated', true);
+                    template.profileUpdated.set(true)
                     $('#cordova-upload').text(file.name)
                 }
             }, function(error) {
@@ -127,7 +127,7 @@ Template.profileUpdate.events({
                         user.profilePic = path
                         Meteor.call('updateProfile', user, function(error, result) {
                             if (error) template.$('.response').addClass('error').text(error)
-                            else template.$('#save-changes').text("Profile Updated!")
+                            else template.$('#save-changes').text('Profile Updated!')
                                 //template.$('.response').addClass('success').text("Your profile has been updated")
                         })
                     })
@@ -148,7 +148,7 @@ Template.profileUpdate.events({
                     user.profilePic = Meteor.user().username + '/' + file.name
                     Meteor.call('updateProfile', user, function(error, result) {
                         if (error) template.$('.response').addClass('error').text(error)
-                        else template.$('.response').addClass('success').text("Your profile has been updated")
+                        else template.$('#save-changes').text('Profile Updated!')
                     })
                 })
             }
@@ -170,10 +170,8 @@ Template.profileUpdate.events({
         }
 
         Meteor.call('updateProfile', user, function(error, result) {
-            console.log(JSON.stringify(error))
             if (error) template.$('.response').addClass('error').text(error)
-            else template.$('#save-changes').text("Profile Updated!")
-                // template.$('.response').addClass('success').text("Your profile has been updated")
+            else template.$('#save-changes').text('Profile Updated!')
         })
     },
 

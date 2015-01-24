@@ -14,19 +14,19 @@ Template.join.events({
         if (!email) {
             errors.email = 'Email required'
             template.$('[name=email]').addClass('input-error')
-            template.$('.error-message').text(errors.email)
+            template.$('.response').addClass('error').text(errors.email)
         }
 
         if (!password && email) {
             errors.password = 'Password required'
             template.$('[name=password]').addClass('input-error')
-            template.$('.error-message').text(errors.password)
+            template.$('.response').addClass('error').text(errors.password)
         }
 
         if (confirm !== password) {
             errors.confirm = 'Please confirm your password'
             template.$('[name=confirm]').addClass('input-error')
-            template.$('.error-message').text(errors.confirm)
+            template.$('.response').addClass('error').text(errors.confirm)
         }
 
         if (_.keys(errors).length) {
@@ -41,15 +41,15 @@ Template.join.events({
 
         if (template.$('[name=optin]').is(':checked')) {
             Meteor.call('optIn', user,  function(error, result) {
-                if (error) template.$('.error-message').text(error.reason)
+                if (error) template.$('.response').addClass('error').text(error.reason)
             })
         }
 
         Meteor.call('createAccount', user, function(error, result) {
-            if (error) template.$('.error-message').text(error.reason)
+            if (error) template.$('.response').addClass('error').text(error.reason)
             if (result) {
                 Meteor.loginWithPassword(user.email, user.password, function(error) {
-                    if (error) template.$('.error-message').text(error.reason)
+                    if (error) template.$('.response').addClass('error').text(error.reason)
                     Router.go('/create-profile')
                 })
             }

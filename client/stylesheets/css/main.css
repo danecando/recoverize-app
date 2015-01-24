@@ -2502,6 +2502,19 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
+.response {
+  font-size: 0.9375em; }
+  .response.error {
+    padding: 0.625em; }
+    .response.error:before {
+      font-family: FontAwesome;
+      content: "\f071";
+      margin-right: 0.5em;
+      color: #ff0033;
+      font-size: 0.75em;
+      position: relative;
+      bottom: 1px; }
+
 .help-link {
   background: rgba(255, 255, 255, 0.1) !important;
   padding: 0.3125em !important; }
@@ -2959,17 +2972,6 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
-.account-settings .response,
-.profile-settings .response {
-  padding: 0.625em;
-  font-size: 0.875em; }
-  .account-settings .response.error:before,
-  .profile-settings .response.error:before {
-    font-family: FontAwesome;
-    content: "\f071";
-    margin-right: 0.3125em;
-    color: #ff0033;
-    font-size: 1em; }
 .account-settings #cordova-upload,
 .profile-settings #cordova-upload {
   background: #f5f5f5;
@@ -3705,9 +3707,8 @@ body,
   overflow: hidden; }
   #login-page .flex-container, #join-page .flex-container {
     overflow-y: auto;
-    padding: 2.5em 0; }
-  #login-page .error-message, #join-page .error-message {
-    margin-bottom: 0.5em; }
+    padding: 2.5em 0;
+    width: 450px; }
   #login-page form, #join-page form {
     padding: 0.9375em;
     margin: 0 auto;
@@ -3733,7 +3734,7 @@ body,
       border-color: white;
       color: white; }
     #login-page form .btn-primary, #join-page form .btn-primary {
-      background: rgba(220, 220, 220, 0.15);
+      background: rgba(220, 220, 220, 0.3);
       color: white;
       padding: 0.375em 1.125em;
       font-weight: normal; }
@@ -3746,7 +3747,7 @@ body,
     text-align: center;
     margin: 0 auto;
     max-width: 400px;
-    margin-bottom: 0.3125em; }
+    margin-bottom: 0.625em; }
     #login-page .social-logins li, #join-page .social-logins li {
       display: inline-block;
       width: 45%; }
@@ -3754,8 +3755,21 @@ body,
       max-width: 100%;
       cursor: pointer; }
   #login-page .optin, #join-page .optin {
-    font-size: 0.75em;
-    display: inline-block; }
+    font-size: 0.8125em;
+    letter-spacing: 0;
+    font-weight: normal;
+    display: inline-block;
+    text-transform: capitalize; }
+  #login-page .response, #join-page .response {
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0.625em; }
+    #login-page .response.error:before, #join-page .response.error:before {
+      color: white; }
+
+#join-page .btn-primary {
+  background: #FF9963 !important;
+  box-shadow: 1px 1px 0 1px #FA7C38; }
 
 /* ===========================
  *   Create Profile
@@ -3795,6 +3809,13 @@ body,
       background: white;
       border: 1px solid white;
       margin-bottom: 0; }
+    #create-profile .input-group input[type=file] {
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      font-size: 0.875em;
+      text-align: center;
+      border-color: rgba(255, 255, 255, 0.5); }
     #create-profile .input-group select {
       border-radius: 0;
       border: 0;
@@ -3804,6 +3825,21 @@ body,
       resize: none; }
       #create-profile .input-group textarea:focus, #create-profile .input-group textarea:active {
         border: 0; }
+    #create-profile .input-group #cordova-upload {
+      margin-top: 0.625em;
+      padding: 0.5em;
+      text-align: left;
+      color: white;
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      font-size: 0.875em; }
+      #create-profile .input-group #cordova-upload button {
+        padding: 0.375em 0.75em; }
+  #create-profile .avatar-preview {
+    height: 100px;
+    width: 100px;
+    border-radius: 2px;
+    border: 1px solid white; }
   #create-profile .sober-date .selects {
     display: -webkit-box;
     display: -moz-box;
