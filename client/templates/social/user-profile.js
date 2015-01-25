@@ -8,6 +8,14 @@ Template.userProfile.helpers({
     },
     status: function() {
         return Status.find({}, {sort: {timestamp: -1}})
+    },
+    banned: function() {
+        if (Roles.userIsInRole(Meteor.users.findOne({username: this.username})._id, ['banned']))
+            return true
+    },
+    admin: function() {
+        if (Roles.userIsInRole(Meteor.userId(), ['admin']))
+            return true
     }
 })
 
@@ -23,6 +31,9 @@ Template.userProfile.events({
             Meteor.call('createStatus', e.target.value)
             e.target.value = ''
         } 
+    },
+    'click #ban-user': function(e) {
+        Meteor.call('banUser', Meteor.users.findOne({username: this.username})._id)
     }
 })
 

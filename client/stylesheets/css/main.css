@@ -2515,6 +2515,11 @@ body,
       position: relative;
       bottom: 1px; }
 
+#ban-user {
+  background: #ff0033;
+  width: 100%;
+  margin: 1.5625em 0; }
+
 .help-link {
   background: rgba(255, 255, 255, 0.1) !important;
   padding: 0.3125em !important; }

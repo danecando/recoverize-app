@@ -37,6 +37,12 @@
   }
 }
 
+#ban-user {
+  background: $error-color;
+  width: 100%;
+  margin: em(25) 0;
+}
+
 .help-link {
   background: rgba(255, 255, 255, .1) !important;
   padding: em(5) !important;
