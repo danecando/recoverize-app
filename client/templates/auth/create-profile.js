@@ -109,7 +109,7 @@ Template.createProfile.events({
             var file = template.$('[name=profilePic]')[0].files[0]
 
             if (file) {
-                var uploader = new Slingshot.Upload("myFileUploads")
+                var uploader = new Slingshot.Upload("profilePic")
                 uploader.send(file, function (error, downloadUrl) {
                     if (error) template.$('.response').addClass('error').text(error)
 
