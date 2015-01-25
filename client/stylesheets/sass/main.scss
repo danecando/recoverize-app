@@ -1663,6 +1663,33 @@
 }
 
 /* ===========================
+ *  Help Page
+ * =========================== */
+.help-section {
+  padding: em(25) em(5);
+  color: white;
+
+  &:nth-of-type(odd) {
+    background: $secondary-blue;
+  }
+  &:nth-of-type(even) {
+    background: $brand-color;
+  }
+
+  h2 {
+    font-weight: normal;
+    font-size: em(22);
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    margin: em(10) 0;
+  }
+}
+
+
+/* ===========================
  *  Join Page
  * =========================== */
 //

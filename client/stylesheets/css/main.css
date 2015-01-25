@@ -3980,5 +3980,23 @@ body,
       margin-bottom: 1.5625em; }
 
 /* ===========================
+ *  Help Page
+ * =========================== */
+.help-section {
+  padding: 1.5625em 0.3125em;
+  color: white; }
+  .help-section:nth-of-type(odd) {
+    background: #2c5999; }
+  .help-section:nth-of-type(even) {
+    background: #FA7C38; }
+  .help-section h2 {
+    font-weight: normal;
+    font-size: 1.375em;
+    text-align: center; }
+  .help-section p {
+    text-align: center;
+    margin: 0.625em 0; }
+
+/* ===========================
  *  Join Page
  * =========================== */
