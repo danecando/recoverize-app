@@ -1,9 +1,6 @@
-Template.chat.rendered = function(template) {
+Template.chat.rendered = function() {
     var $chatWindow = document.querySelector('.chat-area')
     $chatWindow.scrollTop = $chatWindow.scrollHeight
-}
-
-Template.chat.destroyed = function() {
 }
 
 Template.chat.events({
