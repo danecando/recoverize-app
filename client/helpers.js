@@ -119,8 +119,7 @@ UI.registerHelper('programIntro', function(program) {
  * Append base url to image paths
  */
 UI.registerHelper('getImgURL', function(path) {
-    return "https://d6gyptuog2clr.cloudfront.net/" + path
-})
+    return
 
 /**
  * Clean or sober

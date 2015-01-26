@@ -543,7 +543,7 @@ select[multiple=multiple] {
   textarea.success,
   input[type="email"].success, input[type="number"].success, input[type="password"].success, input[type="search"].success, input[type="tel"].success, input[type="text"].success, input[type="url"].success, input[type="color"].success, input[type="date"].success, input[type="datetime"].success, input[type="datetime-local"].success, input[type="month"].success, input[type="time"].success, input[type="week"].success,
   select[multiple=multiple].success {
-    border-color: green; }
+    border-color: #009600; }
   textarea:disabled,
   input[type="email"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="url"]:disabled, input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="month"]:disabled, input[type="time"]:disabled, input[type="week"]:disabled,
   select[multiple=multiple]:disabled {
@@ -3249,7 +3249,7 @@ body,
   width: 11px;
   border-radius: 50%; }
   .user-connection.online {
-    border: 2px solid green; }
+    border: 2px solid #009600; }
   .user-connection.offline {
     border: 2px solid #ff0033; }
   .user-connection.away {
@@ -4000,22 +4000,31 @@ body,
 /* ===========================
  *  Task Page
  * =========================== */
+#checklist {
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
+
 .task-header {
-  padding: 0.625em 0.3125em;
-  color: white;
-  background: #2c5999; }
+  padding: 1.25em 0.3125em 0.625em;
+  color: white; }
   .task-header .title {
     font-size: 1.125em;
     font-weight: normal;
     text-align: center; }
 
 .task-buttons {
-  padding: 0.9375em 0;
+  padding: 0.625em 0;
   text-align: center; }
   .task-buttons li {
     display: inline-block; }
     .task-buttons li:first-of-type {
       margin-right: 0.9375em; }
+    .task-buttons li button {
+      padding: 0.3125em 0.9375em;
+      background: rgba(255, 255, 255, 0.1); }
+
+.task-management {
+  border-bottom: 2px solid #2c5999; }
 
 #task-form {
   display: none; }
@@ -4036,22 +4045,121 @@ body,
     -o-justify-content: center;
     justify-content: center;
     -ms-flex-pack: center; }
+    #task-form form input {
+      margin-bottom: 0;
+      border: 0; }
+      #task-form form input:focus {
+        border: 0; }
+    #task-form form button {
+      background: #f8f8f8;
+      color: #009600;
+      border-left: 1px solid #f8f8f8; }
 
-.task-list {
-  background: #eee; }
+.task {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  background: #ecf0f1;
+  border-bottom: 2px solid #e5e5e5; }
+  .task:nth-of-type(even) {
+    background: #f8f8f8; }
+  .task .checkbox {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 14.7019570017%;
+    padding: 0.3125em; }
+    .task .checkbox:last-child {
+      margin-right: 0; }
+  .task .task-name {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 65.8807828007%; }
+    .task .task-name:last-child {
+      margin-right: 0; }
+  .task .task-controls {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 14.7019570017%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
+    .task .task-controls:last-child {
+      margin-right: 0; }
+    .task .task-controls .delete-task {
+      color: #ff0033;
+      margin-right: 0.3125em;
+      padding: 0.3125em;
+      height: 100%;
+      cursor: pointer; }
+    .task .task-controls .position-arrows div {
+      padding: 0.5em 0.1875em;
+      background: #2c5999;
+      color: white;
+      cursor: pointer; }
 
 .checkbox input {
   display: none; }
+.checkbox label {
+  margin-bottom: 0;
+  text-align: center; }
 .checkbox input + label:before {
   font-family: FontAwesome;
   content: "\f096";
-  font-size: 1.5em;
+  font-size: 1.75em;
   letter-spacing: 5px; }
 .checkbox input:checked + label:before {
   font-family: FontAwesome;
   content: "\f046";
-  font-size: 1.5em;
-  letter-spacing: 5px; }
+  font-size: 1.75em;
+  letter-spacing: 5px;
+  color: #009600; }
 
 /* ===========================
  *  Join Page

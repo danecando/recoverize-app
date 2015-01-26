@@ -26,5 +26,12 @@ Template.checklist.events({
     },
     'click #add-new': function(e) {
         $('#task-form').slideToggle(250)
+    },
+    'click .delete-task': function(e) {
+        if (confirm('Are you sure you want to delete this item?')) {
+            // Delete it!
+        } else {
+            // Do nothing!
+        }
     }
 })

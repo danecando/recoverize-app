@@ -1691,10 +1691,14 @@
 /* ===========================
  *  Task Page
  * =========================== */
+
+#checklist {
+  @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
+
+}
 .task-header {
-  padding: em(10) em(5);
+  padding: em(20) em(5) em(10);
   color: white;
-  background: $secondary-blue;
 
   .title {
     font-size: em(18);
@@ -1704,7 +1708,7 @@
 }
 
 .task-buttons {
-  padding: em(15) 0;
+  padding: em(10) 0;
   text-align: center;
 
   li {
@@ -1713,32 +1717,82 @@
     &:first-of-type {
       margin-right: em(15);
     }
+
+    button {
+      padding: em(5) em(15);
+      background: rgba(255, 255, 255, 0.1);
+    }
   }
+}
+
+.task-management {
+  border-bottom: 2px solid $secondary-blue;
 }
 
 #task-form {
   display: none;
-//  opacity: 1;
-//  z-index: 1;
-//  height: 60px;
-//  @include transition(height 200ms ease);
 
   form {
     @include display(flex);
     @include justify-content(center);
 
-  }
+    input {
+      margin-bottom: 0;
+      border: 0;
 
-//  &.hidden {
-//    @include transition(height 200ms ease);
-//    height: 0;
-//    opacity: 0;
-//    z-index: -1;
-//  }
+      &:focus {
+        border: 0;
+      }
+    }
+    button {
+      background: #f8f8f8;
+      color: $success-color;
+      border-left: 1px solid #f8f8f8;
+    }
+  }
 }
 
-.task-list {
-  background: #eee;
+.task {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+//  padding: em(10) 0;
+  background: #ecf0f1;
+  border-bottom: 2px solid #e5e5e5;
+
+  &:nth-of-type(even) {
+    background: #f8f8f8;
+  }
+
+  .checkbox {
+    @include span-columns(2);
+    padding: em(5);
+  }
+  .task-name {
+    @include span-columns(8);
+  }
+  .task-controls {
+    @include span-columns(2);
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(flex-end);
+
+    .delete-task {
+      color: $error-color;
+      margin-right: em(5);
+      padding: em(5);
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .position-arrows div {
+      padding: em(8) em(3);
+      background: $secondary-blue;
+      color: white;
+      cursor: pointer;
+    }
+
+  }
 }
 
 .checkbox {
@@ -1747,18 +1801,24 @@
     display: none;
   }
 
+  label {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
   input + label:before {
     font-family: FontAwesome;
     content: "\f096";
-    font-size: em(24);
+    font-size: em(28);
     letter-spacing: 5px;
   }
 
   input:checked + label:before {
     font-family: FontAwesome;
     content: "\f046";
-    font-size: em(24);
+    font-size: em(28);
     letter-spacing: 5px;
+    color: $success-color;
   }
 }
 

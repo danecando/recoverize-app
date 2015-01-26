@@ -6,7 +6,7 @@
       <h2 class="title">You have completed {{completed.count}} out of {{tasks.count}} of your daily tasks!</h2>
     </section>
 
-    <section class="task-controls">
+    <section class="task-management">
       <ul class="task-buttons">
         <li><button id="add-new">Add New</button></li>
         <li><button id="reset-all">Reset All</button></li>
@@ -30,6 +30,19 @@
             </div>
             <div class="task-name">
               <h5>{{this.task}}</h5>
+            </div>
+            <div class="task-controls">
+              <div class="delete-task">
+                <i class="fa fa-times"></i>
+              </div>
+              <div class="position-arrows">
+                <div class="position-up">
+                  <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="position-down">
+                  <i class="fa fa-chevron-down"></i>
+                </div>
+              </div>
             </div>
           </li>
         {{/each}}
