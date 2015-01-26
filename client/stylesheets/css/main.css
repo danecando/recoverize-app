@@ -3998,5 +3998,61 @@ body,
     margin: 0.625em 0; }
 
 /* ===========================
+ *  Task Page
+ * =========================== */
+.task-header {
+  padding: 0.625em 0.3125em;
+  color: white;
+  background: #2c5999; }
+  .task-header .title {
+    font-size: 1.125em;
+    font-weight: normal;
+    text-align: center; }
+
+.task-buttons {
+  padding: 0.9375em 0;
+  text-align: center; }
+  .task-buttons li {
+    display: inline-block; }
+    .task-buttons li:first-of-type {
+      margin-right: 0.9375em; }
+
+#task-form {
+  display: none; }
+  #task-form form {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center; }
+
+.task-list {
+  background: #eee; }
+
+.checkbox input {
+  display: none; }
+.checkbox input + label:before {
+  font-family: FontAwesome;
+  content: "\f096";
+  font-size: 1.5em;
+  letter-spacing: 5px; }
+.checkbox input:checked + label:before {
+  font-family: FontAwesome;
+  content: "\f046";
+  font-size: 1.5em;
+  letter-spacing: 5px; }
+
+/* ===========================
  *  Join Page
  * =========================== */

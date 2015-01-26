@@ -1,13 +1,40 @@
-
 <template name="checklist">
-  {{#each tasks}}
-    <h5>{{this.task}}</h5>
 
-    {{#if this.checked}}
-      <button data-taskId={{this._id}} class="uncheck">uncheck</button>
-    {{else}}
-      <button data-taskId={{this._id}} class="check">check</button>
-    {{/if}}
+  <div id="checklist" class="page-container">
 
-  {{/each}}
+    <section class="task-header">
+      <h2 class="title">You have completed {{completed.count}} out of {{tasks.count}} of your daily tasks!</h2>
+    </section>
+
+    <section class="task-controls">
+      <ul class="task-buttons">
+        <li><button id="add-new">Add New</button></li>
+        <li><button id="reset-all">Reset All</button></li>
+      </ul>
+    </section>
+
+    <section id="task-form" class="hidden">
+      <form action="">
+        <input type="text" name="task">
+        <button type="submit"><i class="fa fa-plus"></i></button>
+      </form>
+    </section>
+
+    <section class="tasks">
+      <ol class="task-list">
+        {{#each tasks}}
+          <li class="task">
+            <div class="checkbox">
+              <input data-taskId="{{this._id}}" type="checkbox" id="{{this._id}}" checked="{{#if this.checked}}checked{{/if}}">
+              <label for="{{this._id}}"></label>
+            </div>
+            <div class="task-name">
+              <h5>{{this.task}}</h5>
+            </div>
+          </li>
+        {{/each}}
+      </ol>
+    </section>
+
+  </div>
 </template>
