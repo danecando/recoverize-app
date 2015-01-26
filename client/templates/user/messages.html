@@ -36,8 +36,10 @@
       </section>
     {{else}}
       <section class="no-messages">
-        <h1>you have no message sessions!</h1>
-        <a href="/chat" class="userLink"><h2>go chat with some people!</h2></a>
+        <div class="flex-contain">
+          <h2>You don't have any messages... <i class="fa fa-frown-o"></i> </h2>
+          <p><em>Don't be shy!</em> Join the <a href="/chat">chat room</a>, check out the <a href="/timeline">latest user statuses</a>, or <a href="/members">find a friend</a>.</p>
+        </div>
       </section>
     {{/if}}
   </div>

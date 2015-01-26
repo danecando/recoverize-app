@@ -6,8 +6,8 @@
     <section class="progress-bar">
       <ul class="step-list">
         <li class="active">Username</li>
-        <li>Profile Setup</li>
-        <li>Personal Info</li>
+        <li>Profile Pic</li>
+        <li>About Me</li>
         <li>Recovery Info</li>
       </ul>
     </section>
@@ -26,9 +26,18 @@
         </form>
       </div>
       <div id="step-two" class="step">
+        <h3 class="title">Choose your profile picture</h3>
         <form action="">
-          <h3 class="title">Upload your profile picture</h3>
-
+          <div class="input-group">
+            {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
+            {{#if cordova}}
+              <div id="cordova-upload">
+                <button>Choose File</button> <span class="file-name">No file chosen</span>
+              </div>
+            {{else}}
+              <input type="file" name="profilePic" accept="image/*">
+            {{/if}}
+          </div>
           <div class="response"></div>
           <ul class="actions">
             <li><button class="skip">Skip</button></li>
@@ -52,7 +61,6 @@
             <select name="gender">
               <option value="male">Male</option>
               <option value="female">Female</option>
-              <option value="other">Other</option>
             </select>
           </div>
           <div class="response"></div>
@@ -71,6 +79,16 @@
               <option value="aa">Alcoholics Anonymous</option>
               <option value="na">Narcotics Anonymous</option>
               <option value="ca">Cocaine Anonymous</option>
+              <option value="cma">Crystal Meth Anonymous</option>
+              <option value="coda">Co-Dependents Anonyomous</option>
+              <option value="ga">Gamblers Anonymous</option>
+              <option value="oa">Overeaters Anonymous</option>
+              <option value="ha">Heroin Anonymous</option>
+              <option value="ma">Marijuana Anonymous</option>
+              <option value="sa">Sexaholics Anonymous</option>
+              <option value="alanon">Al-Anon/Alateen</option>
+              <option value="naranon">Nar-Anon</option>
+              <option value="gamanon">Gam-Anon/Gam-A-Teen</option>
             </select>
           </div>
           <div class="input-group">
@@ -112,7 +130,7 @@
           </div>
           <div class="response"></div>
           <ul class="actions">
-            <li><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Finish</button></li>
+            <li><button class="submit">Finish</button></li>
           </ul>
         </form>
       </div>

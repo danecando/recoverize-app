@@ -116,6 +116,12 @@ UI.registerHelper('programIntro', function(program) {
 })
 
 /**
+ * Append base url to image paths
+ */
+UI.registerHelper('getImgURL', function(path) {
+    return
+
+/**
  * Clean or sober
  */
 UI.registerHelper('cleanOrSober', function(program) {

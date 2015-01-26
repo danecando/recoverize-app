@@ -19,9 +19,35 @@
   border: 1px solid red !important;
 }
 
+.response {
+  font-size: em(15);
+
+  &.error {
+    padding: em(10);
+
+    &:before {
+      font-family: FontAwesome;
+      content: "\f071";
+      margin-right: em(8);
+      color: $error-color;
+      font-size: em(12);
+      position: relative;
+      bottom: 1px;
+    }
+  }
+}
+
+#ban-user {
+  background: $error-color;
+  width: 100%;
+  margin: em(25) 0;
+}
+
 .help-link {
-  background: rgba(255, 255, 255, .1) !important;
+  background: rgba(255, 255, 255, .4) !important;
   padding: em(5) !important;
+  letter-spacing: em(1);
+  border: 1px solid rgba(255, 255, 255, .8) !important;
 }
 
 .page-container {
@@ -453,17 +479,20 @@
 .view-profile {
 
   img {
-    height: 55px;
-    width: 55px;
+    height: 75px;
+    width: 75px;
     border-radius: 2px;
   }
 }
 
 .top-links {
-  margin: 25px 0 20px;
+  padding: 25px 0 20px;
+  margin-bottom: 40px;
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
+  @include texture(180deg, $secondary-blue,lighten($secondary-blue, 15), 83, 1);
+  border-bottom: 2px solid #ddd;
 
   li {
     display: inline-block;
@@ -478,16 +507,25 @@
       border: 1px solid #eee;
       font-size: em(12);
       padding: 5px 10px;
-      color: $brand-blue;
-      @include transition(border 200ms ease-in-out);
+      color: white;
 
       &:hover {
-        border: 1px solid $brand-blue;
-        @include transition(border 400ms ease-in-out);
       }
     }
   }
+
+  h2 {
+    font-weight: normal;
+    font-size: em(18);
+    text-align: left;
+    margin-bottom: em(10);
+
+    a {
+      color: white;
+    }
+  }
 }
+
 
 .account-settings,
 .profile-settings {
@@ -496,7 +534,7 @@
     background: #eee;
     font-weight: normal;
     padding: 5px;
-    font-size: em(16);
+    font-size: em(13);
     text-align: center;
   }
 
@@ -504,10 +542,20 @@
     padding: 10px;
 
     li {
-      margin-bottom: em(20);
+      margin-bottom: em(25);
     }
-    input {
+    input, select, textarea {
       margin-bottom: 0;
+      background: #f5f5f5;
+      border: 1px solid #f5f5f5;
+      border: 0;
+      color: $dark-gray;
+      resize: none;
+      font-size: em(15);
+
+      &:disabled {
+        color: $medium-gray;
+      }
     }
   }
 
@@ -515,10 +563,11 @@
     width: 100%;
     border-radius: 0;
     background: #14B846;
-    @include transition(background .25s ease-in-out);
+    @include transition(all .25s ease-in-out);
 
     &:disabled {
-      background: $light-gray;
+      background: #f5f5f5;
+      color: $medium-gray;
     }
   }
 
@@ -539,21 +588,32 @@
     }
   }
 
-  input[name=profilePic] {
-    display: none;
-  }
+  #cordova-upload {
+    background: #f5f5f5;
+    padding: em(8);
 
-  #image-select {
-    display: block;
-    padding: 15px;
-    border: 2px dotted #eee;
-
-    .select-button {
-      padding: 5px 10px;
-      border-radius: 2px;
-      background: #eee;
-      color: #333;
+    button {
+      padding: em(6) em(12);
     }
+
+    .file-name {
+      font-size: em(14);
+      padding: em(5);
+    }
+  }
+}
+
+.profile-settings {
+
+  .avatar-preview {
+    margin: em(8) 0 em(4);
+    width: 100px;
+    height: 100px;
+  }
+  input[type=file] {
+    padding: em(11);
+    background: #f5f5f5;
+    font-size: em(13);
   }
 }
 
@@ -561,10 +621,39 @@
  *  Messages
  * =========================== */
 
+.no-messages {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  @include calc(height, '100vh - 77px');
+  @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
+
+  color: white;
+  text-align: center;
+
+  h2 {
+    font-weight: normal;
+  }
+
+  @include media($tablet-screen-up) {
+    @include calc(height, '100vh - 34px');
+  }
+
+  h2 {
+    margin-bottom: em(10);
+  }
+
+  a {
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px dotted white;
+  }
+}
+
 .thread-item {
   @include clearfix;
   @include display(flex);
-  align-items: center;
+  @include align-items(center);
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   @include transition(background 200ms ease-in-out);
@@ -1261,10 +1350,7 @@
   .flex-container {
     overflow-y: auto;
     padding: em(40) 0;
-  }
-
-  .error-message {
-    margin-bottom: em(8);
+    width: 450px;
   }
 
   form {
@@ -1300,7 +1386,7 @@
     }
 
     .btn-primary {
-      background: rgba(220, 220, 220, .15);
+      background: rgba(220, 220, 220, .3);
       color: white;
       padding: em(6) em(18);
       font-weight: normal;
@@ -1320,7 +1406,7 @@
     text-align: center;
     margin: 0 auto;
     max-width: 400px;
-    margin-bottom: em(5);
+    margin-bottom: em(10);
 
     li {
       display: inline-block;
@@ -1334,8 +1420,30 @@
   }
 
   .optin {
-    font-size: em(12);
+    font-size: em(13);
+    letter-spacing: 0;
+    font-weight: normal;
     display: inline-block;
+    text-transform: capitalize;
+  }
+
+  .response {
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: em(10);
+
+    &.error {
+      &:before {
+        color: white;
+      }
+    }
+  }
+}
+
+#join-page {
+  .btn-primary {
+    background: $brand-light !important;
+    box-shadow: 1px 1px 0 1px $brand-color;
   }
 }
 
@@ -1378,6 +1486,15 @@
       margin-bottom: 0;
     }
 
+    input[type=file] {
+      padding: 8px;
+      background: rgba(255, 255, 255, .3);
+      color: white;
+      font-size: em(14);
+      text-align: center;
+      border-color: rgba(255, 255, 255, .5);
+    }
+
     select {
       border-radius: 0;
       border: 0;
@@ -1392,8 +1509,28 @@
         border: 0;
       }
     }
+
+    #cordova-upload {
+      margin-top: em(10);
+      padding: em(8);
+      text-align: left;
+      color: white;
+      background: rgba(255, 255, 255, .3);
+      border: 1px solid rgba(255, 255, 255, .5);
+      font-size: em(14);
+
+      button {
+        padding: em(6) em(12);
+      }
+    }
   }
 
+  .avatar-preview {
+    height: 100px;
+    width: 100px;
+    border-radius: 2px;
+    border: 1px solid white;
+  }
   .sober-date {
     .selects {
       @include display(flex);
@@ -1522,6 +1659,166 @@
       letter-spacing: em(1);
       margin-bottom: em(25);
     }
+  }
+}
+
+/* ===========================
+ *  Help Page
+ * =========================== */
+.help-section {
+  padding: em(25) em(5);
+  color: white;
+
+  &:nth-of-type(odd) {
+    background: $secondary-blue;
+  }
+  &:nth-of-type(even) {
+    background: $brand-color;
+  }
+
+  h2 {
+    font-weight: normal;
+    font-size: em(22);
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    margin: em(10) 0;
+  }
+}
+
+/* ===========================
+ *  Task Page
+ * =========================== */
+
+#checklist {
+  @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
+
+}
+.task-header {
+  padding: em(20) em(5) em(10);
+  color: white;
+
+  .title {
+    font-size: em(18);
+    font-weight: normal;
+    text-align: center;
+  }
+}
+
+.task-buttons {
+  padding: em(10) 0;
+  text-align: center;
+
+  li {
+    display: inline-block;
+
+    &:first-of-type {
+      margin-right: em(15);
+    }
+
+    button {
+      padding: em(5) em(15);
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.task-management {
+  border-bottom: 2px solid $secondary-blue;
+}
+
+#task-form {
+  display: none;
+
+  form {
+    @include display(flex);
+    @include justify-content(center);
+
+    input {
+      margin-bottom: 0;
+      border: 0;
+
+      &:focus {
+        border: 0;
+      }
+    }
+    button {
+      background: #f8f8f8;
+      color: $success-color;
+      border-left: 1px solid #f8f8f8;
+    }
+  }
+}
+
+.task {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+//  padding: em(10) 0;
+  background: #ecf0f1;
+  border-bottom: 2px solid #e5e5e5;
+
+  &:nth-of-type(even) {
+    background: #f8f8f8;
+  }
+
+  .checkbox {
+    @include span-columns(2);
+    padding: em(5);
+  }
+  .task-name {
+    @include span-columns(8);
+  }
+  .task-controls {
+    @include span-columns(2);
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(flex-end);
+
+    .delete-task {
+      color: $error-color;
+      margin-right: em(5);
+      padding: em(5);
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .position-arrows div {
+      padding: em(8) em(3);
+      background: $secondary-blue;
+      color: white;
+      cursor: pointer;
+    }
+
+  }
+}
+
+.checkbox {
+
+  input {
+    display: none;
+  }
+
+  label {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  input + label:before {
+    font-family: FontAwesome;
+    content: "\f096";
+    font-size: em(28);
+    letter-spacing: 5px;
+  }
+
+  input:checked + label:before {
+    font-family: FontAwesome;
+    content: "\f046";
+    font-size: em(28);
+    letter-spacing: 5px;
+    color: $success-color;
   }
 }
 

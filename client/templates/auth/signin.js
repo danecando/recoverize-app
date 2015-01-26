@@ -16,7 +16,7 @@ Template.signin.events({
         Meteor.loginWithFacebook({ requestPermissions: ['email']},
         function(error) {
             if (error) {
-                template.$('.error-message').text("Couldn't log you in with Facebook")
+                template.$('.response').addClass('error').text("Couldn't log you in with Facebook")
                 return
             }
 
@@ -31,7 +31,7 @@ Template.signin.events({
     'click #twitter-login': function(event, template) {
         Meteor.loginWithTwitter(function(error) {
             if (error) {
-                template.$('.error-message').text("Couldn't log you in with Twitter")
+                template.$('.response').addClass('error').text("Couldn't log you in with Twitter")
                 return
             }
 
@@ -54,13 +54,13 @@ Template.signin.events({
         if (!email) {
             errors.email = 'Email required'
             template.$('[name=email]').addClass('input-error')
-            template.$('.error-message').text(errors.email)
+            template.$('.response').addClass('error').text(errors.email)
         }
 
         if (!password && email) {
             errors.password = 'Password required'
             template.$('[name=password]').addClass('input-error')
-            template.$('.error-message').text(errors.password)
+            template.$('.response').addClass('error').text(errors.password)
         }
 
         if (_.keys(errors).length) {
@@ -68,7 +68,7 @@ Template.signin.events({
         }
 
         Meteor.loginWithPassword(email, password, function(error) {
-            if (error) template.$('.error-message').text('incorrect username/password')
+            if (error) template.$('.response').addClass('error').text('incorrect username/password')
 
             Router.go('/')
         })

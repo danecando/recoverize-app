@@ -3,7 +3,7 @@
   <div class="notifications-page {{#unless notifications}}no-notifications{{/unless}}">
       {{#if notifications}}
           <div class="new-notifications">
-            <span class="notification-amount">{{notifications.length}} notifications</span>
+            <span class="notification-amount">{{notifications.count}} notifications</span>
             <button id="clear-notifications" class="btn">Clear All</button>
           </div>
           {{#each notifications}}

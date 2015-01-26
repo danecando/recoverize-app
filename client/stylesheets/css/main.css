@@ -543,7 +543,7 @@ select[multiple=multiple] {
   textarea.success,
   input[type="email"].success, input[type="number"].success, input[type="password"].success, input[type="search"].success, input[type="tel"].success, input[type="text"].success, input[type="url"].success, input[type="color"].success, input[type="date"].success, input[type="datetime"].success, input[type="datetime-local"].success, input[type="month"].success, input[type="time"].success, input[type="week"].success,
   select[multiple=multiple].success {
-    border-color: green; }
+    border-color: #009600; }
   textarea:disabled,
   input[type="email"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="url"]:disabled, input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="month"]:disabled, input[type="time"]:disabled, input[type="week"]:disabled,
   select[multiple=multiple]:disabled {
@@ -2502,9 +2502,29 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
+.response {
+  font-size: 0.9375em; }
+  .response.error {
+    padding: 0.625em; }
+    .response.error:before {
+      font-family: FontAwesome;
+      content: "\f071";
+      margin-right: 0.5em;
+      color: #ff0033;
+      font-size: 0.75em;
+      position: relative;
+      bottom: 1px; }
+
+#ban-user {
+  background: #ff0033;
+  width: 100%;
+  margin: 1.5625em 0; }
+
 .help-link {
-  background: rgba(255, 255, 255, 0.1) !important;
-  padding: 0.3125em !important; }
+  background: rgba(255, 255, 255, 0.4) !important;
+  padding: 0.3125em !important;
+  letter-spacing: 0.0625em;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important; }
 
 .page-container {
   min-height: 100%;
@@ -2850,12 +2870,13 @@ body,
  *  Account / Profile Update
  * =========================== */
 .view-profile img {
-  height: 55px;
-  width: 55px;
+  height: 75px;
+  width: 75px;
   border-radius: 2px; }
 
 .top-links {
-  margin: 25px 0 20px;
+  padding: 25px 0 20px;
+  margin-bottom: 40px;
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -2880,7 +2901,10 @@ body,
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
+  -ms-flex-pack: center;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  border-bottom: 2px solid #ddd; }
   .top-links li {
     display: inline-block;
     vertical-align: bottom;
@@ -2891,43 +2915,56 @@ body,
       border: 1px solid #eee;
       font-size: 0.75em;
       padding: 5px 10px;
-      color: #123865;
-      -webkit-transition: border 200ms ease-in-out;
-      -moz-transition: border 200ms ease-in-out;
-      transition: border 200ms ease-in-out; }
-      .top-links li .button:hover {
-        border: 1px solid #123865;
-        -webkit-transition: border 400ms ease-in-out;
-        -moz-transition: border 400ms ease-in-out;
-        transition: border 400ms ease-in-out; }
+      color: white; }
+  .top-links h2 {
+    font-weight: normal;
+    font-size: 1.125em;
+    text-align: left;
+    margin-bottom: 0.625em; }
+    .top-links h2 a {
+      color: white; }
 
 .account-settings h3,
 .profile-settings h3 {
   background: #eee;
   font-weight: normal;
   padding: 5px;
-  font-size: 1em;
+  font-size: 0.8125em;
   text-align: center; }
 .account-settings .fields,
 .profile-settings .fields {
   padding: 10px; }
   .account-settings .fields li,
   .profile-settings .fields li {
-    margin-bottom: 1.25em; }
-  .account-settings .fields input,
-  .profile-settings .fields input {
-    margin-bottom: 0; }
+    margin-bottom: 1.5625em; }
+  .account-settings .fields input, .account-settings .fields select, .account-settings .fields textarea,
+  .profile-settings .fields input,
+  .profile-settings .fields select,
+  .profile-settings .fields textarea {
+    margin-bottom: 0;
+    background: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border: 0;
+    color: #333;
+    resize: none;
+    font-size: 0.9375em; }
+    .account-settings .fields input:disabled, .account-settings .fields select:disabled, .account-settings .fields textarea:disabled,
+    .profile-settings .fields input:disabled,
+    .profile-settings .fields select:disabled,
+    .profile-settings .fields textarea:disabled {
+      color: #999; }
 .account-settings #save-changes,
 .profile-settings #save-changes {
   width: 100%;
   border-radius: 0;
   background: #14B846;
-  -webkit-transition: background 0.25s ease-in-out;
-  -moz-transition: background 0.25s ease-in-out;
-  transition: background 0.25s ease-in-out; }
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out; }
   .account-settings #save-changes:disabled,
   .profile-settings #save-changes:disabled {
-    background: #DDD; }
+    background: #f5f5f5;
+    color: #999; }
 .account-settings #delete-account,
 .profile-settings #delete-account {
   margin-right: 15px;
@@ -2942,24 +2979,75 @@ body,
     .account-settings #delete-account + label .desc,
     .profile-settings #delete-account + label .desc {
       margin: 0; }
-.account-settings input[name=profilePic],
-.profile-settings input[name=profilePic] {
-  display: none; }
-.account-settings #image-select,
-.profile-settings #image-select {
-  display: block;
-  padding: 15px;
-  border: 2px dotted #eee; }
-  .account-settings #image-select .select-button,
-  .profile-settings #image-select .select-button {
-    padding: 5px 10px;
-    border-radius: 2px;
-    background: #eee;
-    color: #333; }
+.account-settings #cordova-upload,
+.profile-settings #cordova-upload {
+  background: #f5f5f5;
+  padding: 0.5em; }
+  .account-settings #cordova-upload button,
+  .profile-settings #cordova-upload button {
+    padding: 0.375em 0.75em; }
+  .account-settings #cordova-upload .file-name,
+  .profile-settings #cordova-upload .file-name {
+    font-size: 0.875em;
+    padding: 0.3125em; }
+
+.profile-settings .avatar-preview {
+  margin: 0.5em 0 0.25em;
+  width: 100px;
+  height: 100px; }
+.profile-settings input[type=file] {
+  padding: 0.6875em;
+  background: #f5f5f5;
+  font-size: 0.8125em; }
 
 /* ===========================
  *  Messages
  * =========================== */
+.no-messages {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  height: -webkit-calc(100vh - 77px);
+  height: calc(100vh - 77px);
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  color: white;
+  text-align: center; }
+  .no-messages h2 {
+    font-weight: normal; }
+  @media screen and (min-width: 48em) {
+    .no-messages {
+      height: -webkit-calc(100vh - 34px);
+      height: calc(100vh - 34px); } }
+  .no-messages h2 {
+    margin-bottom: 0.625em; }
+  .no-messages a {
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px dotted white; }
+
 .thread-item {
   display: -webkit-box;
   display: -moz-box;
@@ -2968,7 +3056,15 @@ body,
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
   align-items: center;
+  -ms-flex-align: center;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
   -webkit-transition: background 200ms ease-in-out;
@@ -3153,7 +3249,7 @@ body,
   width: 11px;
   border-radius: 50%; }
   .user-connection.online {
-    border: 2px solid green; }
+    border: 2px solid #009600; }
   .user-connection.offline {
     border: 2px solid #ff0033; }
   .user-connection.away {
@@ -3618,9 +3714,8 @@ body,
   overflow: hidden; }
   #login-page .flex-container, #join-page .flex-container {
     overflow-y: auto;
-    padding: 2.5em 0; }
-  #login-page .error-message, #join-page .error-message {
-    margin-bottom: 0.5em; }
+    padding: 2.5em 0;
+    width: 450px; }
   #login-page form, #join-page form {
     padding: 0.9375em;
     margin: 0 auto;
@@ -3646,7 +3741,7 @@ body,
       border-color: white;
       color: white; }
     #login-page form .btn-primary, #join-page form .btn-primary {
-      background: rgba(220, 220, 220, 0.15);
+      background: rgba(220, 220, 220, 0.3);
       color: white;
       padding: 0.375em 1.125em;
       font-weight: normal; }
@@ -3659,7 +3754,7 @@ body,
     text-align: center;
     margin: 0 auto;
     max-width: 400px;
-    margin-bottom: 0.3125em; }
+    margin-bottom: 0.625em; }
     #login-page .social-logins li, #join-page .social-logins li {
       display: inline-block;
       width: 45%; }
@@ -3667,8 +3762,21 @@ body,
       max-width: 100%;
       cursor: pointer; }
   #login-page .optin, #join-page .optin {
-    font-size: 0.75em;
-    display: inline-block; }
+    font-size: 0.8125em;
+    letter-spacing: 0;
+    font-weight: normal;
+    display: inline-block;
+    text-transform: capitalize; }
+  #login-page .response, #join-page .response {
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0.625em; }
+    #login-page .response.error:before, #join-page .response.error:before {
+      color: white; }
+
+#join-page .btn-primary {
+  background: #FF9963 !important;
+  box-shadow: 1px 1px 0 1px #FA7C38; }
 
 /* ===========================
  *   Create Profile
@@ -3708,6 +3816,13 @@ body,
       background: white;
       border: 1px solid white;
       margin-bottom: 0; }
+    #create-profile .input-group input[type=file] {
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      font-size: 0.875em;
+      text-align: center;
+      border-color: rgba(255, 255, 255, 0.5); }
     #create-profile .input-group select {
       border-radius: 0;
       border: 0;
@@ -3717,6 +3832,21 @@ body,
       resize: none; }
       #create-profile .input-group textarea:focus, #create-profile .input-group textarea:active {
         border: 0; }
+    #create-profile .input-group #cordova-upload {
+      margin-top: 0.625em;
+      padding: 0.5em;
+      text-align: left;
+      color: white;
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      font-size: 0.875em; }
+      #create-profile .input-group #cordova-upload button {
+        padding: 0.375em 0.75em; }
+  #create-profile .avatar-preview {
+    height: 100px;
+    width: 100px;
+    border-radius: 2px;
+    border: 1px solid white; }
   #create-profile .sober-date .selects {
     display: -webkit-box;
     display: -moz-box;
@@ -3848,6 +3978,188 @@ body,
       color: white;
       letter-spacing: 0.0625em;
       margin-bottom: 1.5625em; }
+
+/* ===========================
+ *  Help Page
+ * =========================== */
+.help-section {
+  padding: 1.5625em 0.3125em;
+  color: white; }
+  .help-section:nth-of-type(odd) {
+    background: #2c5999; }
+  .help-section:nth-of-type(even) {
+    background: #FA7C38; }
+  .help-section h2 {
+    font-weight: normal;
+    font-size: 1.375em;
+    text-align: center; }
+  .help-section p {
+    text-align: center;
+    margin: 0.625em 0; }
+
+/* ===========================
+ *  Task Page
+ * =========================== */
+#checklist {
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
+
+.task-header {
+  padding: 1.25em 0.3125em 0.625em;
+  color: white; }
+  .task-header .title {
+    font-size: 1.125em;
+    font-weight: normal;
+    text-align: center; }
+
+.task-buttons {
+  padding: 0.625em 0;
+  text-align: center; }
+  .task-buttons li {
+    display: inline-block; }
+    .task-buttons li:first-of-type {
+      margin-right: 0.9375em; }
+    .task-buttons li button {
+      padding: 0.3125em 0.9375em;
+      background: rgba(255, 255, 255, 0.1); }
+
+.task-management {
+  border-bottom: 2px solid #2c5999; }
+
+#task-form {
+  display: none; }
+  #task-form form {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center; }
+    #task-form form input {
+      margin-bottom: 0;
+      border: 0; }
+      #task-form form input:focus {
+        border: 0; }
+    #task-form form button {
+      background: #f8f8f8;
+      color: #009600;
+      border-left: 1px solid #f8f8f8; }
+
+.task {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  background: #ecf0f1;
+  border-bottom: 2px solid #e5e5e5; }
+  .task:nth-of-type(even) {
+    background: #f8f8f8; }
+  .task .checkbox {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 14.7019570017%;
+    padding: 0.3125em; }
+    .task .checkbox:last-child {
+      margin-right: 0; }
+  .task .task-name {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 65.8807828007%; }
+    .task .task-name:last-child {
+      margin-right: 0; }
+  .task .task-controls {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 14.7019570017%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
+    .task .task-controls:last-child {
+      margin-right: 0; }
+    .task .task-controls .delete-task {
+      color: #ff0033;
+      margin-right: 0.3125em;
+      padding: 0.3125em;
+      height: 100%;
+      cursor: pointer; }
+    .task .task-controls .position-arrows div {
+      padding: 0.5em 0.1875em;
+      background: #2c5999;
+      color: white;
+      cursor: pointer; }
+
+.checkbox input {
+  display: none; }
+.checkbox label {
+  margin-bottom: 0;
+  text-align: center; }
+.checkbox input + label:before {
+  font-family: FontAwesome;
+  content: "\f096";
+  font-size: 1.75em;
+  letter-spacing: 5px; }
+.checkbox input:checked + label:before {
+  font-family: FontAwesome;
+  content: "\f046";
+  font-size: 1.75em;
+  letter-spacing: 5px;
+  color: #009600; }
 
 /* ===========================
  *  Join Page

@@ -7,8 +7,11 @@
     </section>
 
     <ul class="top-links">
-      <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
-      <li class="account-settings"><a class="button" href="/account">Account Settings</a></li>
+      <li class="view-profile"><a href="#"><img src="{{getImgURL profilePic}}" alt="{{user.username}}"/></a></li>
+      <li class="account-settings">
+        <h2><a href="/users/{{user.username}}">@{{user.username}}</a></h2>
+        <a class="button" href="/account">Account Settings</a>
+      </li>
     </ul>
 
     <form action="">
@@ -19,8 +22,15 @@
             <input type="text" name="name" value="{{user.profile.name}}">
           </li>
           <li>
-            <label for="profilePic">Profile Picture</label>
-            <input type="file" name="profilePic" accept="image/*">
+            <label for="profilePic">Profile Picture <small class="desc">Suggested Dimensions: 400x400</small></label>
+            {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
+            {{#if cordova}}
+              <div id="cordova-upload">
+                <button>Choose File</button> <span class="file-name">No file chosen</span>
+              </div>
+            {{else}}
+              <input type="file" name="profilePic" accept="image/*">
+            {{/if}}
           </li>
           <li>
             <label for="location">Location <small class="desc">City / State</small></label>
@@ -39,6 +49,16 @@
               <option value="aa">Alcoholics Anonymous</option>
               <option value="na">Narcotics Anonymous</option>
               <option value="ca">Cocaine Anonymous</option>
+              <option value="cma">Crystal Meth Anonymous</option>
+              <option value="coda">Co-Dependents Anonyomous</option>
+              <option value="ga">Gamblers Anonymous</option>
+              <option value="oa">Overeaters Anonymous</option>
+              <option value="ha">Heroin Anonymous</option>
+              <option value="ma">Marijuana Anonymous</option>
+              <option value="sa">Sexaholics Anonymous</option>
+              <option value="alanon">Al-Anon/Alateen</option>
+              <option value="naranon">Nar-Anon</option>
+              <option value="gamanon">Gam-Anon/Gam-A-Teen</option>
             </select>
           </li>
           <li>
@@ -78,7 +98,7 @@
           </li>
         </ul>
         <div class="response"></div>
-        <button id="save-changes" {{updated}}>Save Changes</button>
+        <button id="save-changes" disabled="{{#unless profileUpdated}}disabled{{/unless}}">Save Changes</button>
       </section>
 
     </form>
