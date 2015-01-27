@@ -3671,7 +3671,7 @@ body,
  *  Statuses
  * =========================== */
 .status-box {
-  margin: 0.9375em;
+  margin: 0.9375em 0.3125em;
   padding: 0.9375em;
   border: 1px solid #eee;
   border-radius: 0.1875em;
@@ -3680,6 +3680,55 @@ body,
     .status-box {
       width: 80%;
       margin: 0.9375em auto; } }
+
+.status-meta {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center; }
+  .status-meta .profile-pic {
+    margin-right: 0.625em; }
+    .status-meta .profile-pic img {
+      height: 24px;
+      widht: 24px;
+      border-radius: 0.125em; }
+  .status-meta h3 {
+    font-size: 1.0625em;
+    line-height: 0.9375em;
+    marigin-right: 0.9375em; }
+    .status-meta h3 small {
+      font-size: 0.6875em;
+      color: #999;
+      font-weight: normal; }
+  .status-meta time {
+    font-size: 0.625em;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    flex-grow: 1;
+    -ms-flex-positive: 1;
+    text-align: right; }
+
+.status-actions .action-buttons {
+  margin: 0.625em 0 0; }
+  .status-actions .action-buttons li {
+    display: inline-block;
+    margin-right: 0.625em; }
+  .status-actions .action-buttons i {
+    padding: 0.1875em; }
+  .status-actions .action-buttons .serenity-count {
+    font-size: 0.875em; }
 
 /* ===========================
  *  Login Page

@@ -161,7 +161,7 @@ UI.registerHelper('elapsedDays', function(date) {
 
     var reactive = function(mmt){
         timeTick.depend()
-        return mmt.fromNow()
+        return mmt.fromNow(true)
     }
 
     UI.registerHelper('relativeTime', function(context){

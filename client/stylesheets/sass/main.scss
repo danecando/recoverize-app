@@ -1325,7 +1325,7 @@
 }
 
 .status-box {
-  margin: em(15);
+  margin: em(15) em(5);
   padding: em(15);
   border: 1px solid #eee;
   border-radius: em(3);
@@ -1335,6 +1335,56 @@
   @include media($tablet-screen-up) {
     width: 80%;
     margin: em(15) auto;
+  }
+}
+
+.status-meta {
+  @include display(flex);
+  @include align-items(center);
+
+  .profile-pic {
+    margin-right: em(10);
+    img {
+      height: 24px;
+      widht: 24px;
+      border-radius: em(2);
+    }
+  }
+
+  h3 {
+    font-size: em(17);
+    line-height: em(15);
+    marigin-right: em(15);
+
+    small {
+      font-size: em(11);
+      color: #999;
+      font-weight: normal;
+    }
+  }
+
+  time {
+    font-size: em(10);
+    @include flex-grow(1);
+    text-align: right;
+  }
+}
+
+.status-actions {
+
+  .action-buttons {
+    margin: em(10) 0 0;
+    li {
+      display: inline-block;
+      margin-right: em(10);
+    }
+    i {
+      padding: em(3);
+    }
+    .serenity-count {
+      font-size: em(14);
+    }
+
   }
 }
 
