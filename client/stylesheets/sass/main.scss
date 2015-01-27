@@ -1670,14 +1670,35 @@
  *  Help Page
  * =========================== */
 .help-section {
-  padding: em(25) em(5);
+  padding: em(25) em(10);
   color: white;
+  min-height: 50vh;
+  @include display(flex);
+  @include align-items(center);
 
   &:nth-of-type(odd) {
-    background: $secondary-blue;
+    background-color: $secondary-blue;
+    background: url('https://d6gyptuog2clr.cloudfront.net/tough_time.jpg') no-repeat center;
+    background-size: cover;
+    border-bottom: 2px solid #eee;
+
+    .get-help {
+      color: #333;
+    }
   }
   &:nth-of-type(even) {
-    background: $brand-color;
+    background-color: $brand-color;
+    background: url('https://d6gyptuog2clr.cloudfront.net/time_for_change.jpg') no-repeat center;
+    background-size: cover;
+
+    .flex-container {
+      background: rgba(250, 124, 56, .98);
+      padding: em(10);
+      border-radius: em(2);
+    }
+    .get-help {
+      color: $brand-color;
+    }
   }
 
   h2 {
@@ -1690,7 +1711,58 @@
     text-align: center;
     margin: em(10) 0;
   }
+
+  .button-container {
+    margin: em(20) 0;
+    text-align: center;
+  }
+
+  .get-help {
+    box-shadow: 0 0 4px 2px rgba(50, 50, 50, .1);
+    text-align: center;
+    background: white;
+    padding: em(8) em(15);
+    border-radius: em(3);
+  }
 }
+
+#get-help {
+  min-height: 100vh;
+  background: #eee;
+  padding: em(20) em(10);
+
+  h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: em(28);
+  }
+
+  .available {
+    color: $success-color;
+  }
+
+  .support-person {
+    @include display(flex);
+    @include align-items(center);
+
+    img {
+      height: 130px;
+      width: 130px;
+    }
+
+    .bubble {
+      width: 100%;
+      height: 75%;
+      background: white;
+      padding: em(20);
+      border-radius: em(25);
+      font-size: em(14);
+      line-height: em(16);
+    }
+  }
+
+}
+
 
 /* ===========================
  *  Task Page
