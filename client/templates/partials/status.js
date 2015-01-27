@@ -1,15 +1,10 @@
 Template.statusp.created = function() {
 
-    this.ready = new ReactiveVar(false)
-
-    Meteor.startup(function() {
-    var userSub = Meteor.subscribe('statusUser', this.username)
+    var userSub = Meteor.subscribe('statusUser', this.data.username)
 
     if (userSub.ready()) {
-        this.ready.set(true)
-        console.log(Meteor.users.findOne({username: this.username }))
+        console.log(Meteor.users.findOne({username: this.data.username }))
     }
-    })
 }
 
 Template.statusp.helpers({
