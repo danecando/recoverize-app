@@ -2665,6 +2665,8 @@ body,
 #menu {
   padding: 15px;
   border-right: 3px solid rgba(255, 255, 255, 0.35); }
+  #menu .fixed {
+    width: 100%; }
   #menu a {
     display: block;
     padding: 3px 10px;
