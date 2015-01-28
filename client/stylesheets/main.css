@@ -2491,6 +2491,9 @@ body,
 /* ===========================
  *  Generic Classes
  * =========================== */
+.input-error {
+  border: 1px solid red !important; }
+
 .response {
   font-size: 0.9375em; }
   .response.error {
@@ -2893,8 +2896,8 @@ body,
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
   border-bottom: 2px solid #ddd; }
   .top-links li {
     display: inline-block;
@@ -3022,8 +3025,8 @@ body,
   -ms-flex-pack: center;
   height: -webkit-calc(100vh - 77px);
   height: calc(100vh - 77px);
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   color: white;
   text-align: center; }
   .no-messages h2 {
@@ -3152,8 +3155,8 @@ body,
 .conversation {
   height: -webkit-calc(100% - 29px);
   height: calc(100% - 29px);
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #eeeeee, white), center no-repeat #eeeeee scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eeeeee, white), center no-repeat #eeeeee scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #eeeeee, white), center no-repeat #eeeeee scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eeeeee, white), center no-repeat #eeeeee scroll;
   background: linear-gradient(45deg, whitesmoke 10%, white 90%);
   overflow: hidden;
   overflow-y: scroll; }
@@ -3497,8 +3500,8 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
   text-align: center; }
@@ -3576,8 +3579,8 @@ body,
  *  Notifications
  * =========================== */
 .notifications-page {
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   min-height: 100%;
   overflow: hidden;
   overflow-y: scroll; }
@@ -3660,17 +3663,37 @@ body,
  *  Statuses
  * =========================== */
 .status-list {
-  background: #fafafa; }
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column; }
 
 .status-box {
+  width: 95%;
   padding: 0.9375em;
   border: 1px solid #eee;
   border-radius: 0.1875em;
-  background: white; }
-  @media screen and (min-width: 48em) {
-    .status-box {
-      width: 80%;
-      margin: 0.9375em auto; } }
+  background: white;
+  margin: 1.25em 0 0.3125em; }
 
 .status-meta {
   display: -webkit-box;
@@ -4121,8 +4144,8 @@ body,
  *  Task Page
  * =========================== */
 #checklist {
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
 
 .task-header {
   padding: 1.25em 0.3125em 0.625em;
@@ -4280,6 +4303,12 @@ body,
   font-size: 1.75em;
   letter-spacing: 5px;
   color: #009600; }
+
+/* ===========================
+ *  Timeline Page
+ * =========================== */
+#timeline {
+  background: #fafafa; }
 
 /* ===========================
  *  Join Page

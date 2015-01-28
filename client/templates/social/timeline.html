@@ -1,10 +1,11 @@
 <template name="timeline">
   <div id="timeline" class="page-container">
-    <h1>timeline</h1>
 
-    {{#each status}}
-      {{> statusp}}
-    {{/each}}
+    <div class="status-list">
+        {{#each status}}
+            {{> statusp}}
+        {{/each}}
+    </div>
 
   </div>
 </template>

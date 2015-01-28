@@ -46,19 +46,9 @@
           </section>
 
           <section class="profile-fields">
-            {{#if user.profile.quote}}
-              <!--<h3 class="quote">{{user.profile.quote}}</h3>-->
-            {{/if}}
-
             <p class="share-intro">Hello, my name is {{#if user.profile.name}}{{user.profile.name}}{{else}}{{username}}{{/if}}, I'm an {{programIntro user.profile.program}} {{#if user.profile.location}}from <strong>{{user.profile.location}}</strong>{{/if}}. I have been {{cleanOrSober user.profile.program}} for <strong>{{elapsedDays user.profile.soberDate}}</strong> days. {{#if user.profile.homegroup}}My homegroup is <strong>{{user.profile.homegroup}}</strong>!{{/if}}</p>
           </section>
-          <div class="testing-codeship"></div>
         </div>
-
-        {{#if isCurrentUser}}
-          <h5> enter new status: </h5>
-          <input type="text" class="newStatus">
-        {{/if}}
 
         <div class="status-list">
           {{#each status}}
