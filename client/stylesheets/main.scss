@@ -1372,6 +1372,12 @@
   }
 }
 
+.status-content {
+
+  .shared-user {
+    color: $brand-color;
+  }
+}
 .status-actions {
 
   .action-buttons {
@@ -1392,6 +1398,9 @@
       bottom: 1px;
     }
 
+    .link {
+      float: right;
+    }
   }
 }
 

@@ -3734,6 +3734,9 @@ body,
     -ms-flex-positive: 1;
     text-align: right; }
 
+.status-content .shared-user {
+  color: #fa7c38; }
+
 .status-actions .action-buttons {
   margin: 0.625em 0 0; }
   .status-actions .action-buttons li {
@@ -3748,6 +3751,8 @@ body,
     position: relative;
     right: 3px;
     bottom: 1px; }
+  .status-actions .action-buttons .link {
+    float: right; }
 
 /* ===========================
  *  Login Page

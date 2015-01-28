@@ -1,13 +1,12 @@
 Template.statusp.created = function() {
-
     var userSub = Meteor.subscribe('statusUser', this.data.username)
-
-    if (userSub.ready()) {
-        console.log(Meteor.users.findOne({username: this.data.username }))
-    }
 }
 
 Template.statusp.helpers({
+    isShared: function() {
+        if (this.type == 'shared') return true
+        else return false
+    },
     currentUserSerenityList: function(statusId){
         var status = Status.findOne(statusId)
         if(status && status.serenityList){
@@ -23,7 +22,6 @@ Template.statusp.helpers({
             return true
 
         if (status && status.shareList){
-            console.log(status.shareList.indexOf(Meteor.user().username) !== -1)
             return status.shareList.indexOf(Meteor.user().username) !== -1
         } else {
             return false
