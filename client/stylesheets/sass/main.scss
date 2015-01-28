@@ -1321,16 +1321,14 @@
  * =========================== */
 
 .status-list {
-  //  background: #fafafa;
+    background: #fafafa;
 }
 
 .status-box {
-  margin: em(15) em(5);
   padding: em(15);
   border: 1px solid #eee;
   border-radius: em(3);
   background: white;
-  //  box-shadow: 0 0 3px 1px rgba(50, 50, 50, .1);
 
   @include media($tablet-screen-up) {
     width: 80%;

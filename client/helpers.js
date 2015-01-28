@@ -82,7 +82,7 @@ UI.registerHelper('profilePic', function(username) {
     if(!user) return false
 
     if(user.profile && user.profile.profilePic) {
-        return user.profile.profilePic
+        return "https://d6gyptuog2clr.cloudfront.net/" + user.profile.profilePic
     } else {
         return false
     }
