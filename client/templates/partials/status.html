@@ -1,16 +1,42 @@
 
 <template name="statusp">
-    <div class="status-box">
+  <div class="status-box">
 
-    <div>{{linkMentions this.status}} 
+    <header class="status-meta">
+      <div class="profile-pic">
+        <img src="{{getImgURL currentUser.profile.profilePic}}" alt=""/>
+      </div>
+        {{#if currentUser.profile.name}}
+          <h3 class="username">{{currentUser.profile.name}} <small><a href="/users/{{currentUser.username}}">@{{currentUser.username}}</a></small></h3>
+        {{else}}
+          <h3 class="username">{{currentUser.username}}</h3>
+        {{/if}}
+        <time class="status-time">{{relativeTime this.timestamp}}</time>
+    </header>
+
+    <section class="status-content">
+    {{linkMentions this.status}}
       <a href="/status/{{this._id}}">[link]</a>
-    </div>
-    <small> | posted: {{relativeTime this.timestamp}} | serenity: {{this.serenity}} | by: {{this.username}} </small>
+    </section>
 
-    {{#if currentUserSerenityList this._id}}
-      <button class="serenityDownBtn" data-statusId="{{this._id}}"> serenity- </button>
-    {{else}}
-      <button class="serenityUpBtn" data-statusId="{{this._id}}"> serenity+ </button>
-    {{/if}}
-    </div>
+    <footer class="status-actions">
+      <ul class="action-buttons">
+        <li class="reply"><a href="/status"><i class="fa fa-reply"></i></a></li>
+        <li class="share"><a href="/status"><i class="fa fa-retweet"></i></a></li>
+        <li class="like">
+            {{#if currentUserSerenityList this._id}}
+              <a href="#" class="serenityDownBtn" data-statusId="{{this._id}}">
+                <i class="fa fa-heart"></i>
+              </a>
+              <span class="serenity-count">{{this.serenity}}</span>
+            {{else}}
+              <a href="#" class="serenityUpBtn" data-statusId="{{this._id}}">
+                <i class="fa fa-heart-o"></i>
+              </a>
+              <span class="serenity-count">{{this.serenity}}</span>
+            {{/if}}
+        </li>
+      </ul>
+    </footer>
+  </div>
 </template>

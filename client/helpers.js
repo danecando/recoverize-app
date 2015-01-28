@@ -82,7 +82,7 @@ UI.registerHelper('profilePic', function(username) {
     if(!user) return false
 
     if(user.profile && user.profile.profilePic) {
-        return user.profile.profilePic
+        return "https://d6gyptuog2clr.cloudfront.net/" + user.profile.profilePic
     } else {
         return false
     }
@@ -161,7 +161,7 @@ UI.registerHelper('elapsedDays', function(date) {
 
     var reactive = function(mmt){
         timeTick.depend()
-        return mmt.fromNow()
+        return mmt.fromNow(true)
     }
 
     UI.registerHelper('relativeTime', function(context){

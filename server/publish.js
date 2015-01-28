@@ -80,6 +80,12 @@ Meteor.publish('userPublic', function(username){
     }
 })
 
+Meteor.publish('statusUser', function(username) {
+    if (username) {
+        return Meteor.users.find({ username: username })
+    } else this.ready()
+})
+
 /**
  * returns list of users
  */

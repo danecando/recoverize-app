@@ -1,3 +1,11 @@
+Template.statusp.created = function() {
+
+    var userSub = Meteor.subscribe('statusUser', this.data.username)
+
+    if (userSub.ready()) {
+        console.log(Meteor.users.findOne({username: this.data.username }))
+    }
+}
 
 Template.statusp.helpers({
     currentUserSerenityList: function(statusId){
@@ -7,16 +15,21 @@ Template.statusp.helpers({
         }else{
             return false
         }
+    },
+    currentUser: function() {
+        return Meteor.users.findOne({username: this.username})
     }
 })
 
 Template.statusp.events({
     'click .serenityUpBtn': function(e){
-        var statusId = $(e.target).attr('data-statusId')
+        e.preventDefault()
+        var statusId = $(e.target).parent().attr('data-statusId')
         Meteor.call('statusSerenityUp', statusId)
     },
     'click .serenityDownBtn': function(e){
-        var statusId = $(e.target).attr('data-statusId')
+        e.preventDefault()
+        var statusId = $(e.target).parent().attr('data-statusId')
         Meteor.call('statusSerenityDown', statusId)
     }
 })
