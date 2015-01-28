@@ -1,6 +1,6 @@
-@import 'bourbon';
+@import 'bourbon/bourbon';
 @import 'base/normalize';
-@import 'neat';
+@import 'neat/neat';
 @import 'base/base';
 @import 'vendor/fa/font-awesome';
 
@@ -773,7 +773,7 @@
 
 .conversation {
   @include calc(height, '100% - 29px');
-  @include texture(180deg, #eee, #fffff, 83, 1);
+  @include texture(180deg, #eee, #ffffff, 83, 1);
     background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow: hidden;
   overflow-y: scroll;
