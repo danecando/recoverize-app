@@ -1383,8 +1383,13 @@
     i {
       padding: em(3);
     }
+    .shares-count,
     .serenity-count {
-      font-size: em(14);
+      font-size: em(12);
+      color: #666;
+      position: relative;
+      right: 3px;
+      bottom: 1px;
     }
 
   }
@@ -1955,6 +1960,23 @@
  * =========================== */
 #timeline {
   background: #fafafa;
+}
+
+/* ===========================
+ *  New Status Page
+ * =========================== */
+#new-status {
+  background: #fafafa;
+}
+
+.share-form {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+  .flex-container {
+
+  }
 }
 
 

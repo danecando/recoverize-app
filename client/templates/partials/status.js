@@ -16,6 +16,19 @@ Template.statusp.helpers({
             return false
         }
     },
+    currentUserShareList: function(statusId) {
+        var status = Status.findOne(statusId)
+
+        if (this.username == Meteor.user().username)
+            return true
+
+        if (status && status.shareList){
+            console.log(status.shareList.indexOf(Meteor.user().username) !== -1)
+            return status.shareList.indexOf(Meteor.user().username) !== -1
+        } else {
+            return false
+        }
+    },
     currentUser: function() {
         return Meteor.users.findOne({username: this.username})
     }
@@ -31,5 +44,11 @@ Template.statusp.events({
         e.preventDefault()
         var statusId = $(e.target).parent().attr('data-statusId')
         Meteor.call('statusSerenityDown', statusId)
+    },
+    'click .shareStatus': function(e) {
+        e.preventDefault()
+        var statusId = $(e.target).parent().attr('data-statusId')
+        console.log('clicked')
+        Meteor.call('shareStatus', statusId)
     }
 })

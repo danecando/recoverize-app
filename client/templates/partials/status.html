@@ -22,7 +22,13 @@
     <footer class="status-actions">
       <ul class="action-buttons">
         <li class="reply"><a href="/status"><i class="fa fa-reply"></i></a></li>
-        <li class="share"><a href="/status"><i class="fa fa-retweet"></i></a></li>
+        <li class="share">
+            {{#unless currentUserShareList this._id}}
+            <a class="shareStatus" href="/status" data-statusId="{{this._id}}"><i class="fa fa-retweet"></i></a> <span class="shares-count">{{this.shares}}</span>
+          {{else}}
+            <i class="fa fa-retweet"></i> <span class="shares-count">{{this.shares}}</span>
+          {{/unless}}
+        </li>
         <li class="like">
             {{#if currentUserSerenityList this._id}}
               <a href="#" class="serenityDownBtn" data-statusId="{{this._id}}">
