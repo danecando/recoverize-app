@@ -2494,11 +2494,9 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
-.userLink {
-  color: #fa7c38;
-  font-size: 0.875em; }
-  .userLink:hover {
-    color: #ff9963; }
+.at-mention {
+  font-size: 0.9375em;
+  font-weight: bold; }
 
 .response {
   font-size: 0.9375em; }
@@ -4333,9 +4331,65 @@ body,
  *  New Status Page
  * =========================== */
 #new-status {
-  background: #fafafa; }
+  background: #2c5999;
+  min-height: 100vh; }
 
 .share-form {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  padding: 3.125em 0;
+  background: #fafafa; }
+  .share-form .flex-container {
+    width: 95%; }
+    @media screen and (min-width: 48em) {
+      .share-form .flex-container {
+        width: 80%; } }
+  .share-form h2 {
+    color: #123865;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1.5625em; }
+  .share-form .share-input {
+    border: 1px solid #eee;
+    border-radius: 0.1875em;
+    background: white; }
+    .share-form .share-input textarea {
+      border: 0;
+      resize: none;
+      min-height: 250px; }
+  .share-form .form-action:after,
+  .share-form .input-status:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .share-form #charsLeft {
+    float: right;
+    font-size: 0.875em;
+    color: #666;
+    padding: 0.1875em 0.625em; }
+  .share-form .form-action {
+    margin: 0.625em 0; }
+  .share-form #shareStatus {
+    float: right;
+    padding: 0.625em 2.5em;
+    font-weight: normal;
+    background: #fa7c38; }
+
+.latest-share {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -4360,7 +4414,20 @@ body,
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
+  -ms-flex-pack: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  background: #2c5999;
+  padding: 1.5625em 0; }
+  .latest-share h2 {
+    color: white;
+    font-weight: normal;
+    text-align: center; }
 
 /* ===========================
  *  Join Page

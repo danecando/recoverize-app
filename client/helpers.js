@@ -4,7 +4,7 @@
 UI.registerHelper('linkMentions', function(context){
     if(context){
         var str = context.replace(/\B@[a-z0-9_-]+/gi, function(match){
-            return '<a class="userLink" href="/users/' + match.slice(1) + '">' + match + '</a>'
+            return '<a class="at-mention" style="color: ' + getColor(match.slice(1)) + '" href="/users/' + match.slice(1) + '">' + match + '</a>'
         })
         return new Handlebars.SafeString(str)
     }
@@ -92,15 +92,7 @@ UI.registerHelper('profilePic', function(username) {
  * generate color for users
  */
 UI.registerHelper('userColor', function(username) {
-    var hash = 5381;
-    for (var i = 0; i < username.length; i++) {
-        hash = ((hash << 5) + hash) + username.charCodeAt(i)
-    }
-
-    var r = (hash & 0xFF0000) >> 16;
-    var g = (hash & 0x00FF00) >> 8;
-    var b = hash & 0x0000FF;
-    return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2)
+    return getColor(username)
 })
 
 /**
@@ -168,3 +160,19 @@ UI.registerHelper('elapsedDays', function(date) {
         return reactive(moment(context))
     })
 })()
+
+function getColor(username) {
+    var hash = 5381;
+    for (var i = 0; i < username.length; i++) {
+        hash = ((hash << 5) + hash) + username.charCodeAt(i)
+    }
+
+    var r = (hash & 0xFF0000) >> 16;
+    var g = (hash & 0x00FF00) >> 8;
+    var b = hash & 0x0000FF;
+    return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2)
+}
+
+Meteor.Spinner.options = {
+    color: '#fff'
+}

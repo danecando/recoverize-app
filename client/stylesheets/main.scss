@@ -19,13 +19,10 @@
   border: 1px solid red !important;
 }
 
-.userLink {
-  color: $brand-color;
-  font-size: em(14);
-
-  &:hover {
-    color: $brand-light;
-  }
+.at-mention {
+//  color: $secondary-blue;
+  font-size: em(15);
+  font-weight: bold;
 }
 
 .response {
@@ -1984,16 +1981,80 @@
  *  New Status Page
  * =========================== */
 #new-status {
-  background: #fafafa;
+  background: $secondary-blue;
+  min-height: 100vh;
 }
 
 .share-form {
   @include display(flex);
-  @include align-items(center);
   @include justify-content(center);
+  padding: em(50) 0;
+  background: #fafafa;
+
 
   .flex-container {
+    width: 95%;
 
+    @include media($tablet-screen-up) {
+      width: 80%;
+    }
+  }
+
+  h2 {
+    color: $brand-blue;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: em(25);
+  }
+
+  .share-input {
+    border: 1px solid #eee;
+    border-radius: em(3);
+    background: white;
+
+    textarea {
+      border: 0;
+      resize: none;
+      min-height: 250px;
+    }
+  }
+
+  .form-action,
+  .input-status {
+    @include clearfix;
+  }
+
+  #charsLeft {
+    float: right;
+    font-size: em(14);
+    color: #666;
+    padding: em(3) em(10);
+  }
+
+  .form-action {
+    margin: em(10) 0;
+  }
+
+  #shareStatus {
+    float: right;
+    padding: em(10) em(40);
+    font-weight: normal;
+    background: $brand-color;
+  }
+}
+
+.latest-share {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+  background: $secondary-blue;
+  padding: em(25) 0;
+
+  h2 {
+    color: white;
+    font-weight: normal;
+    text-align: center;
   }
 }
 

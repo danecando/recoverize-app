@@ -1,16 +1,32 @@
 <template name="newStatus">
-  {{queryString}}
+    {{queryString}}
   <div id="new-status" class="page-container">
-    <section class="page-head">
-      <h2 class="title"><i class="fa fa-pencil-square-o"></i> Create a share</h2>
-    </section>
-      <section class="share-form">
-        <div class="flex-container">
+    <section class="share-form">
+      <div class="flex-container">
+        <h2>Share with the community!</h2>
 
+        <form action="">
           <div class="share-input">
-            <textarea name="newStatus">{{#if replyData}}@{{replyData.user}}: {{replyData.status}} - {{/if}}</textarea>
+            <textarea id="newStatus" name="newStatus">{{#if replyData}}@{{replyData.user}}: {{replyData.status}} - {{/if}}</textarea>
+            <div class="input-status">
+              <div id="charsLeft">{{charsLeft}}</div>
+            </div>
           </div>
-        </div>
-      </section>
+          <div class="form-action">
+            <button type="submit" id="shareStatus">Share</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  {{#if status}}
+    <section class="latest-share">
+      <h2>Your latest share</h2>
+        {{#each status}}
+            {{> statusp}}
+        {{/each}}
+    </section>
+  {{/if}}
+
   </div>
 </template>

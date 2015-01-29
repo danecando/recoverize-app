@@ -18,7 +18,7 @@
       {{#unless isShared}}
         {{linkMentions this.status}}
       {{else}}
-        <i class="fa fa-retweet"></i> <a class="shared-user" href="/users/{{this.sharedUser}}">{{this.sharedUser}}</a>: "{{linkMentions this.status}}" <a class="original" href="/status/{{this.sharedId}}">[original]</a>
+        <i class="fa fa-retweet"></i> <a class="shared-user" style="color: {{userColor this.sharedUser}}" href="/users/{{this.sharedUser}}">{{this.sharedUser}}</a>: "{{linkMentions this.status}}" <a class="original" href="/status/{{this.sharedId}}">[original]</a>
       {{/unless}}
     </section>
 
