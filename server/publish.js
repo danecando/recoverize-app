@@ -39,11 +39,11 @@ Accounts.onCreateUser(function(options, user) {
 //})
 
 // Publish user data (self account data published by default)
-Meteor.publish('userData', function() {
-    if (!this.userId) return this.ready()
-
-    return Meteor.users.find({ _id: this.userId })
-})
+//Meteor.publish('userData', function() {
+//    if (!this.userId) return this.ready()
+//
+//    return Meteor.users.find({ _id: this.userId })
+//})
 
 Meteor.publish('userCount', function() {
     return Meteor.users.find({}, { fields: { id: true } })
