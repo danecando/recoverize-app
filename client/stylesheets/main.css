@@ -2494,6 +2494,12 @@ body,
 .input-error {
   border: 1px solid red !important; }
 
+.userLink {
+  color: #fa7c38;
+  font-size: 0.875em; }
+  .userLink:hover {
+    color: #ff9963; }
+
 .response {
   font-size: 0.9375em; }
   .response.error {

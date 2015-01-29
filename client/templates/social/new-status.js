@@ -1,5 +1,13 @@
+Template.newStatus.destroyed = function() {
+  Session.set('statusReply', null)
+}
 
 Template.newStatus.helpers({
+    replyData: function() {
+        var reply = Session.get('statusReply')
+        if (reply) return reply
+        else return false
+    }
 
 })
 

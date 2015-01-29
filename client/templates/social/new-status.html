@@ -1,12 +1,15 @@
 <template name="newStatus">
+  {{queryString}}
   <div id="new-status" class="page-container">
     <section class="page-head">
       <h2 class="title"><i class="fa fa-pencil-square-o"></i> Create a share</h2>
     </section>
       <section class="share-form">
         <div class="flex-container">
-          <h5> enter new status: </h5>
-          <input type="text" class="newStatus">
+
+          <div class="share-input">
+            <textarea name="newStatus">{{#if replyData}}@{{replyData.user}}: {{replyData.status}} - {{/if}}</textarea>
+          </div>
         </div>
       </section>
   </div>

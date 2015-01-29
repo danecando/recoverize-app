@@ -48,5 +48,10 @@ Template.statusp.events({
         var statusId = $(e.target).parent().attr('data-statusId')
         console.log('clicked')
         Meteor.call('shareStatus', statusId)
+    },
+    'click .replyStatus': function(e) {
+        e.preventDefault()
+        Session.set('statusReply', { user: this.username, status: this.status })
+        Router.go('/status')
     }
 })

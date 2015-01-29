@@ -24,11 +24,11 @@
 
     <footer class="status-actions">
       <ul class="action-buttons">
-        <li class="reply"><a href="/status"><i class="fa fa-reply"></i></a></li>
+        <li class="reply"><a class="replyStatus" href="/status"><i class="fa fa-reply"></i></a></li>
           {{#unless isShared}}
         <li class="share">
             {{#unless currentUserShareList this._id}}
-            <a class="shareStatus" href="/status" data-statusId="{{this._id}}"><i class="fa fa-retweet"></i></a> <span class="shares-count">{{this.shares}}</span>
+            <a class="shareStatus" href="#" data-statusId="{{this._id}}"><i class="fa fa-retweet"></i></a> <span class="shares-count">{{this.shares}}</span>
           {{else}}
             <i class="fa fa-retweet"></i> <span class="shares-count">{{this.shares}}</span>
           {{/unless}}

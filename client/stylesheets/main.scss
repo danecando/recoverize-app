@@ -19,6 +19,15 @@
   border: 1px solid red !important;
 }
 
+.userLink {
+  color: $brand-color;
+  font-size: em(14);
+
+  &:hover {
+    color: $brand-light;
+  }
+}
+
 .response {
   font-size: em(15);
 
@@ -1334,11 +1343,6 @@
   border-radius: em(3);
   background: white;
   margin: em(20) 0 em(5);
-
-  @include media($tablet-screen-up) {
-//    width: 80%;
-//    margin: em(15) auto;
-  }
 }
 
 .status-meta {
