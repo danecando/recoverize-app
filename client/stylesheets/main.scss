@@ -1328,6 +1328,7 @@
 
 .status-box {
   width: 95%;
+  max-width: 600px;
   padding: em(15);
   border: 1px solid #eee;
   border-radius: em(3);
@@ -1376,6 +1377,10 @@
 
   .shared-user {
     color: $brand-color;
+  }
+
+  .original {
+    font-size: em(13);
   }
 }
 .status-actions {

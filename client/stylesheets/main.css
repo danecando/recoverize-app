@@ -3689,6 +3689,7 @@ body,
 
 .status-box {
   width: 95%;
+  max-width: 600px;
   padding: 0.9375em;
   border: 1px solid #eee;
   border-radius: 0.1875em;
@@ -3736,6 +3737,8 @@ body,
 
 .status-content .shared-user {
   color: #fa7c38; }
+.status-content .original {
+  font-size: 0.8125em; }
 
 .status-actions .action-buttons {
   margin: 0.625em 0 0; }
