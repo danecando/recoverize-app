@@ -4326,6 +4326,45 @@ body,
  * =========================== */
 #timeline {
   background: #fafafa; }
+  #timeline .status-scroll {
+    height: -webkit-calc(100vh - 83px);
+    height: calc(100vh - 83px);
+    overflow: hidden;
+    overflow-y: auto;
+    webkit-overflow-scrolling: touch; }
+
+.timeline-filter {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+  .timeline-filter button {
+    width: 50%; }
+    .timeline-filter button:hover {
+      color: #2c5999; }
+    .timeline-filter button.active {
+      background: #2c5999; }
 
 /* ===========================
  *  New Status Page

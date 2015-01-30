@@ -39,11 +39,11 @@ Accounts.onCreateUser(function(options, user) {
 //})
 
 // Publish user data (self account data published by default)
-//Meteor.publish('userData', function() {
-//    if (!this.userId) return this.ready()
-//
-//    return Meteor.users.find({ _id: this.userId })
-//})
+Meteor.publish('userData', function() {
+    if (!this.userId) return this.ready()
+
+    return Meteor.users.find({ _id: this.userId })
+})
 
 Meteor.publish('userCount', function() {
     return Meteor.users.find({}, { fields: { id: true } })
@@ -132,14 +132,15 @@ Meteor.publish('message', function(username, page){
     }
 })
 
-Meteor.publish('timeline', function() {
+Meteor.publish('timeline', function(limit, sort) {
     if(!this.userId) return this.ready()
 
-    var weekInMilli = 604800000
+    sort = sort || {}
 
-    return Status.find(
-        {timestamp: {$gt: Date.now() - weekInMilli}},
-        {sort: {serenity: -1}, limit: 50}
+    console.log(sort)
+
+    return Status.find(sort,
+        {sort: {timestamp: -1}, limit: limit}
     )
 })
 

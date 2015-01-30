@@ -1,11 +1,17 @@
 <template name="timeline">
   <div id="timeline" class="page-container">
 
-    <div class="status-list">
-        {{#each status}}
-            {{> statusp}}
-        {{/each}}
-    </div>
+    <section class="timeline-filter">
+        <button id="recent-timeline" class="active">Recent</button>
+        <button id="following-timeline">Following</button>
+    </section>
+    <section class="status-scroll">
+        <div class="status-list">
+            {{#each status}}
+                {{> statusp}}
+            {{/each}}
+        </div>
+    </section>
 
   </div>
 </template>
