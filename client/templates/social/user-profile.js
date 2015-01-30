@@ -7,7 +7,7 @@ Template.userProfile.helpers({
         return this.username === Meteor.user().username
     },
     status: function() {
-        return Status.find({}, {sort: {timestamp: -1}})
+        return Status.find({username: Meteor.user().username}, {sort: {timestamp: -1}})
     },
     banned: function() {
         if (Roles.userIsInRole(Meteor.users.findOne({username: this.username})._id, ['banned']))
