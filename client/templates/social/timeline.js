@@ -32,19 +32,13 @@ Template.timeline.events({
     'click #recent-timeline': function(e, template) {
         e.preventDefault()
         $('.status-scroll').animate({ scrollTop: 0 }, 300)
-        $('.timeline-filter button').each(function() {
-            $(this).removeClass('active')
-        })
-        $(e.target).addClass('active')
+        $(e.target).addClass('active').next().removeClass('active')
         template.sort.set({})
     },
     'click #following-timeline': function(e, template) {
         e.preventDefault()
         $('.status-scroll').animate({ scrollTop: 0 }, 300)
-        $('.timeline-filter button').each(function() {
-            $(this).removeClass('active')
-        })
-        $(e.target).addClass('active')
+        $(e.target).addClass('active').prev().removeClass('active')
         var following = Meteor.user().follows
         following.push(Meteor.user().username)
         template.sort.set({username: { $in: following }})
