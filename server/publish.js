@@ -137,8 +137,6 @@ Meteor.publish('timeline', function(limit, sort) {
 
     sort = sort || {}
 
-    console.log(sort)
-
     return Status.find(sort,
         {sort: {timestamp: -1}, limit: limit}
     )

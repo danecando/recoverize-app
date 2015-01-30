@@ -16,7 +16,6 @@ Template.timeline.rendered = function() {
     var self = this
     $('.status-scroll').scroll(function() {
         if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
-            console.log('hit')
             var newLimit = self.limit.get() + 10
             self.limit.set(newLimit)
         }
