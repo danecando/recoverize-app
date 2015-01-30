@@ -15,14 +15,25 @@
     </header>
 
     <section class="status-content">
-    {{linkMentions this.status}}
-      <a href="/status/{{this._id}}">[link]</a>
+      {{#unless isShared}}
+        {{linkMentions this.status}}
+      {{else}}
+        <i class="fa fa-retweet"></i> <a class="shared-user" style="color: {{userColor this.sharedUser}}" href="/users/{{this.sharedUser}}">{{this.sharedUser}}</a>: "{{linkMentions this.status}}" <a class="original" href="/status/{{this.sharedId}}">[original]</a>
+      {{/unless}}
     </section>
 
     <footer class="status-actions">
       <ul class="action-buttons">
-        <li class="reply"><a href="/status"><i class="fa fa-reply"></i></a></li>
-        <li class="share"><a href="/status"><i class="fa fa-retweet"></i></a></li>
+        <li class="reply"><a class="replyStatus" href="/status"><i class="fa fa-reply"></i></a></li>
+          {{#unless isShared}}
+        <li class="share">
+            {{#unless currentUserShareList this._id}}
+            <a class="shareStatus" href="#" data-statusId="{{this._id}}"><i class="fa fa-retweet"></i></a> <span class="shares-count">{{this.shares}}</span>
+          {{else}}
+            <i class="fa fa-retweet"></i> <span class="shares-count">{{this.shares}}</span>
+          {{/unless}}
+        </li>
+          {{/unless}}
         <li class="like">
             {{#if currentUserSerenityList this._id}}
               <a href="#" class="serenityDownBtn" data-statusId="{{this._id}}">
@@ -35,6 +46,9 @@
               </a>
               <span class="serenity-count">{{this.serenity}}</span>
             {{/if}}
+        </li>
+        <li class="link">
+          <a href="/status/{{this._id}}"><i class="fa fa-link"></i></a>
         </li>
       </ul>
     </footer>

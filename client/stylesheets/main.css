@@ -2491,6 +2491,13 @@ body,
 /* ===========================
  *  Generic Classes
  * =========================== */
+.input-error {
+  border: 1px solid red !important; }
+
+.at-mention {
+  font-size: 0.9375em;
+  font-weight: bold; }
+
 .response {
   font-size: 0.9375em; }
   .response.error {
@@ -2893,8 +2900,8 @@ body,
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
   border-bottom: 2px solid #ddd; }
   .top-links li {
     display: inline-block;
@@ -3022,8 +3029,8 @@ body,
   -ms-flex-pack: center;
   height: -webkit-calc(100vh - 77px);
   height: calc(100vh - 77px);
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   color: white;
   text-align: center; }
   .no-messages h2 {
@@ -3152,8 +3159,8 @@ body,
 .conversation {
   height: -webkit-calc(100% - 29px);
   height: calc(100% - 29px);
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #eeeeee, white), center no-repeat #eeeeee scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eeeeee, white), center no-repeat #eeeeee scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #eeeeee, white), center no-repeat #eeeeee scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eeeeee, white), center no-repeat #eeeeee scroll;
   background: linear-gradient(45deg, whitesmoke 10%, white 90%);
   overflow: hidden;
   overflow-y: scroll; }
@@ -3497,8 +3504,8 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
   text-align: center; }
@@ -3576,8 +3583,8 @@ body,
  *  Notifications
  * =========================== */
 .notifications-page {
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   min-height: 100%;
   overflow: hidden;
   overflow-y: scroll; }
@@ -3660,17 +3667,38 @@ body,
  *  Statuses
  * =========================== */
 .status-list {
-  background: #fafafa; }
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column; }
 
 .status-box {
+  width: 95%;
+  max-width: 600px;
   padding: 0.9375em;
   border: 1px solid #eee;
   border-radius: 0.1875em;
-  background: white; }
-  @media screen and (min-width: 48em) {
-    .status-box {
-      width: 80%;
-      margin: 0.9375em auto; } }
+  background: white;
+  margin: 1.25em 0 0.3125em; }
 
 .status-meta {
   display: -webkit-box;
@@ -3711,6 +3739,11 @@ body,
     -ms-flex-positive: 1;
     text-align: right; }
 
+.status-content .shared-user {
+  color: #fa7c38; }
+.status-content .original {
+  font-size: 0.8125em; }
+
 .status-actions .action-buttons {
   margin: 0.625em 0 0; }
   .status-actions .action-buttons li {
@@ -3718,8 +3751,15 @@ body,
     margin-right: 0.625em; }
   .status-actions .action-buttons i {
     padding: 0.1875em; }
+  .status-actions .action-buttons .shares-count,
   .status-actions .action-buttons .serenity-count {
-    font-size: 0.875em; }
+    font-size: 0.75em;
+    color: #666;
+    position: relative;
+    right: 3px;
+    bottom: 1px; }
+  .status-actions .action-buttons .link {
+    float: right; }
 
 /* ===========================
  *  Login Page
@@ -4121,8 +4161,8 @@ body,
  *  Task Page
  * =========================== */
 #checklist {
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https: //raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
 
 .task-header {
   padding: 1.25em 0.3125em 0.625em;
@@ -4280,6 +4320,153 @@ body,
   font-size: 1.75em;
   letter-spacing: 5px;
   color: #009600; }
+
+/* ===========================
+ *  Timeline Page
+ * =========================== */
+#timeline {
+  background: #fafafa; }
+  #timeline .status-scroll {
+    height: -webkit-calc(100vh - 83px);
+    height: calc(100vh - 83px);
+    overflow: hidden;
+    overflow-y: auto;
+    webkit-overflow-scrolling: touch; }
+
+.timeline-filter {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+  .timeline-filter button {
+    width: 50%; }
+    .timeline-filter button:hover {
+      color: #2c5999; }
+    .timeline-filter button.active {
+      background: #2c5999; }
+
+/* ===========================
+ *  New Status Page
+ * =========================== */
+#new-status {
+  background: #2c5999;
+  min-height: 100vh; }
+
+.share-form {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  padding: 3.125em 0;
+  background: #fafafa; }
+  .share-form .flex-container {
+    width: 95%; }
+    @media screen and (min-width: 48em) {
+      .share-form .flex-container {
+        width: 80%; } }
+  .share-form h2 {
+    color: #123865;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1.5625em; }
+  .share-form .share-input {
+    border: 1px solid #eee;
+    border-radius: 0.1875em;
+    background: white; }
+    .share-form .share-input textarea {
+      border: 0;
+      resize: none;
+      min-height: 250px; }
+  .share-form .form-action:after,
+  .share-form .input-status:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .share-form #charsLeft {
+    float: right;
+    font-size: 0.875em;
+    color: #666;
+    padding: 0.1875em 0.625em; }
+  .share-form .form-action {
+    margin: 0.625em 0; }
+  .share-form #shareStatus {
+    float: right;
+    padding: 0.625em 2.5em;
+    font-weight: normal;
+    background: #fa7c38; }
+
+.latest-share {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  background: #2c5999;
+  padding: 1.5625em 0; }
+  .latest-share h2 {
+    color: white;
+    font-weight: normal;
+    text-align: center; }
 
 /* ===========================
  *  Join Page

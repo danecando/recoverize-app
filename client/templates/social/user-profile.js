@@ -26,12 +26,6 @@ Template.userProfile.events({
     'click .unfollowBtn': function(){
         Meteor.call('unfollow', this.username)
     },
-    'keypress .newStatus': function(e){
-        if(e.which === 13 && isValidStatus(e.target.value)){
-            Meteor.call('createStatus', e.target.value)
-            e.target.value = ''
-        } 
-    },
     'click #ban-user': function(e) {
         Meteor.call('banUser', Meteor.users.findOne({username: this.username})._id)
     }

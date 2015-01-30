@@ -132,14 +132,13 @@ Meteor.publish('message', function(username, page){
     }
 })
 
-Meteor.publish('timeline', function() {
+Meteor.publish('timeline', function(limit, sort) {
     if(!this.userId) return this.ready()
 
-    var weekInMilli = 604800000
+    sort = sort || {}
 
-    return Status.find(
-        {timestamp: {$gt: Date.now() - weekInMilli}},
-        {sort: {serenity: -1}, limit: 50}
+    return Status.find(sort,
+        {sort: {timestamp: -1}, limit: limit}
     )
 })
 

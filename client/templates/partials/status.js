@@ -1,18 +1,29 @@
 Template.statusp.created = function() {
-
     var userSub = Meteor.subscribe('statusUser', this.data.username)
-
-    if (userSub.ready()) {
-        console.log(Meteor.users.findOne({username: this.data.username }))
-    }
 }
 
 Template.statusp.helpers({
+    isShared: function() {
+        if (this.type == 'shared') return true
+        else return false
+    },
     currentUserSerenityList: function(statusId){
         var status = Status.findOne(statusId)
         if(status && status.serenityList){
             return status.serenityList.indexOf(Meteor.user().username) !== -1
         }else{
+            return false
+        }
+    },
+    currentUserShareList: function(statusId) {
+        var status = Status.findOne(statusId)
+
+        if (this.username == Meteor.user().username)
+            return true
+
+        if (status && status.shareList){
+            return status.shareList.indexOf(Meteor.user().username) !== -1
+        } else {
             return false
         }
     },
@@ -31,5 +42,16 @@ Template.statusp.events({
         e.preventDefault()
         var statusId = $(e.target).parent().attr('data-statusId')
         Meteor.call('statusSerenityDown', statusId)
+    },
+    'click .shareStatus': function(e) {
+        e.preventDefault()
+        var statusId = $(e.target).parent().attr('data-statusId')
+        console.log('clicked')
+        Meteor.call('shareStatus', statusId)
+    },
+    'click .replyStatus': function(e) {
+        e.preventDefault()
+        Session.set('statusReply', { user: this.username, status: this.status })
+        Router.go('/status')
     }
 })

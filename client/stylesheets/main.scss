@@ -16,7 +16,13 @@
  *  Generic Classes
  * =========================== */
 .input-error {
-//  border: 1px solid red !important;
+  border: 1px solid red !important;
+}
+
+.at-mention {
+//  color: $secondary-blue;
+  font-size: em(15);
+  font-weight: bold;
 }
 
 .response {
@@ -1321,19 +1327,19 @@
  * =========================== */
 
 .status-list {
-    background: #fafafa;
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
 }
 
 .status-box {
+  width: 95%;
+  max-width: 600px;
   padding: em(15);
   border: 1px solid #eee;
   border-radius: em(3);
   background: white;
-
-  @include media($tablet-screen-up) {
-    width: 80%;
-    margin: em(15) auto;
-  }
+  margin: em(20) 0 em(5);
 }
 
 .status-meta {
@@ -1368,6 +1374,16 @@
   }
 }
 
+.status-content {
+
+  .shared-user {
+    color: $brand-color;
+  }
+
+  .original {
+    font-size: em(13);
+  }
+}
 .status-actions {
 
   .action-buttons {
@@ -1379,10 +1395,18 @@
     i {
       padding: em(3);
     }
+    .shares-count,
     .serenity-count {
-      font-size: em(14);
+      font-size: em(12);
+      color: #666;
+      position: relative;
+      right: 3px;
+      bottom: 1px;
     }
 
+    .link {
+      float: right;
+    }
   }
 }
 
@@ -1945,6 +1969,120 @@
     color: $success-color;
   }
 }
+
+/* ===========================
+ *  Timeline Page
+ * =========================== */
+#timeline {
+  background: #fafafa;
+
+  .status-scroll {
+    @include calc(height, '100vh - 83px');
+    overflow: hidden;
+    overflow-y: auto;
+    webkit-overflow-scrolling: touch;
+  }
+
+}
+
+.timeline-filter {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+  button {
+    width: 50%;
+
+    &:hover {
+      color: $secondary-blue;
+    }
+    &.active {
+      background: #2c5999;
+    }
+  }
+}
+
+/* ===========================
+ *  New Status Page
+ * =========================== */
+#new-status {
+  background: $secondary-blue;
+  min-height: 100vh;
+}
+
+.share-form {
+  @include display(flex);
+  @include justify-content(center);
+  padding: em(50) 0;
+  background: #fafafa;
+
+
+  .flex-container {
+    width: 95%;
+
+    @include media($tablet-screen-up) {
+      width: 80%;
+    }
+  }
+
+  h2 {
+    color: $brand-blue;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: em(25);
+  }
+
+  .share-input {
+    border: 1px solid #eee;
+    border-radius: em(3);
+    background: white;
+
+    textarea {
+      border: 0;
+      resize: none;
+      min-height: 250px;
+    }
+  }
+
+  .form-action,
+  .input-status {
+    @include clearfix;
+  }
+
+  #charsLeft {
+    float: right;
+    font-size: em(14);
+    color: #666;
+    padding: em(3) em(10);
+  }
+
+  .form-action {
+    margin: em(10) 0;
+  }
+
+  #shareStatus {
+    float: right;
+    padding: em(10) em(40);
+    font-weight: normal;
+    background: $brand-color;
+  }
+}
+
+.latest-share {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+  background: $secondary-blue;
+  padding: em(25) 0;
+
+  h2 {
+    color: white;
+    font-weight: normal;
+    text-align: center;
+  }
+}
+
 
 /* ===========================
  *  Join Page
