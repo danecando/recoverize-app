@@ -4362,7 +4362,7 @@ body,
   .timeline-filter button {
     width: 50%; }
     .timeline-filter button:hover {
-      color: #2c5999; }
+      background: #2c5999; }
     .timeline-filter button.active {
       background: #2c5999; }
 
