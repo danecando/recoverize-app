@@ -1,12 +1,21 @@
 <template name="userlist">
   <div id="user-list" class="page-container">
-    <h1>user list</h1>
-    <br><br>
+    <section class="fixed-header">
+      <div class="page-head">
+        <h2 class="title">Member List</h2>
+        <button id="search-toggle"><i class="fa fa-search"></i></button>
+      </div>
+        <div class="user-search">
+          <input class="userList-filter" type="text">
+        </div>
+    </section>
 
-    <input class="userList-filter" type="text">
-
-    {{#each listOfUsers}}
-      <h6>{{this.username}} | {{presenceOf this.username}}<br><small> member since: {{relativeTime this.createdAt}} </small></h6> <br><br>
-    {{/each}}
+    <section class="user-scroll">
+      <div class="users-list">
+          {{#each listOfUsers}}
+              {{> usersp}}
+          {{/each}}
+      </div>
+    </section>
   </div>
 </template>

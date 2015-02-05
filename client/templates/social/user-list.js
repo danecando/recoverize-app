@@ -1,21 +1,43 @@
+Template.userlist.created = function() {
+    this.limit = new ReactiveVar(15)
+    this.sort = new ReactiveVar({})
 
-Session.set('userList-filter', {})
+    var self = this
+    Deps.autorun(function() {
+        Meteor.subscribe('userList', self.limit.get(), self.sort.get())
+    })
+}
+
+Template.userlist.destroyed = function() {
+    this.limit.set(15)
+}
+
+Template.userlist.rendered = function() {
+    var self = this
+    $('.user-scroll').scroll(function() {
+        if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
+            var newLimit = self.limit.get() + 15
+            self.limit.set(newLimit)
+        }
+    })
+}
 
 Template.userlist.helpers({
     listOfUsers: function(){
-        return Meteor.users.find(Session.get('userList-filter'))
+        return Meteor.users.find(Template.instance().sort.get(), { limit: Template.instance().limit.get() })
     }
 })
 
 Template.userlist.events({
-    'keyup .userList-filter': function(e){
+    'keyup .userList-filter': function(e, template){
         var value = $(e.target).val().trim().toLowerCase()
-
-        if(value) {
-            Meteor.subscribe('userList', value)
-            Session.set('userList-filter', {username: {$regex: value}})
-        } else {
-            Session.set('userList-filter', {})
-        }
+        template.sort.set({username: {$regex: value}})
     },
+    'click #search-toggle': function(e, template) {
+        $('#user-list').toggleClass('search-open')
+    },
+    'click .user-scroll': function(e, template) {
+        $('#user-list').removeClass('search-open')
+    }
 })
+
