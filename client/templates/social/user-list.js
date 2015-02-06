@@ -1,6 +1,8 @@
+
 Template.userlist.created = function() {
     this.limit = new ReactiveVar(15)
     this.sort = new ReactiveVar({})
+
 
     var self = this
     Deps.autorun(function() {
@@ -10,6 +12,7 @@ Template.userlist.created = function() {
 
 Template.userlist.destroyed = function() {
     this.limit.set(15)
+    this.sort.set({})
 }
 
 Template.userlist.rendered = function() {

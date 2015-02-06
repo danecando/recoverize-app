@@ -92,11 +92,16 @@ Meteor.publish('statusUser', function(username) {
 Meteor.publish('userList', function(limit, query){
 
     limit = limit || 15
+    if (query)
+        filter = {username: {$regex: query}}
+    else
+        filter = {}
+
     var fields = {username: 1, createdAt: 1}
 
     if(query.username) {
         return Meteor.users.find(
-            {username: {$regex: query}},
+            filter,
             { limit: limit }
         )
     } else {
