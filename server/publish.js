@@ -97,12 +97,12 @@ Meteor.publish('userList', function(limit, query){
     if(query.username) {
         return Meteor.users.find(
             {username: {$regex: query}},
-            {limit: limit}
+            { limit: limit }
         )
     } else {
         return Meteor.users.find(
             {},
-            {limit: limit, sort: {createdAt: -1}}
+            { limit: limit, sort: {createdAt: -1}}
         )
     }
 })
