@@ -11,10 +11,12 @@ $mobile-screen: em(480);
 $tablet-screen: em(768);
 $full-screen: em(980);
 $large-screen: em(1200);
+$nice-screen: em(320);
 
-$mobile-screen-down: new-breakpoint(max-width $mobile-screen);
+$mobile-screen-down: new-breakpoint(max-width $nice-screen);
 $tablet-screen-down: new-breakpoint(max-width $tablet-screen);
 $full-screen-down: new-breakpoint(max-width $full-screen);
 $large-screen-down: new-breakpoint(max-width $large-screen);
 
+$mobile-screen-up: new-breakpoint(min-width $nice-screen);
 $tablet-screen-up: new-breakpoint(min-width $tablet-screen);

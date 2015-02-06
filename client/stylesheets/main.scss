@@ -2037,6 +2037,10 @@
     top: 0;
     right: 0;
     padding: em(8.5);
+
+    &:hover {
+      background: #477dca;
+    }
   }
 
   .user-search {
@@ -2062,6 +2066,69 @@
     top: 34px;
   }
 }
+
+.user-box {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(flex-start);
+  margin: em(5) auto;
+  padding: em(10);
+  max-width: 600px;
+  background: white;
+  border: 1px solid #eee;
+
+  @include media($mobile-screen-down) {
+    @include flex-wrap(wrap);
+  }
+
+  .profile-pic {
+    text-align: left;
+    margin-right: em(15);
+    img {
+      max-width: 45px;
+      height: auto;
+      border-radius: em(2);
+    }
+  }
+
+  .profile-info {
+    @include span-columns(8);
+
+    @include media($mobile-screen-down) {
+    }
+    .names h3 {
+      font-size: em(16);
+
+      a {
+        font-weight: normal;
+      }
+    }
+  }
+
+  .more-info {
+    font-size: em(14);
+    color: $medium-gray;
+    text-transform: capitalize;
+  }
+
+  .social-buttons {
+    @include span-columns(4);
+    text-align: right;
+
+    @include media($mobile-screen-down) {
+      @include span-columns(12);
+      margin: em(5) 0 em(5) em(60);
+      text-align: left;
+    }
+
+    a {
+      background: $secondary-blue;
+      color: white;
+    }
+  }
+
+}
+
 
 /* ===========================
  *  New Status Page
