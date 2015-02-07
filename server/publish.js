@@ -93,9 +93,14 @@ Meteor.publish('userList', function(limit, query){
 
     limit = limit || 15
 
+
     var filter = {}
     if (query)
         filter = {username: {$regex: query}}
+
+    if (typeof filter != 'string')
+        filter = {}
+
 
     var fields = {username: 1, createdAt: 1}
 
