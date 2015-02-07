@@ -1,11 +1,8 @@
 Template.createProfile.created = function() {
     Session.setDefault('days', 31)
 
-    this.stepStatus = new ReactiveVar
-    this.stepStatus.set(false)
-
-    this.cordovaFile = new ReactiveVar
-    this.cordovaFile.set(false)
+    this.stepStatus = new ReactiveVar(false)
+    this.cordovaFile = new ReactiveVar(false)
 }
 
 /**
@@ -141,9 +138,16 @@ Template.createProfile.events({
             gender: template.$('[name=gender]').val()
         }
 
+        if (!profile.name) {
+            template.$('#step-three .response').addClass('error').text("Don't forget a display name!")
+            template.$('[name=name]').css('border-color', 'red')
+            return
+        }
+
         Meteor.call('updateProfile', profile, function(error, result) {
             if (error) {
-                template.$('#step-one .response').addClass('error').text(error.reason)
+                template.$('#step-three .response').addClass('error').text(error.reason)
+                return
             } else {
                 Session.set('stepStatus', false)
                 $('#step-three').addClass('complete')
@@ -168,6 +172,8 @@ Template.createProfile.events({
             quote: template.$('[name=quote]').val()
         }
 
+        console.log(Meteor.user().profile.name)
+
         if (Meteor.user().profile.profilePic) {
             profile.profilePic = Meteor.user().profile.profilePic
         } else {
@@ -176,7 +182,7 @@ Template.createProfile.events({
 
         Meteor.call('updateProfile', profile, function(error, result) {
             if (error) {
-                template.$('#step-one .response').text(error.error)
+                template.$('#step-four .response').text(error.error)
             } else {
                 Meteor.call('updateUserRoles', Meteor.user()._id, ['member'], function(error, result) {
                     Router.go('/')

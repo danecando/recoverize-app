@@ -127,6 +127,26 @@ UI.registerHelper('cleanOrSober', function(program) {
 })
 
 /**
+ * Format notification message
+ */
+UI.registerHelper('notification', function(type, from) {
+
+    switch(type) {
+        case 'follow':
+            return from + ' is now following you'
+            break;
+        case 'status':
+            return from + ' mentioned you in a share'
+            break;
+        case 'chat':
+            return from + ' mentioned you in the chat room'
+            break;
+        default:
+            break;
+    }
+})
+
+/**
  * Message direction
  */
 UI.registerHelper('messageDirection', function(from) {

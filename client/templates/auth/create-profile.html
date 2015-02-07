@@ -18,10 +18,10 @@
         <form action="">
           <div class="input-group">
             <span class="info response">Used to identify your account. <strong>Can't be changed!</strong></span>
-            <input type="text" name="username" placeholder="ie: johnd2004">
+            <input type="text" name="username" placeholder="ie: johnd2004" value="{{user.username}}">
           </div>
           <ul class="actions">
-            <li class="next"><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+            <li class="next"><button type="submit" class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
           </ul>
         </form>
       </div>
@@ -40,8 +40,8 @@
           </div>
           <div class="response"></div>
           <ul class="actions">
-            <li><button class="skip">Skip</button></li>
-            <li><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+            <li><button type="button" class="skip">Skip</button></li>
+            <li><button type="submit" class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
           </ul>
         </form>
       </div>
@@ -50,7 +50,7 @@
           <h3 class="title">Let's get to know you!</h3>
           <div class="input-group">
             <label for="name" class="">Display Name <small>(Shown on your profile)</small></label>
-            <input type="text" name="name" placeholder="Bill W">
+            <input type="text" name="name" placeholder="Bill W" value="{{user.profile.name}}">
           </div>
           <div class="input-group">
             <label for="location">Location <small>(Where do you live?)</small></label>
@@ -65,8 +65,8 @@
           </div>
           <div class="response"></div>
           <ul class="actions">
-            <li><button class="skip">Skip</button></li>
-            <li><button class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+            <li><button type="button" class="skip">Skip</button></li>
+            <li><button type="submit" class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
           </ul>
         </form>
       </div>
@@ -130,7 +130,7 @@
           </div>
           <div class="response"></div>
           <ul class="actions">
-            <li><button class="submit">Finish</button></li>
+            <li><button type="submit" class="submit">Finish</button></li>
           </ul>
         </form>
       </div>

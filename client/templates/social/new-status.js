@@ -21,7 +21,7 @@ Template.newStatus.helpers({
         return Template.instance().charsLeft.get()
     },
     status: function() {
-        return Status.find({}, {sort: {timestamp: -1}, limit: 1})
+        return Status.find({username: Meteor.user().username}, {sort: {timestamp: -1}, limit: 1})
     }
 })
 

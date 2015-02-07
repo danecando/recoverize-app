@@ -13,17 +13,17 @@ Accounts.onCreateUser(function(options, user) {
 
     // setup user account for creation via twitter
     if (user.services.twitter) {
-        user.profile.profilePic = user.services.twitter.profile_image_url_https
         if (!Meteor.users.find({ username: user.services.twitter.screenName})) {
             user.username = user.services.twitter.screenName
         }
         user.services.twitter.profileCreated = false
     }
 
-    if (user.username) {
-        var crypto = Npm.require('crypto')
-        user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
-    }
+    // no longer using identicons
+    //if (user.username) {
+    //    var crypto = Npm.require('crypto')
+    //    user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
+    //}
 
     return user
 })
@@ -89,19 +89,30 @@ Meteor.publish('statusUser', function(username) {
 /**
  * returns list of users
  */
-Meteor.publish('userList', function(query){
+Meteor.publish('userList', function(limit, query){
+
+    limit = limit || 15
+
+
+    var filter = {}
+    if (query)
+        filter = {username: {$regex: query}}
+
+    if (typeof filter != 'string')
+        filter = {}
+
 
     var fields = {username: 1, createdAt: 1}
 
-    if(query) {
+    if(query.username) {
         return Meteor.users.find(
-            {username: {$regex: query}},
-            {fields: fields, limit: 10}
+            filter,
+            { limit: limit }
         )
     } else {
         return Meteor.users.find(
             {},
-            {fields: fields, limit: 10, sort: {createdAt: -1}}
+            { limit: limit, sort: {serenity: -1}}
         )
     }
 })
