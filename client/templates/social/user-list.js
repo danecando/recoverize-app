@@ -28,6 +28,9 @@ Template.userlist.rendered = function() {
 Template.userlist.helpers({
     listOfUsers: function(){
         return Meteor.users.find(Template.instance().sort.get(), { limit: Template.instance().limit.get() })
+    },
+    isCurrentUser: function(user){
+        return user === Meteor.user().username
     }
 })
 

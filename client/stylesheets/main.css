@@ -4461,6 +4461,10 @@ body,
     overflow: hidden;
     overflow-y: auto;
     webkit-overflow-scrolling: touch; }
+    @media screen and (min-width: 48em) {
+      #timeline .status-scroll {
+        height: -webkit-calc(100vh - 40px);
+        height: calc(100vh - 40px); } }
 
 .timeline-filter {
   display: -webkit-box;
@@ -4627,8 +4631,10 @@ body,
         .user-box .social-buttons:last-child {
           margin-right: 0; } }
     .user-box .social-buttons a {
-      background: #2c5999;
-      color: white; }
+      background: #eee;
+      color: #333; }
+    .user-box .social-buttons .btn-unfollow {
+      color: #ff0033; }
 
 /* ===========================
  *  New Status Page

@@ -14,7 +14,9 @@
       <div class="users-list">
           {{#each listOfUsers}}
               {{#if isInRole 'member'}}
-                {{> usersp}}
+                  {{#unless isCurrentUser this.username}}
+                    {{> usersp}}
+                  {{/unless}}
               {{/if}}
           {{/each}}
       </div>
