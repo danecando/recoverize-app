@@ -13,17 +13,17 @@ Accounts.onCreateUser(function(options, user) {
 
     // setup user account for creation via twitter
     if (user.services.twitter) {
-        user.profile.profilePic = user.services.twitter.profile_image_url_https
         if (!Meteor.users.find({ username: user.services.twitter.screenName})) {
             user.username = user.services.twitter.screenName
         }
         user.services.twitter.profileCreated = false
     }
 
-    if (user.username) {
-        var crypto = Npm.require('crypto')
-        user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
-    }
+    // no longer using identicons
+    //if (user.username) {
+    //    var crypto = Npm.require('crypto')
+    //    user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
+    //}
 
     return user
 })
