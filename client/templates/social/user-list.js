@@ -38,6 +38,8 @@ Template.userlist.events({
     },
     'click #search-toggle': function(e, template) {
         $('#user-list').toggleClass('search-open')
+        $('.userList-filter').focus()
+
     },
     'click .user-scroll': function(e, template) {
         $('#user-list').removeClass('search-open')
