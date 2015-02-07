@@ -13,7 +13,9 @@
     <section class="user-scroll">
       <div class="users-list">
           {{#each listOfUsers}}
-              {{> usersp}}
+              {{#if isInRole 'member'}}
+                {{> usersp}}
+              {{/if}}
           {{/each}}
       </div>
     </section>
