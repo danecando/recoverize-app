@@ -9,8 +9,8 @@
           {{#each notifications}}
               <div class="notification">
                 <a href="{{this.path}}" class="userLink">
-                  <h4>{{this.type}}ed  by {{this.from}}</h4>
-                  <time class="small">{{relativeTime this.timestamp}}</time>
+                  <h4>{{notification this.type this.from}}</h4>
+                  <time class="small">{{relativeTime this.timestamp}} ago</time>
                 </a>
               </div>
           {{/each}}

@@ -1,4 +1,3 @@
-
 Template.notifications.helpers({
     notifications: function(){
         var notify = Notification.find({type: {$not: 'message'}})
@@ -7,5 +6,8 @@ Template.notifications.helpers({
     }
 })
 
-
-// todo: clear button clears events
+Template.notifications.events({
+    'click #clear-notifications': function(e, template) {
+        Meteor.call('clearNotifications')
+    }
+})
