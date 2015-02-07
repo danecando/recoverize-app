@@ -33,6 +33,10 @@ Template.userlist.helpers({
 
 Template.userlist.events({
     'keyup .userList-filter': function(e, template){
+        if (e.keyCode == 27) {
+            $('#user-list').removeClass('search-open')
+        }
+
         var value = $(e.target).val().trim().toLowerCase()
         template.sort.set({username: {$regex: value}})
     },
