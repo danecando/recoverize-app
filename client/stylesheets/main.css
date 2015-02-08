@@ -4643,6 +4643,11 @@ body,
   background: #2c5999;
   min-height: 100vh; }
 
+.response {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 0.875em; }
+
 .share-form {
   display: -webkit-box;
   display: -moz-box;
@@ -4685,8 +4690,60 @@ body,
     content: "";
     display: table;
     clear: both; }
+  .share-form .below-status {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-align-items: flex-end;
+    -o-align-items: flex-end;
+    align-items: flex-end;
+    -ms-flex-align: end;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify; }
+  .share-form #getImage {
+    background: #eee;
+    color: #123865; }
+  .share-form #statusImage {
+    position: absolute;
+    left: -99999px; }
+  .share-form .remove-image {
+    display: none; }
+  .share-form #removeImage {
+    dipslay: inline-block;
+    padding: 0.3125em;
+    background: #ff0033; }
+  .share-form .file-name {
+    display: inline-block;
+    font-size: 0.8125em;
+    margin-left: 0.3125em; }
   .share-form #charsLeft {
-    float: right;
+    -webkit-align-self: flex-end;
+    -moz-align-self: flex-end;
+    align-self: flex-end;
+    -ms-flex-item-align: end;
     font-size: 0.875em;
     color: #666;
     padding: 0.1875em 0.625em; }

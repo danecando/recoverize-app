@@ -29,7 +29,8 @@ Template.statusp.helpers({
     },
     currentUser: function() {
         return Meteor.users.findOne({username: this.username})
-    }
+    },
+
 })
 
 Template.statusp.events({

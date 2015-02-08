@@ -2149,6 +2149,12 @@
   min-height: 100vh;
 }
 
+.response {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: em(14);
+}
+
 .share-form {
   @include display(flex);
   @include justify-content(center);
@@ -2188,8 +2194,41 @@
     @include clearfix;
   }
 
+  .below-status {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(flex-end);
+    @include justify-content(space-between);
+  }
+
+  #getImage {
+    background: #eee;
+    color: $brand-blue;
+  }
+
+  #statusImage {
+    position: absolute;
+    left: -99999px;
+  }
+
+  .remove-image {
+    display: none;
+  }
+
+  #removeImage {
+    dipslay: inline-block;
+    padding: em(5);
+    background: $error-color;
+  }
+
+  .file-name {
+    display: inline-block;
+    font-size: em(13);
+    margin-left: em(5);
+  }
+
   #charsLeft {
-    float: right;
+    @include align-self(flex-end);
     font-size: em(14);
     color: #666;
     padding: em(3) em(10);
