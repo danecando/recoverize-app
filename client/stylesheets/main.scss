@@ -1909,9 +1909,9 @@
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
-//  padding: em(10) 0;
   background: #ecf0f1;
   border-bottom: 2px solid #e5e5e5;
+  min-height: 60px;
 
   &:nth-of-type(even) {
     background: #f8f8f8;

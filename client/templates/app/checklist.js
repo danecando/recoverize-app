@@ -1,7 +1,9 @@
-
 Template.checklist.helpers({
     tasks: function() {
-        return Tasks.find({}, { sort: { position: 1 }})
+        return Tasks.find({}, { sort: { position: 1 }}).map(function(task, index) {
+            task.index = index
+            return task
+        })
     },
     completed: function() {
         return Tasks.find({ checked: true })
@@ -26,12 +28,14 @@ Template.checklist.events({
     },
     'click #add-new': function(e) {
         $('#task-form').slideToggle(250)
+        $('#newTask').focus()
     },
     'click .delete-task': function(e) {
         if (confirm('Are you sure you want to delete this item?')) {
-            // Delete it!
-        } else {
-            // Do nothing!
+            Meteor.call('deleteTask', $(e.target).attr('data-taskid'))
         }
+    },
+    'click #reset-all': function(e) {
+        Meteor.call('resetTasks')
     }
 })
