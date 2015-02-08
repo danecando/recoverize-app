@@ -1,6 +1,43 @@
 <template name="dashboard">
   <div id="dashboard" class="page-container">
 
+    <section class="top-info">
+      <time>{{todaysDate}}</time>
+    </section>
 
+    <section class="user-intro">
+      <div class="welcome-back">
+        Welcome back, {{user.profile.name}}! You have been {{cleanOrSober user.profile.program}} for {{elapsedDays user.profile.soberDate}} days.
+      </div>
+    </section>
+
+    <section class="dashboard-items">
+      <div class="checklist dash-section">
+        <a href="/checklist">
+          <div class="section-head">
+            <h3>Checklist</h3>
+          </div>
+          <div class="section-body">
+            Completed {{completed.count}} of {{tasks.length}} of your daily tasks
+          </div>
+        </a>
+      </div>
+        {{#if notifications}}
+          <div class="social dash-section">
+            <div class="section-head">
+              <h3>Social</h3>
+            </div>
+            <div class="section-body">
+                {{#each notifications}}
+                  <div class="social-updates">
+                    <a href="{{this.path}}">
+                        {{notification this.type this.from}}
+                    </a>
+                  </div>
+                {{/each}}
+            </div>
+          </div>
+        {{/if}}
+    </section>
   </div>
 </template>

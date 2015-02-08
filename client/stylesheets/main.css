@@ -4801,5 +4801,41 @@ body,
     text-align: center; }
 
 /* ===========================
+ *  Dashboard
+ * =========================== */
+#dashboard {
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
+  color: white; }
+  #dashboard .top-info {
+    color: white;
+    background: #2c5999;
+    border-bottom: 2px solid #477dca;
+    padding: 0.3125em; }
+    #dashboard .top-info time {
+      display: block;
+      text-align: center; }
+  #dashboard .user-intro {
+    background: #477dca; }
+  #dashboard .welcome-back {
+    padding: 0.5em 0.625em;
+    text-align: center;
+    font-size: 0.9375em; }
+  #dashboard .dash-section {
+    padding: 1.25em 0.625em;
+    max-width: 400px;
+    margin: 0 auto; }
+    #dashboard .dash-section h3 {
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.09375em;
+      margin-bottom: 0.3125em; }
+    #dashboard .dash-section a {
+      color: white;
+      border-bottom: 1px dotted white; }
+    #dashboard .dash-section .section-body {
+      font-size: 0.9375em; }
+
+/* ===========================
  *  Join Page
  * =========================== */
