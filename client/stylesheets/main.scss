@@ -1342,6 +1342,11 @@
   margin: em(20) 0 em(5);
 }
 
+.status-image {
+  text-align: center;
+  margin-top: em(10);
+}
+
 .status-meta {
   @include display(flex);
   @include align-items(center);

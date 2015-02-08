@@ -11,28 +11,33 @@
         {{else}}
           <h3 class="username">{{currentUser.username}}</h3>
         {{/if}}
-        <time class="status-time">{{relativeTime this.timestamp}}</time>
+      <time class="status-time">{{relativeTime this.timestamp}}</time>
     </header>
 
     <section class="status-content">
-      {{#unless isShared}}
-        {{linkMentions this.status}}
-      {{else}}
-        <i class="fa fa-retweet"></i> <a class="shared-user" style="color: {{userColor this.sharedUser}}" href="/users/{{this.sharedUser}}">{{this.sharedUser}}</a>: "{{linkMentions this.status}}" <a class="original" href="/status/{{this.sharedId}}">[original]</a>
-      {{/unless}}
+        {{#unless isShared}}
+            {{linkMentions this.status}}
+            {{#if this.image}}
+              <div class="status-image">
+                <img src="{{getImgURL this.image}}">
+              </div>
+            {{/if}}
+        {{else}}
+          <i class="fa fa-retweet"></i> <a class="shared-user" style="color: {{userColor this.sharedUser}}" href="/users/{{this.sharedUser}}">{{this.sharedUser}}</a>: "{{linkMentions this.status}}" <a class="original" href="/status/{{this.sharedId}}">[original]</a>
+        {{/unless}}
     </section>
 
     <footer class="status-actions">
       <ul class="action-buttons">
         <li class="reply"><a class="replyStatus" href="/status"><i class="fa fa-reply"></i></a></li>
           {{#unless isShared}}
-        <li class="share">
-            {{#unless currentUserShareList this._id}}
-            <a class="shareStatus" href="#" data-statusId="{{this._id}}"><i class="fa fa-retweet"></i></a> <span class="shares-count">{{this.shares}}</span>
-          {{else}}
-            <i class="fa fa-retweet"></i> <span class="shares-count">{{this.shares}}</span>
-          {{/unless}}
-        </li>
+            <li class="share">
+                {{#unless currentUserShareList this._id}}
+                  <a class="shareStatus" href="#" data-statusId="{{this._id}}"><i class="fa fa-retweet"></i></a> <span class="shares-count">{{this.shares}}</span>
+                {{else}}
+                  <i class="fa fa-retweet"></i> <span class="shares-count">{{this.shares}}</span>
+                {{/unless}}
+            </li>
           {{/unless}}
         <li class="like">
             {{#if currentUserSerenityList this._id}}

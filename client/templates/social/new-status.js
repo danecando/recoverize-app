@@ -84,14 +84,20 @@ function submitStatus(e, template) {
 
                 share.image = Meteor.user().username + '/' + share.image.name
                 Meteor.call('createStatus', share, function(error, result) {
-                    $('#newStatus').val('')
-                    $("#page").animate({ scrollTop: $(document).height() }, 200);
+                    $('#newStatus, #statusImage').val('')
+                    $("#page").animate({ scrollTop: $(document).height() }, 200)
+                    $('.remove-image').fadeOut(100, function() {
+                        $('.add-image').fadeIn(100)
+                    })
                 })
             })
         } else {
             Meteor.call('createStatus', share, function(error, result) {
-                $('#newStatus').val('')
-                $("#page").animate({ scrollTop: $(document).height() }, 200);
+                $('#newStatus', '#statusImage').val('')
+                $("#page").animate({ scrollTop: $(document).height() }, 200)
+                $('.remove-image').fadeOut(100, function() {
+                    $('.add-image').fadeIn(100)
+                })
             })
         }
     }
