@@ -1,7 +1,7 @@
 Slingshot.createDirective("profilePic", Slingshot.S3Storage, {
     bucket: "recoverize-app",
     allowedFileTypes: ["image/png", "image/jpeg"],
-    maxSize: 3000000,
+    maxSize: 500000,
     acl: "public-read",
 
     authorize: function () {

@@ -1342,6 +1342,11 @@
   margin: em(20) 0 em(5);
 }
 
+.status-image {
+  text-align: center;
+  margin-top: em(10);
+}
+
 .status-meta {
   @include display(flex);
   @include align-items(center);
@@ -1904,9 +1909,9 @@
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
-//  padding: em(10) 0;
   background: #ecf0f1;
   border-bottom: 2px solid #e5e5e5;
+  min-height: 60px;
 
   &:nth-of-type(even) {
     background: #f8f8f8;
@@ -2149,6 +2154,12 @@
   min-height: 100vh;
 }
 
+.response {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: em(14);
+}
+
 .share-form {
   @include display(flex);
   @include justify-content(center);
@@ -2188,8 +2199,41 @@
     @include clearfix;
   }
 
+  .below-status {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(flex-end);
+    @include justify-content(space-between);
+  }
+
+  #getImage {
+    background: #eee;
+    color: $brand-blue;
+  }
+
+  #statusImage {
+    position: absolute;
+    left: -99999px;
+  }
+
+  .remove-image {
+    display: none;
+  }
+
+  #removeImage {
+    dipslay: inline-block;
+    padding: em(5);
+    background: $error-color;
+  }
+
+  .file-name {
+    display: inline-block;
+    font-size: em(13);
+    margin-left: em(5);
+  }
+
   #charsLeft {
-    float: right;
+    @include align-self(flex-end);
     font-size: em(14);
     color: #666;
     padding: em(3) em(10);
@@ -2222,6 +2266,56 @@
   }
 }
 
+/* ===========================
+ *  Dashboard
+ * =========================== */
+
+#dashboard {
+  @include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
+  color: white;
+
+  .top-info {
+    color: white;
+    background: $secondary-blue;
+    border-bottom: 2px solid lighten($secondary-blue, 15);
+    padding: em(5);
+
+    time {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .user-intro {
+    background: lighten($secondary-blue, 15);
+  }
+  .welcome-back {
+    padding: em(8) em(10);
+    text-align: center;
+    font-size: em(15);
+  }
+
+  .dash-section {
+    padding: em(20) em(10);
+    max-width: 400px;
+    margin: 0 auto;
+
+    h3 {
+      font-size: em(12);
+      text-transform: uppercase;
+      letter-spacing: em(1.5);
+      margin-bottom: em(5);
+    }
+
+    a {
+      color: white;
+      border-bottom: 1px dotted white;
+    }
+    .section-body {
+      font-size: em(15);
+    }
+  }
+}
 
 /* ===========================
  *  Join Page

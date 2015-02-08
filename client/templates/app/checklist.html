@@ -3,7 +3,7 @@
   <div id="checklist" class="page-container">
 
     <section class="task-header">
-      <h2 class="title">You have completed {{completed.count}} out of {{tasks.count}} of your daily tasks!</h2>
+      <h2 class="title">You have completed {{completed.count}} out of {{tasks.length}} of your daily tasks!</h2>
     </section>
 
     <section class="task-management">
@@ -15,7 +15,7 @@
 
     <section id="task-form" class="hidden">
       <form action="">
-        <input type="text" name="task">
+        <input type="text" name="task" id="newTask">
         <button type="submit"><i class="fa fa-plus"></i></button>
       </form>
     </section>
@@ -32,16 +32,8 @@
               <h5>{{this.task}}</h5>
             </div>
             <div class="task-controls">
-              <div class="delete-task">
+              <div class="delete-task" data-taskId="{{this._id}}">
                 <i class="fa fa-times"></i>
-              </div>
-              <div class="position-arrows">
-                <div class="position-up">
-                  <i class="fa fa-chevron-up"></i>
-                </div>
-                <div class="position-down">
-                  <i class="fa fa-chevron-down"></i>
-                </div>
               </div>
             </div>
           </li>
