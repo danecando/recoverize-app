@@ -455,13 +455,19 @@
   z-index: 100;
 }
 
+#clear-notifications {
+  padding: em(5) em(15);
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .notification {
   min-width: 270px;
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   background: rgba(50, 50, 50, .75);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: em(3);
   color: white;
   text-align: center;
 }
@@ -1271,7 +1277,7 @@
  *  Notifications
  * =========================== */
 
-.notifications-page {
+.notifications-page, .coming-soon {
   @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
   //   background: linear-gradient(lighten($secondary-blue, 15), $secondary-blue);
   min-height: 100%;
@@ -1319,6 +1325,19 @@
       font-weight: 300;
       letter-spacing: em(1);
     }
+  }
+}
+
+.coming-soon {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  text-align: center;
+  color: white;
+
+  h1 {
+    font-weight: 300;
+    letter-spacing: em(1);
   }
 }
 
@@ -1805,7 +1824,7 @@
 
 #get-help {
   min-height: 100vh;
-  background: #eee;
+    background: #eee;
   padding: em(20) em(10);
 
   h2 {
@@ -1846,9 +1865,9 @@
  * =========================== */
 
 #checklist {
-  @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
-
+  @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 0);
 }
+
 .task-header {
   padding: em(20) em(5) em(10);
   color: white;
@@ -1876,10 +1895,6 @@
       background: rgba(255, 255, 255, 0.1);
     }
   }
-}
-
-.task-management {
-  border-bottom: 2px solid $secondary-blue;
 }
 
 #task-form {
@@ -1911,7 +1926,7 @@
   @include justify-content(center);
   background: #ecf0f1;
   border-bottom: 2px solid #e5e5e5;
-  min-height: 60px;
+  min-height: 75px;
 
   &:nth-of-type(even) {
     background: #f8f8f8;
@@ -2309,7 +2324,6 @@
 
     a {
       color: white;
-      border-bottom: 1px dotted white;
     }
     .section-body {
       font-size: em(15);

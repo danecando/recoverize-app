@@ -2950,13 +2950,18 @@ body,
   width: 100%;
   z-index: 100; }
 
+#clear-notifications {
+  padding: 0.3125em 0.9375em;
+  color: white;
+  background: rgba(255, 255, 255, 0.1); }
+
 .notification {
   min-width: 270px;
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   background: rgba(50, 50, 50, 0.75);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 0.1875em;
   color: white;
   text-align: center; }
 
@@ -3711,13 +3716,13 @@ body,
 /* ===========================
  *  Notifications
  * =========================== */
-.notifications-page {
+.notifications-page, .coming-soon {
   background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   min-height: 100%;
   overflow: hidden;
   overflow-y: scroll; }
-  .notifications-page .new-notifications {
+  .notifications-page .new-notifications, .coming-soon .new-notifications {
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -3745,22 +3750,22 @@ body,
     -ms-flex-pack: center;
     padding: 1.5625em 0;
     text-align: center; }
-    .notifications-page .new-notifications .notification-amount {
+    .notifications-page .new-notifications .notification-amount, .coming-soon .new-notifications .notification-amount {
       color: white;
       font-size: 1.125em;
       margin-right: 10px; }
-  .notifications-page button {
+  .notifications-page button, .coming-soon button {
     padding: 0.375em;
     border-radius: 0em;
     font-size: 0.875em;
     background: white;
     color: #2c5999; }
-  .notifications-page .notification {
+  .notifications-page .notification, .coming-soon .notification {
     background: #123865;
     margin-bottom: 1.5625em; }
-    .notifications-page .notification a {
+    .notifications-page .notification a, .coming-soon .notification a {
       color: white; }
-  .notifications-page.no-notifications {
+  .notifications-page.no-notifications, .coming-soon.no-notifications {
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -3788,9 +3793,41 @@ body,
     -ms-flex-pack: center;
     text-align: center;
     color: white; }
-    .notifications-page.no-notifications h1 {
+    .notifications-page.no-notifications h1, .coming-soon.no-notifications h1 {
       font-weight: 300;
       letter-spacing: 0.0625em; }
+
+.coming-soon {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  color: white; }
+  .coming-soon h1 {
+    font-weight: 300;
+    letter-spacing: 0.0625em; }
 
 /* ===========================
  *  Statuses
@@ -4294,8 +4331,8 @@ body,
  *  Task Page
  * =========================== */
 #checklist {
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
 
 .task-header {
   padding: 1.25em 0.3125em 0.625em;
@@ -4315,9 +4352,6 @@ body,
     .task-buttons li button {
       padding: 0.3125em 0.9375em;
       background: rgba(255, 255, 255, 0.1); }
-
-.task-management {
-  border-bottom: 2px solid #2c5999; }
 
 #task-form {
   display: none; }
@@ -4376,7 +4410,7 @@ body,
   -ms-flex-pack: center;
   background: #ecf0f1;
   border-bottom: 2px solid #e5e5e5;
-  min-height: 60px; }
+  min-height: 75px; }
   .task:nth-of-type(even) {
     background: #f8f8f8; }
   .task .checkbox {
@@ -4831,8 +4865,7 @@ body,
       letter-spacing: 0.09375em;
       margin-bottom: 0.3125em; }
     #dashboard .dash-section a {
-      color: white;
-      border-bottom: 1px dotted white; }
+      color: white; }
     #dashboard .dash-section .section-body {
       font-size: 0.9375em; }
 
