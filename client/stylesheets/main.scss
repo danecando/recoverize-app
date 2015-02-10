@@ -1846,7 +1846,7 @@
  * =========================== */
 
 #checklist {
-  @include texture(180deg, $secondary-blue, lighten($secondary-blue, 23), 82, 1);
+  @include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
 
 }
 .task-header {

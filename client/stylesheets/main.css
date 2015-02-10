@@ -4294,8 +4294,8 @@ body,
  *  Task Page
  * =========================== */
 #checklist {
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll; }
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
+  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll; }
 
 .task-header {
   padding: 1.25em 0.3125em 0.625em;

@@ -12,7 +12,7 @@ Template.checklist.helpers({
 
 Template.checklist.events({
     'change [type=checkbox]': function(e) {
-        var id = $(e.target).attr('data-taskId')
+        var id = $(e.target).closest('.task').attr('data-taskId')
         if ($(e.target).prop('checked')) {
             Meteor.call('checkTask', id)
         } else {
@@ -32,7 +32,7 @@ Template.checklist.events({
     },
     'click .delete-task': function(e) {
         if (confirm('Are you sure you want to delete this item?')) {
-            Meteor.call('deleteTask', $(e.target).attr('data-taskid'))
+            Meteor.call('deleteTask', $(e.target).closest('.task').attr('data-taskId'))
         }
     },
     'click #reset-all': function(e) {

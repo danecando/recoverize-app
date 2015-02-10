@@ -18,7 +18,11 @@
             <h3>Checklist</h3>
           </div>
           <div class="section-body">
+            {{#if tasks.length}}
             Completed {{completed.count}} of {{tasks.length}} of your daily tasks
+            {{else}}
+                Click here to start creating your daily checklist!
+            {{/if}}
           </div>
         </a>
       </div>
