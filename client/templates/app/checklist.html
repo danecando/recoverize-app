@@ -3,7 +3,11 @@
   <div id="checklist" class="page-container">
 
     <section class="task-header">
-      <h2 class="title">You have completed {{completed.count}} out of {{tasks.length}} of your daily tasks!</h2>
+      {{#if tasks.length}}
+        <h2 class="title">You have completed {{completed.count}} out of {{tasks.length}} of your daily tasks!</h2>
+      {{else}}
+          <h2 class="title">Stay on top of your recovery program with a daily task list!</h2>
+      {{/if}}
     </section>
 
     <section class="task-management">
@@ -23,16 +27,16 @@
     <section class="tasks">
       <ol class="task-list">
         {{#each tasks}}
-          <li class="task">
+          <li class="task" data-taskId="{{this._id}}">
             <div class="checkbox">
-              <input data-taskId="{{this._id}}" type="checkbox" id="{{this._id}}" checked="{{#if this.checked}}checked{{/if}}">
+              <input type="checkbox" id="{{this._id}}" checked="{{#if this.checked}}checked{{/if}}">
               <label for="{{this._id}}"></label>
             </div>
             <div class="task-name">
               <h5>{{this.task}}</h5>
             </div>
             <div class="task-controls">
-              <div class="delete-task" data-taskId="{{this._id}}">
+              <div class="delete-task">
                 <i class="fa fa-times"></i>
               </div>
             </div>
