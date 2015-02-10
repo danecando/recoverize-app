@@ -1322,6 +1322,22 @@
   }
 }
 
+.coming-soon {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  text-align: center;
+  color: white;
+  @include texture(180deg, lighten($secondary-blue, 15), $secondary-blue, 82, 1);
+
+
+  h1 {
+    font-weight: 300;
+    letter-spacing: em(1);
+  }
+}
+
+
 /* ===========================
  *  Statuses
  * =========================== */
@@ -1821,6 +1837,8 @@
   .support-person {
     @include display(flex);
     @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
 
     img {
       height: 130px;
@@ -1835,6 +1853,65 @@
       border-radius: em(25);
       font-size: em(14);
       line-height: em(16);
+    }
+  }
+
+  .contact-area {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    @include flex-direction(column);
+
+    @include media($tablet-screen-up) {
+      @include flex-direction(row);
+
+      .or {
+        margin: 0 em(30);
+      }
+    }
+  }
+
+  .click-to-call {
+    display: block;
+    background: $secondary-blue;
+    color: white;
+    text-transform: capitalize;
+    padding: em(15);
+    margin: em(25) 0;
+    width: 270px;
+    text-align: center;
+    border-radius: em(5);
+    font-size: em(18);
+    font-weight: bold;
+  }
+
+  .fw-normal {
+    font-weight: normal;
+  }
+
+  .submit-number {
+    margin: em(25) 0;
+    width: 270px;
+    text-align: center;
+
+    p {
+      font-size: em(15);
+      line-height: em(22);
+    }
+  }
+
+  .input-group {
+
+    .input {
+      position: relative;
+
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: em(11);
+        background: $secondary-blue;
+      }
     }
   }
 
@@ -2309,7 +2386,6 @@
 
     a {
       color: white;
-      border-bottom: 1px dotted white;
     }
     .section-body {
       font-size: em(15);
