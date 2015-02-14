@@ -4,6 +4,19 @@
       <select id="readingSelect">
         <option value="justForToday">Just For Today</option>
         <option value="dailyReflections">Daily Reflections</option>
+        <option value="twentyFourHours">Twenty-Four Hours a Day</option>
+        <option value="asBillSeesIt">As Bill Sees It</option>
+        <option value="walkInDryPlaces">Walk In Dry Places</option>
+        <option value="keepItSimple">Keep It Simple</option>
+        <option value="newBeginning">Each Day a New Beginning</option>
+        <option value="bigBook">Big Book of Alcoholics Anonymous</option>
+        <option value="twelveAndTwelve">Twelve Steps & Twelve Traditions</option>
+        <option value="fatherLeos">Father Leo's Daily Meditation</option>
+        <option value="dailyInspiration">Daily Inspiration</option>
+        <option value="dayAtATime">A Day At A Time</option>
+        <option value="journeyToTheHeart">Journey to the Heart</option>
+        <option value="todaysGift">Today's Gift</option>
+        <option value="languageOfLettingGo">The Language of Letting Go</option>
       </select>
     </section>
 
@@ -16,7 +29,9 @@
       </h2>
 
       <div class="current-reading">
-        <h3 class="reading-title">{{currentReading.title}}</h3>
+        {{#if currentReading.title}}
+            <h3 class="reading-title">{{currentReading.title}}</h3>
+        {{/if}}
         {{{currentReading.content}}}
       </div>
     </section>
