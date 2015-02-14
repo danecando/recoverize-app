@@ -4024,8 +4024,7 @@ body,
       color: white; }
 
 #join-page .btn-primary {
-  background: #ff9963 !important;
-  box-shadow: 1px 1px 0 1px #fa7c38; }
+  background: #ff9963 !important; }
 
 /* ===========================
  *   Create Profile
@@ -4957,6 +4956,94 @@ body,
       color: white; }
     #dashboard .dash-section .section-body {
       font-size: 0.9375em; }
+
+/* ===========================
+ *  Daily Readings
+ * =========================== */
+#daily-readings {
+  background: #fafafa; }
+
+.reading-select {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  padding: 0.625em 0;
+  background: linear-gradient(#2c5999, #3770c1);
+  border-bottom: 2px solid #ff9963; }
+  @media screen and (min-width: 48em) {
+    .reading-select {
+      padding: 0.9375em 0; } }
+  .reading-select select {
+    width: 75%;
+    border: 0;
+    margin-bottom: 0;
+    color: white;
+    background: rgba(255, 255, 255, 0.15); }
+
+#reading-section .display-date {
+  position: relative;
+  text-align: center;
+  font-size: 1.25em;
+  letter-spacing: 0.125em;
+  padding: 0.1875em 0;
+  background: white;
+  border-bottom: 1px solid #eee; }
+  #reading-section .display-date #shareReading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.25em;
+    font-size: 0.875em;
+    background: #ff9963;
+    color: white; }
+    @media screen and (min-width: 48em) {
+      #reading-section .display-date #shareReading {
+        padding: 0.375em; } }
+  @media screen and (min-width: 48em) {
+    #reading-section .display-date {
+      font-size: 1.5em;
+      padding: 0.3125em 0; } }
+#reading-section .reading-title {
+  font-weight: normal;
+  text-align: center;
+  margin-top: 0.625em; }
+#reading-section .current-reading {
+  padding: 0.3125em 0.625em; }
+  #reading-section .current-reading blockquote {
+    padding: 0;
+    margin: 0.8125em 0;
+    border-left: 0;
+    font-size: 0.9375em; }
+  #reading-section .current-reading .quoted-page {
+    display: block;
+    text-align: right;
+    font-weight: bold; }
+  #reading-section .current-reading p {
+    padding: 0 0.3125em;
+    font-size: 0.9375em;
+    text-align: justify; }
 
 /* ===========================
  *  Join Page
