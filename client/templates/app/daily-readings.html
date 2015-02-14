@@ -1,5 +1,25 @@
 <template name="dailyReadings">
   <div id="daily-readings" class="page-container">
-    {{todaysReadings.justForToday.title}}
+    <section class="reading-select">
+      <select id="readingSelect">
+        <option value="justForToday">Just For Today</option>
+        <option value="dailyReflections">Daily Reflections</option>
+      </select>
+    </section>
+
+    <section id="reading-section">
+      <h2 class="display-date">
+        <a href="#" id="shareReading">
+            <i class="fa fa-share-alt"></i>
+        </a>
+        <time>{{dateString}}</time>
+      </h2>
+
+      <div class="current-reading">
+        <h3 class="reading-title">{{currentReading.title}}</h3>
+        {{{currentReading.content}}}
+      </div>
+    </section>
+
   </div>
 </template>
