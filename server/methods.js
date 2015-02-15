@@ -9,5 +9,16 @@ Meteor.methods({
             console.log(err)
             console.log(responseData)
         })
+    },
+    'saveFile': function(buffer, name) {
+        var fs = Npm.require("fs");
+        var filePath = process.env.PWD + '/server/tmp/' + name;
+        var bytes = fs.writeFileSync(filePath, new Buffer(buffer));
+
+    },
+    'optimizeImage': function(file) {
+        console.log(file.name);
+        var features = Imagemagick.identify(file.name);
+        console.log(features);
     }
 })

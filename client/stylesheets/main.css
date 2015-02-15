@@ -4,7 +4,7 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-@import url(http://fonts.googleapis.com/css?family=Lobster+Two:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two:400,700);
 html {
   font-family: sans-serif;
   /* 1 */
@@ -2742,7 +2742,12 @@ body,
     padding: 0.5625em;
     display: block; }
   .top-bar li {
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: top; }
+  .top-bar .icon-logo img {
+    position: relative;
+    top: 11px;
+    height: 26px; }
   .top-bar .branding {
     position: relative;
     top: 0.0625em;
@@ -2764,6 +2769,8 @@ body,
       right: 0.3125em;
       background: #fa7c38;
       font-family: "AzoSans", Arial, sans-serif; }
+  .top-bar .menu-toggle {
+    color: #477dca; }
   .top-bar .action-nav {
     float: left; }
   .top-bar .notification-nav {
