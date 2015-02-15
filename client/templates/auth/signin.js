@@ -20,7 +20,7 @@ Template.signin.events({
                 return
             }
 
-            if (!Meteor.user().services.facebook.profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
+            if (!Meteor.user().profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
                 Meteor.call('setUserRole', Meteor.user()._id, ['pending'])
                 Router.go('/create-profile')
             } else {
@@ -35,7 +35,7 @@ Template.signin.events({
                 return
             }
 
-            if (!Meteor.user().services.twitter.profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
+            if (!Meteor.user().profileCreated && !Roles.userIsInRole(Meteor.user(), ['pending'])) {
                 Meteor.call('setUserRole', Meteor.user()._id, ['pending'])
                 Router.go('/create-profile')
             } else {

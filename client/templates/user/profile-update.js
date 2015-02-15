@@ -140,17 +140,14 @@ Template.profileUpdate.events({
             var file = template.$('[name=profilePic]')[0].files[0]
 
             if (file) {
-                var uploader = new Slingshot.Upload("profilePic")
-                uploader.send(file, function (error, downloadUrl) {
-                    if (error) template.$('.response').addClass('error').text(error)
+                profilePicUpload(file, function(error, result) {
+                    if (error) {
+                        template.$('.response').addClass('error').text(error);
+                        return;
+                    }
 
-                    var user = {}
-                    user.profilePic = Meteor.user().username + '/' + file.name
-                    Meteor.call('updateProfile', user, function(error, result) {
-                        if (error) template.$('.response').addClass('error').text(error)
-                        else template.$('#save-changes').text('Profile Updated!')
-                    })
-                })
+                    template.$('#save-changes').text('Profile Updated!');
+                });
             }
         }
 

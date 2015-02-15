@@ -92,7 +92,7 @@ UI.registerHelper('profilePic', function(username) {
  * generate color for users
  */
 UI.registerHelper('userColor', function(username) {
-    return getColor(username)
+    return getColor(username.toLowerCase())
 })
 
 /**

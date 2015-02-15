@@ -103,29 +103,23 @@ Template.createProfile.events({
 
         // upload profile pic for web
         if (!Meteor.isCordova) {
-            var file = template.$('[name=profilePic]')[0].files[0]
+            var file = template.$('[name=profilePic]')[0].files[0];
 
             if (file) {
-                var uploader = new Slingshot.Upload("profilePic")
-                uploader.send(file, function (error, downloadUrl) {
-                    if (error) template.$('.response').addClass('error').text(error)
+                profilePicUpload(file, function(error, result) {
+                    if (error) {
+                        template.$('#step-two .response').addClass('error').text(error.reason);
+                        template.$('[type=file]').css('border-color', 'red');
+                        return;
+                    }
 
-                    var profile = {}
-                    profile.profilePic = Meteor.user().username + '/' + file.name
-                    Meteor.call('updateProfile', profile, function(error, result) {
-                        if (error) {
-                            template.$('#step-two .response').addClass('error').text(error.reason)
-                            template.$('[type=file]').css('border-color', 'red')
-                        }
-                        else {
-                            template.stepStatus.set(true)
-                            $('#step-two').addClass('complete').fadeOut(250, function() {
-                                $('#step-three').fadeIn(250)
-                            })
-                            $('.active').filter(':last').next().addClass('active')
-                        }
-                    })
-                })
+                    template.stepStatus.set(true);
+                    $('#step-two').addClass('complete').fadeOut(250, function() {
+                        $('#step-three').fadeIn(250);
+                    });
+                    $('.active').filter(':last').next().addClass('active');
+
+                });
             }
         }
     },
@@ -172,8 +166,6 @@ Template.createProfile.events({
             quote: template.$('[name=quote]').val()
         }
 
-        console.log(Meteor.user().profile.name)
-
         if (Meteor.user().profile.profilePic) {
             profile.profilePic = Meteor.user().profile.profilePic
         } else {
@@ -185,6 +177,7 @@ Template.createProfile.events({
                 template.$('#step-four .response').text(error.error)
             } else {
                 Meteor.call('updateUserRoles', Meteor.user()._id, ['member'], function(error, result) {
+                    Meteor.call('setProfileCreated');
                     Router.go('/')
                 })
             }
