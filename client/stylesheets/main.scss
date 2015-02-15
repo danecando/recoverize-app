@@ -186,6 +186,15 @@
 
   li {
     display: inline-block;
+    vertical-align: top;
+  }
+
+  .icon-logo {
+    img {
+      position: relative;
+      top: 11px;
+      height: 26px;
+    }
   }
 
   .branding {
@@ -213,7 +222,9 @@
     }
   }
 
-  .menu-toggle {}
+  .menu-toggle {
+    color:#477dca;
+  }
 
   .action-nav {
     float: left;
