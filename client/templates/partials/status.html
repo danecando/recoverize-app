@@ -4,7 +4,9 @@
 
     <header class="status-meta">
       <div class="profile-pic">
-        <img src="{{getImgURL currentUser.profile.profilePic}}" alt=""/>
+        <a href="/users/{{currentUser.username}}">
+          <img src="{{getImgURL currentUser.profile.profilePic}}" alt=""/>
+        </a>
       </div>
         {{#if currentUser.profile.name}}
           <h3 class="username">{{currentUser.profile.name}} <small><a href="/users/{{currentUser.username}}">@{{currentUser.username}}</a></small></h3>
@@ -55,6 +57,11 @@
         <li class="link">
           <a href="/status/{{this._id}}"><i class="fa fa-link"></i></a>
         </li>
+          {{#if currentUserStatus}}
+            <li class="delete">
+              <a href="#" class="deleteStatus" data-statusId="{{this._id}}"><i class="fa fa-trash-o"></i></a>
+            </li>
+          {{/if}}
       </ul>
     </footer>
   </div>

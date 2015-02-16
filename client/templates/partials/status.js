@@ -1,58 +1,75 @@
 Template.statusp.created = function() {
-    var userSub = Meteor.subscribe('statusUser', this.data.username)
-}
+    var userSub = Meteor.subscribe('statusUser', this.data.username);
+};
 
 Template.statusp.helpers({
     isShared: function() {
-        if (this.type == 'shared') return true
-        else return false
+        if (this.type === 'shared') {
+            return true;
+        } else {
+            return false;
+        }
     },
-    currentUserSerenityList: function(statusId){
-        var status = Status.findOne(statusId)
-        if(status && status.serenityList){
-            return status.serenityList.indexOf(Meteor.user().username) !== -1
-        }else{
-            return false
+    currentUserSerenityList: function(statusId) {
+        var status = Status.findOne(statusId);
+        if (status && status.serenityList) {
+            return status.serenityList.indexOf(Meteor.user().username) !== -1;
+        } else {
+            return false;
         }
     },
     currentUserShareList: function(statusId) {
-        var status = Status.findOne(statusId)
+        var status = Status.findOne(statusId);
 
-        if (this.username == Meteor.user().username)
-            return true
+        if (this.username === Meteor.user().username) {
+            return true;
+        }
 
-        if (status && status.shareList){
-            return status.shareList.indexOf(Meteor.user().username) !== -1
+        if (status && status.shareList) {
+            return status.shareList.indexOf(Meteor.user().username) !== -1;
         } else {
-            return false
+            return false;
         }
     },
     currentUser: function() {
-        return Meteor.users.findOne({username: this.username})
+        return Meteor.users.findOne({username: this.username});
     },
-
-})
+    currentUserStatus: function() {
+        if (this.username === Meteor.user().username) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+});
 
 Template.statusp.events({
-    'click .serenityUpBtn': function(e){
-        e.preventDefault()
-        var statusId = $(e.target).parent().attr('data-statusId')
-        Meteor.call('statusSerenityUp', statusId)
+    'click .serenityUpBtn': function(e) {
+        e.preventDefault();
+        var statusId = $(e.target).parent().attr('data-statusId');
+        Meteor.call('statusSerenityUp', statusId);
     },
     'click .serenityDownBtn': function(e){
-        e.preventDefault()
-        var statusId = $(e.target).parent().attr('data-statusId')
-        Meteor.call('statusSerenityDown', statusId)
+        e.preventDefault();
+        var statusId = $(e.target).parent().attr('data-statusId');
+        Meteor.call('statusSerenityDown', statusId);
     },
     'click .shareStatus': function(e) {
-        e.preventDefault()
-        var statusId = $(e.target).parent().attr('data-statusId')
-        console.log('clicked')
-        Meteor.call('shareStatus', statusId)
+        e.preventDefault();
+        var statusId = $(e.target).parent().attr('data-statusId');
+        Meteor.call('shareStatus', statusId);
     },
     'click .replyStatus': function(e) {
-        e.preventDefault()
-        Session.set('statusReply', { user: this.username, status: this.status })
-        Router.go('/status')
+        e.preventDefault();
+        Session.set('statusReply', { user: this.username, status: this.status });
+        Router.go('/status');
+    },
+    'click .deleteStatus': function(e) {
+        e.preventDefault();
+
+        if (confirm('Are you sure you want to delete this share?')) {
+            var statusId = $(e.target).parent().attr('data-statusId');
+            Meteor.call('deleteStatus', statusId);
+        }
     }
-})
+});

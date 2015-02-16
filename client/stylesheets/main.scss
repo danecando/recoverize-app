@@ -810,6 +810,7 @@
 
 .message {
   @include clearfix;
+  @include word-wrap(break-word);
   margin: em(15) 0 em(30);
 
   time {
@@ -973,16 +974,10 @@
   position: absolute;
   @include calc(height, '100% - 28px');
   width: 175px;
-  left: 175px;
+  left: 0;
   overflow: hidden;
   overflow-y: scroll;
-  @include transition(left 500ms ease-in-out);
   background: white;
-
-  .ul-open & {
-    left: 0;
-    @include transition(left 500ms ease-in-out);
-  }
 
   .user-list {
 
@@ -1038,7 +1033,7 @@
   position: absolute;
   width: 100%;
   left: 0;
-  @include transition(left 500ms ease-in-out);
+  @include transition(left 350ms ease-in-out);
   @include calc(height, '100% - 35px');
   overflow: hidden;
   overflow-y: scroll;
@@ -1047,7 +1042,7 @@
 
   .ul-open & {
     left: 175px;
-    @include transition(left 500ms ease-in-out);
+    @include transition(left 350ms ease-in-out);
 
   }
 }
@@ -1433,6 +1428,13 @@
       position: relative;
       right: 3px;
       bottom: 1px;
+    }
+
+    .delete {
+      float: right;
+      a {
+        color: $error-color;
+      }
     }
 
     .link {
