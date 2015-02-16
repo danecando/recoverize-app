@@ -3314,6 +3314,9 @@ body,
     background: rgba(75, 75, 75, 0.25); }
 
 .message {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
   margin: 0.9375em 0 1.875em; }
   .message:after {
     content: "";

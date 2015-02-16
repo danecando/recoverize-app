@@ -810,6 +810,7 @@
 
 .message {
   @include clearfix;
+  @include word-wrap(break-word);
   margin: em(15) 0 em(30);
 
   time {
