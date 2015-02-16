@@ -55,6 +55,11 @@
         <li class="link">
           <a href="/status/{{this._id}}"><i class="fa fa-link"></i></a>
         </li>
+          {{#if currentUserStatus}}
+            <li class="delete">
+              <a href="#" class="deleteStatus" data-statusId="{{this._id}}"><i class="fa fa-trash-o"></i></a>
+            </li>
+          {{/if}}
       </ul>
     </footer>
   </div>

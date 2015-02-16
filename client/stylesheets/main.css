@@ -3926,6 +3926,10 @@ body,
     position: relative;
     right: 3px;
     bottom: 1px; }
+  .status-actions .action-buttons .delete {
+    float: right; }
+    .status-actions .action-buttons .delete a {
+      color: #ff0033; }
   .status-actions .action-buttons .link {
     float: right; }
 
