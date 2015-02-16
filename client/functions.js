@@ -1,31 +1,37 @@
 /**
+ * Expose methods via global var
+ * @type {{}}
+ */
+internals = {}
+
+/**
  * Resizes profile picture image, uploads thumb and full size to aws, and stores in db
  * @param file
  * @param cb
  */
-profilePicUpload = function(file, cb) {
+internals.profilePicUpload = function(file, cb) {
 
     var user = Object.create(null);
     var uploader = new Slingshot.Upload('profilePic');
 
     processImage(file, 75, 75, function(dataURI) {
-        var thumbnail = dataUriToBlob(dataURI);
+        var thumbnail = dataURItoBlob(dataURI);
         thumbnail.name = 'thumb_' + file.name;
 
         uploader.send(thumbnail, function (error, downloadUrl) {
             if (error) {
-                cb(new Meteor.Error(500, 'Failed to upload profile picture'));
+                return cb(new Meteor.Error(500, 'Failed to upload profile picture'));
             }
 
             user.profilePicThumb = Meteor.user().username + '/' + thumbnail.name;
 
             processImage(file, 500, 500, function(dataURI) {
-                var profilePic = dataUriToBlob(dataURI);
+                var profilePic = dataURItoBlob(dataURI);
                 profilePic.name = file.name;
 
                 uploader.send(profilePic, function(error, downloadUrl) {
                     if (error) {
-                        cb(new Meteor.Error(500, 'Failed to upload profile picture'));
+                        return cb(new Meteor.Error(500, 'Failed to upload profile picture'));
                     }
 
                     user.profilePic = Meteor.user().username + '/' + profilePic.name;
@@ -35,7 +41,7 @@ profilePicUpload = function(file, cb) {
                             cb(new Meteor.Error(500, 'Failed to upload profile picture'));
                         }
 
-                        cb(null, result);
+                        return cb(null, result);
                     });
                 });
             });
@@ -44,15 +50,40 @@ profilePicUpload = function(file, cb) {
 };
 
 /**
+ * Optimize status image before upload
+ * @param file
+ * @param cb
+ */
+internals.statusPhotoUpload = function(file, cb) {
+
+    var uploader = new Slingshot.Upload("profilePic");
+
+    processImage(file, 500, 500, function(dataURI) {
+        var statusPhoto = dataURItoBlob(dataURI);
+        statusPhoto.name = file.name;
+
+        uploader.send(statusPhoto, function (error, downloadUrl) {
+            if (error) {
+                return cb(error);
+            }
+
+            return cb(null);
+        });
+
+    });
+};
+
+/**
  * Converts a data uri into Blob object
  * @param dataURI
  * @returns {Blob}
  */
-function dataUriToBlob(dataURI) {
-    var binary = atob(dataURI.split(',')[1]);
-    var array = [];
-    for(var i = 0; i < binary.length; i++) {
-        array.push(binary.charCodeAt(i));
+function dataURItoBlob(dataURI) {
+    var byteString = atob(dataURI.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
     }
-    return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+    return new Blob([ab], { type: 'image/jpeg' });
 }

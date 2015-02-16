@@ -106,7 +106,7 @@ Template.createProfile.events({
             var file = template.$('[name=profilePic]')[0].files[0];
 
             if (file) {
-                profilePicUpload(file, function(error, result) {
+                internals.profilePicUpload(file, function(error, result) {
                     if (error) {
                         template.$('#step-two .response').addClass('error').text(error.reason);
                         template.$('[type=file]').css('border-color', 'red');

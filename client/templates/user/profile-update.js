@@ -140,7 +140,7 @@ Template.profileUpdate.events({
             var file = template.$('[name=profilePic]')[0].files[0]
 
             if (file) {
-                profilePicUpload(file, function(error, result) {
+                internals.profilePicUpload(file, function(error, result) {
                     if (error) {
                         template.$('.response').addClass('error').text(error);
                         return;
