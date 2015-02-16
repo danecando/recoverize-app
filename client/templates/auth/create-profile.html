@@ -65,7 +65,7 @@
           </div>
           <div class="response"></div>
           <ul class="actions">
-            <li><button type="submit" class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
+            <li><button type="submit" class="submit" disabled="{{#unless user.profile.name}}{{#unless stepReady}}disabled{{/unless}}{{/unless}}">Next</button></li>
           </ul>
         </form>
       </div>
