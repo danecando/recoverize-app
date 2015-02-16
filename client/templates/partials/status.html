@@ -4,7 +4,9 @@
 
     <header class="status-meta">
       <div class="profile-pic">
-        <img src="{{getImgURL currentUser.profile.profilePic}}" alt=""/>
+        <a href="/users/{{currentUser.username}}">
+          <img src="{{getImgURL currentUser.profile.profilePic}}" alt=""/>
+        </a>
       </div>
         {{#if currentUser.profile.name}}
           <h3 class="username">{{currentUser.profile.name}} <small><a href="/users/{{currentUser.username}}">@{{currentUser.username}}</a></small></h3>
