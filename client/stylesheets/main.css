@@ -2648,8 +2648,7 @@ body,
 .help-link {
   background: rgba(255, 255, 255, 0.4) !important;
   padding: 0.3125em !important;
-  letter-spacing: 0.0625em;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important; }
+  letter-spacing: 0.0625em; }
 
 .page-container {
   min-height: 100%;
@@ -3036,8 +3035,8 @@ body,
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/whitey.png"), -webkit-linear-gradient(-450deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/whitey.png"), linear-gradient(180deg, #2c5999, #477dca), center no-repeat #2c5999 scroll;
   border-bottom: 2px solid #ddd; }
   .top-links li {
     display: inline-block;
@@ -3165,8 +3164,8 @@ body,
   -ms-flex-pack: center;
   height: -webkit-calc(100vh - 77px);
   height: calc(100vh - 77px);
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   color: white;
   text-align: center; }
   .no-messages h2 {
@@ -3295,8 +3294,8 @@ body,
 .conversation {
   height: -webkit-calc(100% - 29px);
   height: calc(100% - 29px);
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), -webkit-linear-gradient(-450deg, #eeeeee, white), center no-repeat #eeeeee scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/whitey.png"), linear-gradient(180deg, #eeeeee, white), center no-repeat #eeeeee scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/whitey.png"), -webkit-linear-gradient(-450deg, #eeeeee, white), center no-repeat #eeeeee scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/whitey.png"), linear-gradient(180deg, #eeeeee, white), center no-repeat #eeeeee scroll;
   background: linear-gradient(45deg, whitesmoke 10%, white 90%);
   overflow: hidden;
   overflow-y: scroll; }
@@ -3640,8 +3639,8 @@ body,
       flex-direction: row;
       -ms-flex-direction: row; } }
 .user-profile .colored-head {
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), linear-gradient(180deg, #2c5999, #6794d3), center no-repeat #2c5999 scroll;
   padding-top: 0.9375em; }
 .user-profile .profile-picture {
   text-align: center; }
@@ -3719,8 +3718,8 @@ body,
  *  Notifications
  * =========================== */
 .notifications-page {
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll;
   min-height: 100%;
   overflow: hidden;
   overflow-y: scroll; }
@@ -3827,8 +3826,8 @@ body,
   -ms-flex-pack: center;
   text-align: center;
   color: white;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll; }
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), -webkit-linear-gradient(-450deg, #477dca, #2c5999), center no-repeat #477dca scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/wavecut.png"), linear-gradient(180deg, #477dca, #2c5999), center no-repeat #477dca scroll; }
   .coming-soon h1 {
     font-weight: 300;
     letter-spacing: 0.0625em; }
@@ -4423,8 +4422,8 @@ body,
  *  Task Page
  * =========================== */
 #checklist {
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll; }
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll; }
 
 .task-header {
   padding: 1.25em 0.3125em 0.625em;
@@ -4933,8 +4932,8 @@ body,
  *  Dashboard
  * =========================== */
 #dashboard {
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
-  background: url("https:raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
+  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
   color: white; }
   #dashboard .top-info {
     color: white;
