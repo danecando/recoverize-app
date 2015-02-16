@@ -1,21 +1,21 @@
 Template.newStatus.created = function() {
-    this.charsLeft = new ReactiveVar(255)
+    this.charsLeft = new ReactiveVar(255);
 }
 Template.newStatus.rendered = function() {
-    var chars = $('#newStatus').val().length
-    $('#charsLeft').css({ color: 'rgb(' + chars + ',20,20)' })
-    this.charsLeft.set(255 - chars)
+    var chars = $('#newStatus').val().length;
+    $('#charsLeft').css({ color: 'rgb(' + chars + ',20,20)' });
+    this.charsLeft.set(255 - chars);
 }
 
 Template.newStatus.destroyed = function() {
-    Session.set('statusReply', null)
+    Session.set('statusReply', null);
 }
 
 Template.newStatus.helpers({
     replyData: function() {
-        var reply = Session.get('statusReply')
-        if (reply) return reply
-        else return false
+        var reply = Session.get('statusReply');
+        if (reply) return reply;
+        else return false;
     },
     charsLeft: function() {
         return Template.instance().charsLeft.get()
