@@ -1,7 +1,14 @@
 /**
  * Reset checklists
  */
-var checklist = later.parse.recur().on('04:00:00').time();
-var resetChecklists = later.setInterval(function() {
-    Tasks.update({}, {$set: {checked: false}})
-}, checklist);
+SyncedCron.add({
+    name: 'Reset daily checklist every morning',
+    schedule: function(parser) {
+        return parser.text('at 4:00am');
+    },
+    job: function() {
+        Tasks.update({}, {$set: {checked: false}})
+    }
+});
+
+SyncedCron.start();

@@ -89,7 +89,7 @@ Template.createProfile.events({
         });
     },
     'submit #step-two form': function(e, template) {
-        e.preventDefault()
+        e.preventDefault();
 
         // upload profile pic from cordova
         if (template.cordovaFile.get()) {
