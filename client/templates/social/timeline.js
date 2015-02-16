@@ -3,7 +3,7 @@ Template.timeline.created = function() {
     this.sort = new ReactiveVar({})
 
     var self = this
-    Deps.autorun(function() {
+    Tracker.autorun(function() {
         Meteor.subscribe('timeline', self.limit.get(), self.sort.get())
     })
 }
