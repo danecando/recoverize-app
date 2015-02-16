@@ -4,7 +4,7 @@
 UI.registerHelper('linkMentions', function(context){
     if(context){
         var str = context.replace(/\B@[a-z0-9_-]+/gi, function(match){
-            return '<a class="at-mention" style="color: ' + getColor(match.slice(1)) + '" href="/users/' + match.slice(1) + '">' + match + '</a>'
+            return '<a class="at-mention" style="color: ' + getColor(match.slice(1)) + '" href="/users/' + match.slice(1).toLowerCase() + '">' + match.toLowerCase() + '</a>'
         })
         return new Handlebars.SafeString(str)
     }
@@ -92,7 +92,7 @@ UI.registerHelper('profilePic', function(username) {
  * generate color for users
  */
 UI.registerHelper('userColor', function(username) {
-    return getColor(username)
+    return getColor(username.toLowerCase())
 })
 
 /**

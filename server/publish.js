@@ -8,7 +8,7 @@ Accounts.onCreateUser(function(options, user) {
         user.emails = []
         user.emails.push({ address: user.services.facebook.email, verified: true })
         user.profile.name = user.services.facebook.name
-        user.services.facebook.profileCreated = false
+        user.profileCreated = false
     }
 
     // setup user account for creation via twitter
@@ -16,7 +16,7 @@ Accounts.onCreateUser(function(options, user) {
         if (!Meteor.users.find({ username: user.services.twitter.screenName})) {
             user.username = user.services.twitter.screenName
         }
-        user.services.twitter.profileCreated = false
+        user.profileCreated = false
     }
 
     // no longer using identicons

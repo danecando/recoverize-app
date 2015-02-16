@@ -1,1 +1,1 @@
-mongodb://recoverize:Recoverize123#@ds061360.mongolab.com:61360/recoverize-dev
+mongodb://lyle:Chippah123#@c94.candidate.48.mongolayer.com:10094,c647.candidate.11.mongolayer.com:10647/recoverize-app?replicaSet=set-54e0303e4ce7e0580a000546

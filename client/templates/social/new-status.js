@@ -74,12 +74,12 @@ function submitStatus(e, template) {
 
     if(isValidStatus(share.status) || share.image) {
         if (!Meteor.isCordova && share.image) {
-            var uploader = new Slingshot.Upload("profilePic")
-            uploader.send(share.image, function (error, downloadUrl) {
+
+            internals.statusPhotoUpload(share.image, function(error, result) {
                 if (error) {
-                    $('.share-input').css('border-color', 'red')
-                    $('.response').text(error)
-                    return
+                    $('.share-input').css('border-color', 'red');
+                    $('.response').text(error);
+                    return;
                 }
 
                 share.image = Meteor.user().username + '/' + share.image.name
