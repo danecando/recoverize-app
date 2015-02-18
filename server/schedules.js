@@ -7,7 +7,7 @@ SyncedCron.add({
         return parser.text('at 4:00am');
     },
     job: function() {
-        Tasks.update({}, {$set: {checked: false}})
+        Tasks.update({}, {$set: {checked: false}}, {multi: true});
     }
 });
 
