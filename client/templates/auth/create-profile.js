@@ -199,6 +199,7 @@ Template.createProfile.events({
             profile.profilePic = Meteor.user().profile.profilePic;
         } else {
             profile.profilePic = (Meteor.user().profile.gender == 'male') ? "male_avatar.jpg" : "female_avatar.jpg";
+            profile.profilePicThumb = (Meteor.user().profile.gender == 'male') ? "thumb_male_avatar.jpg" : "thumb_female_avatar.jpg";
         }
 
         Meteor.call('updateProfile', profile, function(error, result) {

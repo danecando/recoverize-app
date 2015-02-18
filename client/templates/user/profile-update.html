@@ -7,7 +7,7 @@
     </section>
 
     <ul class="top-links">
-      <li class="view-profile"><a href="#"><img src="{{profilePic}}" alt="{{user.username}}"/></a></li>
+      <li class="view-profile"><a href="#"><img src="{{profilePic user.username 'thumb'}}" alt="{{user.username}}"/></a></li>
       <li class="account-settings">
         <h2><a href="/users/{{user.username}}">@{{user.username}}</a></h2>
         <a class="button" href="/account">Account Settings</a>
