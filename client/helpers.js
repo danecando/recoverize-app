@@ -6,6 +6,10 @@ UI.registerHelper('linkMentions', function(context){
         var str = context.replace(/\B@[a-z0-9_-]+/gi, function(match) {
             return '<a class="at-mention" style="color: ' + getColor(match.slice(1)) + '" href="/users/' + match.slice(1).toLowerCase() + '">' + match.toLowerCase() + '</a>';
         });
+        str = urlize(str, {
+            nofollow: true,
+            target: '_blank'
+        }); // ghetto shoehorn for urls to links
         return new Handlebars.SafeString(str);
     }
 });

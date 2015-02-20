@@ -1353,6 +1353,14 @@
   @include display(flex);
   @include align-items(center);
   @include flex-direction(column);
+
+  .no-statuses {
+    padding: em(25);
+    h2 {
+      font-weight: normal;
+      color: $brand-blue;
+    }
+  }
 }
 
 .status-box {
