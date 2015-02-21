@@ -3855,6 +3855,11 @@ body,
   -moz-flex-direction: column;
   flex-direction: column;
   -ms-flex-direction: column; }
+  .status-list .no-statuses {
+    padding: 1.5625em; }
+    .status-list .no-statuses h2 {
+      font-weight: normal;
+      color: #123865; }
 
 .status-box {
   width: 95%;
@@ -3948,15 +3953,6 @@ body,
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   box-pack: center;

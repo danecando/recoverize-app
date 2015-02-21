@@ -51,9 +51,15 @@
         </div>
 
         <div class="status-list">
+          {{#if status.count}}
           {{#each status}}
             {{> statusp}}
           {{/each}}
+          {{else}}
+              <div class="no-statuses">
+                <h2>{{username}} hasn't shared anything yet!</h2>
+              </div>
+          {{/if}}
         </div>
 
       {{else}}
