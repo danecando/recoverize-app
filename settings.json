@@ -1,4 +1,16 @@
 {
   "AWSAccessKeyId": "AKIAIENWJIJWO7O5NXUQ",
-  "AWSSecretAccessKey": "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"
+  "AWSSecretAccessKey": "amQ748YbbzpVmRJXdvR6Mcsn2BYo0Wn1TzVvHpZq",
+  "MailChimp": {
+    "apiKey": "1f89987ef6df82b9303cdc67887cdc0b-us9",
+    "listId": "661ffeb24c"
+  },
+  "public": {
+    "ga": {
+      "id": "UA-45959088-1",
+      "set": {
+        "forceSSL": true
+      }
+    }
+  }
 }
