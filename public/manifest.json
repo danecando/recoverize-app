@@ -1,0 +1,19 @@
+{
+  "name": "Recoverize 2.0",
+  "short_name": "recoverize",
+  "icons": [{
+    "src": "images/icon/icon-128x128.png",
+    "sizes": "128x128"
+  }, {
+    "src": "images/icon/apple-touch-icon.png",
+    "sizes": "152x152"
+  }, {
+    "src": "images/icon/ms-touch-icon-144x144-precomposed.png",
+    "sizes": "144x144"
+  }, {
+    "src": "images/touch/chrome-touch-icon-192x192.png",
+    "sizes": "192x192"
+  }],
+  "start_url": "/signin",
+  "display": "standalone"
+}

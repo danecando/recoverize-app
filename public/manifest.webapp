@@ -1,0 +1,25 @@
+{
+  "version": "0.1.1",
+  "name": "Recoverize 2.0",
+  "launch_path": "/",
+  "description": "A social, 12 step recovery app.",
+  "icons": {
+    "128": "/images/icon/icon-128x128.png"
+  },
+  "developer": {
+    "name": "Dane Grant",
+    "url": "http://danecando.com"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Recoverize 2.0",
+      "description": "A social, 12 step recovery app."
+    }
+  }
+}
