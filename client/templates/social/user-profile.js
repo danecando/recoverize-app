@@ -11,12 +11,14 @@ Template.userProfile.helpers({
     },
     banned: function() {
         var user = Meteor.users.findOne({username: this.username});
-        if (user && Roles.userIsInRole(user._id, ['banned']))
+        if (user && Roles.userIsInRole(user._id, ['banned'])) {
             return true;
+        }
     },
     admin: function() {
-        if (Roles.userIsInRole(Meteor.userId(), ['admin']))
+        if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
             return true;
+        }
     }
 });
 
