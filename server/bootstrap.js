@@ -1,7 +1,8 @@
-// intialize app stuff maybe or smth
-//
-//var fs = Npm.require('fs');
-//
+/**
+ * Used for manually working on data in the database
+ */
+
+
 //
 //Meteor.startup(function () {
 //

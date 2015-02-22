@@ -1,4 +1,9 @@
 /**
+ * Code that is executed on a specific schedule
+ */
+
+
+/**
  * Reset checklists
  */
 SyncedCron.add({

@@ -5037,7 +5037,8 @@ body,
     padding: 0;
     margin: 0.8125em 0;
     border-left: 0;
-    font-size: 0.9375em; }
+    font-size: 0.9375em;
+    text-align: center; }
   #reading-section .current-reading .quoted-page {
     display: block;
     text-align: right;

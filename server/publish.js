@@ -1,3 +1,7 @@
+/**
+ * Publish data for use in the application
+ */
+
 // Extend the user collection
 Accounts.onCreateUser(function(options, user) {
 
