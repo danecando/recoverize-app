@@ -1,7 +1,8 @@
-// intialize app stuff maybe or smth
-//
-//var fs = Npm.require('fs');
-//
+/**
+ * Used for manually working on data in the database
+ */
+
+
 //
 //Meteor.startup(function () {
 //
@@ -28,6 +29,28 @@
 //
 //        });
 //
+
+//var readings = Readings.find().fetch();
+//
+//readings.forEach(function(reading, index) {
+//
+//    if (reading.justForToday.title) {
+//        var title = reading.justForToday.title;
+//        title = title.replace(/&quot;/gi, "\"").replace(/&apos;/gi, "'").replace(/&#xFFFD;/gi, "");
+//    }
+//
+//    if (reading.justForToday.content) {
+//        var content = reading.justForToday.content;
+//        content = content.replace(/&quot;/gi, "\"").replace(/&apos;/gi, "'").replace(/&#xFFFD;/gi, "");
+//    }
+//
+//    Readings.update(
+//        { dateKey: reading.dateKey },
+//        { $set: { "justForToday.title": title, "justForToday.content": content } }
+//    );
+//
+//
+//});
 //
 //
 //    }

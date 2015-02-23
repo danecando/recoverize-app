@@ -1,38 +1,35 @@
 
 Template.userProfile.helpers({
-    user: function(){
-        return Meteor.users.findOne({username: this.username})
+    user: function() {
+        return Meteor.users.findOne({username: this.username});
     },
-    isCurrentUser: function(){
-        return this.username === Meteor.user().username
+    isCurrentUser: function() {
+        return this.username === Meteor.user().username;
     },
     status: function() {
-
-        return Status.find({username: this.username}, {sort: {timestamp: -1}})
+        return Status.find({username: this.username}, {sort: {timestamp: -1}});
     },
     banned: function() {
-        if (Roles.userIsInRole(Meteor.users.findOne({username: this.username})._id, ['banned']))
-            return true
+        var user = Meteor.users.findOne({username: this.username});
+        if (user && Roles.userIsInRole(user._id, ['banned'])) {
+            return true;
+        }
     },
     admin: function() {
-        if (Roles.userIsInRole(Meteor.userId(), ['admin']))
-            return true
+        if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+            return true;
+        }
     }
-})
+});
 
 Template.userProfile.events({
-    'click .followBtn': function(){
-        Meteor.call('follow', this.username)
+    'click .followBtn': function(e, template) {
+        Meteor.call('follow', this.username);
     },
-    'click .unfollowBtn': function(){
-        Meteor.call('unfollow', this.username)
+    'click .unfollowBtn': function(e, template) {
+        Meteor.call('unfollow', this.username);
     },
-    'click #ban-user': function(e) {
-        Meteor.call('banUser', Meteor.users.findOne({username: this.username})._id)
+    'click #ban-user': function(e, template) {
+        Meteor.call('banUser', Meteor.users.findOne({username: this.username})._id);
     }
-})
-
-function isValidStatus(str){
-    return str.trim() !== ''
-        && str.length < 255
-}
+});

@@ -1,3 +1,7 @@
+/**
+ * Publish data for use in the application
+ */
+
 // Extend the user collection
 Accounts.onCreateUser(function(options, user) {
 
@@ -47,15 +51,26 @@ Meteor.publish('userData', function() {
     return Meteor.users.find({ _id: this.userId });
 });
 
+/**
+ * Total user count
+ */
 Meteor.publish('userCount', function() {
     return Meteor.users.find({}, { fields: { id: true } });
 });
 
-Meteor.publish('chat', function(){
-    return Chat.find({}, {sort: {timestamp: -1}, limit: 100});
+/**
+ * Chat messages
+ */
+Meteor.publish('chat', function(usersOnline) {
+    return [
+        Chat.find({}, {sort: {timestamp: -1}, limit: 100})
+    ];
 });
 
-Meteor.publish('presence', function(){
+/**
+ * Online users
+ */
+Meteor.publish('presence', function() {
     if (!this.userId) {
         return this.ready();
     }
@@ -63,6 +78,9 @@ Meteor.publish('presence', function(){
     return Presences.find({username: {$exists: true}});
 });
 
+/**
+ * User notifications
+ */
 Meteor.publish('notification', function(){
     if (!this.userId) {
         return this.ready();
@@ -71,31 +89,42 @@ Meteor.publish('notification', function(){
     return Notification.myNotifications(this.userId);
 });
 
-// @todo: expose public fields only
-Meteor.publish('userPublic', function(username){
+
+/**
+ * Public user information
+ */
+Meteor.publish('userPublic', function(username) {
     if (username) {
-        return [
-            Meteor.users.find({username: username}),
-            Status.find({username: username})
-        ];
+        return Meteor.users.find(
+            {username: username},
+            { fields: { 'roles': false, 'emails': false, 'services': false } }
+        );
     } else {
-        return [
-            Meteor.users.find(),
-            Status.find()
-        ];
+        return Meteor.users.find(
+            {},
+            { fields: { 'roles': false, 'emails': false, 'services': false } }
+        );
     }
 });
 
-Meteor.publish('statusUser', function(username) {
+/**
+ * Get statuses for user
+ */
+Meteor.publish('userStatuses', function(username, limit) {
+    limit = limit || 10;
+
     if (username) {
-        return Meteor.users.find({ username: username });
+        return Status.find(
+            { username: username },
+            { limit: limit }
+        );
     } else {
         this.ready();
     }
 });
 
 /**
- * returns list of users
+ * List of users
  */
 Meteor.publish('userList', function(limit, query) {
     limit = limit || 15;
@@ -109,8 +138,7 @@ Meteor.publish('userList', function(limit, query) {
         filter = {};
     }
 
-
-    var fields = {username: 1, createdAt: 1};
+    //var fields = {username: 1, createdAt: 1};
 
     if (query.username) {
         return Meteor.users.find(
@@ -126,7 +154,7 @@ Meteor.publish('userList', function(limit, query) {
 });
 
 /**
- * returns the profilePic of specified username(s)
+ * Returns the profilePic of specified username(s)
  */
 Meteor.publish('profilePic', function(usernames) {
     if (!usernames) {
