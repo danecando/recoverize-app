@@ -3,7 +3,7 @@
   <div class="user-box">
     <section class="profile-pic">
       <a href="/users/{{this.username}}">
-        <img src="{{#if this.profile.profilePicThumb}}{{getImgURL this.profile.profilePicThumb}}{{else}}{{getImgURL this.profile.profilePic}}{{/if}}" alt=""/>
+        <div class="thumb-container" style="background: url('{{profilePic this.username 'thumb'}}');"></div>
       </a>
     </section>
       <section class="profile-info">

@@ -15,7 +15,9 @@
 
             <div class="profile-top">
               <div class="profile-picture">
-                <img src="{{getImgURL user.profile.profilePic}}" alt="{{username}}">
+                <div class="image-container" style="background: url('{{getImgURL user.profile.profilePic}}') no-repeat;">
+                  <!--<img src="{{getImgURL user.profile.profilePic}}" alt="{{username}}">-->
+                </div>
               </div>
               <div class="user-social">
                 <h5 class="quote">{{user.profile.quote}}</h5>

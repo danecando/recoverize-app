@@ -3315,9 +3315,6 @@ body,
     background: rgba(75, 75, 75, 0.25); }
 
 .message {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-all;
   margin: 0.9375em 0 1.875em; }
   .message:after {
     content: "";
@@ -3517,8 +3514,7 @@ body,
     margin-right: 4px; }
   .chat-messages .chat-message .message {
     font-size: 0.875em;
-    letter-spacing: -0.03125em;
-    word-wrap: break-word; }
+    letter-spacing: -0.03125em; }
 .chat-messages time {
   padding: 0.25em 0;
   float: right;
@@ -3649,6 +3645,14 @@ body,
       width: 40.29137%; }
       .user-profile .profile-picture:last-child {
         margin-right: 0; } }
+  .user-profile .profile-picture .image-container {
+    background-size: cover !important;
+    background-position: center;
+    margin: 0 auto;
+    border-radius: 0.125em;
+    border: 2px solid white;
+    height: 225px;
+    width: 225px; }
   .user-profile .profile-picture img {
     margin-top: 0.625em;
     border: 3px solid white;
@@ -4722,6 +4726,11 @@ body,
   .user-box .profile-pic {
     text-align: left;
     margin-right: 0.9375em; }
+    .user-box .profile-pic .thumb-container {
+      width: 45px;
+      height: 45px;
+      background-size: cover !important;
+      background-position: center; }
     .user-box .profile-pic img {
       max-width: 45px;
       height: auto;
