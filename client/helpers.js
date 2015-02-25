@@ -83,7 +83,8 @@ UI.registerHelper('profilePic', function(username, size) {
         return false;
     }
 
-    if (user.profile && user.profile.profilePic) {
+    // fix this @see #84
+    if (user && user.profile && user.profile.profilePic) {
         var profilePic = (size === 'thumb' && user.profile.profilePicThumb) ? user.profile.profilePicThumb : user.profile.profilePic;
         return "https://d6gyptuog2clr.cloudfront.net/" + profilePic;
     }
@@ -95,7 +96,7 @@ UI.registerHelper('profilePic', function(username, size) {
  * generate color for users
  */
 UI.registerHelper('userColor', function(username) {
-    return getColor(username.toLowerCase());
+    if (username) return getColor(username.toLowerCase());
 });
 
 /**
