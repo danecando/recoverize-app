@@ -812,7 +812,6 @@
 
 .message {
   @include clearfix;
-  @include word-wrap(break-word);
   margin: em(15) 0 em(30);
 
   time {
@@ -1072,7 +1071,6 @@
     .message {
       font-size: em(14);
       letter-spacing: em(-.5);
-      word-wrap: break-word;
     }
   }
   time {
@@ -1186,6 +1184,16 @@
     @include media($tablet-screen-up) {
       @include shift(1);
       @include span-columns(5);
+    }
+
+    .image-container {
+      background-size: cover !important;
+      background-position: center;
+      margin: 0 auto;
+      border-radius: em(2);
+      border: 2px solid white;
+      height: 225px;
+      width: 225px;
     }
 
     img {
@@ -2193,6 +2201,13 @@
   .profile-pic {
     text-align: left;
     margin-right: em(15);
+    
+    .thumb-container {
+      width: 45px;
+      height: 45px;
+      background-size: cover !important;
+      background-position: center;
+    }
     img {
       max-width: 45px;
       height: auto;

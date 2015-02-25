@@ -1,71 +1,68 @@
 Template.profileUpdate.rendered = function() {
 
-    var program = Meteor.user().profile.program
+    var program = Meteor.user().profile.program;
     if (program) {
         $('#program option').each(function() {
             if (program == $(this).val()) {
-                $(this).attr('selected', true)
+                $(this).attr('selected', true);
             }
-        })
+        });
     }
 
-    var gender = Meteor.user().profile.gender
+    var gender = Meteor.user().profile.gender;
     if (gender) {
         $('#gender option').each(function() {
             if (gender == $(this).val()) {
-                $(this).attr('selected', true)
+                $(this).attr('selected', true);
             }
-        })
+        });
     }
 
-    var soberDate = Meteor.user().profile.soberDate
+    var soberDate = Meteor.user().profile.soberDate;
     if (soberDate) {
         $('#sober-year option').each(function() {
             if (soberDate.getFullYear() == $(this).val()) {
-                $(this).attr('selected', true)
+                $(this).attr('selected', true);
             }
-        })
+        });
         $('#sober-month option').each(function() {
             if (soberDate.getMonth() == $(this).val()-1) {
-                $(this).attr('selected', true)
+                $(this).attr('selected', true);
             }
-        })
+        });
         $('#sober-day option').each(function() {
             if (soberDate.getDate() == $(this).val()) {
-                $(this).attr('selected', true)
+                $(this).attr('selected', true);
             }
-        })
+        });
     }
-}
+};
 
 Template.profileUpdate.created = function() {
-    Session.setDefault('days', 31)
+    Session.setDefault('days', 31);
 
-    this.profileUpdated = new ReactiveVar
-    this.profileUpdated.set(false)
-
-    this.cordovaFile = new ReactiveVar
-    this.cordovaFile.set(false)
-}
+    this.profileUpdated = new ReactiveVar(false);
+    this.cordovaFile = new ReactiveVar(false);
+};
 
 /**
  * Helpers
  */
 Template.profileUpdate.helpers({
     cordova: function() {
-        return !!Meteor.isCordova
+        return !!Meteor.isCordova;
     },
     user: function() {
-        return Meteor.user()
+        return Meteor.user();
     },
     profileUpdated: function() {
-        return Template.instance().profileUpdated.get()
+        return Template.instance().profileUpdated.get();
     },
     days: function() {
-        var days = []
+        var days = [];
 
         for (var i = 1; i <= Session.get('days'); i++) {
-            days.push(i)
+            days.push(i);
         }
 
         return days;
@@ -73,27 +70,27 @@ Template.profileUpdate.helpers({
     years: function() {
         var today = new Date(),
             year = today.getFullYear(),
-            years = []
+            years = [];
 
         for (; year >= 1930; year--) {
-            years.push(year)
+            years.push(year);
         }
 
-        return years
+        return years;
     }
 
-})
+});
 
 /**
  * Events
  */
 Template.profileUpdate.events({
     'change :input, keypress :input': function(event, template) {
-        template.profileUpdated.set(true)
+        template.profileUpdated.set(true);
     },
     'click #image-select': function(event, template) {
-        event.preventDefault()
-        template.$('input[name=profilePic]').click()
+        event.preventDefault();
+        $('input[name=profilePic]').click();
     },
     'click #cordova-upload': function(event, template) {
         window.imagePicker.getPictures(
@@ -103,91 +100,100 @@ Template.profileUpdate.events({
                         type: results[i].split('.').pop(),
                         name: results[i].replace(/^.*[\\\/]/, ''),
                         uri: results[i]
-                    }
+                    };
 
-                    template.cordovaFile.set(file)
-                    template.profileUpdated.set(true)
-                    $('#cordova-upload').text(file.name)
+                    template.cordovaFile.set(file);
+                    template.profileUpdated.set(true);
+                    $('#cordova-upload').text(file.name);
                 }
             }, function(error) {
-                console.log(error)
-            })
+                $('.response').addClass('error').text(error);
+            });
     },
     'click #save-changes': function(event, template) {
-        event.preventDefault()
+        event.preventDefault();
+
+        $('#save-changes').text('Updating...');
 
         // upload profile pic from cordova
         if (template.cordovaFile.get()) {
-            var file = template.cordovaFile.get()
+            var file = template.cordovaFile.get();
             window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
                 fileEntry.file(function(fileObj) {
-                    file.size = fileObj.size
+                    file.size = fileObj.size;
                     AwsUpload.upload(file, function(path) {
-                        var user = {}
-                        user.profilePic = path
+                        var user = Object.create(null);
+                        user.profilePic = path;
                         Meteor.call('updateProfile', user, function(error, result) {
-                            if (error) template.$('.response').addClass('error').text(error)
-                            else template.$('#save-changes').text('Profile Updated!')
-                                //template.$('.response').addClass('success').text("Your profile has been updated")
-                        })
-                    })
-                })
-            })
+                            if (error) {
+                                $('.response').addClass('error').text(error);
+                                return;
+                            }
+
+                            $('#save-changes').text('Profile Updated!');
+                        });
+                    });
+                });
+            });
         }
 
         // upload profile pic for web
         if (!Meteor.isCordova) {
-            var file = template.$('[name=profilePic]')[0].files[0]
+            var file = $('[name=profilePic]')[0].files[0];
 
             if (file) {
                 internals.profilePicUpload(file, function(error, result) {
                     if (error) {
-                        template.$('.response').addClass('error').text(error);
+                        $('.response').addClass('error').text(error);
                         return;
                     }
 
-                    template.$('#save-changes').text('Profile Updated!');
+                    $('#save-changes').text('Profile Updated!');
                 });
             }
         }
 
-        var month = template.$('[name=soberMonth]').val()
-        var day = template.$('[name=soberDay]').val()
-        var year = template.$('[name=soberYear]').val()
-        var soberDate = new Date(year, month-1, day)
+        var month = $('[name=soberMonth]').val();
+        var day = $('[name=soberDay]').val();
+        var year = $('[name=soberYear]').val();
+        var soberDate = new Date(year, month-1, day);
 
         var user = {
-            name: template.$('[name=name]').val(),
-            location: template.$('[name=location]').val(),
-            gender: template.$('[name=gender]').val(),
-            program: template.$('[name=program]').val(),
-            homegroup: template.$('[name=homegroup]').val(),
+            name: $('[name=name]').val(),
+            location: $('[name=location]').val(),
+            gender: $('[name=gender]').val(),
+            program: $('[name=program]').val(),
+            homegroup: $('[name=homegroup]').val(),
             soberDate: soberDate,
-            quote: template.$('[name=quote]').val()
-        }
+            quote: $('[name=quote]').val()
+        };
 
         Meteor.call('updateProfile', user, function(error, result) {
-            if (error) template.$('.response').addClass('error').text(error)
-            else template.$('#save-changes').text('Profile Updated!')
-        })
+            if (error) {
+                $('.response').addClass('error').text(error);
+                return;
+            }
+
+            $('#save-changes').text('Profile Updated!');
+        });
     },
 
     'change #sober-month': function(event, template) {
 
         var month = template.$('#sober-month').val(),
             year = template.$('#sober-year').val(),
-            days = new Date(year, month, 0).getDate()
+            days = new Date(year, month, 0).getDate();
 
-        Session.set('days', days)
+        Session.set('days', days);
     },
 
     'change #sober-year': function(event, template) {
 
         var month = template.$('#sober-month').val(),
             year = template.$('#sober-year').val(),
-            days = new Date(year, month, 0).getDate()
+            days = new Date(year, month, 0).getDate();
 
-        Session.set('days', days)
+        Session.set('days', days);
     }
 
-})
+});
