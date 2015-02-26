@@ -1,6 +1,9 @@
 # Recoverize App
 
-[![forthebadge](http://forthebadge.com/images/badges/made-with-crayons.svg)](http://forthebadge.com)
+http://app.recoverize.com
 
-A recovery app focused on social interaction
+A 12 step recovery app focused on social interaction
+
+© 2015 Recoverize 2.0, LLC. All Rights Reserved
+
 
