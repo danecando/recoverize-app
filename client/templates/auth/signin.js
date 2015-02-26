@@ -37,7 +37,7 @@ Template.signin.events({
             }
         });
     },
-    'submit form': function(e, template) {
+    'submit #sign-in-form': function(e, template) {
         e.preventDefault();
 
         var email = $('[name=email]').removeClass('input-error').val();
@@ -61,9 +61,12 @@ Template.signin.events({
             return;
         }
 
+        $('#sign-in').text('Signing in...');
+
         Meteor.loginWithPassword({ email: email }, password, function(error) {
             if (error) {
                 $('.response').addClass('error').text('incorrect username/password');
+                $('#sign-in').text('Sign in');
                 return;
             }
 
