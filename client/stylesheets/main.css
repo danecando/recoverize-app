@@ -4001,10 +4001,16 @@ body,
       padding: 0.375em 1.125em;
       font-weight: normal; }
   #login-page .login-bottom, #join-page .login-bottom {
-    margin: 1.5625em 0;
+    margin: 0.9375em 0;
     text-align: center; }
   #login-page .link-auth-alt, #join-page .link-auth-alt {
-    color: white; }
+    color: white;
+    margin-bottom: 1.5625em;
+    display: block;
+    letter-spacing: 0.03125em; }
+    @media screen and (min-width: 48em) {
+      #login-page .link-auth-alt, #join-page .link-auth-alt {
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.15); } }
   #login-page .social-logins, #join-page .social-logins {
     text-align: center;
     margin: 0 auto;

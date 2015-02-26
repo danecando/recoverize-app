@@ -1521,12 +1521,19 @@
   }
 
   .login-bottom {
-    margin: em(25) 0;
+    margin: em(15) 0;
     text-align: center;
   }
 
   .link-auth-alt {
     color: white;
+    margin-bottom: em(25);
+    display: block;
+    letter-spacing: em(.5);
+
+    @include media($tablet-screen-up) {
+      border-bottom: 1px dotted rgba(255, 255, 255, .15);
+    }
   }
 
   .social-logins {
