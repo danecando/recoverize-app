@@ -2111,17 +2111,25 @@
 
 .timeline-filter {
   @include display(flex);
-  @include align-items(center);
+  @include align-items(flex-start);
   @include justify-content(center);
+  box-shadow: 0 0 3px 2px rgba(50, 50, 50, .175);
 
   button {
     width: 50%;
+    font-weight: normal;
+    font-size: em(14);
+    border-bottom: 3px solid lighten(#477dca, 15);
 
     &:hover {
-      background: $secondary-blue;
+      background: #477dca;
+      border-bottom: 3px solid $brand-light;
     }
     &.active {
-      background: #2c5999;
+      border-bottom: 3px solid white;
+      &:hover {
+        background: #477dca;
+      }
     }
   }
 }
