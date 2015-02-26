@@ -4613,15 +4613,15 @@ body,
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  box-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -o-align-items: flex-start;
+  align-items: flex-start;
+  -ms-flex-align: start;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   box-pack: center;
@@ -4630,13 +4630,20 @@ body,
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
+  -ms-flex-pack: center;
+  box-shadow: 0 0 3px 2px rgba(50, 50, 50, 0.175); }
   .timeline-filter button {
-    width: 50%; }
+    width: 50%;
+    font-weight: normal;
+    font-size: 0.875em;
+    border-bottom: 3px solid #82a7db; }
     .timeline-filter button:hover {
-      background: #2c5999; }
+      background: #477dca;
+      border-bottom: 3px solid #ff9963; }
     .timeline-filter button.active {
-      background: #2c5999; }
+      border-bottom: 3px solid white; }
+      .timeline-filter button.active:hover {
+        background: #477dca; }
 
 /* ===========================
  *  User List Page

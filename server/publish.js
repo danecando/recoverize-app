@@ -134,12 +134,13 @@ Meteor.publish('userList', function(limit, query) {
         filter = {username: {$regex: query}};
     }
 
-    if (typeof filter != 'string') {
+    if (typeof filter !== 'string') {
         filter = {};
     }
 
-    //var fields = {username: 1, createdAt: 1};
+    filter.profileCreated = true;
 
+    //var fields = {username: 1, createdAt: 1};
     if (query.username) {
         return Meteor.users.find(
             filter,
@@ -147,7 +148,7 @@ Meteor.publish('userList', function(limit, query) {
         );
     } else {
         return Meteor.users.find(
-            {},
+            filter,
             { limit: limit, sort: {serenity: -1}}
         );
     }

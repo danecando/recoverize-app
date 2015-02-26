@@ -1,13 +1,13 @@
 
 Template.userlist.created = function() {
-    this.limit = new ReactiveVar(15)
-    this.sort = new ReactiveVar({})
+    this.limit = new ReactiveVar(15);
+    this.sort = new ReactiveVar({});
 
 
-    var self = this
+    var self = this;
     Deps.autorun(function() {
-        Meteor.subscribe('userList', self.limit.get(), self.sort.get())
-    })
+        Meteor.subscribe('userList', self.limit.get(), self.sort.get());
+    });
 }
 
 Template.userlist.destroyed = function() {
