@@ -18,7 +18,7 @@
         <form action="">
           <div class="input-group">
             <span class="info response">Used to identify your account. <strong>Can't be changed!</strong></span>
-            <input type="text" name="username" placeholder="ie: johnd2004" value="{{user.username}}" autofocus>
+            <input type="text" name="username" placeholder="ie: johnd2004 (letters & numbers only)" value="{{user.username}}" autofocus>
           </div>
           <ul class="actions">
             <li class="next"><button type="submit" class="submit" disabled="{{#unless stepReady}}disabled{{/unless}}">Next</button></li>
@@ -129,7 +129,7 @@
           </div>
           <div class="response"></div>
           <ul class="actions">
-            <li><button type="submit" class="submit">Finish</button></li>
+            <li><button type="submit" id="finish-btn" class="submit">Finish</button></li>
           </ul>
         </form>
       </div>

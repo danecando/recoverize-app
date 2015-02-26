@@ -70,12 +70,12 @@ Template.createProfile.events({
     'submit #step-one form': function(e, template) {
         e.preventDefault();
 
-        var username = template.$('[name=username]').val();
+        var username = $('[name=username]').val();
 
         Meteor.call('createUsername', username, function(error, result) {
             if (error) {
-                template.$('#step-one .response').addClass('error').text(error.reason);
-                template.$('[name=username]').css('border-color', 'red');
+                $('#step-one .response').addClass('error').text(error.reason);
+                $('[name=username]').css('border-color', 'red');
                 return;
             }
 
@@ -108,8 +108,8 @@ Template.createProfile.events({
 
                         Meteor.call('updateProfile', profile, function(error, result) {
                             if (error) {
-                                template.$('#step-two .response').addClass('error').text(error.reason);
-                                template.$('#cordova-upload').css('border-color', 'red');
+                                $('#step-two .response').addClass('error').text(error.reason);
+                                $('#cordova-upload').css('border-color', 'red');
                                 return;
                             }
 
@@ -128,13 +128,13 @@ Template.createProfile.events({
 
         // upload profile pic for web
         if (!Meteor.isCordova) {
-            var file = template.$('[name=profilePic]')[0].files[0];
+            var file = $('[name=profilePic]')[0].files[0];
 
             if (file) {
                 internals.profilePicUpload(file, function(error, result) {
                     if (error) {
-                        template.$('#step-two .response').addClass('error').text(error.reason);
-                        template.$('[type=file]').css('border-color', 'red');
+                        $('#step-two .response').addClass('error').text(error.reason);
+                        $('[type=file]').css('border-color', 'red');
                         return;
                     }
 
@@ -151,23 +151,23 @@ Template.createProfile.events({
         }
     },
     'submit #step-three form': function(e, template) {
-        e.preventDefault()
+        e.preventDefault();
 
         var profile = {
-            name: template.$('[name=name]').val(),
-            location: template.$('[name=location]').val(),
-            gender: template.$('[name=gender]').val()
+            name: $('[name=name]').val(),
+            location: $('[name=location]').val(),
+            gender: $('[name=gender]').val()
         };
 
         if (!profile.name) {
-            template.$('#step-three .response').addClass('error').text("Don't forget a display name!");
-            template.$('[name=name]').css('border-color', 'red');
+            $('#step-three .response').addClass('error').text("Don't forget a display name!");
+            $('[name=name]').css('border-color', 'red');
             return;
         }
 
         Meteor.call('updateProfile', profile, function(error, result) {
             if (error) {
-                template.$('#step-three .response').addClass('error').text(error.reason);
+                $('#step-three .response').addClass('error').text(error.reason);
                 return;
             }
 
@@ -184,15 +184,17 @@ Template.createProfile.events({
     'submit #step-four form': function(e, template) {
         e.preventDefault();
 
-        var month = template.$('[name=soberMonth]').val();
-        var day = template.$('[name=soberDay]').val();
-        var year = template.$('[name=soberYear]').val();
+        $('#finish-btn').text('Logging in...')
+
+        var month = $('[name=soberMonth]').val();
+        var day = $('[name=soberDay]').val();
+        var year = $('[name=soberYear]').val();
 
         var profile = {
-            program: template.$('[name=program]').val(),
-            homegroup: template.$('[name=homegroup]').val(),
+            program: $('[name=program]').val(),
+            homegroup: $('[name=homegroup]').val(),
             soberDate: new Date(year, month-1, day),
-            quote: template.$('[name=quote]').val()
+            quote: $('[name=quote]').val()
         };
 
         if (Meteor.user().profile.profilePic) {
@@ -204,7 +206,7 @@ Template.createProfile.events({
 
         Meteor.call('updateProfile', profile, function(error, result) {
             if (error) {
-                template.$('#step-four .response').text(error.error);
+                $('#step-four .response').text(error.error);
             }
 
             Meteor.call('updateUserRoles', Meteor.user()._id, ['member'], function(error, result) {
@@ -215,8 +217,8 @@ Template.createProfile.events({
     },
     'change #sober-month': function(e, template) {
 
-        var month = template.$('#sober-month').val(),
-            year = template.$('#sober-year').val(),
+        var month = $('#sober-month').val(),
+            year = $('#sober-year').val(),
             days = new Date(year, month, 0).getDate();
 
         Session.set('days', days);
@@ -224,8 +226,8 @@ Template.createProfile.events({
 
     'change #sober-year': function(e, template) {
 
-        var month = template.$('#sober-month').val(),
-            year = template.$('#sober-year').val(),
+        var month = $('#sober-month').val(),
+            year = $('#sober-year').val(),
             days = new Date(year, month, 0).getDate();
 
         Session.set('days', days);
