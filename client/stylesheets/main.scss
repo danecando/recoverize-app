@@ -1465,7 +1465,7 @@
  *  Login Page
  * =========================== */
 
-#login-page, #join-page {
+#login-page, #join-page, #forgotten-page, #reset-page {
   min-height: 100vh;
   text-align: center;
   color: #FFF;
@@ -1478,6 +1478,10 @@
     overflow-y: auto;
     padding: em(40) 0;
     width: 450px;
+  }
+
+  .go-back {
+    color: white;
   }
 
   form {
@@ -1509,14 +1513,41 @@
       background: none;
       border-color: white;
       color: white;
-
     }
 
     .btn-primary {
-      background: rgba(220, 220, 220, .3);
+      background: rgba(220, 220, 220, .5);
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+      text-transform: uppercase;
+      font-weight: bold !important;
+      letter-spacing: em(.5);
+      font-size: em(13);
       color: white;
-      padding: em(6) em(18);
+      padding: em(12) em(18);
       font-weight: normal;
+      margin-bottom: em(8);
+
+    }
+
+    .button-group {
+      @include display(flex);
+      @include align-items(flex-start);
+      @include flex-direction(row);
+      @include justify-content(space-between);
+
+      .reset-password {
+        color: white;
+        text-align: center;
+        font-size: em(15);
+      }
+
+      @include media($tablet-screen-up) {
+        @include flex-direction(row);
+
+        .reset-password {
+          font-size: em(16);
+        }
+      }
     }
   }
 
