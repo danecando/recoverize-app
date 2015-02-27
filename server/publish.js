@@ -126,22 +126,13 @@ Meteor.publish('userStatuses', function(username, limit) {
 /**
  * List of users
  */
-Meteor.publish('userList', function(limit, query) {
+Meteor.publish('userList', function(limit, filter) {
     limit = limit || 15;
 
-    var filter = {};
-    if (query) {
-        filter = {username: {$regex: query}};
-    }
-
-    if (typeof filter !== 'string') {
-        filter = {};
-    }
-
+    filter = filter || {};
     filter.profileCreated = true;
 
-    //var fields = {username: 1, createdAt: 1};
-    if (query.username) {
+    if (filter.username) {
         return Meteor.users.find(
             filter,
             { limit: limit }

@@ -1,18 +1,20 @@
 
 Template.userlist.created = function() {
     this.limit = new ReactiveVar(15);
-    this.sort = new ReactiveVar({});
+    this.filter = new ReactiveVar({});
 
 
     var self = this;
     Deps.autorun(function() {
-        Meteor.subscribe('userList', self.limit.get(), self.sort.get());
+        var filter = self.filter.get();
+        filter.profileCreated = true; // make sure we only get finished profiles
+        Meteor.subscribe('userList', self.limit.get(), filter);
     });
 }
 
 Template.userlist.destroyed = function() {
     this.limit.set(15);
-    this.sort.set({});
+    this.filter.set({});
 };
 
 Template.userlist.rendered = function() {
@@ -27,7 +29,7 @@ Template.userlist.rendered = function() {
 
 Template.userlist.helpers({
     listOfUsers: function() {
-        return Meteor.users.find(Template.instance().sort.get(), { limit: Template.instance().limit.get() });
+        return Meteor.users.find(Template.instance().filter.get(), { limit: Template.instance().limit.get() });
     },
     isCurrentUser: function(user) {
         return user === Meteor.user().username;
@@ -37,11 +39,11 @@ Template.userlist.helpers({
 Template.userlist.events({
     'keyup .userList-filter': function(e, template){
         if (e.keyCode == 27) {
-            $('#user-list').removeclass('search-open');
+            $('#user-list').removeClass('search-open');
         }
 
         var value = $(e.target).val().trim().toLowerCase();
-        template.sort.set({username: {$regex: value}});
+        template.filter.set({username: {$regex: value}});
     },
     'click #search-toggle': function(e, template) {
         $('#user-list').toggleClass('search-open');
