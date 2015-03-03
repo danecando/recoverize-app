@@ -71,17 +71,21 @@ function isValidStatus(str) {
 }
 
 function submitStatus(e, template) {
-    var share = Object.create(null);
+    var share = {};
     share.status = $('#newStatus').val();
     share.image = template.$('#statusImage')[0].files[0] || null;
 
     if(isValidStatus(share.status) || share.image) {
+
+        $('#shareStatus').text('Sharing...');
+
         if (!Meteor.isCordova && share.image) {
 
             internals.statusPhotoUpload(share.image, function(error, result) {
                 if (error) {
                     $('.share-input').css('border-color', 'red');
                     $('.response').text(error);
+                    $('#shareStatus').text('Share');
                     return;
                 }
 
@@ -93,6 +97,7 @@ function submitStatus(e, template) {
                     $('.remove-image').fadeOut(100, function() {
                         $('.add-image').fadeIn(100);
                     });
+                    $('#shareStatus').text('Shared!');
                 });
             });
 
@@ -103,6 +108,7 @@ function submitStatus(e, template) {
                 $('.remove-image').fadeOut(100, function() {
                     $('.add-image').fadeIn(100);
                 });
+                $('#shareStatus').text('Shared!');
             });
         }
     }
