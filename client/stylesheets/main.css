@@ -5108,7 +5108,8 @@ body,
 #reading-section .reading-title {
   font-weight: normal;
   text-align: center;
-  margin-top: 0.625em; }
+  margin-top: 0.625em;
+  font-size: 1.5em; }
 #reading-section .current-reading {
   padding: 0.3125em 0.625em; }
   #reading-section .current-reading blockquote {
