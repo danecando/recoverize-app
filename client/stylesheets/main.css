@@ -2666,20 +2666,17 @@ body,
   padding: 0.4375em;
   background: #f5f5f5;
   resize: none; }
-  .text-input:focus {
-    height: 60px;
-    position: absolute;
-    bottom: 0;
-    width: -webkit-calc(100% - 88px);
-    width: calc(100% - 88px);
-    -webkit-transition: height 200ms ease-in;
-    -moz-transition: height 200ms ease-in;
-    transition: height 200ms ease-in; }
-    .text-input:focus + button {
-      height: 60px !important;
-      position: absolute;
-      bottom: 0;
-      right: 0; }
+
+.no-user {
+  padding: 25px 0;
+  text-align: center; }
+  .no-user h1 {
+    font-weight: normal;
+    letter-spacing: 0.0625em;
+    margin-bottom: 15px; }
+  .no-user i {
+    font-size: 5em;
+    color: #fa7c38; }
 
 .title {
   font-size: 1.25em; }

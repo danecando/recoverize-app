@@ -71,20 +71,19 @@
   padding: em(7);
   background: #f5f5f5;
   resize: none;
+}
 
-  &:focus {
-    height: 60px;
-    position: absolute;
-    bottom: 0;
-    @include calc(width, '100% - 88px');
-    @include transition(height 200ms ease-in);
-
-    + button {
-      height: 60px !important;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
+.no-user {
+  padding: 25px 0;
+  text-align: center;
+  h1 {
+    font-weight: normal;
+    letter-spacing: em(1);
+    margin-bottom: 15px;
+  }
+  i {
+    font-size: em(80);
+    color: $brand-color;
   }
 }
 

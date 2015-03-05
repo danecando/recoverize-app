@@ -65,7 +65,10 @@
         </div>
 
       {{else}}
-        <h1>{{username}} does not exist</h1>
+        <div class="no-user">
+          <h1>This username does not exist!</h1>
+          <i class="fa fa-child"></i>
+        </div>
       {{/if}}
     {{/unless}}
     {{#if banned}}
