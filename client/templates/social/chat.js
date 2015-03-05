@@ -1,5 +1,6 @@
 Template.chat.created = function() {
     this.listOfUsers = new ReactiveVar([]);
+    this.messages = new ReactiveVar(Chat.find({}, {sort: {timestamp: +1}}));
 
     var self = this;
 
@@ -13,8 +14,12 @@ Template.chat.created = function() {
 };
 
 Template.chat.rendered = function() {
-    var $chatWindow = document.querySelector('.chat-area');
-    $chatWindow.scrollTop = $chatWindow.scrollHeight;
+    autoScroll();
+    this.messages.get().observe({
+        added: function(doc) {
+            autoScroll();
+        }
+    });
 };
 
 Template.chat.events({
@@ -34,8 +39,7 @@ Template.chat.events({
 
 Template.chat.helpers({
     messages: function() {
-        var messages = Chat.find({}, {sort: {timestamp: +1}});
-        return messages;
+        return Template.instance().messages.get();
     },
     listOfUsers: function() {
         return Template.instance().listOfUsers.get();
@@ -49,4 +53,9 @@ function sendMessage() {
         Meteor.call('addChat', input.val());
         input.val('');
     }
+}
+
+function autoScroll() {
+    var $chatWindow = document.querySelector('.chat-area');
+    $chatWindow.scrollTop = $chatWindow.scrollHeight;
 }
