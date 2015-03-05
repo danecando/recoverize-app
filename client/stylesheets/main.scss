@@ -2541,7 +2541,7 @@
     font-weight: normal;
     text-align: center;
     margin-top: em(10);
-    font-size: em(24);
+    font-size: em(26) !important;
   }
 
   .current-reading {
@@ -2563,7 +2563,8 @@
 
     p {
       padding: 0 em(5);
-      font-size: em(15);
+      font-size: em(16);
+      line-height: em(22);
       text-align: justify;
     }
 
@@ -2578,6 +2579,12 @@
       text-align: center;
     }
   }
+}
+
+#reading-copyright {
+  padding: 10px 0;
+  font-size: em(14);
+  text-align: center;
 }
 
 /* ===========================

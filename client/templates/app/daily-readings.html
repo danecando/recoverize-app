@@ -34,7 +34,15 @@
         {{/if}}
         {{{currentReading.content}}}
       </div>
+
     </section>
+
+    {{#if copyright.bookName}}
+    <section id="reading-copyright">
+      <p>From the book {{copyright.bookName}} {{copyright.copyright}} </p>
+      <div class="purchase-link"><a href="{{copyright.link}}" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/remote-buy-box/buy5._V192207739_.gif" alt=""/></a></div>
+    </section>
+    {{/if}}
 
   </div>
 </template>

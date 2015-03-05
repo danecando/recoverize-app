@@ -5106,7 +5106,7 @@ body,
   font-weight: normal;
   text-align: center;
   margin-top: 0.625em;
-  font-size: 1.5em; }
+  font-size: 1.625em !important; }
 #reading-section .current-reading {
   padding: 0.3125em 0.625em; }
   #reading-section .current-reading blockquote {
@@ -5121,7 +5121,8 @@ body,
     font-weight: bold; }
   #reading-section .current-reading p {
     padding: 0 0.3125em;
-    font-size: 0.9375em;
+    font-size: 1em;
+    line-height: 1.375em;
     text-align: justify; }
   #reading-section .current-reading h3 {
     font-weight: normal;
@@ -5130,6 +5131,11 @@ body,
     text-align: center; }
   #reading-section .current-reading h3 + p {
     text-align: center; }
+
+#reading-copyright {
+  padding: 10px 0;
+  font-size: 0.875em;
+  text-align: center; }
 
 /* ===========================
  *  Join Page
