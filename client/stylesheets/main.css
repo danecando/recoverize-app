@@ -5133,6 +5133,7 @@ body,
     text-align: center; }
 
 #reading-copyright {
+  border-top: 2px solid white;
   padding: 10px 0;
   font-size: 0.875em;
   text-align: center; }

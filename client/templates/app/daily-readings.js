@@ -46,9 +46,14 @@ var copyrights = {
     }
 }
 
+Template.dailyReadings.rendered = function() {
+    var defaultReading = $('#readingSelect').val();
+    Template.instance().currentReading.set(defaultReading);
+}
+
 Template.dailyReadings.created = function() {
 
-    this.currentReading = new ReactiveVar('justForToday');
+    this.currentReading = new ReactiveVar();
 };
 
 Template.dailyReadings.helpers({
@@ -61,6 +66,9 @@ Template.dailyReadings.helpers({
     },
     copyright: function() {
         return copyrights[Template.instance().currentReading.get()];
+    },
+    default: function() {
+        return (Meteor.user().profile.program === 'aa');
     }
 });
 

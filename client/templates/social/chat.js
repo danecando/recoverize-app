@@ -14,12 +14,15 @@ Template.chat.created = function() {
 };
 
 Template.chat.rendered = function() {
-    autoScroll();
-    this.messages.get().observe({
-        added: function(doc) {
-            autoScroll();
-        }
+    Meteor.startup(function() {
+        autoScroll();
+        Template.instance().messages.get().observe({
+            added: function(doc) {
+                autoScroll();
+            }
+        });
     });
+
 };
 
 Template.chat.events({
@@ -57,5 +60,5 @@ function sendMessage() {
 
 function autoScroll() {
     var $chatWindow = document.querySelector('.chat-area');
-    $chatWindow.scrollTop = $chatWindow.scrollHeight;
+    if ($chatWindow) $chatWindow.scrollTop = $chatWindow.scrollHeight;
 }
