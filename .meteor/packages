@@ -6,7 +6,6 @@
 meteor-platform
 iron:router
 email
-fastclick
 underscore
 mrt:moment
 facts
@@ -19,16 +18,13 @@ accounts-password
 aldeed:simple-schema
 meteorhacks:kadira
 alanning:roles
-meteorhacks:fast-render
 edgee:slingshot
 accounts-facebook
 accounts-twitter
 service-configuration
 meteorhacks:ssr
 miro:mailchimp
-meteorhacks:zones
 sacha:spin
-raix:push
 matb33:collection-hooks
 recoverize:aws-upload
 reactive-var
@@ -36,3 +32,4 @@ accolver:twilio-meteor
 ccorcos:clientside-image-manipulation
 percolate:synced-cron
 reywood:iron-router-ga
+raix:push
