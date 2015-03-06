@@ -2677,6 +2677,9 @@ body,
   .no-user i {
     font-size: 5em;
     color: #fa7c38; }
+  .no-user a {
+    color: #333;
+    text-decoration: underline; }
 
 .title {
   font-size: 1.25em; }
@@ -3501,21 +3504,19 @@ body,
     content: "";
     display: table;
     clear: both; }
-.chat-messages li:nth-of-type(odd) {
-  background: #fafafa; }
 .chat-messages .chat-message {
   float: left; }
   .chat-messages .chat-message .user {
     font-weight: bold;
-    font-size: 0.8125em;
+    font-size: 0.9375em;
     margin-right: 4px; }
   .chat-messages .chat-message .message {
-    font-size: 0.875em;
+    font-size: 1em;
     letter-spacing: -0.03125em; }
 .chat-messages time {
   padding: 0.25em 0;
   float: right;
-  font-size: 0.75em;
+  font-size: 0.8125em;
   color: #999999;
   text-align: right; }
 
