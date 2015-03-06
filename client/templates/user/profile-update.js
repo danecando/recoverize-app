@@ -95,6 +95,7 @@ Template.profileUpdate.events({
     'click #cordova-upload': function(event, template) {
         window.imagePicker.getPictures(
             function (results) {
+                console.log(results);
                 for (var i = 0; i < results.length; i++) {
                     var file = {
                         type: results[i].split('.').pop(),

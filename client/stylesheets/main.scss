@@ -2494,7 +2494,8 @@
   @include justify-content(center);
   padding: em(10) 0;
   background: linear-gradient($secondary-blue, lighten($secondary-blue, 10));
-  border-bottom: 2px solid $brand-light;
+//  border-bottom: 2px solid $brand-light;
+  border-bottom: 2px solid lighten($secondary-blue, 30);
 
   @include media($tablet-screen-up) {
     padding: em(15) 0;
@@ -2519,8 +2520,8 @@
       top: 0;
       padding: em(4);
       font-size: em(14);
-//      background: lighten($secondary-blue, 30);
-      background: $brand-light;
+      background: lighten($secondary-blue, 30);
+//      background: $brand-light;
       color: white;
 
       @include media($tablet-screen-up) {
@@ -2533,7 +2534,7 @@
     letter-spacing: em(2);
     padding: em(3) 0;
     background: white;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f5f5f5;
 
     @include media($tablet-screen-up) {
       font-size: em(24);
@@ -2563,6 +2564,7 @@
       display: block;
       text-align: right;
       font-weight: bold;
+      font-size: em(14);
     }
 
     p {
@@ -2586,7 +2588,6 @@
 }
 
 #reading-copyright {
-  border-top: 2px solid white;
   padding: 10px 0;
   font-size: em(14);
   text-align: center;
