@@ -85,6 +85,10 @@
     font-size: em(80);
     color: $brand-color;
   }
+  a {
+    color: #333;
+    text-decoration: underline;
+  }
 }
 
 .title {
@@ -1054,7 +1058,7 @@
   }
 
   li:nth-of-type(odd) {
-    background: #fafafa;
+//    background: #f9f9f9;
   }
 
   .chat-message {
@@ -1063,19 +1067,19 @@
 
     .user {
       font-weight: bold;
-      font-size: em(13);
+      font-size: em(15);
       margin-right: 4px;
     }
 
     .message {
-      font-size: em(14);
+      font-size: em(16);
       letter-spacing: em(-.5);
     }
   }
   time {
     padding: em(4) 0;
     float: right;
-    font-size: em(12);
+    font-size: em(13);
     color: $medium-gray;
     text-align: right;
     //    width: 15%;
