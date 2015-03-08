@@ -113,6 +113,10 @@
   color: $error-color;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 //.response {
 //  padding: 5px;
 //  background: #fafafa;
@@ -719,7 +723,7 @@
   }
 
   p {
-    font-size: em(11);
+    font-size: em(13);
     margin-bottom: 0;
     color: $dark-gray;
     overflow: hidden;
@@ -744,11 +748,12 @@
     padding: 0 15px;
 
     h4 {
-      font-size: em(20);
+      font-size: em(21
+      );
     }
 
     p {
-      font-size: em(13);
+      font-size: em(15);
     }
   }
 }
@@ -758,7 +763,7 @@
   width: 30%;
   padding: 0 5px;
   text-align: right;
-  font-size: em(10);
+  font-size: em(12);
 
   @include media($tablet-screen-up) {
     width: 25%;
@@ -820,7 +825,7 @@
   time {
     float: right;
     margin: 5px 0 4px 15px;
-    font-size: em(12);
+    font-size: em(13);
     color: $medium-gray;
   }
 
@@ -997,7 +1002,7 @@
       @include align-items(center);
       width: 100%;
 
-      font-size: em(13);
+      font-size: em(14);
       color: $brand-blue;
     }
 
@@ -1154,12 +1159,14 @@
     text-align: center;
     color: white;
     font-weight: 300;
+    text-transform: capitalize;
 
     small {
       color: $brand-blue;
       font-size: 50%;
       font-weight: bold;
       letter-spacing: em(-.5);
+      text-transform: lowercase;
     }
   }
 
@@ -1396,14 +1403,15 @@
   .profile-pic {
     margin-right: em(10);
     img {
-      height: 24px;
-      widht: 24px;
+      height: 32px;
+      widht: 32px;
       border-radius: em(2);
     }
   }
 
   h3 {
-    font-size: em(17);
+    text-transform: capitalize;
+    font-size: em(19);
     line-height: em(15);
     marigin-right: em(15);
 
@@ -1411,11 +1419,12 @@
       font-size: em(11);
       color: #999;
       font-weight: normal;
+      text-transform: lowercase;
     }
   }
 
   time {
-    font-size: em(10);
+    font-size: em(11);
     @include flex-grow(1);
     text-align: right;
   }
@@ -2173,7 +2182,6 @@
  * =========================== */
 
 #user-list {
-  background: #fafafa;
 
   .user-scroll {
     @include calc(height, '100vh - 77px');
@@ -2237,11 +2245,11 @@
   @include display(flex);
   @include align-items(center);
   @include justify-content(flex-start);
-  margin: em(5) auto;
-  padding: em(10);
+  margin: auto;
+  padding: 15px 10px;
   max-width: 600px;
   background: white;
-  border: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 
   @include media($mobile-screen-down) {
     @include flex-wrap(wrap);
@@ -2252,8 +2260,8 @@
     margin-right: em(15);
     
     .thumb-container {
-      width: 45px;
-      height: 45px;
+      width: 60px;
+      height: 60px;
       background-size: cover !important;
       background-position: center;
     }
@@ -2265,42 +2273,54 @@
   }
 
   .profile-info {
-    @include span-columns(8);
+    @include flex(1);
 
     @include media($mobile-screen-down) {
     }
     .names h3 {
       font-size: em(16);
+      text-transform: capitalize;
+
+      small {
+        text-transform: lowercase;
+      }
 
       a {
+        font-size: em(18);
         font-weight: normal;
       }
     }
+  }
+
+  .flex-container {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
   }
 
   .more-info {
     font-size: em(13);
     color: $medium-gray;
     text-transform: capitalize;
+
+    .location {
+      text-decoration: italic;
+    }
   }
 
   .social-buttons {
-    @include span-columns(4);
-    text-align: right;
+    min-width: 80px;
 
     @include media($mobile-screen-down) {
-      @include span-columns(12);
-      margin: em(5) 0 em(5) em(60);
-      text-align: left;
     }
 
     a {
-      background: #eee;
+      font-size: em(19);
       color: #333;
     }
 
     .btn-unfollow {
-      color: $error-color;
+//      color: $error-color;
     }
     .btn-follow {
 //      color: $success-color;
