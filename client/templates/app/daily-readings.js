@@ -68,7 +68,8 @@ Template.dailyReadings.helpers({
         return copyrights[Template.instance().currentReading.get()];
     },
     default: function() {
-        return (Meteor.user().profile.program === 'aa');
+        if (Meteor.user()) return (Meteor.user().profile.program === 'aa');
+        else return false;
     }
 });
 
