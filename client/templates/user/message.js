@@ -3,12 +3,17 @@
  * data.username is the username of the user currentUser is chatting with
  */
 
+
+Template.message.created = function() {
+    this.messages = new ReactiveVar(MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: Template.instance().data.username}]}, {sort: {page: +1}}));
+};
+
+var queryHandle;
 Template.message.rendered = function() {
     Meteor.startup(function() {
         autoScroll();
 
-        var msgBuckets = MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: Template.instance().data.username}]}, {sort: {page: +1}});
-        msgBuckets.observe({
+        queryHandle = Template.instance().messages.get().observe({
             added: function() {
                 autoScroll();
             },
@@ -23,6 +28,10 @@ Template.message.rendered = function() {
     if (Meteor.user() && this.data.username === Meteor.user().username) {
         Router.go('/messages');
     }
+};
+
+Template.message.destroyed = function() {
+  queryHandle.stop();
 };
 
 Template.message.events({
@@ -48,7 +57,7 @@ Template.message.helpers({
      * @return {Array}
      */
     messages: function() {
-        return MessageBuckets.find({$and: [{members: Meteor.user().username}, {members: this.username}]}, {sort: {page: +1}})
+        return Template.instance().messages.get()
             .fetch()
             .reduce(function(arr, page) {
                 page.messages.forEach(function(message){
