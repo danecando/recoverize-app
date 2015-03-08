@@ -1,36 +1,31 @@
 <template name="usersp">
-
   <div class="user-box">
     <section class="profile-pic">
       <a href="/users/{{this.username}}">
         <div class="thumb-container" style="background: url('{{profilePic this.username 'thumb'}}');"></div>
       </a>
     </section>
-      <section class="profile-info">
-        <div class="names">
-            {{#if this.profile.name}}
-              <h3 class="username">{{this.profile.name}} <small><a href="/users/{{this.username}}">@{{this.username}}</a></small> <span class="user-connection {{presenceOf username}}"></span></h3>
-            {{else}}
-              <h3 class="username">@{{this.username}} <span class="user-connection {{presenceOf username}}"></span></h3>
-            {{/if}}
-        </div>
+    <section class="profile-info">
+      <div class="names">
+        <h3 class="username">{{this.profile.name}} <small><a href="/users/{{this.username}}">@{{this.username}}</a></small> <span class="user-connection {{presenceOf username}}"></span></h3>
+      </div>
+      <div class="flex-container">
         <div class="more-info">
-          {{#if this.profile.location}}
-            {{this.profile.location}}
-          {{else}}
-              {{cleanOrSober user.profile.program}} days: <strong>{{elapsedDays this.profile.soberDate}}</strong>
-          {{/if}}
+            {{#if this.profile.location}}
+              <div class="location">{{this.profile.location}}</div>
+            {{/if}}
+          <div class="sober-time">{{relativeTime this.profile.soberDate}} {{cleanOrSober this.profile.program}}</div>
         </div>
-      </section>
-    <section class="social-buttons">
-          {{#if currentUserFollows this.username}}
-            <a href="#" class="btn btn-unfollow unfollowBtn"><i class="fa fa-user-times"></i></a>
-          {{else}}
-            <a href="#" class="btn btn-follow followBtn"><i class="fa fa-user-plus"></i></a>
-          {{/if}}
-        <a class="btn messages-link" href="/messages/{{this.username}}"><i class="fa fa-envelope-o"></i></a>
+        <div class="social-buttons">
+            {{#if currentUserFollows this.username}}
+              <a href="#" class="btn btn-unfollow unfollowBtn"><i class="fa fa-user-times"></i></a>
+            {{else}}
+              <a href="#" class="btn btn-follow followBtn"><i class="fa fa-user-plus"></i></a>
+            {{/if}}
+          <a class="btn messages-link" href="/messages/{{this.username}}"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
     </section>
-
   </div>
 
 
