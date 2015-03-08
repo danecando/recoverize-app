@@ -13,16 +13,22 @@ Template.chat.created = function() {
     });
 };
 
+
+var queryHandle;
+
 Template.chat.rendered = function() {
     Meteor.startup(function() {
         autoScroll();
-        Template.instance().messages.get().observe({
+        queryHandle = Template.instance().messages.get().observe({
             added: function(doc) {
                 autoScroll();
             }
         });
     });
+};
 
+Template.chat.destroyed = function() {
+    queryHandle.stop();
 };
 
 Template.chat.events({
