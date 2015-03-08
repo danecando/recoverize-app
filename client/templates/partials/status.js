@@ -57,7 +57,9 @@ Template.statusp.events({
     'click .shareStatus': function(e) {
         e.preventDefault();
         var statusId = $(e.target).parent().attr('data-statusId');
-        Meteor.call('shareStatus', statusId);
+        if (statusId && confirm('Do you want to reshare this post?')) {
+            Meteor.call('shareStatus', statusId);
+        }
     },
     'click .replyStatus': function(e) {
         e.preventDefault();
