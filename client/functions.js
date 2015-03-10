@@ -11,7 +11,7 @@ internals = {}
  */
 internals.profilePicUpload = function(file, cb) {
 
-    var user = Object.create(null);
+    var user = {};
     var uploader = new Slingshot.Upload('profilePic');
 
     processImage(file, 75, 75, function(dataURI) {

@@ -94,13 +94,12 @@ Template.profileUpdate.events({
     },
     'click #cordova-upload': function(event, template) {
         window.imagePicker.getPictures(
-            function (results) {
-                console.log(results);
-                for (var i = 0; i < results.length; i++) {
+            function(results) {
+                if (results) {
                     var file = {
-                        type: results[i].split('.').pop(),
-                        name: results[i].replace(/^.*[\\\/]/, ''),
-                        uri: results[i]
+                        type: results[0].split('.').pop() || '.jpg',
+                        name: results[0].replace(/^.*[\\\/]/, ''),
+                        uri: results[0]
                     };
 
                     template.cordovaFile.set(file);
@@ -108,7 +107,8 @@ Template.profileUpdate.events({
                     $('#cordova-upload').text(file.name);
                 }
             }, function(error) {
-                $('.response').addClass('error').text(error);
+                console.log(error);
+                //$('.response').addClass('error').text(error);
             });
     },
     'click #save-changes': function(event, template) {

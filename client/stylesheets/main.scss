@@ -764,6 +764,7 @@
   padding: 0 5px;
   text-align: right;
   font-size: em(12);
+  color: #777;
 
   @include media($tablet-screen-up) {
     width: 25%;

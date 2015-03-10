@@ -3266,7 +3266,8 @@ body,
   width: 30%;
   padding: 0 5px;
   text-align: right;
-  font-size: 0.75em; }
+  font-size: 0.75em;
+  color: #777; }
   @media screen and (min-width: 48em) {
     .message-meta {
       width: 25%; } }

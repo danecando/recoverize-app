@@ -6,21 +6,25 @@
 AwsUpload.upload = function(file, cb) {
     Meteor.startup(function() {
 
-        var ft = new FileTransfer()
-        var options = new FileUploadOptions()
+        var ft = new FileTransfer();
+        var options = new FileUploadOptions();
 
         if (file.size > 3000000)
-            throw new Meteor.Error('Image exceeds maximum file size')
+            throw new Meteor.Error('Image exceeds maximum file size');
 
         if (file.type != 'jpg' && file.type != 'jpeg' && file.type != 'png')
-            throw new Meteor.Error('Please upload a jpg or png image')
+            throw new Meteor.Error('Please upload a jpg or png image');
 
-        options.fileKey = "file"
-        options.fileName = file.name
-        options.mimeType = "image/jpeg"
-        options.chunkedMode = false
 
-        var awsPath = Meteor.user().username + '/' + file.name
+        // replace space unicode with underscores
+        file.name = file.name.replace(/%20/g, "_");
+
+        options.fileKey = "file";
+        options.fileName = file.name;
+        options.mimeType = "image/jpeg";
+        options.chunkedMode = false;
+
+        var awsPath = Meteor.user().username + '/' + file.name;
 
         Meteor.call('sign', options.fileName, function(error, data) {
             options.params = {
@@ -30,15 +34,15 @@ AwsUpload.upload = function(file, cb) {
                 "policy": data.policy,
                 "signature": data.signature,
                 "Content-Type": "image/jpeg"
-            }
+            };
 
             ft.upload(file.uri, "https://" + data.bucket + ".s3.amazonaws.com/", function(result) {
-                cb(awsPath)
+                cb(awsPath);
             }, function(error) {
-                cb(error)
+                cb(error);
             }, options)
-        })
+        });
 
-    })
+    });
 
 }
