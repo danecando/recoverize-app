@@ -5,12 +5,23 @@ Template.chat.created = function() {
     var self = this;
 
     Tracker.autorun(function() {
+        var usersOnline = Presences.find(
+            { username: { $exists: true } },
+            { fields: { 'username': true } }
+        ).fetch().map(function(val) {
+                if (val.username) return val.username;
+            });
+
+        Meteor.subscribe('profilePic', usersOnline);
+
         var presences = Presences.find().fetch();
         presences = _.uniq(presences, function(p) {
             return p.username;
         });
+
         self.listOfUsers.set(presences);
     });
+
 };
 
 

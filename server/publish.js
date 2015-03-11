@@ -61,10 +61,8 @@ Meteor.publish('userCount', function() {
 /**
  * Chat messages
  */
-Meteor.publish('chat', function(usersOnline) {
-    return [
-        Chat.find({}, {sort: {timestamp: -1}, limit: 100})
-    ];
+Meteor.publish('chat', function() {
+    return Chat.find({}, {sort: {timestamp: -1}, limit: 100});
 });
 
 /**
