@@ -25,9 +25,7 @@
             <label for="profilePic">Profile Picture <small class="desc">Suggested Dimensions: 400x400</small></label>
             {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
             {{#if cordova}}
-              <div id="cordova-upload">
-                <button>Choose File</button> <span class="file-name">No file chosen</span>
-              </div>
+              <a class="profile-picture-link" href="/profile-picture">Upload / Change Profile Picture</a>
             {{else}}
               <input type="file" name="profilePic" accept="image/*">
             {{/if}}
