@@ -238,7 +238,7 @@ Template.createProfile.events({
                 for (var i = 0; i < results.length; i++) {
                     var file = {
                         type: results[i].split('.').pop(),
-                        name: results[i].replace(/^.*[\\\/]/, ''),
+                        name: results[i].replace(/^n.*[\\\/]/, ''),
                         uri: results[i]
                     };
 

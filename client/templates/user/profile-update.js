@@ -1,3 +1,10 @@
+Template.profileUpdate.created = function() {
+    Session.setDefault('days', 31);
+
+    this.profileUpdated = new ReactiveVar(false);
+    this.cordovaFile = new ReactiveVar(false);
+};
+
 Template.profileUpdate.rendered = function() {
 
     var program = Meteor.user().profile.program;
@@ -38,12 +45,6 @@ Template.profileUpdate.rendered = function() {
     }
 };
 
-Template.profileUpdate.created = function() {
-    Session.setDefault('days', 31);
-
-    this.profileUpdated = new ReactiveVar(false);
-    this.cordovaFile = new ReactiveVar(false);
-};
 
 /**
  * Helpers
@@ -91,25 +92,6 @@ Template.profileUpdate.events({
     'click #image-select': function(event, template) {
         event.preventDefault();
         $('input[name=profilePic]').click();
-    },
-    'click #cordova-upload': function(event, template) {
-        window.imagePicker.getPictures(
-            function(results) {
-                if (results) {
-                    var file = {
-                        type: results[0].split('.').pop() || '.jpg',
-                        name: results[0].replace(/^.*[\\\/]/, ''),
-                        uri: results[0]
-                    };
-
-                    template.cordovaFile.set(file);
-                    template.profileUpdated.set(true);
-                    $('#cordova-upload').text(file.name);
-                }
-            }, function(error) {
-                console.log(error);
-                //$('.response').addClass('error').text(error);
-            });
     },
     'click #save-changes': function(event, template) {
         event.preventDefault();
@@ -178,7 +160,6 @@ Template.profileUpdate.events({
             $('#save-changes').text('Profile Updated!');
         });
     },
-
     'change #sober-month': function(event, template) {
 
         var month = template.$('#sober-month').val(),
@@ -195,6 +176,23 @@ Template.profileUpdate.events({
             days = new Date(year, month, 0).getDate();
 
         Session.set('days', days);
+    },
+    'click #cordova-upload': function(e, template) {
+        window.imagePicker.getPictures(
+            function (results) {
+                for (var i = 0; i < results.length; i++) {
+                    var file = {
+                        type: results[i].split('.').pop(),
+                        name: results[i].replace(/^.*[\\\/]/, ''),
+                        uri: results[i]
+                    };
+
+                    template.cordovaFile.set(file);
+                    $('#cordova-upload').text(file.name);
+                }
+            }, function(error) {
+                console.log(error);
+            });
     }
 
 });

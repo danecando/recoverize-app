@@ -44,12 +44,12 @@ Template.statusp.helpers({
 });
 
 Template.statusp.events({
-    'click .serenityUpBtn': function(e) {
+    'click .serenityUpBtn i': function(e) {
         e.preventDefault();
         var statusId = $(e.target).parent().attr('data-statusId');
         Meteor.call('statusSerenityUp', statusId);
     },
-    'click .serenityDownBtn': function(e){
+    'click .serenityDownBtn i': function(e){
         e.preventDefault();
         var statusId = $(e.target).parent().attr('data-statusId');
         Meteor.call('statusSerenityDown', statusId);
