@@ -5,6 +5,21 @@
 internals = {}
 
 /**
+ * Converts a data uri into Blob object
+ * @param dataURI
+ * @returns {Blob}
+ */
+internals.dataURItoBlob = function(dataURI) {
+    var byteString = atob(dataURI.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: 'image/jpeg' });
+}
+
+/**
  * Resizes profile picture image, uploads thumb and full size to aws, and stores in db
  * @param file
  * @param cb
@@ -15,8 +30,10 @@ internals.profilePicUpload = function(file, cb) {
     var uploader = new Slingshot.Upload('profilePic');
 
     processImage(file, 75, 75, function(dataURI) {
-        var thumbnail = dataURItoBlob(dataURI);
+        var thumbnail = internals.dataURItoBlob(dataURI);
         thumbnail.name = 'thumb_' + file.name;
+
+        console.log(file.name);
 
         uploader.send(thumbnail, function (error, downloadUrl) {
             if (error) {
@@ -26,7 +43,7 @@ internals.profilePicUpload = function(file, cb) {
             user.profilePicThumb = Meteor.user().username + '/' + thumbnail.name;
 
             processImage(file, 500, 500, function(dataURI) {
-                var profilePic = dataURItoBlob(dataURI);
+                var profilePic = internals.dataURItoBlob(dataURI);
                 profilePic.name = file.name;
 
                 uploader.send(profilePic, function(error, downloadUrl) {
@@ -73,17 +90,3 @@ internals.statusPhotoUpload = function(file, cb) {
     });
 };
 
-/**
- * Converts a data uri into Blob object
- * @param dataURI
- * @returns {Blob}
- */
-function dataURItoBlob(dataURI) {
-    var byteString = atob(dataURI.split(',')[1]);
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], { type: 'image/jpeg' });
-}

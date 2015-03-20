@@ -123,7 +123,7 @@ Template.profileUpdate.events({
         // upload profile pic for web
         if (!Meteor.isCordova) {
             var file = $('[name=profilePic]')[0].files[0];
-
+            console.log(JSON.stringify(file));
             if (file) {
                 internals.profilePicUpload(file, function(error, result) {
                     if (error) {

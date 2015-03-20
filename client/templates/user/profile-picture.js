@@ -25,54 +25,46 @@ Template.profilePicture.events({
     'submit form': function(e, template) {
         e.preventDefault();
 
-        //upload profile pic from cordova
         if (template.cordovaFile.get()) {
-
-            $('#save-changes').text('Uploading Photo...');
+            $('#save-changes').text('Uploading picture...');
 
             var file = template.cordovaFile.get();
-
-            window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
-
-                fileEntry.file(function(fileObj) {
-
-                    file.size = fileObj.size;
-
-                    AwsUpload.upload(file, function(path) {
-
-                        var profile = {};
-                        profile.profilePic = path;
-
-                        Meteor.call('updateProfile', profile, function(error, result) {
-                            if (error) {
-                                $('#cordova-upload').css('border-color', 'red');
-                                $('#save-changes').text('An error occured');
-                                return;
-                            }
-                            $('#save-changes').text('Upload Finished!');
-                        });
-                    });
-                });
-            });
+            var reader = new FileReader();
+            reader.onloadend = function(e) {
+                var fileBlob = internals.dataURItoBlob(e.target.result);
+                if (fileBlob) {
+                    fileBlob.name = $('.file-name').text();
+                    internals.profilePicUpload(fileBlob, function(error, result) {
+                        if (error) {
+                            return;
+                        }
+                        $('#save-changes').text('Picture uploaded!');
+                    })
+                }
+            }
+            reader.readAsDataURL(file);
         }
 
     },
     'click #cordova-upload': function(e, template) {
-        window.imagePicker.getPictures(
-            function (results) {
-                for (var i = 0; i < results.length; i++) {
-                    var file = {
-                        type: results[i].split('.').pop(),
-                        name: results[i].replace(/^.*[\\\/]/, ''),
-                        uri: results[i]
-                    };
+        navigator.camera.getPicture(function(imageUri) {
+            var fileNameIndex = imageUri.lastIndexOf("/") + 1;
+            var filename = imageUri.substr(fileNameIndex);
+            $('.file-name').text(filename);
 
-                    template.profileUpdated.set(true);
-                    template.cordovaFile.set(file);
-                    $('#cordova-upload').text(file.name);
-                }
-            }, function(error) {
-                console.log(error);
+            window.resolveLocalFileSystemURL(imageUri, function(fileEntry) {
+               fileEntry.file(function(file) {
+                   file.name = filename;
+                   template.profileUpdated.set(true);
+                   template.cordovaFile.set(file);
+               });
             });
+
+        }, function(err) {
+            console.log(err);
+        }, { quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType : Camera.PictureSourceType.PHOTOLIBRARY
+        });
     }
 });
