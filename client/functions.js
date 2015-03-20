@@ -33,8 +33,6 @@ internals.profilePicUpload = function(file, cb) {
         var thumbnail = internals.dataURItoBlob(dataURI);
         thumbnail.name = 'thumb_' + file.name;
 
-        console.log(file.name);
-
         uploader.send(thumbnail, function (error, downloadUrl) {
             if (error) {
                 return cb(new Meteor.Error(500, 'Failed to upload profile picture'));
