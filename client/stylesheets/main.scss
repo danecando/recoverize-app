@@ -1601,7 +1601,7 @@
     letter-spacing: em(.5);
 
     @include media($tablet-screen-up) {
-      border-bottom: 1px dotted rgba(255, 255, 255, .15);
+//      border-bottom: 1px dotted rgba(255, 255, 255, .15);
     }
   }
 
@@ -2030,8 +2030,10 @@
  * =========================== */
 
 #checklist {
+  background: white;
+}
+.tasks-top {
   @include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
-
 }
 .task-header {
   padding: em(20) em(5) em(10);
@@ -2068,6 +2070,7 @@
 
 #task-form {
   display: none;
+  border-bottom: 2px solid #f5f5f5;
 
   form {
     @include display(flex);
@@ -2089,16 +2092,26 @@
   }
 }
 
+.task-list {
+  min-height: 100%;
+  background: white;
+}
 .task {
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
-  background: #ecf0f1;
-  border-bottom: 2px solid #e5e5e5;
+//  background: #ecf0f1;
+  padding: 10px 0;
+  background: white;
+  border-bottom: 2px solid #f5f5f5;
   min-height: 60px;
 
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
   &:nth-of-type(even) {
-    background: #f8f8f8;
+//    background: #f8f8f8;
   }
 
   .checkbox {
@@ -2107,6 +2120,11 @@
   }
   .task-name {
     @include span-columns(8);
+
+    h5 {
+      font-weight: normal;
+      font-size: em(18);
+    }
   }
   .task-controls {
     @include span-columns(2);
@@ -2129,6 +2147,16 @@
       cursor: pointer;
     }
 
+  }
+}
+
+.completed {
+  opacity: .25;
+  .task-name {
+    h5 {
+      text-decoration: line-through;
+//      color: #ddd;
+    }
   }
 }
 
@@ -2155,7 +2183,8 @@
     content: "\f046";
     font-size: em(28);
     letter-spacing: 5px;
-    color: $success-color;
+//    color: $success-color;
+//    color: #ddd;
   }
 }
 

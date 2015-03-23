@@ -2,6 +2,7 @@
 
   <div id="checklist" class="page-container">
 
+    <div class="tasks-top">
     <section class="task-header">
       {{#if tasks.length}}
         <h2 class="title">You have completed {{completed.count}} out of {{tasks.length}} of your daily tasks!</h2>
@@ -23,11 +24,12 @@
         <button type="submit"><i class="fa fa-plus"></i></button>
       </form>
     </section>
+    </div>
 
     <section class="tasks">
       <ol class="task-list">
         {{#each tasks}}
-          <li class="task" data-taskId="{{this._id}}">
+          <li class="task {{#if this.checked}}completed{{/if}}" data-taskId="{{this._id}}">
             <div class="checkbox">
               <input type="checkbox" id="{{this._id}}" checked="{{#if this.checked}}checked{{/if}}">
               <label for="{{this._id}}"></label>
