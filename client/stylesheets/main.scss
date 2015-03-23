@@ -712,7 +712,6 @@
     padding: 0 5px;
     height: 38px;
     width: 38px;
-
     background-size: cover;
     background-position: center;
 
@@ -724,8 +723,9 @@
     }
 
     @include media($tablet-screen-up) {
-      width: 10%;
       padding: 0 10px;
+      height: 75px;
+      width: 75px;
     }
   }
 }
