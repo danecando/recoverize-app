@@ -13,6 +13,10 @@ select {
   font-size: $form-font-size;
 }
 
+input, textarea {
+  font-family: $helvetica;
+}
+
 label {
   font-weight: bold;
   text-transform: uppercase;

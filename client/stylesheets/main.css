@@ -487,6 +487,9 @@ select {
   font-family: "AzoSans", Arial, sans-serif;
   font-size: 1em; }
 
+input, textarea {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+
 label {
   font-weight: bold;
   text-transform: uppercase;
@@ -3006,6 +3009,11 @@ body,
 /* ===========================
  *  Account / Profile Update
  * =========================== */
+.view-profile .profile-img {
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  background-position: center; }
 .view-profile img {
   height: 75px;
   width: 75px;
@@ -3208,7 +3216,7 @@ body,
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
-  padding: 10px 0;
+  padding: 10px 5px;
   border-bottom: 1px solid #eee;
   -webkit-transition: background 200ms ease-in-out;
   -moz-transition: background 200ms ease-in-out;
@@ -3225,8 +3233,10 @@ body,
   .thread-item .profile-picture {
     float: left;
     padding: 0 5px;
-    width: 15%;
-    height: auto; }
+    height: 38px;
+    width: 38px;
+    background-size: cover;
+    background-position: center; }
     .thread-item .profile-picture img {
       vertical-align: bottom;
       border-radius: 2px;
@@ -3522,6 +3532,7 @@ body,
     margin-right: 4px; }
   .chat-messages .chat-message .message {
     font-size: 1em;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     letter-spacing: -0.03125em; }
 .chat-messages time {
   padding: 0.25em 0;
@@ -3882,7 +3893,8 @@ body,
   border: 1px solid #eee;
   border-radius: 0.1875em;
   background: white;
-  margin: 1.25em 0 0.3125em; }
+  margin: 1.25em 0 0.3125em;
+  box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.05); }
 
 .status-image {
   text-align: center;
@@ -3906,11 +3918,12 @@ body,
   align-items: center;
   -ms-flex-align: center; }
   .status-meta .profile-pic {
-    margin-right: 0.625em; }
-    .status-meta .profile-pic img {
-      height: 32px;
-      widht: 32px;
-      border-radius: 0.125em; }
+    margin-right: 0.625em;
+    width: 32px;
+    height: 32px;
+    border-radius: 0.125em;
+    background-size: cover;
+    background-position: center; }
   .status-meta h3 {
     text-transform: capitalize;
     font-size: 1.1875em;
@@ -3929,10 +3942,12 @@ body,
     -ms-flex-positive: 1;
     text-align: right; }
 
-.status-content .shared-user {
-  color: #fa7c38; }
-.status-content .original {
-  font-size: 0.8125em; }
+.status-content {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+  .status-content .shared-user {
+    color: #fa7c38; }
+  .status-content .original {
+    font-size: 0.8125em; }
 
 .status-actions .action-buttons {
   margin: 0.625em 0 0; }
@@ -4705,11 +4720,18 @@ body,
     font-weight: normal;
     font-size: 0.875em;
     border-bottom: 3px solid #82a7db; }
+    .timeline-filter button i {
+      font-size: 0.75em;
+      margin-right: 3px;
+      color: #82a7db;
+      position: relative;
+      bottom: 1px; }
     .timeline-filter button:hover {
-      background: #477dca;
-      border-bottom: 3px solid #ff9963; }
+      background: #477dca; }
     .timeline-filter button.active {
       border-bottom: 3px solid white; }
+      .timeline-filter button.active i {
+        color: white; }
       .timeline-filter button.active:hover {
         background: #477dca; }
 
@@ -4858,7 +4880,7 @@ body,
     -ms-flex-align: center; }
   .user-box .more-info {
     font-size: 0.8125em;
-    color: #999999;
+    color: #656565;
     text-transform: capitalize; }
     .user-box .more-info .location {
       text-decoration: italic; }
@@ -4866,7 +4888,7 @@ body,
     min-width: 80px; }
     .user-box .social-buttons a {
       font-size: 1.1875em;
-      color: #333; }
+      color: #656565; }
 
 /* ===========================
  *  New Status Page
@@ -5107,64 +5129,66 @@ body,
     color: white;
     background: rgba(255, 255, 255, 0.15); }
 
-#reading-section .display-date {
-  position: relative;
-  text-align: center;
-  font-size: 1.25em;
-  letter-spacing: 0.125em;
-  padding: 0.1875em 0;
-  background: white;
-  border-bottom: 1px solid #f5f5f5; }
-  #reading-section .display-date #shareReading {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.25em;
-    font-size: 0.875em;
-    background: #83a7db;
-    color: white; }
+#reading-section {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+  #reading-section .display-date {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.25em;
+    letter-spacing: 0.125em;
+    padding: 0.1875em 0;
+    background: white;
+    border-bottom: 1px solid #f5f5f5; }
+    #reading-section .display-date #shareReading {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0.25em;
+      font-size: 0.875em;
+      background: #83a7db;
+      color: white; }
+      @media screen and (min-width: 48em) {
+        #reading-section .display-date #shareReading {
+          padding: 0.375em; } }
     @media screen and (min-width: 48em) {
-      #reading-section .display-date #shareReading {
-        padding: 0.375em; } }
-  @media screen and (min-width: 48em) {
-    #reading-section .display-date {
-      font-size: 1.5em;
-      padding: 0.3125em 0; } }
-#reading-section .reading-title {
-  font-weight: normal;
-  text-align: center;
-  margin-top: 0.625em;
-  font-size: 1.625em !important; }
-#reading-section .current-reading {
-  padding: 0.3125em 0.625em; }
-  #reading-section .current-reading blockquote {
-    padding: 0;
-    margin: 0.8125em 0;
-    border-left: 0;
-    font-size: 0.9375em;
-    text-align: center; }
-  #reading-section .current-reading .quoted-page {
-    display: block;
-    text-align: right;
-    font-weight: bold;
-    font-size: 0.875em; }
-  #reading-section .current-reading p {
-    padding: 0 0.3125em;
-    font-size: 1em;
-    line-height: 1.375em;
-    text-align: justify; }
-  #reading-section .current-reading h3 {
+      #reading-section .display-date {
+        font-size: 1.5em;
+        padding: 0.3125em 0; } }
+  #reading-section .reading-title {
     font-weight: normal;
-    font-size: 1.5em;
-    margin: 15px 5px 10px;
     text-align: center; }
-  #reading-section .current-reading h3 + p {
-    text-align: center; }
+  #reading-section .current-reading {
+    padding: 0.3125em 0.625em; }
+    #reading-section .current-reading blockquote {
+      padding: 0;
+      margin: 0.8125em 0;
+      border-left: 0;
+      font-size: 1em;
+      text-align: center; }
+    #reading-section .current-reading .quoted-page {
+      display: block;
+      text-align: right;
+      font-weight: bold;
+      font-size: 0.875em; }
+    #reading-section .current-reading p {
+      padding: 0 0.3125em;
+      font-size: 1.0625em;
+      line-height: 1.4375em;
+      text-align: justify; }
+    #reading-section .current-reading h3 {
+      font-weight: normal;
+      font-size: 1.75em;
+      margin: 0;
+      text-align: center; }
+    #reading-section .current-reading h3 + p {
+      text-align: center; }
 
 #reading-copyright {
   padding: 10px 0;
   font-size: 0.875em;
-  text-align: center; }
+  text-align: center;
+  font-style: italic; }
 
 #profile-picture {
   min-height: 100%; }

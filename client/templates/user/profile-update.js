@@ -98,28 +98,6 @@ Template.profileUpdate.events({
 
         $('#save-changes').text('Updating...');
 
-        // upload profile pic from cordova
-        if (template.cordovaFile.get()) {
-            var file = template.cordovaFile.get();
-            window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
-                fileEntry.file(function(fileObj) {
-                    file.size = fileObj.size;
-                    AwsUpload.upload(file, function(path) {
-                        var user = Object.create(null);
-                        user.profilePic = path;
-                        Meteor.call('updateProfile', user, function(error, result) {
-                            if (error) {
-                                $('.response').addClass('error').text(error);
-                                return;
-                            }
-
-                            $('#save-changes').text('Profile Updated!');
-                        });
-                    });
-                });
-            });
-        }
-
         // upload profile pic for web
         if (!Meteor.isCordova) {
             var file = $('[name=profilePic]')[0].files[0];
@@ -176,23 +154,6 @@ Template.profileUpdate.events({
             days = new Date(year, month, 0).getDate();
 
         Session.set('days', days);
-    },
-    'click #cordova-upload': function(e, template) {
-        window.imagePicker.getPictures(
-            function (results) {
-                for (var i = 0; i < results.length; i++) {
-                    var file = {
-                        type: results[i].split('.').pop(),
-                        name: results[i].replace(/^.*[\\\/]/, ''),
-                        uri: results[i]
-                    };
-
-                    template.cordovaFile.set(file);
-                    $('#cordova-upload').text(file.name);
-                }
-            }, function(error) {
-                console.log(error);
-            });
     }
 
 });

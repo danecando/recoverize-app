@@ -1,6 +1,5 @@
 <template name="profilePicture">
   <div id="profile-picture" class="page-container">
-
     <form action="">
     {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
     {{#if cordova}}

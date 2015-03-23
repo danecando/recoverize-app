@@ -8,6 +8,7 @@ Template.timeline.created = function() {
     Tracker.autorun(function() {
         Meteor.subscribe('timeline', self.limit.get(), self.filter.get());
 
+        // might want to offset here seems like were loading everything repeatedly
         var statuses = Status.find(self.filter.get(), {limit: self.limit.get()}).fetch();
         statuses = statuses.sort(function(a, b) {
             return b[self.sort.get()] - a[self.sort.get()]
@@ -23,12 +24,14 @@ Template.timeline.destroyed = function() {
 
 Template.timeline.rendered = function() {
     var self = this;
-    $('.status-scroll').scroll(function() {
-        if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
-            var newLimit = self.limit.get() + 10;
-            self.limit.set(newLimit);
-        }
-    });
+    if (!Meteor.isCordova) {
+        $('.status-scroll').scroll(function () {
+            if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
+                var newLimit = self.limit.get() + 10;
+                self.limit.set(newLimit);
+            }
+        });
+    }
 }
 
 Template.timeline.helpers({
