@@ -1390,6 +1390,7 @@
   @include display(flex);
   @include align-items(center);
   @include flex-direction(column);
+  position: relative;
 
   .no-statuses {
     padding: em(25);

@@ -3879,7 +3879,8 @@ body,
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   flex-direction: column;
-  -ms-flex-direction: column; }
+  -ms-flex-direction: column;
+  position: relative; }
   .status-list .no-statuses {
     padding: 1.5625em; }
     .status-list .no-statuses h2 {
