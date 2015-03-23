@@ -507,6 +507,12 @@
 
 .view-profile {
 
+  .profile-img {
+    width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
   img {
     height: 75px;
     width: 75px;
@@ -691,7 +697,7 @@
   @include clearfix;
   @include display(flex);
   @include align-items(center);
-  padding: 10px 0;
+  padding: 10px 5px;
   border-bottom: 1px solid #eee;
   @include transition(background 200ms ease-in-out);
 
@@ -703,8 +709,11 @@
   .profile-picture {
     float: left;
     padding: 0 5px;
-    width: 15%;
-    height: auto;
+    height: 38px;
+    width: 38px;
+
+    background-size: cover;
+    background-position: center;
 
     img {
       vertical-align: bottom;
@@ -1087,6 +1096,7 @@
 
     .message {
       font-size: em(16);
+      font-family: $helvetica;
       letter-spacing: em(-.5);
     }
   }
@@ -1398,6 +1408,7 @@
   border-radius: em(3);
   background: white;
   margin: em(20) 0 em(5);
+  box-shadow: 0 0 10px 0 rgba(50, 50, 50, .05);
 }
 
 .status-image {
@@ -1411,11 +1422,16 @@
 
   .profile-pic {
     margin-right: em(10);
-    img {
-      height: 32px;
-      widht: 32px;
-      border-radius: em(2);
-    }
+    width: 32px;
+    height: 32px;
+    border-radius: em(2);
+    background-size: cover;
+    background-position: center;
+//    img {
+//      height: 32px;
+//      widht: 32px;
+//      border-radius: em(2);
+//    }
   }
 
   h3 {
@@ -1440,6 +1456,7 @@
 }
 
 .status-content {
+  font-family: $helvetica;
 
   .shared-user {
     color: $brand-color;
@@ -2173,12 +2190,24 @@
     font-size: em(14);
     border-bottom: 3px solid lighten(#477dca, 15);
 
+    i {
+      font-size: em(12);
+      margin-right: 3px;
+      color: lighten(#477dca, 15);
+      position: relative;
+      bottom: 1px;
+    }
+
     &:hover {
       background: #477dca;
-      border-bottom: 3px solid $brand-light;
     }
     &.active {
       border-bottom: 3px solid white;
+
+      i {
+        color: white;
+      }
+
       &:hover {
         background: #477dca;
       }
@@ -2309,7 +2338,7 @@
 
   .more-info {
     font-size: em(13);
-    color: $medium-gray;
+    color: #656565;
     text-transform: capitalize;
 
     .location {
@@ -2325,7 +2354,7 @@
 
     a {
       font-size: em(19);
-      color: #333;
+      color: #656565;
     }
 
     .btn-unfollow {
@@ -2540,8 +2569,10 @@
 }
 
 #reading-section {
+  font-family: $helvetica;
   .display-date {
     position: relative;
+    margin-bottom: 15px;
 
     #shareReading {
       position: absolute;
@@ -2574,8 +2605,6 @@
   .reading-title {
     font-weight: normal;
     text-align: center;
-    margin-top: em(10);
-    font-size: em(26) !important;
   }
 
   .current-reading {
@@ -2585,7 +2614,7 @@
       padding: 0;
       margin: em(13) 0;
       border-left: 0;
-      font-size: em(15);
+      font-size: em(16);
       text-align: center;
     }
 
@@ -2598,15 +2627,15 @@
 
     p {
       padding: 0 em(5);
-      font-size: em(16);
-      line-height: em(22);
+      font-size: em(17);
+      line-height: em(23);
       text-align: justify;
     }
 
     h3 {
       font-weight: normal;
-      font-size: em(24);
-      margin: 15px 5px 10px;
+      font-size: em(28);
+      margin: 0;
       text-align: center;
     }
 
@@ -2620,6 +2649,7 @@
   padding: 10px 0;
   font-size: em(14);
   text-align: center;
+  font-style: italic;
 }
 
 #profile-picture {

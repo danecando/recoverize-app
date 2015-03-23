@@ -2,11 +2,11 @@
   <div id="timeline" class="page-container">
 
     <section class="timeline-filter">
-        <button id="recent-timeline" class="active">Recent</button>
-        <button id="popular-timeline">Popular</button>
-        <button id="following-timeline">Following</button>
+        <button id="recent-timeline" class="active"><i class="fa fa-list"></i> Recent</button>
+        <button id="popular-timeline"><i class="fa fa-fire"></i> Popular</button>
+        <button id="following-timeline"><i class="fa fa-users"></i> Following</button>
     </section>
-    <section class="status-scroll">
+    <section id="status-scroll" class="status-scroll">
         <div class="status-list">
             {{#each status}}
                 {{> statusp}}

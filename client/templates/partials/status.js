@@ -1,6 +1,3 @@
-Template.statusp.created = function() {
-    var userSub = Meteor.subscribe('statusUser', this.data.username);
-};
 
 Template.statusp.helpers({
     isShared: function() {

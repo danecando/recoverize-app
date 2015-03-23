@@ -2,6 +2,8 @@
  * Used for manually working on data in the database
  */
 
+Push.debug = true;
+
 //var allreadings = Npm.require(process.env.PWD + '/server/reading.json');
 //
 //allreadings.forEach(function(page) {
