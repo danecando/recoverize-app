@@ -3739,7 +3739,7 @@ body,
         margin-right: 0; } }
   .user-profile .profile-picture .image-container {
     background-size: cover !important;
-    background-position: center;
+    background-position: center !important;
     margin: 0 auto;
     border-radius: 0.125em;
     border: 2px solid white;
@@ -4015,6 +4015,7 @@ body,
     text-align: right; }
 
 .status-content {
+  margin: 10px 0 5px;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
   .status-content .shared-user {
     color: #fa7c38; }

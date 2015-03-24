@@ -1218,7 +1218,7 @@
 
     .image-container {
       background-size: cover !important;
-      background-position: center;
+      background-position: center !important;
       margin: 0 auto;
       border-radius: em(2);
       border: 2px solid white;
@@ -1458,6 +1458,7 @@
 }
 
 .status-content {
+  margin: 10px 0 5px;
   font-family: $helvetica;
 
   .shared-user {
