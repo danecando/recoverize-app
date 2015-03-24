@@ -6,9 +6,7 @@
         {{#each listOfUsers}}
           <li>
             <a style="color: {{userColor username}}" href="/users/{{this.username}}">
-              <div class="profile-picture">
-                <img src="{{profilePic username 'thumb'}}" alt="{{username}}">
-              </div>
+              <div class="profile-picture" style="background-image: url({{profilePic username 'thumb'}});"></div>
               <div class="username">
                 {{this.username}}
               </div>

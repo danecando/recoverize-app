@@ -3551,7 +3551,9 @@ body,
   .chat-sidebar .user-list .profile-picture {
     height: 20px;
     width: 20px;
-    padding: 0; }
+    padding: 0;
+    background-size: cover;
+    background-position: center; }
     .chat-sidebar .user-list .profile-picture img {
       vertical-align: top; }
   .chat-sidebar .user-list .username {
