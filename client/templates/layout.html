@@ -48,10 +48,17 @@
       </section>
 
     </main>
-    <div class="notification-overlay">
-        <div class="notification-content">
-         {{notificationUpdate}}
+
+    {{#unless connected}}
+        <div class="notification-overlay">
+            <div class="notification-content">
+              <i class="fa fa-exclamation-triangle fa-lg"></i>
+                <div class="content">
+                    <div class="title-notification">Trying to connect...</div>
+                    <div class="description">Check your internet connection</div>
+                </div>
+            </div>
         </div>
-    </div>
+    {{/unless}}
   </div>
 </template>
