@@ -5,7 +5,7 @@ Template.userlist.created = function() {
 
 
     var self = this;
-    Deps.autorun(function() {
+    Tracker.autorun(function() {
         var filter = self.filter.get();
         filter.profileCreated = true; // make sure we only get finished profiles
         Meteor.subscribe('userList', self.limit.get(), filter);
@@ -23,13 +23,15 @@ Template.userlist.rendered = function() {
         if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
             var newLimit = self.limit.get() + 15;
             self.limit.set(newLimit);
+            Tracker.flush()
         }
     });
 };
 
 Template.userlist.helpers({
     listOfUsers: function() {
-        return Meteor.users.find(Template.instance().filter.get(), { limit: Template.instance().limit.get() });
+        var users = Meteor.users.find(Template.instance().filter.get(), { limit: Template.instance().limit.get() });
+        return users;
     },
     isCurrentUser: function(user) {
         return user === Meteor.user().username;

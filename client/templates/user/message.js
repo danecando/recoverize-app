@@ -13,14 +13,14 @@ Template.message.rendered = function() {
     Meteor.startup(function() {
         autoScroll();
 
-        queryHandle = Template.instance().messages.get().observe({
-            added: function() {
-                autoScroll();
-            },
-            changed: function(id, fields) {
-                autoScroll();
-            }
-        });
+        //queryHandle = Template.instance().messages.get().observe({
+        //    added: function() {
+        //        autoScroll();
+        //    },
+        //    changed: function(id, fields) {
+        //        autoScroll();
+        //    }
+        //});
     });
 
     // make sure an user doesn't chat with himself
@@ -31,7 +31,7 @@ Template.message.rendered = function() {
 };
 
 Template.message.destroyed = function() {
-  queryHandle.stop();
+  //queryHandle.stop();
 };
 
 Template.message.events({
@@ -83,11 +83,11 @@ Template.message.helpers({
 function sendMessage(to) {
     if (!to) return;
 
-    var input = $('.message-input textarea')
+    var input = $('.message-input textarea');
     if (input.val().trim() !== '') {
         Meteor.call('addMessage', input.val(), to);
         input.val('');
-        autoScroll();
+        //autoScroll();
     }
 }
 
