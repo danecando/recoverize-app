@@ -192,6 +192,10 @@ Template.createProfile.events({
             quote: $('[name=quote]').val()
         };
 
+        if (!Meteor.user().username) {
+            location.reload(true);
+        }
+
         if (Meteor.user().profile.profilePic) {
             profile.profilePic = Meteor.user().profile.profilePic;
         } else {

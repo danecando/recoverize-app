@@ -42,6 +42,13 @@ Accounts.onCreateUser(function(options, user) {
 //    }
 //})
 
+//Meteor.publish('allUsers', function() {
+//    return Meteor.users.find(
+//        {},
+//        { fields: { 'roles': false, 'emails': false, 'services': false } }
+//    );
+//});
+
 // Publish user data (self account data published by default)
 Meteor.publish('userData', function() {
     if (!this.userId) {
@@ -94,7 +101,7 @@ Meteor.publish('notification', function(){
 Meteor.publish('userPublic', function(username) {
     if (username) {
         return Meteor.users.find(
-            {username: username},
+            { username: username },
             { fields: { 'roles': false, 'emails': false, 'services': false } }
         );
     } else {
