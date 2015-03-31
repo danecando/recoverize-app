@@ -29,7 +29,7 @@ internals.profilePicUpload = function(file, cb) {
     var user = {};
     var uploader = new Slingshot.Upload('profilePic');
 
-    processImage(file, 75, 75, function(dataURI) {
+    processImage(file, 125, 125, function(dataURI) {
         var thumbnail = internals.dataURItoBlob(dataURI);
         thumbnail.name = 'thumb_' + file.name;
 

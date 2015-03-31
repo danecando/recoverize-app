@@ -10,7 +10,6 @@
       <li class="view-profile">
         <a href="/users/{{user.username}}">
           <div class="profile-img" style="background-image: url({{profilePic user.username 'thumb'}});"></div>
-          <!--<img src="{{profilePic user.username 'thumb'}}" alt="{{user.username}}"/>-->
         </a>
       </li>
       <li class="account-settings">
@@ -28,7 +27,7 @@
           </li>
           <li>
             <label for="profilePic">Profile Picture <small class="desc">Suggested Dimensions: 400x400</small></label>
-            {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
+            {{#if user.profile.profilePic}}<div class="profile-img" style="background-image: url({{profilePic user.username}});"></div>{{/if}}
             {{#if cordova}}
               <a class="profile-picture-link" href="/profile-picture">Upload / Change Profile Picture</a>
             {{else}}
@@ -107,4 +106,5 @@
     </form>
 
   </div>
+
 </template>
