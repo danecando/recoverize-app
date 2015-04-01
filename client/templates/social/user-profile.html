@@ -57,6 +57,11 @@
           {{#each status}}
             {{> statusp}}
           {{/each}}
+          {{#if hasMore}}
+            <div class="load-btn-container">
+              <button id="load-more">Load more shares</button>
+            </div>
+          {{/if}}
           {{else}}
               <div class="no-statuses">
                 <h2>{{username}} hasn't shared anything yet!</h2>

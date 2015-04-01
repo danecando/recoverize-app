@@ -11,7 +11,7 @@
           {{#each status}}
               {{> statusp}}
           {{/each}}
-          {{#if status}}
+          {{#if status.length}}
               {{#if cordova}}
                 <div class="load-btn-container">
                   <button id="load-more">Load more shares</button>

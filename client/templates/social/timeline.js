@@ -11,20 +11,12 @@ Template.timeline.created = function() {
         // might want to offset here seems like were loading everything repeatedly
         var statuses = Status.find(self.filter.get(), {limit: self.limit.get()}).fetch();
 
-        if (statuses.length < self.limit) {
-            return;
-        }
-
         statuses = statuses.sort(function(a, b) {
             return b[self.sort.get()] - a[self.sort.get()];
         });
 
         self.statusList.set(statuses);
     });
-};
-
-Template.timeline.destroyed = function() {
-    this.limit.set(10);
 };
 
 Template.timeline.rendered = function() {

@@ -1,3 +1,17 @@
+Template.userProfile.created = function() {
+    this.limit = new ReactiveVar(10);
+    this.statusList = new ReactiveVar();
+
+    var self = this;
+    Tracker.autorun(function() {
+        Meteor.subscribe('userStatuses', self.data.username, self.limit.get());
+
+        // might want to offset here seems like were loading everything repeatedly
+        var statuses = Status.find({username: self.data.username}, {limit: self.limit.get()});
+        self.statusList.set(statuses);
+    });
+};
+
 
 Template.userProfile.helpers({
     user: function() {
@@ -7,7 +21,7 @@ Template.userProfile.helpers({
         return this.username === Meteor.user().username;
     },
     status: function() {
-        return Status.find({username: this.username}, {sort: {timestamp: -1}});
+        return Template.instance().statusList.get();
     },
     banned: function() {
         var user = Meteor.users.findOne({username: this.username});
@@ -19,10 +33,28 @@ Template.userProfile.helpers({
         if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
             return true;
         }
+    },
+    cordova: function() {
+        return Meteor.isCordova;
+    },
+    hasMore: function() {
+        return Template.instance().statusList.get().count() >= Template.instance().limit.get();
     }
 });
 
 Template.userProfile.events({
+    'click #load-more': function(e, template) {
+        e.preventDefault();
+
+        var limit = template.limit.get();
+        var newLimit = limit + limit;
+        template.limit.set(newLimit);
+
+        if (template.statusList.get().count() < newLimit) {
+            $(e.target).css('display', 'none');
+            return;
+        }
+    },
     'click .followBtn': function(e, template) {
         Meteor.call('follow', this.username);
     },
