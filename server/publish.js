@@ -121,7 +121,7 @@ Meteor.publish('userStatuses', function(username, limit) {
     if (username) {
         return Status.find(
             { username: username },
-            { limit: limit }
+            { limit: limit, sort: { timestamp: -1 } }
         );
     } else {
         this.ready();

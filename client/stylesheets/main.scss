@@ -44,10 +44,25 @@
   }
 }
 
+.profile-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #ban-user {
   background: $error-color;
   width: 100%;
   margin: em(25) 0;
+}
+
+.load-btn-container {
+  margin: 20px 0;
+}
+
+#load-more {
+  width: 100%;
+  border-radius: 3px;
 }
 
 .help-link {
@@ -57,7 +72,7 @@
 }
 
 .page-container {
-  min-height: 100%;
+  min-height: 100vh;
   background: #fff;
 }
 
@@ -593,6 +608,14 @@
         color: $medium-gray;
       }
     }
+  }
+
+  .profile-img {
+    height: 125px;
+    width: 125px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .profile-picture-link {
@@ -1304,6 +1327,7 @@
     color: white;
     text-align: center;
     border-radius: em(3);
+    font-size: em(17);
 
     @include media($tablet-screen-up) {
       width: 80%;
@@ -2653,6 +2677,7 @@
     }
 
     .quoted-page {
+      margin-top: 10px;
       display: block;
       text-align: right;
       font-weight: bold;
@@ -2662,7 +2687,7 @@
     p {
       padding: 0 em(5);
       font-size: em(17);
-      line-height: em(23);
+      line-height: em(24);
       text-align: justify;
     }
 
