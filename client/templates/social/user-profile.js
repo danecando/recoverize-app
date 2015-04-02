@@ -1,5 +1,5 @@
 Template.userProfile.created = function() {
-    this.limit = new ReactiveVar(10);
+    this.limit = new ReactiveVar(15);
     this.statusList = new ReactiveVar();
 
     var self = this;
