@@ -74,7 +74,7 @@ internals.statusPhotoUpload = function(file, cb) {
     var uploader = new Slingshot.Upload("profilePic");
 
     processImage(file, 500, 500, function(dataURI) {
-        var statusPhoto = dataURItoBlob(dataURI);
+        var statusPhoto = internals.dataURItoBlob(dataURI);
         statusPhoto.name = file.name;
 
         uploader.send(statusPhoto, function (error, downloadUrl) {
