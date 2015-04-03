@@ -2287,7 +2287,7 @@
     padding: em(5);
 
     @include media($tablet-screen-up) {
-      @include calc(height, '100vh - 34px');
+      @include calc(height, '100vh - 37px');
     }
   }
 
@@ -2296,6 +2296,8 @@
   }
 
   .page-head {
+    border-bottom: 3px solid #477DCA;
+
     .title {
       display: inline-block;
       @include calc(width, '100% - 32px');
@@ -2314,26 +2316,33 @@
   }
 
   .user-search {
+    padding: 0 em(5);
     background: #477dca;
-    padding: em(5);
-    position: absolute;
-    top: -25px;
-    left: 0;
+    height: 0;
     width: 100%;
-   @include transition(top 200ms ease-in-out);
+   @include transition(height 200ms ease);
+
 
     input {
       width: 100%;
       margin: 0 auto;
-      height: 30px;
+      height: 0;
       border: 0;
       border-radius: em(2);
+      @include transition(height 200ms ease);
     }
   }
 
   &.search-open .user-search {
-    @include transition(top 200ms ease);
-    top: 34px;
+    @include transition(height 200ms ease);
+    height: 40px;
+    padding: em(5);
+
+    input {
+      height: 30px;
+      @include transition(height 200ms ease);
+
+    }
   }
 }
 
