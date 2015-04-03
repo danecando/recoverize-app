@@ -3047,7 +3047,7 @@ body,
 
 .notification {
   min-width: 270px;
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   background: rgba(50, 50, 50, 0.75);
   padding: 10px;
@@ -3867,12 +3867,12 @@ body,
     text-align: center; }
     .notifications-page .new-notifications .notification-amount {
       color: white;
-      font-size: 1.125em;
-      margin-right: 10px; }
+      font-size: 1.375em;
+      margin-right: 14px; }
   .notifications-page button {
-    padding: 0.375em;
+    padding: 0.5em;
     border-radius: 0em;
-    font-size: 0.875em;
+    font-size: 1em;
     background: white;
     color: #2c5999; }
   .notifications-page .notification {
@@ -4855,14 +4855,16 @@ body,
   padding: 0.3125em; }
   @media screen and (min-width: 48em) {
     #user-list .user-scroll {
-      height: -webkit-calc(100vh - 34px);
-      height: calc(100vh - 34px); } }
+      height: -webkit-calc(100vh - 37px);
+      height: calc(100vh - 37px); } }
 #user-list .fixed-header {
   position: relative; }
-#user-list .page-head .title {
-  display: inline-block;
-  width: -webkit-calc(100% - 32px);
-  width: calc(100% - 32px); }
+#user-list .page-head {
+  border-bottom: 3px solid #477DCA; }
+  #user-list .page-head .title {
+    display: inline-block;
+    width: -webkit-calc(100% - 32px);
+    width: calc(100% - 32px); }
 #user-list #search-toggle {
   position: absolute;
   top: 0;
@@ -4871,26 +4873,33 @@ body,
   #user-list #search-toggle:hover {
     background: #477dca; }
 #user-list .user-search {
+  padding: 0 0.3125em;
   background: #477dca;
-  padding: 0.3125em;
-  position: absolute;
-  top: -25px;
-  left: 0;
+  height: 0;
   width: 100%;
-  -webkit-transition: top 200ms ease-in-out;
-  -moz-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out; }
+  -webkit-transition: height 200ms ease;
+  -moz-transition: height 200ms ease;
+  transition: height 200ms ease; }
   #user-list .user-search input {
     width: 100%;
     margin: 0 auto;
-    height: 30px;
+    height: 0;
     border: 0;
-    border-radius: 0.125em; }
+    border-radius: 0.125em;
+    -webkit-transition: height 200ms ease;
+    -moz-transition: height 200ms ease;
+    transition: height 200ms ease; }
 #user-list.search-open .user-search {
-  -webkit-transition: top 200ms ease;
-  -moz-transition: top 200ms ease;
-  transition: top 200ms ease;
-  top: 34px; }
+  -webkit-transition: height 200ms ease;
+  -moz-transition: height 200ms ease;
+  transition: height 200ms ease;
+  height: 40px;
+  padding: 0.3125em; }
+  #user-list.search-open .user-search input {
+    height: 30px;
+    -webkit-transition: height 200ms ease;
+    -moz-transition: height 200ms ease;
+    transition: height 200ms ease; }
 
 .user-box {
   display: -webkit-box;
@@ -5161,36 +5170,44 @@ body,
  *  Dashboard
  * =========================== */
 #dashboard {
-  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
-  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
-  color: white; }
+  color: white;
+  background: #fafafa; }
   #dashboard .top-info {
     color: white;
     background: #2c5999;
+    font-size: 1.125em;
     border-bottom: 2px solid #477dca;
     padding: 0.3125em; }
     #dashboard .top-info time {
       display: block;
       text-align: center; }
   #dashboard .user-intro {
-    background: #477dca; }
+    background: #477dca;
+    border-bottom: 2px solid #5b8bd0; }
   #dashboard .welcome-back {
     padding: 0.5em 0.625em;
     text-align: center;
-    font-size: 0.9375em; }
+    font-size: 1.25em;
+    letter-spacing: 0.03125em; }
   #dashboard .dash-section {
     padding: 1.25em 0.625em;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto; }
     #dashboard .dash-section h3 {
-      font-size: 0.75em;
+      font-size: 1em;
       text-transform: uppercase;
       letter-spacing: 0.09375em;
-      margin-bottom: 0.3125em; }
+      margin-bottom: 0.3125em;
+      color: #123865; }
     #dashboard .dash-section a {
-      color: white; }
+      color: #123865;
+      font-size: 1.0625em; }
+    #dashboard .dash-section .section-head {
+      margin-bottom: 8px; }
     #dashboard .dash-section .section-body {
-      font-size: 0.9375em; }
+      font-size: 1.0625em; }
+  #dashboard .social-updates {
+    margin-bottom: 8px; }
 
 /* ===========================
  *  Daily Readings
