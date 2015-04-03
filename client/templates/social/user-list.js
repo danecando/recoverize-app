@@ -63,6 +63,14 @@ Template.userlist.events({
         }
 
         var value = $(e.target).val().trim().toLowerCase();
+
+        if (value) {
+            $('#load-more').css('display', 'none');
+            template.limit.set(100000);
+        } else {
+            $('#load-more').css('display', 'block');
+            template.limit.set(10);
+        }
         template.filter.set({username: {$regex: value}});
     },
     'click #search-toggle': function(e, template) {

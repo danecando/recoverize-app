@@ -5161,36 +5161,44 @@ body,
  *  Dashboard
  * =========================== */
 #dashboard {
-  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), -webkit-linear-gradient(-450deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
-  background: url("https://d6gyptuog2clr.cloudfront.net/textures/inverted/wavecut.png"), linear-gradient(180deg, #3770c1, #5b8bd0), center no-repeat #3770c1 scroll;
-  color: white; }
+  color: white;
+  background: #fafafa; }
   #dashboard .top-info {
     color: white;
     background: #2c5999;
+    font-size: 1.125em;
     border-bottom: 2px solid #477dca;
     padding: 0.3125em; }
     #dashboard .top-info time {
       display: block;
       text-align: center; }
   #dashboard .user-intro {
-    background: #477dca; }
+    background: #477dca;
+    border-bottom: 2px solid #5b8bd0; }
   #dashboard .welcome-back {
     padding: 0.5em 0.625em;
     text-align: center;
-    font-size: 0.9375em; }
+    font-size: 1.25em;
+    letter-spacing: 0.03125em; }
   #dashboard .dash-section {
     padding: 1.25em 0.625em;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto; }
     #dashboard .dash-section h3 {
-      font-size: 0.75em;
+      font-size: 1em;
       text-transform: uppercase;
       letter-spacing: 0.09375em;
-      margin-bottom: 0.3125em; }
+      margin-bottom: 0.3125em;
+      color: #123865; }
     #dashboard .dash-section a {
-      color: white; }
+      color: #123865;
+      font-size: 1.0625em; }
+    #dashboard .dash-section .section-head {
+      margin-bottom: 8px; }
     #dashboard .dash-section .section-body {
-      font-size: 0.9375em; }
+      font-size: 1.0625em; }
+  #dashboard .social-updates {
+    margin-bottom: 8px; }
 
 /* ===========================
  *  Daily Readings
