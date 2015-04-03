@@ -492,7 +492,7 @@
 
 .notification {
   min-width: 270px;
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   background: rgba(50, 50, 50, .75);
   padding: 10px;
@@ -1358,14 +1358,14 @@
 
     .notification-amount {
       color: white;
-      font-size: em(18);
-      margin-right: 10px;
+      font-size: em(22);
+      margin-right: 14px;
     }
   }
   button {
-    padding: em(6);
+    padding: em(8);
     border-radius: em(0);
-    font-size: em(14);
+    font-size: em(16);
     background: white;
     color: $secondary-blue;
   }

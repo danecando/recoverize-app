@@ -3047,7 +3047,7 @@ body,
 
 .notification {
   min-width: 270px;
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   background: rgba(50, 50, 50, 0.75);
   padding: 10px;
@@ -3867,12 +3867,12 @@ body,
     text-align: center; }
     .notifications-page .new-notifications .notification-amount {
       color: white;
-      font-size: 1.125em;
-      margin-right: 10px; }
+      font-size: 1.375em;
+      margin-right: 14px; }
   .notifications-page button {
-    padding: 0.375em;
+    padding: 0.5em;
     border-radius: 0em;
-    font-size: 0.875em;
+    font-size: 1em;
     background: white;
     color: #2c5999; }
   .notifications-page .notification {
