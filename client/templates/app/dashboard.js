@@ -19,9 +19,14 @@ Template.dashboard.helpers({
     },
     completed: function() {
         return Tasks.find({ checked: true })
+    },
+    newUsers: function() {
+        return Meteor.users.find(
+            { username: { $not: Meteor.user().username }}
+        );
     }
-})
+});
 
 Template.dashboard.events({
 
-})
+});

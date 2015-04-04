@@ -58,6 +58,18 @@ Meteor.publish('userData', function() {
     return Meteor.users.find({ _id: this.userId });
 });
 
+Meteor.publish('newUsers', function() {
+
+    return Meteor.users.find(
+        {},
+        {
+            fields: { 'username': true, 'createdAt': true, 'profile.name': true},
+            limit: 6,
+            sort: { createdAt: -1 }
+        }
+    );
+});
+
 /**
  * Total user count
  */

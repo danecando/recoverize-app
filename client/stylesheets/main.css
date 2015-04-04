@@ -2536,7 +2536,7 @@ body,
 
 #app {
   top: 43px;
-  height: 100%; }
+  min-height: 100%; }
   @media screen and (min-width: 48em) {
     #app {
       top: 0;
@@ -5187,6 +5187,10 @@ body,
     #dashboard .top-info time {
       display: block;
       text-align: center; }
+  #dashboard .new-user {
+    margin-bottom: 5px; }
+    #dashboard .new-user a {
+      padding: 3px; }
   #dashboard .user-intro {
     background: #477dca;
     border-bottom: 2px solid #5b8bd0; }
