@@ -30,11 +30,16 @@ body,
 
 #app {
   top: 43px;
+  height: 100%;
 
   @include media($tablet-screen-up) {
     top: 0;
     @include outer-container;
   }
+}
+
+.cordova #app {
+  height: auto;
 }
 
 #menu {

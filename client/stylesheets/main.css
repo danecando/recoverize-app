@@ -2535,7 +2535,8 @@ body,
   overflow: hidden; }
 
 #app {
-  top: 43px; }
+  top: 43px;
+  height: 100%; }
   @media screen and (min-width: 48em) {
     #app {
       top: 0;
@@ -2546,6 +2547,9 @@ body,
         content: "";
         display: table;
         clear: both; } }
+
+.cordova #app {
+  height: auto; }
 
 #menu {
   width: 270px;
@@ -2724,7 +2728,7 @@ body,
   margin: 1.5625em 0; }
 
 .load-btn-container {
-  margin: 20px 0; }
+  padding: 20px 0; }
 
 #load-more {
   width: 100%;
@@ -2736,7 +2740,7 @@ body,
   letter-spacing: 0.0625em; }
 
 .page-container {
-  min-height: 100vh;
+  min-height: 100%;
   background: #fff; }
 
 .text-input {
@@ -4785,11 +4789,13 @@ body,
  * =========================== */
 #timeline {
   background: #fafafa; }
+  .cordova #timeline {
+    height: -webkit-calc(100vh - 40px);
+    height: calc(100vh - 40px); }
   #timeline .status-scroll {
     height: -webkit-calc(100vh - 83px);
     height: calc(100vh - 83px);
-    overflow: hidden;
-    overflow-y: auto;
+    overflow: scroll;
     webkit-overflow-scrolling: touch; }
     @media screen and (min-width: 48em) {
       #timeline .status-scroll {
