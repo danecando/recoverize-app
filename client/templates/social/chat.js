@@ -80,11 +80,11 @@ function sendMessage() {
     var $input = $('.chat-input textarea');
 
     if ($input.attr('data-greeting') == 'true') {
-        // todo: write serenity inc method and give serenity
+        Meteor.call('increaseSerenity', 5);
     }
 
     if ($input.attr('data-congrats') == 'true') {
-        // todo: +2
+        Meteor.call('increaseSerenity', 2);
     }
 
     if ($input.val().trim() !== '') {
