@@ -70,6 +70,14 @@ Meteor.publish('newUsers', function() {
     );
 });
 
+//Meteor.publish('anniversaries', function() {
+//
+//
+//
+//    console.log(results);
+//    //return results;
+//});
+
 /**
  * Total user count
  */

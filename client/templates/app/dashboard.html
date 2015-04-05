@@ -49,12 +49,28 @@
         <div class="section-body">
           {{#each newUsers}}
             {{#if this.username}}
-            <div class="new-user">
-              <a href="/users/{{this.username}}">
-                {{this.profile.name}} <small>{{this.username}}</small>
-              </a>
-            </div>
-              {{/if}}
+              <div class="new-user">
+                <a href="/users/{{this.username}}">
+                  {{this.profile.name}} <small>{{this.username}}</small>
+                </a>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
+      <div class="new-users dash-section">
+        <div class="section-head">
+          <h3>Anniversaries this month</h3>
+        </div>
+        <div class="section-body">
+          {{#each anniversaries}}
+            {{#if this.username}}
+              <div class="new-user">
+                <a href="/users/{{this.username}}">
+                  {{this.profile.name}} <small>{{this.username}}</small>
+                </a>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
       </div>
