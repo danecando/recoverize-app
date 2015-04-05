@@ -40,6 +40,10 @@ Template.chat.rendered = function() {
 
 Template.chat.destroyed = function() {
     queryHandle.stop();
+
+    if (properties.greetUser) {
+        properties.greetUser = null;
+    }
 };
 
 Template.chat.events({
@@ -63,15 +67,29 @@ Template.chat.helpers({
     },
     listOfUsers: function() {
         return Template.instance().listOfUsers.get();
+    },
+    greeting: function() {
+        return properties.greetUser || null;
+    },
+    congrats: function() {
+        return properties.congratulateUser || null;
     }
 });
 
 function sendMessage() {
-    var input = $('.chat-input textarea');
+    var $input = $('.chat-input textarea');
 
-    if (input.val().trim() !== '') {
-        Meteor.call('addChat', input.val());
-        input.val('');
+    if ($input.attr('data-greeting') == 'true') {
+        // todo: write serenity inc method and give serenity
+    }
+
+    if ($input.attr('data-congrats') == 'true') {
+        // todo: +2
+    }
+
+    if ($input.val().trim() !== '') {
+        Meteor.call('addChat', $input.val());
+        $input.val('');
     }
 }
 

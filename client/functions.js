@@ -2,7 +2,7 @@
  * Expose methods via global var
  * @type {{}}
  */
-internals = {}
+internals = {};
 
 /**
  * Converts a data uri into Blob object
@@ -17,7 +17,7 @@ internals.dataURItoBlob = function(dataURI) {
         ia[i] = byteString.charCodeAt(i);
     }
     return new Blob([ab], { type: 'image/jpeg' });
-}
+};
 
 /**
  * Resizes profile picture image, uploads thumb and full size to aws, and stores in db

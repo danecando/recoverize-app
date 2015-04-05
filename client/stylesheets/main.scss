@@ -2580,13 +2580,6 @@
     }
   }
 
-  .new-user {
-    margin-bottom: 5px;
-    a {
-      padding: 3px;
-    }
-  }
-
   .user-intro {
     background: lighten($secondary-blue, 15);
     border-bottom: 2px solid lighten($secondary-blue, 20);
@@ -2622,11 +2615,37 @@
     .section-body {
       font-size: em(17);
     }
+
+    .btn-dash-item {
+      background: $base-link-color;
+      color: white;
+      padding: 8px;
+      border-radius: 3px;
+      font-size: em(14);
+      margin-left: 10px;
+    }
   }
 
   .social-updates {
     margin-bottom: 8px;
   }
+
+  .new-user,
+  .celebrant {
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-top: 1px solid #eee;
+
+    &:first-of-type {
+      border-top: 0;
+    }
+    //margin-bottom: 15px;
+    a {
+      padding: 3px;
+      font-size: em(20);
+    }
+  }
+
 }
 
 /* ===========================

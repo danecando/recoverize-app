@@ -48,10 +48,13 @@
         </div>
         <div class="section-body">
           {{#each newUsers}}
-            {{#if this.username}}
+            {{#if this.profile.name}}
               <div class="new-user">
                 <a href="/users/{{this.username}}">
-                  {{this.profile.name}} <small>{{this.username}}</small>
+                  {{this.profile.name}}
+                </a>
+                <a class="btn btn-welcome btn-dash-item" href="/chat" data-username="{{this.username}}">
+                  Greet {{this.profile.name}} <small>+5</small>
                 </a>
               </div>
             {{/if}}
@@ -64,10 +67,13 @@
         </div>
         <div class="section-body">
           {{#each anniversaries}}
-            {{#if this.username}}
-              <div class="new-user">
+            {{#if this.profile.name}}
+              <div class="celebrant">
                 <a href="/users/{{this.username}}">
-                  {{this.profile.name}} <small>{{this.username}}</small>
+                  {{this.profile.name}} <small> <time>{{relativeTime this.profile.soberDate}}</time></small>
+                </a>
+                <a class="btn btn-congrats btn-dash-item" href="/chat" data-username="{{this.username}}">
+                  Congratulate <small>+2</small>
                 </a>
               </div>
             {{/if}}

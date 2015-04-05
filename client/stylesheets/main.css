@@ -5187,10 +5187,6 @@ body,
     #dashboard .top-info time {
       display: block;
       text-align: center; }
-  #dashboard .new-user {
-    margin-bottom: 5px; }
-    #dashboard .new-user a {
-      padding: 3px; }
   #dashboard .user-intro {
     background: #477dca;
     border-bottom: 2px solid #5b8bd0; }
@@ -5216,8 +5212,27 @@ body,
       margin-bottom: 8px; }
     #dashboard .dash-section .section-body {
       font-size: 1.0625em; }
+    #dashboard .dash-section .btn-dash-item {
+      background: #477dca;
+      color: white;
+      padding: 8px;
+      border-radius: 3px;
+      font-size: 0.875em;
+      margin-left: 10px; }
   #dashboard .social-updates {
     margin-bottom: 8px; }
+  #dashboard .new-user,
+  #dashboard .celebrant {
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-top: 1px solid #eee; }
+    #dashboard .new-user:first-of-type,
+    #dashboard .celebrant:first-of-type {
+      border-top: 0; }
+    #dashboard .new-user a,
+    #dashboard .celebrant a {
+      padding: 3px;
+      font-size: 1.25em; }
 
 /* ===========================
  *  Daily Readings

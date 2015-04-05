@@ -1,7 +1,6 @@
 
 
 Template.dashboard.created = function() {
-
     this.annis = new ReactiveVar([]);
 
     var self = this;
@@ -45,5 +44,10 @@ Template.dashboard.helpers({
 });
 
 Template.dashboard.events({
-
+    'click .btn-welcome': function(e, template) {
+        properties.greetUser = $(e.target).attr('data-username');
+    },
+    'click .btn-congrats': function(e, template) {
+        properties.congratulateUser = $(e.target).attr('data-username')
+    }
 });
