@@ -2,7 +2,7 @@
  * Used for manually working on data in the database
  */
 
-Push.debug = true;
+//Push.debug = true;
 
 //var allreadings = Npm.require(process.env.PWD + '/server/reading.json');
 //

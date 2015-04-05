@@ -8,7 +8,7 @@ Template.profilePicture.created = function() {
  */
 Template.profilePicture.helpers({
     cordova: function() {
-        return !!Meteor.isCordova;
+        return Meteor.isCordova;
     },
     user: function() {
         return Meteor.user();

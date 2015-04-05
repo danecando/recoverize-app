@@ -1,10 +1,10 @@
 App.info({
     name: 'Recoverize',
-    description: 'A daily 12 step recovery app',
+    description: 'The social 12 step recovery app',
     author: 'Dane Grant',
-    email: 'danecando@gmail.com',
+    email: 'app@recoverize.com',
     website: 'http://recoverize.com',
-    version: '0.0.1'
+    version: '0.1.0'
 });
 
 App.icons({
