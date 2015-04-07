@@ -9,12 +9,16 @@ Template.userlist.created = function() {
     Tracker.autorun(function() {
         var filter = self.filter.get();
         filter.profileCreated = true; // make sure we only get finished profiles
-        Meteor.subscribe('userList', self.limit.get(), filter);
+        self.listHandle = Meteor.subscribe('userList', self.limit.get(), filter);
 
         var users = Meteor.users.find(self.filter.get(), { limit: self.limit.get() });
         self.userList.set(users);
     });
-}
+};
+
+Template.userlist.destroyed = function() {
+    this.listHandle.stop();
+};
 
 Template.userlist.rendered = function() {
     var self = this;
