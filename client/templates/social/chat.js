@@ -9,10 +9,10 @@ Template.chat.created = function() {
             { username: { $exists: true } },
             { fields: { 'username': true } }
         ).fetch().map(function(val) {
-                if (val.username) return val.username;
-            });
+            if (val.username) return val.username;
+        });
 
-        Meteor.subscribe('profilePic', usersOnline);
+        self.profilePicHandle = Meteor.subscribe('profilePic', usersOnline);
 
         var presences = Presences.find().fetch();
         presences = _.uniq(presences, function(p) {
@@ -40,10 +40,10 @@ Template.chat.rendered = function() {
 
 Template.chat.destroyed = function() {
     queryHandle.stop();
+    this.profilePicHandle.stop();
 
-    if (properties.greetUser) {
-        properties.greetUser = null;
-    }
+    properties.greetUser = null;
+    properties.congratulateUser = null;
 };
 
 Template.chat.events({

@@ -9,19 +9,19 @@ Template.dashboard.created = function() {
             self.annis.set(annis);
         }
     });
+
 };
 
 Template.dashboard.helpers({
     todaysDate: function() {
-        return moment().format('dddd, MMMM Do YYYY')
+        return moment().format('dddd, MMMM Do YYYY');
     },
     user: function() {
-        return Meteor.user()
+        return Meteor.user();
     },
     notifications: function(){
-        var notify = Notification.find({type: {$not: 'message'}})
-        if (notify.count()) return notify
-        else return false
+        var notify = Notification.find({type: {$not: 'message'}});
+        return notify.count() ? notify : false;
     },
     tasks: function() {
         return Tasks.find({}, { sort: { position: 1 }}).map(function(task, index) {
@@ -35,7 +35,7 @@ Template.dashboard.helpers({
     newUsers: function() {
         return Meteor.users.find(
             { username: { $not: Meteor.user().username }},
-            { limit: 6 }
+            { limit: 6, reactive: false, sort: { createdAt: -1 } }
         );
     },
     anniversaries: function() {

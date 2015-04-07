@@ -2290,7 +2290,7 @@
     padding: em(5);
 
     @include media($tablet-screen-up) {
-      @include calc(height, '100vh - 37px');
+      @include calc(height, '100vh - 34px');
     }
   }
 
@@ -2332,6 +2332,7 @@
       height: 0;
       border: 0;
       border-radius: em(2);
+      padding: 0 em(5);
       @include transition(height 200ms ease);
     }
   }

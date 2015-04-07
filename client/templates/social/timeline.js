@@ -6,7 +6,7 @@ Template.timeline.created = function() {
 
     var self = this;
     Tracker.autorun(function() {
-        Meteor.subscribe('timeline', self.limit.get(), self.filter.get());
+        self.timelineHandle = Meteor.subscribe('timeline', self.limit.get(), self.filter.get());
 
         // might want to offset here seems like were loading everything repeatedly
         var statuses = Status.find(self.filter.get(), {limit: self.limit.get()}).fetch();
@@ -17,6 +17,10 @@ Template.timeline.created = function() {
 
         self.statusList.set(statuses);
     });
+};
+
+Template.timeline.destroyed = function() {
+    this.timelineHandle.stop();
 };
 
 Template.timeline.rendered = function() {
