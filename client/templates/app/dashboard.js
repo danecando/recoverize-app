@@ -33,8 +33,9 @@ Template.dashboard.helpers({
         return Tasks.find({ checked: true })
     },
     newUsers: function() {
+        var username = Meteor.user().username || null;
         return Meteor.users.find(
-            { username: { $not: Meteor.user().username }},
+            { username: { $not: username }},
             { limit: 6, reactive: false, sort: { createdAt: -1 } }
         );
     },
