@@ -2716,7 +2716,8 @@ body,
 .profile-img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; }
+  background-position: center;
+  margin-bottom: 10px; }
 
 #ban-user {
   background: #ff0033;
