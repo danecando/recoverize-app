@@ -49,7 +49,32 @@ Template.newStatus.events({
     },
     'click #getImage': function(e, template) {
         e.preventDefault();
-        $('#statusImage').focus().trigger('click');
+        if (Meteor.isCordova) {
+            navigator.camera.getPicture(function(imageUri) {
+                var fileNameIndex = imageUri.lastIndexOf("/") + 1;
+                var filename = imageUri.substr(fileNameIndex);
+
+                window.resolveLocalFileSystemURL(imageUri, function(fileEntry) {
+                    fileEntry.file(function(file) {
+                        file.name = filename;
+                        template.cordovaFile = file;
+                    });
+                });
+
+                $('.add-image').fadeOut(100, function() {
+                    $('.remove-image').fadeIn(100);
+                    $('.file-name').text(filename);
+                });
+
+            }, function(err) {
+                console.log(err);
+            }, { quality: 50,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType : Camera.PictureSourceType.PHOTOLIBRARY
+            });
+        } else {
+            $('#statusImage').focus().trigger('click');
+        }
     },
     'change #statusImage': function(e, template) {
         $('.add-image').fadeOut(100, function() {
@@ -75,7 +100,7 @@ function submitStatus(e, template) {
     share.status = $('#newStatus').val();
     share.image = template.$('#statusImage')[0].files[0] || null;
 
-    if(isValidStatus(share.status) || share.image) {
+    if(isValidStatus(share.status) || share.image || template.cordovaFile) {
 
         $('#shareStatus').text('Sharing...');
 
@@ -100,6 +125,38 @@ function submitStatus(e, template) {
                     $('#shareStatus').text('Shared!');
                 });
             });
+
+        } else if (Meteor.isCordova && template.cordovaFile) {
+
+            var file = template.cordovaFile;
+            var reader = new FileReader();
+            reader.onloadend = function(e) {
+                var fileBlob = internals.dataURItoBlob(e.target.result);
+                if (fileBlob) {
+                    fileBlob.name = file.name;
+                    internals.statusPhotoUpload(fileBlob, function(error, result) {
+                        if (error) {
+                            $('.share-input').css('border-color', 'red');
+                            $('.response').text(error);
+                            $('#shareStatus').text('Share');
+                            return;
+                        }
+
+                        share.image = Meteor.user().username + '/' + file.name;
+
+                        Meteor.call('createStatus', share, function(error, result) {
+                            $('#newStatus, #statusImage').val('');
+                            $('#page').animate({ scrollTop: $(document).height() }, 200);
+                            $('.remove-image').fadeOut(100, function() {
+                                $('.add-image').fadeIn(100);
+                            });
+                            $('#shareStatus').text('Shared!');
+                        });
+                    });
+                }
+            }
+            reader.readAsDataURL(file);
+
 
         } else {
             Meteor.call('createStatus', share, function(error, result) {

@@ -42,6 +42,13 @@ Accounts.onCreateUser(function(options, user) {
 //    }
 //})
 
+//Meteor.publish('allUsers', function() {
+//    return Meteor.users.find(
+//        {},
+//        { fields: { 'roles': false, 'emails': false, 'services': false } }
+//    );
+//});
+
 // Publish user data (self account data published by default)
 Meteor.publish('userData', function() {
     if (!this.userId) {
@@ -50,6 +57,26 @@ Meteor.publish('userData', function() {
 
     return Meteor.users.find({ _id: this.userId });
 });
+
+Meteor.publish('newUsers', function() {
+
+    return Meteor.users.find(
+        {},
+        {
+            fields: { 'username': true, 'createdAt': true, 'profile.name': true},
+            limit: 6,
+            sort: { createdAt: -1 }
+        }
+    );
+});
+
+//Meteor.publish('anniversaries', function() {
+//
+//
+//
+//    console.log(results);
+//    //return results;
+//});
 
 /**
  * Total user count
@@ -61,10 +88,8 @@ Meteor.publish('userCount', function() {
 /**
  * Chat messages
  */
-Meteor.publish('chat', function(usersOnline) {
-    return [
-        Chat.find({}, {sort: {timestamp: -1}, limit: 100})
-    ];
+Meteor.publish('chat', function() {
+    return Chat.find({}, {sort: {timestamp: -1}, limit: 100});
 });
 
 /**
@@ -96,7 +121,7 @@ Meteor.publish('notification', function(){
 Meteor.publish('userPublic', function(username) {
     if (username) {
         return Meteor.users.find(
-            {username: username},
+            { username: username },
             { fields: { 'roles': false, 'emails': false, 'services': false } }
         );
     } else {
@@ -116,7 +141,7 @@ Meteor.publish('userStatuses', function(username, limit) {
     if (username) {
         return Status.find(
             { username: username },
-            { limit: limit }
+            { limit: limit, sort: { timestamp: -1 } }
         );
     } else {
         this.ready();

@@ -5,18 +5,25 @@
         <h2 class="title">Member List</h2>
         <button id="search-toggle"><i class="fa fa-search"></i></button>
       </div>
-        <div class="user-search">
-          <input class="userList-filter" type="text">
-        </div>
+      <div class="user-search">
+        <input class="userList-filter" type="text">
+      </div>
     </section>
 
     <section class="user-scroll">
       <div class="users-list">
           {{#each listOfUsers}}
               {{#unless isCurrentUser this.username}}
-                {{> usersp this}}
+                  {{> usersp this}}
               {{/unless}}
           {{/each}}
+          {{#if hasMore}}
+              {{#if cordova}}
+                <div class="load-btn-container">
+                  <button id="load-more">Load more users</button>
+                </div>
+              {{/if}}
+          {{/if}}
       </div>
     </section>
   </div>

@@ -3,11 +3,9 @@
   <div class="status-box">
 
     <header class="status-meta">
-      <div class="profile-pic">
         <a href="/users/{{currentUser.username}}">
-          <img src="{{#if currentUser.profile.profilePicThumb}}{{getImgURL currentUser.profile.profilePicThumb}}{{else}}{{getImgURL currentUser.profile.profilePic}}{{/if}}" alt=""/>
+          <div class="profile-pic" style="background-image: url({{#if currentUser.profile.profilePicThumb}}{{getImgURL currentUser.profile.profilePicThumb}}{{else}}{{getImgURL currentUser.profile.profilePic}}{{/if}});"></div>
         </a>
-      </div>
         {{#if currentUser.profile.name}}
           <h3 class="username">{{currentUser.profile.name}} <small><a href="/users/{{currentUser.username}}">@{{currentUser.username}}</a></small></h3>
         {{else}}

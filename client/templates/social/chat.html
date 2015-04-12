@@ -6,9 +6,7 @@
         {{#each listOfUsers}}
           <li>
             <a style="color: {{userColor username}}" href="/users/{{this.username}}">
-              <div class="profile-picture">
-                <img src="{{profilePic username 'thumb'}}" alt="{{username}}">
-              </div>
+              <div class="profile-picture" style="background-image: url({{profilePic username 'thumb'}});"></div>
               <div class="username">
                 {{this.username}}
               </div>
@@ -40,7 +38,7 @@
     <div class="bottom-bar">
       <button class="ul-btn"><i class="fa fa-users"></i> {{listOfUsers.length}}</button>
       <div class="chat-input">
-        <textarea class="text-input" autocomplete="off" disabled="{{#unless currentUser}}disabled{{/unless}}" placeholder="{{#unless currentUser}}Create an account to chat!{{/unless}}"></textarea>
+        <textarea class="text-input" autocomplete="off" disabled="{{#unless currentUser}}disabled{{/unless}}" data-greeting="{{#if greeting}}true{{else}}false{{/if}}" data-congrats="{{#if congrats}}true{{else}}false{{/if}}" placeholder="{{#unless currentUser}}Create an account to chat!{{/unless}}">{{#if greeting}}@{{greeting}}{{/if}} {{#if congrats}}Happy anniversary @{{congrats}}! {{/if}}</textarea>
         <button id="send-chat" disabled="{{#unless currentUser}}disabled{{/unless}}">send</button>
       </div>
     </div>

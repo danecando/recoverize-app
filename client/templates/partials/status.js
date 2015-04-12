@@ -1,6 +1,3 @@
-Template.statusp.created = function() {
-    var userSub = Meteor.subscribe('statusUser', this.data.username);
-};
 
 Template.statusp.helpers({
     isShared: function() {
@@ -44,23 +41,21 @@ Template.statusp.helpers({
 });
 
 Template.statusp.events({
-    'click .serenityUpBtn': function(e) {
-        e.preventDefault();
+    'click .serenityUpBtn i': function(e) {
         var statusId = $(e.target).parent().attr('data-statusId');
         Meteor.call('statusSerenityUp', statusId);
     },
-    'click .serenityDownBtn': function(e){
-        e.preventDefault();
+    'click .serenityDownBtn i': function(e){
         var statusId = $(e.target).parent().attr('data-statusId');
         Meteor.call('statusSerenityDown', statusId);
     },
     'click .shareStatus': function(e) {
-        e.preventDefault();
         var statusId = $(e.target).parent().attr('data-statusId');
-        Meteor.call('shareStatus', statusId);
+        if (statusId && confirm('Do you want to reshare this post?')) {
+            Meteor.call('shareStatus', statusId);
+        }
     },
     'click .replyStatus': function(e) {
-        e.preventDefault();
         Session.set('statusReply', { user: this.username, status: this.status });
         Router.go('/status');
     },

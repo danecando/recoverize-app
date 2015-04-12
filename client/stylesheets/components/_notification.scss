@@ -1,0 +1,36 @@
+
+.notification-overlay {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(50, 50, 50, .9);
+  min-height: 60px;
+  color: white;
+  z-index: 99;
+  @include transition(ease 700ms all);
+
+  .notification-content {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+  }
+
+  .content {
+    padding: 0 12px;
+  }
+
+//  &.active {
+//    z-index: 999;
+//    opacity: 1;
+//  }
+
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

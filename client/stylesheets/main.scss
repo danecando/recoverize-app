@@ -7,6 +7,7 @@
 // components
 @import 'components/badges';
 @import 'components/modal';
+@import 'components/notification';
 
 // partials
 @import 'partials/layout';
@@ -43,10 +44,26 @@
   }
 }
 
+.profile-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 10px;
+}
+
 #ban-user {
   background: $error-color;
   width: 100%;
   margin: em(25) 0;
+}
+
+.load-btn-container {
+  padding: 20px 0;
+}
+
+#load-more {
+  width: 100%;
+  border-radius: 3px;
 }
 
 .help-link {
@@ -65,7 +82,7 @@
   height: 35px;
   @include calc(width, '100% - 60px');
   border: 0;
-  font-size: em(13);
+  font-size: em(15);
   letter-spacing: em(-.5);
   margin-bottom: 0;
   padding: em(7);
@@ -111,6 +128,10 @@
 
 .warning {
   color: $error-color;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 //.response {
@@ -472,7 +493,7 @@
 
 .notification {
   min-width: 270px;
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
   background: rgba(50, 50, 50, .75);
   padding: 10px;
@@ -503,6 +524,12 @@
 
 .view-profile {
 
+  .profile-img {
+    width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+  }
   img {
     height: 75px;
     width: 75px;
@@ -584,6 +611,21 @@
     }
   }
 
+  .profile-img {
+    height: 125px;
+    width: 125px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .profile-picture-link {
+    display: block;
+    padding: 7px;
+    font-size: em(15);
+    background: #f5f5f5;
+  }
+
   #save-changes {
     width: 100%;
     border-radius: 0;
@@ -640,6 +682,7 @@
     background: #f5f5f5;
     font-size: em(13);
   }
+
 }
 
 /* ===========================
@@ -679,7 +722,7 @@
   @include clearfix;
   @include display(flex);
   @include align-items(center);
-  padding: 10px 0;
+  padding: 10px 5px;
   border-bottom: 1px solid #eee;
   @include transition(background 200ms ease-in-out);
 
@@ -691,8 +734,10 @@
   .profile-picture {
     float: left;
     padding: 0 5px;
-    width: 15%;
-    height: auto;
+    height: 38px;
+    width: 38px;
+    background-size: cover;
+    background-position: center;
 
     img {
       vertical-align: bottom;
@@ -702,8 +747,9 @@
     }
 
     @include media($tablet-screen-up) {
-      width: 10%;
       padding: 0 10px;
+      height: 75px;
+      width: 75px;
     }
   }
 }
@@ -719,7 +765,7 @@
   }
 
   p {
-    font-size: em(11);
+    font-size: em(13);
     margin-bottom: 0;
     color: $dark-gray;
     overflow: hidden;
@@ -744,11 +790,12 @@
     padding: 0 15px;
 
     h4 {
-      font-size: em(20);
+      font-size: em(21
+      );
     }
 
     p {
-      font-size: em(13);
+      font-size: em(15);
     }
   }
 }
@@ -758,7 +805,8 @@
   width: 30%;
   padding: 0 5px;
   text-align: right;
-  font-size: em(10);
+  font-size: em(12);
+  color: #777;
 
   @include media($tablet-screen-up) {
     width: 25%;
@@ -820,7 +868,7 @@
   time {
     float: right;
     margin: 5px 0 4px 15px;
-    font-size: em(12);
+    font-size: em(13);
     color: $medium-gray;
   }
 
@@ -997,7 +1045,7 @@
       @include align-items(center);
       width: 100%;
 
-      font-size: em(13);
+      font-size: em(14);
       color: $brand-blue;
     }
 
@@ -1005,6 +1053,8 @@
       height: 20px;
       width: 20px;
       padding: 0;
+      background-size: cover;
+      background-position: center;
 
       img {
         vertical-align: top;
@@ -1073,6 +1123,7 @@
 
     .message {
       font-size: em(16);
+      font-family: $helvetica;
       letter-spacing: em(-.5);
     }
   }
@@ -1154,12 +1205,14 @@
     text-align: center;
     color: white;
     font-weight: 300;
+    text-transform: capitalize;
 
     small {
       color: $brand-blue;
       font-size: 50%;
       font-weight: bold;
       letter-spacing: em(-.5);
+      text-transform: lowercase;
     }
   }
 
@@ -1191,7 +1244,7 @@
 
     .image-container {
       background-size: cover !important;
-      background-position: center;
+      background-position: center !important;
       margin: 0 auto;
       border-radius: em(2);
       border: 2px solid white;
@@ -1275,6 +1328,7 @@
     color: white;
     text-align: center;
     border-radius: em(3);
+    font-size: em(17);
 
     @include media($tablet-screen-up) {
       width: 80%;
@@ -1305,14 +1359,14 @@
 
     .notification-amount {
       color: white;
-      font-size: em(18);
-      margin-right: 10px;
+      font-size: em(22);
+      margin-right: 14px;
     }
   }
   button {
-    padding: em(6);
+    padding: em(8);
     border-radius: em(0);
-    font-size: em(14);
+    font-size: em(16);
     background: white;
     color: $secondary-blue;
   }
@@ -1364,6 +1418,7 @@
   @include display(flex);
   @include align-items(center);
   @include flex-direction(column);
+  position: relative;
 
   .no-statuses {
     padding: em(25);
@@ -1382,6 +1437,7 @@
   border-radius: em(3);
   background: white;
   margin: em(20) 0 em(5);
+  box-shadow: 0 0 10px 0 rgba(50, 50, 50, .05);
 }
 
 .status-image {
@@ -1395,15 +1451,21 @@
 
   .profile-pic {
     margin-right: em(10);
-    img {
-      height: 24px;
-      widht: 24px;
-      border-radius: em(2);
-    }
+    width: 32px;
+    height: 32px;
+    border-radius: em(2);
+    background-size: cover;
+    background-position: center;
+//    img {
+//      height: 32px;
+//      widht: 32px;
+//      border-radius: em(2);
+//    }
   }
 
   h3 {
-    font-size: em(17);
+    text-transform: capitalize;
+    font-size: em(19);
     line-height: em(15);
     marigin-right: em(15);
 
@@ -1411,17 +1473,20 @@
       font-size: em(11);
       color: #999;
       font-weight: normal;
+      text-transform: lowercase;
     }
   }
 
   time {
-    font-size: em(10);
+    font-size: em(11);
     @include flex-grow(1);
     text-align: right;
   }
 }
 
 .status-content {
+  margin: 10px 0 5px;
+  font-family: $helvetica;
 
   .shared-user {
     color: $brand-color;
@@ -1566,7 +1631,7 @@
     letter-spacing: em(.5);
 
     @include media($tablet-screen-up) {
-      border-bottom: 1px dotted rgba(255, 255, 255, .15);
+//      border-bottom: 1px dotted rgba(255, 255, 255, .15);
     }
   }
 
@@ -1995,8 +2060,10 @@
  * =========================== */
 
 #checklist {
+  background: white;
+}
+.tasks-top {
   @include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
-
 }
 .task-header {
   padding: em(20) em(5) em(10);
@@ -2033,6 +2100,7 @@
 
 #task-form {
   display: none;
+  border-bottom: 2px solid #f5f5f5;
 
   form {
     @include display(flex);
@@ -2054,16 +2122,26 @@
   }
 }
 
+.task-list {
+  min-height: 100%;
+  background: white;
+}
 .task {
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
-  background: #ecf0f1;
-  border-bottom: 2px solid #e5e5e5;
+//  background: #ecf0f1;
+  padding: 10px 0;
+  background: white;
+  border-bottom: 2px solid #f5f5f5;
   min-height: 60px;
 
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
   &:nth-of-type(even) {
-    background: #f8f8f8;
+//    background: #f8f8f8;
   }
 
   .checkbox {
@@ -2072,6 +2150,11 @@
   }
   .task-name {
     @include span-columns(8);
+
+    h5 {
+      font-weight: normal;
+      font-size: em(18);
+    }
   }
   .task-controls {
     @include span-columns(2);
@@ -2094,6 +2177,16 @@
       cursor: pointer;
     }
 
+  }
+}
+
+.completed {
+  opacity: .25;
+  .task-name {
+    h5 {
+      text-decoration: line-through;
+//      color: #ddd;
+    }
   }
 }
 
@@ -2120,7 +2213,8 @@
     content: "\f046";
     font-size: em(28);
     letter-spacing: 5px;
-    color: $success-color;
+//    color: $success-color;
+//    color: #ddd;
   }
 }
 
@@ -2130,10 +2224,13 @@
 #timeline {
   background: #fafafa;
 
+  .cordova & {
+    @include calc(height, '100vh - 40px');
+  }
+
   .status-scroll {
     @include calc(height, '100vh - 83px');
-    overflow: hidden;
-    overflow-y: auto;
+    overflow: scroll;
     webkit-overflow-scrolling: touch;
 
     @include media($tablet-screen-up) {
@@ -2155,12 +2252,24 @@
     font-size: em(14);
     border-bottom: 3px solid lighten(#477dca, 15);
 
+    i {
+      font-size: em(12);
+      margin-right: 3px;
+      color: lighten(#477dca, 15);
+      position: relative;
+      bottom: 1px;
+    }
+
     &:hover {
       background: #477dca;
-      border-bottom: 3px solid $brand-light;
     }
     &.active {
       border-bottom: 3px solid white;
+
+      i {
+        color: white;
+      }
+
       &:hover {
         background: #477dca;
       }
@@ -2173,7 +2282,6 @@
  * =========================== */
 
 #user-list {
-  background: #fafafa;
 
   .user-scroll {
     @include calc(height, '100vh - 77px');
@@ -2192,6 +2300,8 @@
   }
 
   .page-head {
+    border-bottom: 3px solid #477DCA;
+
     .title {
       display: inline-block;
       @include calc(width, '100% - 32px');
@@ -2210,26 +2320,34 @@
   }
 
   .user-search {
+    padding: 0 em(5);
     background: #477dca;
-    padding: em(5);
-    position: absolute;
-    top: -25px;
-    left: 0;
+    height: 0;
     width: 100%;
-   @include transition(top 200ms ease-in-out);
+   @include transition(height 200ms ease);
+
 
     input {
       width: 100%;
       margin: 0 auto;
-      height: 30px;
+      height: 0;
       border: 0;
       border-radius: em(2);
+      padding: 0 em(5);
+      @include transition(height 200ms ease);
     }
   }
 
   &.search-open .user-search {
-    @include transition(top 200ms ease);
-    top: 34px;
+    @include transition(height 200ms ease);
+    height: 40px;
+    padding: em(5);
+
+    input {
+      height: 30px;
+      @include transition(height 200ms ease);
+
+    }
   }
 }
 
@@ -2237,11 +2355,11 @@
   @include display(flex);
   @include align-items(center);
   @include justify-content(flex-start);
-  margin: em(5) auto;
-  padding: em(10);
+  margin: auto;
+  padding: 15px 10px;
   max-width: 600px;
   background: white;
-  border: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 
   @include media($mobile-screen-down) {
     @include flex-wrap(wrap);
@@ -2252,8 +2370,8 @@
     margin-right: em(15);
     
     .thumb-container {
-      width: 45px;
-      height: 45px;
+      width: 60px;
+      height: 60px;
       background-size: cover !important;
       background-position: center;
     }
@@ -2265,42 +2383,54 @@
   }
 
   .profile-info {
-    @include span-columns(8);
+    @include flex(1);
 
     @include media($mobile-screen-down) {
     }
     .names h3 {
       font-size: em(16);
+      text-transform: capitalize;
+
+      small {
+        text-transform: lowercase;
+      }
 
       a {
+        font-size: em(18);
         font-weight: normal;
       }
     }
   }
 
+  .flex-container {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
+  }
+
   .more-info {
     font-size: em(13);
-    color: $medium-gray;
+    color: #656565;
     text-transform: capitalize;
+
+    .location {
+      text-decoration: italic;
+    }
   }
 
   .social-buttons {
-    @include span-columns(4);
-    text-align: right;
+    min-width: 80px;
 
     @include media($mobile-screen-down) {
-      @include span-columns(12);
-      margin: em(5) 0 em(5) em(60);
-      text-align: left;
     }
 
     a {
-      background: #eee;
-      color: #333;
+      font-size: em(19);
+      color: #656565;
     }
 
     .btn-unfollow {
-      color: $error-color;
+//      color: $error-color;
     }
     .btn-follow {
 //      color: $success-color;
@@ -2435,12 +2565,14 @@
  * =========================== */
 
 #dashboard {
-  @include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
+  //@include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
   color: white;
+  background: #fafafa;
 
   .top-info {
     color: white;
     background: $secondary-blue;
+    font-size: em(18);
     border-bottom: 2px solid lighten($secondary-blue, 15);
     padding: em(5);
 
@@ -2452,32 +2584,70 @@
 
   .user-intro {
     background: lighten($secondary-blue, 15);
+    border-bottom: 2px solid lighten($secondary-blue, 20);
   }
   .welcome-back {
     padding: em(8) em(10);
     text-align: center;
-    font-size: em(15);
+    font-size: em(20);
+    letter-spacing: em(.5);
   }
 
   .dash-section {
     padding: em(20) em(10);
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
 
     h3 {
-      font-size: em(12);
+      font-size: em(16);
       text-transform: uppercase;
       letter-spacing: em(1.5);
       margin-bottom: em(5);
+      color: $brand-blue;
     }
 
     a {
-      color: white;
+      color: #123865;
+      font-size: em(17);
+    }
+
+    .section-head {
+      margin-bottom: 8px;
     }
     .section-body {
-      font-size: em(15);
+      font-size: em(17);
+    }
+
+    .btn-dash-item {
+      background: $base-link-color;
+      color: white;
+      padding: 8px;
+      border-radius: 3px;
+      font-size: em(14);
+      margin-left: 10px;
     }
   }
+
+  .social-updates {
+    margin-bottom: 8px;
+  }
+
+  .new-user,
+  .celebrant {
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-top: 1px solid #eee;
+
+    &:first-of-type {
+      border-top: 0;
+    }
+    //margin-bottom: 15px;
+    a {
+      padding: 3px;
+      font-size: em(20);
+    }
+  }
+
 }
 
 /* ===========================
@@ -2494,7 +2664,8 @@
   @include justify-content(center);
   padding: em(10) 0;
   background: linear-gradient($secondary-blue, lighten($secondary-blue, 10));
-  border-bottom: 2px solid $brand-light;
+//  border-bottom: 2px solid $brand-light;
+  border-bottom: 2px solid lighten($secondary-blue, 30);
 
   @include media($tablet-screen-up) {
     padding: em(15) 0;
@@ -2510,8 +2681,10 @@
 }
 
 #reading-section {
+  font-family: $helvetica;
   .display-date {
     position: relative;
+    margin-bottom: 15px;
 
     #shareReading {
       position: absolute;
@@ -2519,8 +2692,8 @@
       top: 0;
       padding: em(4);
       font-size: em(14);
-//      background: lighten($secondary-blue, 30);
-      background: $brand-light;
+      background: lighten($secondary-blue, 30);
+//      background: $brand-light;
       color: white;
 
       @include media($tablet-screen-up) {
@@ -2533,7 +2706,7 @@
     letter-spacing: em(2);
     padding: em(3) 0;
     background: white;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f5f5f5;
 
     @include media($tablet-screen-up) {
       font-size: em(24);
@@ -2544,8 +2717,6 @@
   .reading-title {
     font-weight: normal;
     text-align: center;
-    margin-top: em(10);
-    font-size: em(26) !important;
   }
 
   .current-reading {
@@ -2555,27 +2726,29 @@
       padding: 0;
       margin: em(13) 0;
       border-left: 0;
-      font-size: em(15);
+      font-size: em(16);
       text-align: center;
     }
 
     .quoted-page {
+      margin-top: 10px;
       display: block;
       text-align: right;
       font-weight: bold;
+      font-size: em(14);
     }
 
     p {
       padding: 0 em(5);
-      font-size: em(16);
-      line-height: em(22);
+      font-size: em(17);
+      line-height: em(24);
       text-align: justify;
     }
 
     h3 {
       font-weight: normal;
-      font-size: em(24);
-      margin: 15px 5px 10px;
+      font-size: em(28);
+      margin: 0;
       text-align: center;
     }
 
@@ -2586,10 +2759,70 @@
 }
 
 #reading-copyright {
-  border-top: 2px solid white;
   padding: 10px 0;
   font-size: em(14);
   text-align: center;
+  font-style: italic;
+}
+
+#profile-picture {
+  min-height: 100%;
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .avatar-preview {
+    width: 100%;
+  }
+
+  #cordova-upload {
+    padding: 5px;
+    background: #eee;
+    position: relative;
+    top: -6px;
+    border-bottom: 2px dashed #ccc;
+  }
+
+  .page-actions {
+    margin: 0 5px;
+  }
+
+  #save-changes {
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+    padding: 12px;
+    background: $brand-color;
+    font-weight: normal;
+
+    &:hover {
+      background: $brand-color;
+    }
+
+    &:disabled {
+      background: $dark-gray;
+      color: white;
+    }
+  }
+
+  #go-back {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: 1px solid $base-link-color;
+    padding: 5px;
+    text-align: center;
+  }
+
+  @include media($tablet-screen-up) {
+    padding: 10px 0;
+
+    .page-actions {
+      margin: 0 0;
+    }
+  }
 }
 
 /* ===========================

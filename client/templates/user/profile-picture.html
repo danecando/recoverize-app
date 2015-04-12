@@ -1,0 +1,16 @@
+<template name="profilePicture">
+  <div id="profile-picture" class="page-container">
+    <form action="">
+    {{#if user.profile.profilePic}}<img class="avatar-preview" src="{{getImgURL user.profile.profilePic}}" alt="{{user.username}}">{{/if}}
+    {{#if cordova}}
+      <div id="cordova-upload">
+        <button>Choose File</button> <span class="file-name">No file chosen</span>
+      </div>
+      <div class="page-actions">
+        <button id="save-changes" disabled="{{#unless profileUpdated}}disabled{{/unless}}">Save Changes</button>
+        <a href="/profile" id="go-back">Go Back</a>
+      </div>
+    {{/if}}
+    </form>
+  </div>
+</template>

@@ -30,6 +30,7 @@ body,
 
 #app {
   top: 43px;
+  //min-height: 100%;
 
   @include media($tablet-screen-up) {
     top: 0;
