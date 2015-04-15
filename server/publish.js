@@ -194,7 +194,7 @@ Meteor.publish('message', function(username, page){
     } else if (this.userId) {
         return MessageSessions.myMessages(this.userId);
     } else {
-        return this.ready();
+       return this.ready();
     }
 });
 
