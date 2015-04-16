@@ -61,10 +61,10 @@ Meteor.publish('userData', function() {
 Meteor.publish('newUsers', function() {
 
     return Meteor.users.find(
-        {},
+        { profileCreated: true },
         {
             fields: { 'username': true, 'createdAt': true, 'profile.name': true},
-            limit: 6,
+            limit: 20,
             sort: { createdAt: -1 }
         }
     );

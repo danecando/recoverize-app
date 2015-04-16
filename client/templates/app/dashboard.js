@@ -35,8 +35,8 @@ Template.dashboard.helpers({
     newUsers: function() {
         var username = Meteor.user().username || null;
         return Meteor.users.find(
-            { username: { $not: username }},
-            { limit: 6, reactive: false, sort: { createdAt: -1 } }
+            { username: { $not: username } },
+            { limit: 2, sort: { createdAt: -1 } }
         );
     },
     anniversaries: function() {
