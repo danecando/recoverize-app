@@ -2825,6 +2825,85 @@
   }
 }
 
+
+.settings-nav {
+
+  li {
+    border-bottom: 1px solid #eee;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+
+  a {
+    display: block;
+    font-size: em(20);
+
+    &:hover {
+      .icon {
+        color: $base-link-color;
+      }
+      .right-icon {
+        color: #ccc;
+      }
+    }
+  }
+
+  .link-container {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+
+  .icon,
+  .link-name,
+  .right-icon {
+    padding: 20px;
+  }
+
+  .icon {
+    width: 15%;
+    color: $brand-blue;
+    font-size: em(19);
+
+  }
+  .link-name {
+    font-size: em(15);
+    color: $brand-blue;
+    width: 90%;
+    letter-spacing: em(.75);
+  }
+  .right-icon {
+    //width: 15%;
+    text-align: right;
+    color: #eee;
+  }
+
+  .help-button {
+    background: $error-color;
+
+    .icon,
+    .link-name,
+    .right-icon {
+      //color: lighten($error-color, 10);
+      color: white;
+    }
+
+    .link-name {
+      font-weight: bold;
+    }
+
+    a:hover {
+      .icon,
+      .link-name,
+      .right-icon {
+        color: white;
+      }
+    }
+  }
+}
+
 /* ===========================
  *  Join Page
  * =========================== */
