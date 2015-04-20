@@ -21,11 +21,9 @@ edgee:slingshot
 accounts-facebook
 accounts-twitter
 service-configuration
-meteorhacks:ssr
 miro:mailchimp
 sacha:spin
 matb33:collection-hooks
-recoverize:aws-upload
 reactive-var
 accolver:twilio-meteor
 ccorcos:clientside-image-manipulation
