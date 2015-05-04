@@ -1,7 +1,5 @@
 Template.createProfile.created = function() {
-
-    Session.setDefault('days', 31);
-
+    this.days = new ReactiveVar(31);
     this.stepStatus = new ReactiveVar(false);
     this.cordovaFile = new ReactiveVar(false);
 };
@@ -11,7 +9,7 @@ Template.createProfile.created = function() {
  */
 Template.createProfile.helpers({
     cordova: function() {
-        return !!Meteor.isCordova;
+        return Meteor.isCordova;
     },
     stepReady: function() {
         return Template.instance().stepStatus.get();
@@ -45,28 +43,24 @@ Template.createProfile.helpers({
  * Template Events
  */
 Template.createProfile.events({
-    'change :input, keypress :input': function(e, template) {
+
+    'change :input, keypress :input, keyup :input, keydown :input': function(e, template) {
         if ($(e.target).val().length) {
             template.stepStatus.set(true);
         } else {
             template.stepStatus.set(false);
         }
     },
+
     'click .skip': function(e, template) {
         e.preventDefault();
-
-        // going to remove skip button on this step instead
-        //if ($('.active').filter(':last').index() === 2 && !template.$('[name=name]').val()) {
-        //        template.$('#step-three .response').addClass('error').text("Don't forget a display name!");
-        //        template.$('[name=name]').css('border-color', 'red');
-        //        return;
-        //}
 
         $(e.target).closest('.step').fadeOut(250, function() {
             $(this).next().fadeIn(250);
             $('.active').filter(':last').next().addClass('active');
         });
     },
+
     'submit #step-one form': function(e, template) {
         e.preventDefault();
 
@@ -88,6 +82,7 @@ Template.createProfile.events({
             $('.active').filter(':last').next().addClass('active');
         });
     },
+
     'submit #step-two form': function(e, template) {
         e.preventDefault();
 
@@ -145,6 +140,7 @@ Template.createProfile.events({
             }
         }
     },
+
     'submit #step-three form': function(e, template) {
         e.preventDefault();
 
@@ -155,7 +151,7 @@ Template.createProfile.events({
         };
 
         if (!profile.name) {
-            $('#step-three .response').addClass('error').text("Don't forget a display name!");
+            $('#step-three .response').addClass('error').text('Don\'t forget a display name!');
             $('[name=name]').css('border-color', 'red');
             return;
         }
@@ -176,6 +172,7 @@ Template.createProfile.events({
             $('.active').filter(':last').next().addClass('active');
         });
     },
+
     'submit #step-four form': function(e, template) {
         e.preventDefault();
 
@@ -199,8 +196,8 @@ Template.createProfile.events({
         if (Meteor.user().profile.profilePic) {
             profile.profilePic = Meteor.user().profile.profilePic;
         } else {
-            profile.profilePic = (Meteor.user().profile.gender == 'male') ? "male_avatar.jpg" : "female_avatar.jpg";
-            profile.profilePicThumb = (Meteor.user().profile.gender == 'male') ? "thumb_male_avatar.jpg" : "thumb_female_avatar.jpg";
+            profile.profilePic = (Meteor.user().profile.gender == 'male') ? 'male_avatar.jpg' : 'female_avatar.jpg';
+            profile.profilePicThumb = (Meteor.user().profile.gender == 'male') ? 'thumb_male_avatar.jpg' : 'thumb_female_avatar.jpg';
         }
 
         Meteor.call('updateProfile', profile, function(error, result) {
@@ -214,13 +211,14 @@ Template.createProfile.events({
             });
         });
     },
+
     'change #sober-month': function(e, template) {
 
         var month = $('#sober-month').val(),
             year = $('#sober-year').val(),
             days = new Date(year, month, 0).getDate();
 
-        Session.set('days', days);
+        template.days.set(days);
     },
 
     'change #sober-year': function(e, template) {
@@ -229,11 +227,12 @@ Template.createProfile.events({
             year = $('#sober-year').val(),
             days = new Date(year, month, 0).getDate();
 
-        Session.set('days', days);
+        template.days.set(days);
     },
+
     'click #cordova-upload': function(e, template) {
         navigator.camera.getPicture(function(imageUri) {
-            var fileNameIndex = imageUri.lastIndexOf("/") + 1;
+            var fileNameIndex = imageUri.lastIndexOf('/') + 1;
             var filename = imageUri.substr(fileNameIndex);
             $('.file-name').text(filename);
 
@@ -252,4 +251,5 @@ Template.createProfile.events({
             sourceType : Camera.PictureSourceType.PHOTOLIBRARY
         });
     }
+
 });
