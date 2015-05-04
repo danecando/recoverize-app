@@ -20,7 +20,7 @@ Template.createProfile.helpers({
     days: function() {
         var days = [];
 
-        for (var i = 1; i <= Session.get('days'); i++) {
+        for (var i = 1; i <= template.instance().days.get(); i++) {
             days.push(i);
         }
 
