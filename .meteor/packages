@@ -10,8 +10,6 @@ underscore
 mrt:moment
 facts
 meteorhacks:subs-manager
-meteorhacks:npm
-npm-container
 aldeed:collection2
 http
 accounts-password
