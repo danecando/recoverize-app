@@ -1,7 +1,5 @@
 Template.createProfile.created = function() {
-
-    Session.setDefault('days', 31);
-
+    this.days = new ReactiveVar(31);
     this.stepStatus = new ReactiveVar(false);
     this.cordovaFile = new ReactiveVar(false);
 };
@@ -11,7 +9,7 @@ Template.createProfile.created = function() {
  */
 Template.createProfile.helpers({
     cordova: function() {
-        return !!Meteor.isCordova;
+        return Meteor.isCordova;
     },
     stepReady: function() {
         return Template.instance().stepStatus.get();
@@ -22,7 +20,7 @@ Template.createProfile.helpers({
     days: function() {
         var days = [];
 
-        for (var i = 1; i <= Session.get('days'); i++) {
+        for (var i = 1; i <= Template.instance().days.get(); i++) {
             days.push(i);
         }
 
@@ -45,28 +43,24 @@ Template.createProfile.helpers({
  * Template Events
  */
 Template.createProfile.events({
-    'change :input, keypress :input': function(e, template) {
+
+    'change :input, keypress :input, keyup :input, keydown :input': function(e, template) {
         if ($(e.target).val().length) {
             template.stepStatus.set(true);
         } else {
             template.stepStatus.set(false);
         }
     },
+
     'click .skip': function(e, template) {
         e.preventDefault();
-
-        // going to remove skip button on this step instead
-        //if ($('.active').filter(':last').index() === 2 && !template.$('[name=name]').val()) {
-        //        template.$('#step-three .response').addClass('error').text("Don't forget a display name!");
-        //        template.$('[name=name]').css('border-color', 'red');
-        //        return;
-        //}
 
         $(e.target).closest('.step').fadeOut(250, function() {
             $(this).next().fadeIn(250);
             $('.active').filter(':last').next().addClass('active');
         });
     },
+
     'submit #step-one form': function(e, template) {
         e.preventDefault();
 
@@ -88,42 +82,38 @@ Template.createProfile.events({
             $('.active').filter(':last').next().addClass('active');
         });
     },
+
     'submit #step-two form': function(e, template) {
         e.preventDefault();
 
         // upload profile pic from cordova
         if (template.cordovaFile.get()) {
+            $('#save-changes').text('Uploading picture...');
+
             var file = template.cordovaFile.get();
+            var reader = new FileReader();
+            reader.onloadend = function(e) {
+                var fileBlob = internals.dataURItoBlob(e.target.result);
+                if (fileBlob) {
+                    fileBlob.name = $('.file-name').text();
+                    internals.profilePicUpload(fileBlob, function(error, result) {
+                        if (error) {
+                            $('#step-two .response').addClass('error').text(error.reason);
+                            $('[type=file]').css('border-color', 'red');
+                            return;
+                        }
 
-            window.resolveLocalFileSystemURL(file.uri, function(fileEntry) {
+                        template.stepStatus.set(false);
 
-                fileEntry.file(function(fileObj) {
-
-                    file.size = fileObj.size;
-
-                    AwsUpload.upload(file, function(path) {
-
-                        var profile = {};
-                        profile.profilePic = path;
-
-                        Meteor.call('updateProfile', profile, function(error, result) {
-                            if (error) {
-                                $('#step-two .response').addClass('error').text(error.reason);
-                                $('#cordova-upload').css('border-color', 'red');
-                                return;
-                            }
-
-                            template.stepStatus.set(false);
-
-                            $('#step-two').addClass('complete').fadeOut(250, function() {
-                                $('#step-three').fadeIn(250)
-                            });
-
-                            $('.active').filter(':last').next().addClass('active');
+                        $('#step-two').addClass('complete').fadeOut(250, function() {
+                            $('#step-three').fadeIn(250);
                         });
-                    });
-                });
-            });
+
+                        $('.active').filter(':last').next().addClass('active');
+                    })
+                }
+            }
+            reader.readAsDataURL(file);
         }
 
         // upload profile pic for web
@@ -138,7 +128,7 @@ Template.createProfile.events({
                         return;
                     }
 
-                    template.stepStatus.set(true);
+                    template.stepStatus.set(false);
 
                     $('#step-two').addClass('complete').fadeOut(250, function() {
                         $('#step-three').fadeIn(250);
@@ -150,6 +140,7 @@ Template.createProfile.events({
             }
         }
     },
+
     'submit #step-three form': function(e, template) {
         e.preventDefault();
 
@@ -160,7 +151,7 @@ Template.createProfile.events({
         };
 
         if (!profile.name) {
-            $('#step-three .response').addClass('error').text("Don't forget a display name!");
+            $('#step-three .response').addClass('error').text('Don\'t forget a display name!');
             $('[name=name]').css('border-color', 'red');
             return;
         }
@@ -181,6 +172,7 @@ Template.createProfile.events({
             $('.active').filter(':last').next().addClass('active');
         });
     },
+
     'submit #step-four form': function(e, template) {
         e.preventDefault();
 
@@ -197,11 +189,15 @@ Template.createProfile.events({
             quote: $('[name=quote]').val()
         };
 
+        if (!Meteor.user().username) {
+            location.reload(true);
+        }
+
         if (Meteor.user().profile.profilePic) {
             profile.profilePic = Meteor.user().profile.profilePic;
         } else {
-            profile.profilePic = (Meteor.user().profile.gender == 'male') ? "male_avatar.jpg" : "female_avatar.jpg";
-            profile.profilePicThumb = (Meteor.user().profile.gender == 'male') ? "thumb_male_avatar.jpg" : "thumb_female_avatar.jpg";
+            profile.profilePic = (Meteor.user().profile.gender == 'male') ? 'male_avatar.jpg' : 'female_avatar.jpg';
+            profile.profilePicThumb = (Meteor.user().profile.gender == 'male') ? 'thumb_male_avatar.jpg' : 'thumb_female_avatar.jpg';
         }
 
         Meteor.call('updateProfile', profile, function(error, result) {
@@ -215,13 +211,14 @@ Template.createProfile.events({
             });
         });
     },
+
     'change #sober-month': function(e, template) {
 
         var month = $('#sober-month').val(),
             year = $('#sober-year').val(),
             days = new Date(year, month, 0).getDate();
 
-        Session.set('days', days);
+        template.days.set(days);
     },
 
     'change #sober-year': function(e, template) {
@@ -230,24 +227,29 @@ Template.createProfile.events({
             year = $('#sober-year').val(),
             days = new Date(year, month, 0).getDate();
 
-        Session.set('days', days);
+        template.days.set(days);
     },
-    'click #cordova-upload': function(e, template) {
-        window.imagePicker.getPictures(
-            function (results) {
-                for (var i = 0; i < results.length; i++) {
-                    var file = {
-                        type: results[i].split('.').pop(),
-                        name: results[i].replace(/^.*[\\\/]/, ''),
-                        uri: results[i]
-                    };
 
-                    template.cordovaFile.set(file);
+    'click #cordova-upload': function(e, template) {
+        navigator.camera.getPicture(function(imageUri) {
+            var fileNameIndex = imageUri.lastIndexOf('/') + 1;
+            var filename = imageUri.substr(fileNameIndex);
+            $('.file-name').text(filename);
+
+            window.resolveLocalFileSystemURL(imageUri, function(fileEntry) {
+                fileEntry.file(function(file) {
+                    file.name = filename;
                     template.stepStatus.set(true);
-                    $('#cordova-upload').text(file.name);
-                }
-            }, function(error) {
-                console.log(error);
+                    template.cordovaFile.set(file);
+                });
             });
+
+        }, function(err) {
+            console.log(err);
+        }, { quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType : Camera.PictureSourceType.PHOTOLIBRARY
+        });
     }
+
 });

@@ -5,24 +5,45 @@ Template.chat.created = function() {
     var self = this;
 
     Tracker.autorun(function() {
+        var usersOnline = Presences.find(
+            { username: { $exists: true } },
+            { fields: { 'username': true } }
+        ).fetch().map(function(val) {
+            if (val.username) return val.username;
+        });
+
+        self.profilePicHandle = Meteor.subscribe('profilePic', usersOnline);
+
         var presences = Presences.find().fetch();
         presences = _.uniq(presences, function(p) {
             return p.username;
         });
+
         self.listOfUsers.set(presences);
     });
+
 };
+
+
+var queryHandle;
 
 Template.chat.rendered = function() {
     Meteor.startup(function() {
         autoScroll();
-        Template.instance().messages.get().observe({
+        queryHandle = Template.instance().messages.get().observe({
             added: function(doc) {
                 autoScroll();
             }
         });
     });
+};
 
+Template.chat.destroyed = function() {
+    queryHandle.stop();
+    this.profilePicHandle.stop();
+
+    properties.greetUser = null;
+    properties.congratulateUser = null;
 };
 
 Template.chat.events({
@@ -46,15 +67,29 @@ Template.chat.helpers({
     },
     listOfUsers: function() {
         return Template.instance().listOfUsers.get();
+    },
+    greeting: function() {
+        return properties.greetUser || null;
+    },
+    congrats: function() {
+        return properties.congratulateUser || null;
     }
 });
 
 function sendMessage() {
-    var input = $('.chat-input textarea');
+    var $input = $('.chat-input textarea');
 
-    if (input.val().trim() !== '') {
-        Meteor.call('addChat', input.val());
-        input.val('');
+    if ($input.attr('data-greeting') == 'true') {
+        Meteor.call('increaseSerenity', 5);
+    }
+
+    if ($input.attr('data-congrats') == 'true') {
+        Meteor.call('increaseSerenity', 2);
+    }
+
+    if ($input.val().trim() !== '') {
+        Meteor.call('addChat', $input.val());
+        $input.val('');
     }
 }
 

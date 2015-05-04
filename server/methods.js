@@ -18,6 +18,61 @@ Meteor.methods({
                 throw new Meteor.Error(500, 'Couldn\'t dispatch text message');
             }
         });
+    },
+
+    /**
+     * Increase serenity
+     * @param amount
+     * @param username
+     */
+    'increaseSerenity': function(amount, username) {
+
+        amount = amount || 1;
+        username = username || Meteor.user().username;
+
+        check(amount, Number);
+        check(username, String);
+
+        Meteor.users.update(
+            { username: username },
+            { $inc: { serenity: amount }}
+        );
+
+    },
+
+    'getAnniversaries': function() {
+        var results = Meteor.users.aggregate(
+            [
+                {
+                    $match: {
+                        'profile.soberDate': { $exists: true }
+                    }
+                },
+                {
+                    $project: {
+                        month: {
+                            $month: '$profile.soberDate'
+                        },
+                        year: {
+                            $year: '$profile.soberDate'
+                        },
+                        username: 1,
+                        'profile.profilePicThumb': 1,
+                        'profile.name': 1,
+                        'profile.soberDate': 1,
+                        'profile.program': 1
+                    }
+                },
+                {
+                    $match: {
+                        month: new Date().getMonth(),
+                        year: { $ne: new Date().getFullYear() }
+                    }
+                }
+            ]
+        );
+
+        return results;
     }
 
 })

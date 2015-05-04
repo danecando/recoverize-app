@@ -19,29 +19,67 @@
           </div>
           <div class="section-body">
             {{#if tasks.length}}
-            Completed {{completed.count}} of {{tasks.length}} of your daily tasks
+              Completed {{completed.count}} of {{tasks.length}} of your daily tasks
             {{else}}
-                Click here to start creating your daily checklist!
+              Click here to start creating your daily checklist!
             {{/if}}
           </div>
         </a>
       </div>
-        {{#if notifications}}
-          <div class="social dash-section">
-            <div class="section-head">
-              <h3>Social</h3>
-            </div>
-            <div class="section-body">
-                {{#each notifications}}
-                  <div class="social-updates">
-                    <a href="{{this.path}}">
-                        {{notification this.type this.from}}
-                    </a>
-                  </div>
-                {{/each}}
-            </div>
+      {{#if notifications}}
+        <div class="social dash-section">
+          <div class="section-head">
+            <h3>Social</h3>
           </div>
-        {{/if}}
+          <div class="section-body">
+            {{#each notifications}}
+              <div class="social-updates">
+                <a href="{{this.path}}">
+                  {{notification this.type this.from}}
+                </a>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      {{/if}}
+      <div class="new-users dash-section">
+        <div class="section-head">
+          <h3>Newest Members</h3>
+        </div>
+        <div class="section-body">
+          {{#each newUsers}}
+            {{#if this.profile.name}}
+              <div class="new-user">
+                <a href="/users/{{this.username}}">
+                  {{this.profile.name}}
+                </a>
+                <a class="btn btn-welcome btn-dash-item" href="/chat" data-username="{{this.username}}">
+                  Greet {{this.profile.name}} <small>+5</small>
+                </a>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
+      <div class="new-users dash-section">
+        <div class="section-head">
+          <h3>Anniversaries this month</h3>
+        </div>
+        <div class="section-body">
+          {{#each anniversaries}}
+            {{#if this.profile.name}}
+              <div class="celebrant">
+                <a href="/users/{{this.username}}">
+                  {{this.profile.name}} <small> <time>{{relativeTime this.profile.soberDate}}</time></small>
+                </a>
+                <a class="btn btn-congrats btn-dash-item" href="/chat" data-username="{{this.username}}">
+                  Congratulate <small>+2</small>
+                </a>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
     </section>
   </div>
 </template>

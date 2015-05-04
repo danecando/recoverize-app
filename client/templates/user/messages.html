@@ -10,9 +10,9 @@
       <section class="thread-list">
         {{#each messagesList}}
           <div class="thread-item {{#if this.unreadMessageCount}}unread{{/if}}">
-            <div class="profile-picture">
+            <div class="profile-picture" style="background-image: url({{profilePic this.username 'thumb'}});">
               <a href="/users/{{this.username}}">
-                <img src="{{profilePic this.username 'thumb'}}" alt="username"/>
+                <!--<img src="{{profilePic this.username 'thumb'}}" alt="username"/>-->
               </a>
             </div>
             <div class="message-thread">
