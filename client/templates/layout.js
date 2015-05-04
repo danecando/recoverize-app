@@ -64,3 +64,8 @@ Template.layout.events({
         Session.set(MENU_KEY, false);
     }
 });
+
+//Transitioner.default({
+//    in: 'transition.slideRightIn',
+//    out: 'transition.slideLeftOut'
+//});

@@ -61,10 +61,10 @@ Meteor.publish('userData', function() {
 Meteor.publish('newUsers', function() {
 
     return Meteor.users.find(
-        {},
+        { profileCreated: true },
         {
             fields: { 'username': true, 'createdAt': true, 'profile.name': true},
-            limit: 6,
+            limit: 20,
             sort: { createdAt: -1 }
         }
     );
@@ -194,7 +194,7 @@ Meteor.publish('message', function(username, page){
     } else if (this.userId) {
         return MessageSessions.myMessages(this.userId);
     } else {
-        return this.ready();
+       return this.ready();
     }
 });
 
