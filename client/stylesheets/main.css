@@ -4934,7 +4934,7 @@ body,
     height: 100%; }
   .page-header .filter button {
     font-size: 1.0625em;
-    padding: 11px;
+    padding: 10px 15px;
     background: white;
     color: #123865; }
     .page-header .filter button small {

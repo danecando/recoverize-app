@@ -16,6 +16,13 @@
 /* ===========================
  *  Generic Classes
  * =========================== */
+
+//input[type="text"]:focus,
+//textarea:focus {
+//  -webkit-text-size-adjust: 100%;
+//  font-size: 15px;
+//}
+
 .input-error {
   border: 1px solid red !important;
 }
@@ -2406,7 +2413,7 @@
   .filter {
     button {
       font-size: em(17);
-      padding: 11px;
+      padding: 10px 15px;
       background: white;
       color: $brand-blue;
 
