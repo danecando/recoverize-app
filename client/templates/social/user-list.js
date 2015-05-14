@@ -6,7 +6,7 @@ Template.userlist.created = function() {
     this.userCount = Meteor.users.find().count();
 
     var self = this;
-    Tracker.autorun(function() {
+    self.computation = Tracker.autorun(function() {
         var filter = self.filter.get();
         filter.profileCreated = true; // make sure we only get finished profiles
         self.listHandle = Meteor.subscribe('userList', self.limit.get(), filter);
@@ -17,13 +17,14 @@ Template.userlist.created = function() {
 };
 
 Template.userlist.destroyed = function() {
+    this.computation.stop();
     this.listHandle.stop();
 };
 
 Template.userlist.rendered = function() {
     var self = this;
     if (!Meteor.isCordova) {
-        $('.user-scroll').scroll(function () {
+        $('#user-list').scroll(function () {
             if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
                 var newLimit = self.limit.get() + 15;
                 self.limit.set(newLimit);

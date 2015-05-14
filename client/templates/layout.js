@@ -30,6 +30,10 @@ Meteor.startup(function() {
 
 });
 
+Template.layout.rendered = function() {
+    $('.user-scroll').on('touchstart', function(event){});
+};
+
 /**
  * Helpers
  */

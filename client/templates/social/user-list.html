@@ -1,15 +1,27 @@
 <template name="userlist">
-  <div id="user-list" class="page-container">
-    <section class="fixed-header">
-      <div class="page-head">
-        <h2 class="title">Member List</h2>
+  <header class="page-header">
+    <nav class="header-bar">
+      <div class="time-filter filter">
+        <button><i class="fa fa-clock-o"></i> <small><i class="fa fa-sort-desc"></i></small></button>
+      </div>
+      <div class="serenity-filter filter">
+        <button><i class="fa fa-line-chart"></i><small><i class="fa fa-sort-desc"></i></small></button>
+      </div>
+      <div class="gender-filter filter">
+        <button><i class="fa fa-mars"></i></button>
+      </div>
+      <div class="picture-filter filter">
+        <button><i class="fa fa-picture-o"></i></button>
+      </div>
+      <div class="search-filter filter">
         <button id="search-toggle"><i class="fa fa-search"></i></button>
       </div>
       <div class="user-search">
         <input class="userList-filter" type="text">
       </div>
-    </section>
-
+    </nav>
+  </header>
+  <div id="user-list" class="page-container has-header">
     <section class="user-scroll">
       <div class="users-list">
           {{#each listOfUsers}}

@@ -160,12 +160,19 @@ Meteor.publish('userList', function(limit, filter) {
     if (filter.username) {
         return Meteor.users.find(
             filter,
-            { limit: limit }
+            {
+                limit: limit
+            }
         );
     } else {
         return Meteor.users.find(
             filter,
-            { limit: limit, sort: {serenity: -1}}
+            {
+                limit: limit,
+                sort: {
+                    serenity: -1
+                }
+            }
         );
     }
 });

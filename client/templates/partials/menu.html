@@ -44,25 +44,26 @@
   </section>
   <ul class="pages social">
       {{#if currentUser}}
-        <li><a href="/">Dashboard</a></li>
+        <li><a class="icon-dash" href="/">Dashboard</a></li>
       {{/if}}
-    <li><a href="/timeline">Timeline</a></li>
-    <li><a href="/chat">Chat Room</a></li>
-    <li><a href="/users">Member List</a></li>
+    <li><a class="icon-timeline" href="/timeline">Timeline</a>
+    </li>
+    <li><a class="icon-chat" href="/chat">Chat Room</a></li>
+    <li><a class="icon-members" href="/users">Member List</a></li>
   </ul>
   <ul class="pages content">
-    <li><a href="/daily-readings">Daily Reading</a></li>
-    <li><a href="/checklist">Daily Checklist</a></li>
-    <li><a href="/speaker-tapes">Speaker Tapes</a></li>
-    <li><a href="/recovery-stories">Recovery Stories</a></li>
+    <li><a class="icon-readings" href="/daily-readings">Daily Readings</a></li>
+    <li><a class="icon-checklist" href="/checklist">Daily Checklist</a></li>
+    <li><a class="icon-tapes" href="/speaker-tapes">Speaker Tapes</a></li>
+    <li><a class="icon-stories" href="/recovery-stories">Recovery Stories</a></li>
   </ul>
   <ul class="pages bottom">
     {{#if currentUser}}
-      <!--<li><a href="/settings">Settings</a></li>-->
-      <li><a href="/account">Account</a></li>
-      <li><a href="/profile">Profile</a></li>
-      <li><a href="/logout">Logout</a></li>
+      <li><a class="icon-help" href="/help">Still Struggling?</a></li>
+      <li><a class="icon-settings" href="/settings">Settings</a></li>
+      <!--<li><a href="/account">Account</a></li>-->
+      <!--<li><a href="/profile">Profile</a></li>-->
+      <li><a class="icon-logout" href="/logout">Logout</a></li>
     {{/if}}
-    <!--<li><a class="help-link" href="/help">Still Struggling?</a></li>-->
   </ul>
 </template>
