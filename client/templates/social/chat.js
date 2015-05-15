@@ -42,8 +42,8 @@ Template.chat.destroyed = function() {
     queryHandle.stop();
     this.profilePicHandle.stop();
 
-    properties.greetUser = null;
-    properties.congratulateUser = null;
+    Props.greetUser = null;
+    Props.congratulateUser = null;
 };
 
 Template.chat.events({
@@ -69,10 +69,10 @@ Template.chat.helpers({
         return Template.instance().listOfUsers.get();
     },
     greeting: function() {
-        return properties.greetUser || null;
+        return Props.greetUser || null;
     },
     congrats: function() {
-        return properties.congratulateUser || null;
+        return Props.congratulateUser || null;
     }
 });
 

@@ -31,10 +31,10 @@ Template.profilePicture.events({
             var file = template.cordovaFile.get();
             var reader = new FileReader();
             reader.onloadend = function(e) {
-                var fileBlob = internals.dataURItoBlob(e.target.result);
+                var fileBlob = Utility.dataURItoBlob(e.target.result);
                 if (fileBlob) {
                     fileBlob.name = $('.file-name').text();
-                    internals.profilePicUpload(fileBlob, function(error, result) {
+                    Utility.profilePicUpload(fileBlob, function(error, result) {
                         if (error) {
                             return;
                         }

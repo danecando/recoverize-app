@@ -151,6 +151,7 @@ Meteor.publish('userStatuses', function(username, limit) {
 /**
  * List of users
  */
+
 Meteor.publish('userList', function(limit, filter) {
     limit = limit || 15;
 

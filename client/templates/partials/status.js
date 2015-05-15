@@ -56,7 +56,7 @@ Template.statusp.events({
         }
     },
     'click .replyStatus': function(e) {
-        Session.set('statusReply', { user: this.username, status: this.status });
+        Props.statusReply = { user: this.username }
         Router.go('/status');
     },
     'click .deleteStatus': function(e) {

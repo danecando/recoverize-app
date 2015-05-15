@@ -2,7 +2,7 @@
  * Global non reactive property storage (client side only)
  */
 
-properties = {
+Props = {
 
     /**
      * A variable that is passed to chat template to create a user greeting
@@ -12,5 +12,10 @@ properties = {
     /**
      * A variable that is passed to chat template for anniversary congrats
      */
-    congratulateUser: null
+    congratulateUser: null,
+
+    /**
+     * Passes username from reply button to new status template
+     */
+    statusReply: null
 };
