@@ -149,36 +149,6 @@ Meteor.publish('userStatuses', function(username, limit) {
 });
 
 /**
- * List of users
- */
-
-Meteor.publish('userList', function(limit, filter) {
-    limit = limit || 15;
-
-    filter = filter || {};
-    filter.profileCreated = true;
-
-    if (filter.username) {
-        return Meteor.users.find(
-            filter,
-            {
-                limit: limit
-            }
-        );
-    } else {
-        return Meteor.users.find(
-            filter,
-            {
-                limit: limit,
-                sort: {
-                    serenity: -1
-                }
-            }
-        );
-    }
-});
-
-/**
  * Returns the profilePic of specified username(s)
  */
 Meteor.publish('profilePic', function(usernames) {
@@ -202,7 +172,7 @@ Meteor.publish('message', function(username, page){
     } else if (this.userId) {
         return MessageSessions.myMessages(this.userId);
     } else {
-       return this.ready();
+        return this.ready();
     }
 });
 

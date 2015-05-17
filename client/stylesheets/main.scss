@@ -28,7 +28,7 @@
 }
 
 .at-mention {
-//  color: $secondary-blue;
+  //  color: $secondary-blue;
   font-size: em(15);
   font-weight: bold;
 }
@@ -956,7 +956,7 @@
 .conversation {
   @include calc(height, '100% - 29px');
   @include texture(180deg, #eee, #ffffff, 83, 1);
-    background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
+  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
   overflow: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -1055,7 +1055,8 @@
   textarea {
     float: left;
     height: 35px;
-    background: #eee;
+    background: $light-blue;
+    border-top: 1px solid darken($light-blue, 3);
     @include calc(width, '100% - 65px');
 
     &:focus {
@@ -1224,7 +1225,7 @@
   }
 
   li:nth-of-type(odd) {
-//    background: #f9f9f9;
+    //    background: #f9f9f9;
   }
 
   .chat-message {
@@ -1573,11 +1574,11 @@
     border-radius: em(2);
     background-size: cover;
     background-position: center;
-//    img {
-//      height: 32px;
-//      widht: 32px;
-//      border-radius: em(2);
-//    }
+    //    img {
+    //      height: 32px;
+    //      widht: 32px;
+    //      border-radius: em(2);
+    //    }
   }
 
   h3 {
@@ -1655,7 +1656,7 @@
   text-align: center;
   color: #FFF;
   @include display(flex);
-//  @include align-items(center);
+  //  @include align-items(center);
   @include justify-content(center);
   overflow: hidden;
 
@@ -1748,7 +1749,7 @@
     letter-spacing: em(.5);
 
     @include media($tablet-screen-up) {
-//      border-bottom: 1px dotted rgba(255, 255, 255, .15);
+      //      border-bottom: 1px dotted rgba(255, 255, 255, .15);
     }
   }
 
@@ -1794,7 +1795,7 @@
   .btn-primary {
     background: $brand-light !important;
 
-//    box-shadow: 1px 1px 0 1px $brand-color;
+    //    box-shadow: 1px 1px 0 1px $brand-color;
   }
 }
 
@@ -1988,19 +1989,19 @@
     width: 95%;
     margin: 0 auto;
 
-   .step {
+    .step {
       width: 100%;
       max-width: 425px;
-     margin-top: em(10);
-     display: none;
+      margin-top: em(10);
+      display: none;
 
-     @include media($tablet-screen-up) {
-       margin-top: em(30);
-     }
+      @include media($tablet-screen-up) {
+        margin-top: em(30);
+      }
 
-     &:first-of-type {
-       display: block;
-     }
+      &:first-of-type {
+        display: block;
+      }
     }
 
     .title {
@@ -2074,8 +2075,8 @@
 }
 
 #get-help {
-  min-height: 100vh;
-  background: #eee;
+  //min-height: 100vh;
+  background: $light-blue;
   padding: em(20) em(10);
 
   h2 {
@@ -2247,7 +2248,7 @@
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
-//  background: #ecf0f1;
+  //  background: #ecf0f1;
   padding: 10px 0;
   background: white;
   border-bottom: 2px solid #f5f5f5;
@@ -2258,7 +2259,7 @@
   }
 
   &:nth-of-type(even) {
-//    background: #f8f8f8;
+    //    background: #f8f8f8;
   }
 
   .checkbox {
@@ -2302,7 +2303,7 @@
   .task-name {
     h5 {
       text-decoration: line-through;
-//      color: #ddd;
+      //      color: #ddd;
     }
   }
 }
@@ -2330,8 +2331,8 @@
     content: "\f046";
     font-size: em(28);
     letter-spacing: 5px;
-//    color: $success-color;
-//    color: #ddd;
+    //    color: $success-color;
+    //    color: #ddd;
   }
 }
 
@@ -2429,25 +2430,20 @@
   }
 
 
-
-  #search-toggle {
-    //position: absolute;
-    //top: 0;
-    //right: 0;
-    //padding: em(9);
-
-    &:hover {
-      background: #477dca;
-    }
+  .filter button:hover,
+  .filter button:active {
+    border-bottom: 2px solid $brand-blue;
+    @include transition(border-bottom 100ms ease-in-out);
   }
 
   .user-search {
     position: absolute;
     left: 0;
     padding: 0 em(5);
-    background: #477dca;
+    background: $light-blue;
     height: 0;
     width: 100%;
+    opacity: 0;
     @include transition(height 200ms ease);
 
 
@@ -2458,14 +2454,24 @@
       border: 0;
       border-radius: em(2);
       padding: 0 em(5);
+      border: 1px solid darken($light-blue, 5);
       @include transition(height 200ms ease);
     }
   }
+}
 
-  &.search-open .user-search {
+.page-header.search-open + .page-container {
+  top: 80px;
+  @include transition(top 200ms ease-in-out);
+  @include calc(height, '100% - 80px');
+}
+
+.page-header.search-open {
+  .user-search {
     @include transition(height 200ms ease);
     height: 40px;
     padding: em(5);
+    opacity: 1;
 
     input {
       height: 30px;
@@ -2531,7 +2537,8 @@
     background: #477dca;
     height: 0;
     width: 100%;
-   @include transition(height 200ms ease);
+    opacity: 0;
+    @include transition(height 200ms ease);
 
 
     input {
@@ -2545,7 +2552,8 @@
     }
   }
 
-  &.search-open .user-search {
+  &.search-open & .user-search {
+    opacity: 1;
     @include transition(height 200ms ease);
     height: 40px;
     padding: em(5);
@@ -2553,7 +2561,6 @@
     input {
       height: 30px;
       @include transition(height 200ms ease);
-
     }
   }
 }
@@ -2576,7 +2583,7 @@
   .profile-pic {
     text-align: left;
     margin-right: em(15);
-    
+
     .thumb-container {
       width: 60px;
       height: 60px;
@@ -2666,10 +2673,10 @@
     }
 
     .btn-unfollow {
-//      color: $error-color;
+      //      color: $error-color;
     }
     .btn-follow {
-//      color: $success-color;
+      //      color: $success-color;
     }
   }
 
@@ -2900,7 +2907,7 @@
   @include justify-content(center);
   padding: em(10) 0;
   background: linear-gradient($secondary-blue, lighten($secondary-blue, 10));
-//  border-bottom: 2px solid $brand-light;
+  //  border-bottom: 2px solid $brand-light;
   border-bottom: 2px solid lighten($secondary-blue, 30);
 
   @include media($tablet-screen-up) {
@@ -2929,7 +2936,7 @@
       padding: em(4);
       font-size: em(14);
       background: lighten($secondary-blue, 30);
-//      background: $brand-light;
+      //      background: $brand-light;
       color: white;
 
       @include media($tablet-screen-up) {

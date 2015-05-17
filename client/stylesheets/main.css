@@ -3521,7 +3521,8 @@ body,
   .message-input textarea {
     float: left;
     height: 35px;
-    background: #eee;
+    background: #f3f6f9;
+    border-top: 1px solid #e9eef4;
     width: -webkit-calc(100% - 65px);
     width: calc(100% - 65px); }
     .message-input textarea:focus {
@@ -4525,8 +4526,7 @@ body,
     border-radius: 0.1875em; }
 
 #get-help {
-  min-height: 100vh;
-  background: #eee;
+  background: #f3f6f9;
   padding: 1.25em 0.625em; }
   #get-help h2 {
     text-align: center;
@@ -4942,15 +4942,20 @@ body,
       vertical-align: center; }
   .page-header .filter.active {
     border-bottom: 2px solid #123865; }
-  .page-header #search-toggle:hover {
-    background: #477dca; }
+  .page-header .filter button:hover,
+  .page-header .filter button:active {
+    border-bottom: 2px solid #123865;
+    -webkit-transition: border-bottom 100ms ease-in-out;
+    -moz-transition: border-bottom 100ms ease-in-out;
+    transition: border-bottom 100ms ease-in-out; }
   .page-header .user-search {
     position: absolute;
     left: 0;
     padding: 0 0.3125em;
-    background: #477dca;
+    background: #f3f6f9;
     height: 0;
     width: 100%;
+    opacity: 0;
     -webkit-transition: height 200ms ease;
     -moz-transition: height 200ms ease;
     transition: height 200ms ease; }
@@ -4961,20 +4966,31 @@ body,
       border: 0;
       border-radius: 0.125em;
       padding: 0 0.3125em;
+      border: 1px solid #e2e9f0;
       -webkit-transition: height 200ms ease;
       -moz-transition: height 200ms ease;
       transition: height 200ms ease; }
-  .page-header.search-open .user-search {
+
+.page-header.search-open + .page-container {
+  top: 80px;
+  -webkit-transition: top 200ms ease-in-out;
+  -moz-transition: top 200ms ease-in-out;
+  transition: top 200ms ease-in-out;
+  height: -webkit-calc(100% - 80px);
+  height: calc(100% - 80px); }
+
+.page-header.search-open .user-search {
+  -webkit-transition: height 200ms ease;
+  -moz-transition: height 200ms ease;
+  transition: height 200ms ease;
+  height: 40px;
+  padding: 0.3125em;
+  opacity: 1; }
+  .page-header.search-open .user-search input {
+    height: 30px;
     -webkit-transition: height 200ms ease;
     -moz-transition: height 200ms ease;
-    transition: height 200ms ease;
-    height: 40px;
-    padding: 0.3125em; }
-    .page-header.search-open .user-search input {
-      height: 30px;
-      -webkit-transition: height 200ms ease;
-      -moz-transition: height 200ms ease;
-      transition: height 200ms ease; }
+    transition: height 200ms ease; }
 
 .page-container.has-header {
   position: relative;
@@ -5014,6 +5030,7 @@ body,
   background: #477dca;
   height: 0;
   width: 100%;
+  opacity: 0;
   -webkit-transition: height 200ms ease;
   -moz-transition: height 200ms ease;
   transition: height 200ms ease; }
@@ -5027,13 +5044,14 @@ body,
     -webkit-transition: height 200ms ease;
     -moz-transition: height 200ms ease;
     transition: height 200ms ease; }
-#user-list.search-open .user-search {
+#user-list.search-open #user-list .user-search {
+  opacity: 1;
   -webkit-transition: height 200ms ease;
   -moz-transition: height 200ms ease;
   transition: height 200ms ease;
   height: 40px;
   padding: 0.3125em; }
-  #user-list.search-open .user-search input {
+  #user-list.search-open #user-list .user-search input {
     height: 30px;
     -webkit-transition: height 200ms ease;
     -moz-transition: height 200ms ease;

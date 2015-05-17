@@ -1,25 +1,25 @@
 <template name="userlist">
   <header class="page-header">
     <nav class="header-bar">
-      <div class="time-filter filter">
-        <button><i class="fa fa-clock-o"></i> <small><i class="fa fa-sort-asc"></i></small></button>
-      </div>
       <div class="serenity-filter filter">
-        <button><i class="fa fa-line-chart"></i><small><i class="fa fa-sort-desc"></i></small></button>
+        <button data-direction="{{sortDirection serenityDirection}}"><i class="fa fa-line-chart"></i><small><i class="fa fa-sort-{{sortDirection serenityDirection}}"></i></small></button>
+      </div>
+      <div class="time-filter filter">
+        <button data-direction="{{sortDirection timeDirection}}"><i class="fa fa-clock-o"></i> <small><i class="fa fa-sort-{{sortDirection timeDirection}}"></i></small></button>
+      </div>
+      <div class="follower-filter filter">
+        <button data-direction="{{sortDirection followersDirection}}"> {{#if equals followersDirection 1}}<i class="fa fa-level-down"></i>{{else}}<i class="fa fa-level-up"></i>{{/if}}</button>
       </div>
       <div class="gender-filter filter">
-        <button><i class="fa fa-mars"></i></button>
-      </div>
-      <div class="picture-filter filter">
-        <button><i class="fa fa-picture-o"></i></button>
+        <button data-direction="{{sortDirection genderDirection}}"> {{#if equals genderDirection -1}}<i class="fa fa-mars"></i>{{else}}<i class="fa fa-venus"></i>{{/if}}</button>
       </div>
       <div class="search-filter filter">
         <button id="search-toggle"><i class="fa fa-search"></i></button>
       </div>
-      <div class="user-search">
-        <input class="userList-filter" type="text">
-      </div>
     </nav>
+    <div class="user-search">
+      <input class="userList-filter" type="text">
+    </div>
   </header>
   <div id="user-list" class="page-container has-header">
     <section class="user-scroll">
@@ -29,12 +29,12 @@
                   {{> usersp this}}
               {{/unless}}
           {{/each}}
-          {{#if hasMore}}
-              {{#if cordova}}
+          {{#if hasMore}}j
+            {{#if cordova}}
                 <div class="load-btn-container">
                   <button id="load-more">Load more users</button>
                 </div>
-              {{/if}}
+            {{/if}}
           {{/if}}
       </div>
     </section>
