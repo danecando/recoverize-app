@@ -1,37 +1,78 @@
 
-Template.userlist.created = function() {
-    this.limit = new ReactiveVar(15);
-    this.filter = new ReactiveVar({});
-    this.userList = new ReactiveVar();
-    this.userCount = Meteor.users.find().count();
+Template.userlist.onCreated(function() {
+    var instance = this;
 
-    var self = this;
-    Tracker.autorun(function() {
-        var filter = self.filter.get();
-        filter.profileCreated = true; // make sure we only get finished profiles
-        self.listHandle = Meteor.subscribe('userList', self.limit.get(), filter);
-
-        var users = Meteor.users.find(self.filter.get(), { limit: self.limit.get() });
-        self.userList.set(users);
-    });
-};
-
-Template.userlist.destroyed = function() {
-    this.listHandle.stop();
-};
-
-Template.userlist.rendered = function() {
-    var self = this;
-    if (!Meteor.isCordova) {
-        $('.user-scroll').scroll(function () {
-            if ($(this).scrollTop() + $(this).innerHeight() == this.scrollHeight) {
-                var newLimit = self.limit.get() + 15;
-                self.limit.set(newLimit);
-                Tracker.flush()
-            }
+    if (!Session.get('sortDirections')) {
+        Session.set('sortDirections', {
+            status: -1,
+            serenity: -1,
+            'profile.soberDate': 1,
+            followersCount: 1,
+            'profile.gender': -1
         });
     }
-};
+
+    instance.limit = 15;
+    instance.userCount = new ReactiveVar();
+    instance.userList = new ReactiveVar([]);
+    instance.filter = new ReactiveVar({});
+    instance.sort = new ReactiveVar(Session.get('sortDirections'));
+    instance.page = new ReactiveVar(0);
+    instance.skip = new ReactiveVar(instance.page.get() * instance.limit);
+
+    var prevFilter = instance.filter.get();
+    var prevSort = instance.sort.get();
+
+    Tracker.autorun(function() {
+
+        if (!_.isEqual(prevFilter, instance.filter.get()) ||
+            !_.isEqual(prevSort, instance.sort.get())) {
+            instance.page.set(0);
+            instance.userList.set([]);
+            prevSort = instance.sort.get();
+            prevFilter = instance.filter.get();
+        }
+
+        Meteor.call(
+            'getUsers',
+            instance.filter.get(),
+            instance.sort.get(),
+            instance.limit,
+            instance.page.get() * instance.limit,
+            function(err, results) {
+                var userList = instance.userList.get();
+                var updated = userList.concat(results.users);
+                updated = _.uniq(updated, function(item) { return item._id; });
+                instance.userList.set(updated);
+                instance.userCount.set(results.userCount);
+            }
+        );
+    });
+
+    instance.nextPage = function() {
+        var page = instance.page.get() + 1;
+        instance.page.set(page);
+    };
+
+    instance.reorderSort = function(sort, field) {
+        var first = _.pick(sort, field);
+        var rest = _.omit(sort, field);
+        return _.extend(first, rest);
+    };
+});
+
+
+Template.userlist.onRendered(function() {
+    var instance = this;
+
+    if (!Meteor.isCordova) {
+        this.$('#user-list').scroll(function() {
+            if ($(this).scrollTop() + $(this).innerHeight() >= this.scrollHeight - 50) {
+                instance.nextPage();
+            }
+        })
+    }
+});
 
 Template.userlist.helpers({
     listOfUsers: function() {
@@ -44,46 +85,81 @@ Template.userlist.helpers({
         return Meteor.isCordova;
     },
     hasMore: function() {
-        return Template.instance().userCount >= Template.instance().limit.get();
+        return Template.instance().userCount.get() > Template.instance().userList.get().length;
+    },
+    serenityDirection: function() {
+        var sort = Template.instance().sort.get();
+        return sort.serenity;
+    },
+    timeDirection: function() {
+        var sort = Template.instance().sort.get();
+        return sort['profile.soberDate'];
+    },
+    followersDirection: function() {
+        var sort = Template.instance().sort.get();
+        return sort.followersCount;
+    },
+    genderDirection: function() {
+        var sort = Template.instance().sort.get();
+        return sort['profile.gender'];
     }
 });
 
 Template.userlist.events({
     'click #load-more': function(e, template) {
         e.preventDefault();
-
-        var limit = template.limit.get();
-        var newLimit = limit + limit;
-        template.limit.set(newLimit);
-
-        if (template.userCount < newLimit) {
-            $(e.target).css('display', 'none');
-            return;
-        }
+        var page = template.page.get();
+        template.page.set(page+1);
     },
-    'keyup .userList-filter': function(e, template){
+    'keyup .userList-filter, keydown .userList-filter, keypress .userList-filter': function(e, template){
         if (e.keyCode == 27) {
-            $('#user-list').removeClass('search-open');
+            $('.page-header').removeClass('search-open');
         }
-
         var value = $(e.target).val().trim().toLowerCase();
-
-        if (value) {
-            $('#load-more').css('display', 'none');
-            template.limit.set(100000);
-        } else {
-            $('#load-more').css('display', 'block');
-            template.limit.set(10);
-        }
         template.filter.set({username: {$regex: value}});
     },
     'click #search-toggle': function(e, template) {
-        $('#user-list').toggleClass('search-open');
+        $('.page-header').toggleClass('search-open');
         $('.userList-filter').focus();
-
     },
     'click .user-scroll': function(e, template) {
         $('#user-list').removeClass('search-open');
-    }
+    },
+    'click .serenity-filter button': function(e, template) {
+        e.preventDefault();
+        var directions = Session.get('sortDirections');
+        var dir = directions.serenity;
+        directions.serenity = dir > 0 ? dir *= -1 : Math.abs(dir);
+        var sorted = template.reorderSort(directions, 'serenity');
+        Session.set('sortDirections', sorted);
+        template.sort.set(sorted);
+    },
+    'click .time-filter button': function(e, template) {
+        e.preventDefault();
+        var directions = Session.get('sortDirections');
+        var dir = directions['profile.soberDate'];
+        directions['profile.soberDate'] = dir > 0 ? dir *= -1 : Math.abs(dir);
+        var sorted = template.reorderSort(directions, 'profile.soberDate');
+        Session.set('sortDirections', sorted);
+        template.sort.set(sorted);
+    },
+    'click .follower-filter button': function(e, template) {
+        e.preventDefault();
+        var directions = Session.get('sortDirections');
+        console.log(directions);
+        var dir = directions.followersCount;
+        directions.followersCount = dir > 0 ? dir *= -1 : Math.abs(dir);
+        var sorted = template.reorderSort(directions, 'followersCount');
+        Session.set('sortDirections', sorted);
+        template.sort.set(sorted);
+    },
+    'click .gender-filter button': function(e, template) {
+        e.preventDefault();
+        var directions = Session.get('sortDirections');
+        var dir = directions['profile.gender'];
+        directions['profile.gender'] = dir > 0 ? dir *= -1 : Math.abs(dir);
+        var sorted = template.reorderSort(directions, 'profile.gender');
+        Session.set('sortDirections', sorted);
+        template.sort.set(sorted);
+    },
 });
-

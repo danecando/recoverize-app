@@ -1,5 +1,25 @@
 Meteor.methods({
+    getUserCount: function() {
+        return Meteor.users.find({}).count();
+    },
+    getUsers: function(filter, sort, limit, skip) {
+        filter = filter || {};
+        filter.profileCreated = true;
 
+        sort = sort || {};
+        limit = limit || 15;
+        skip = skip || 0;
+
+        return {
+            users: Meteor.users.find(filter,
+                {
+                    sort: sort,
+                    limit: limit,
+                    skip: skip
+                }).fetch(),
+            userCount: Meteor.users.find(filter).count()
+        };
+    },
     createAccount: function(user) {
         var id = Accounts.createUser({
             email: user.email.toLowerCase(),

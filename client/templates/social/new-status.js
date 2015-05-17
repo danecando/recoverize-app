@@ -9,12 +9,14 @@ Template.newStatus.rendered = function() {
 };
 
 Template.newStatus.destroyed = function() {
-    Session.set('statusReply', null);
+
+    // reset global props
+    Props.statusReply = null;
 };
 
 Template.newStatus.helpers({
     replyData: function() {
-        var reply = Session.get('statusReply');
+        var reply = Props.statusReply;
 
         if (reply) {
             return reply;
@@ -106,7 +108,7 @@ function submitStatus(e, template) {
 
         if (!Meteor.isCordova && share.image) {
 
-            internals.statusPhotoUpload(share.image, function(error, result) {
+            Utility.statusPhotoUpload(share.image, function(error, result) {
                 if (error) {
                     $('.share-input').css('border-color', 'red');
                     $('.response').text(error);
@@ -131,10 +133,10 @@ function submitStatus(e, template) {
             var file = template.cordovaFile;
             var reader = new FileReader();
             reader.onloadend = function(e) {
-                var fileBlob = internals.dataURItoBlob(e.target.result);
+                var fileBlob = Utility.dataURItoBlob(e.target.result);
                 if (fileBlob) {
                     fileBlob.name = file.name;
-                    internals.statusPhotoUpload(fileBlob, function(error, result) {
+                    Utility.statusPhotoUpload(fileBlob, function(error, result) {
                         if (error) {
                             $('.share-input').css('border-color', 'red');
                             $('.response').text(error);

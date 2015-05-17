@@ -13,7 +13,7 @@ Meteor.methods({
     },
 
     sendNotification: function(obj) {
-        if (!internals.hasOwnProperties(obj, ['type', 'username', 'path', 'from'])) {
+        if (!Utility.hasOwnProperties(obj, ['type', 'username', 'path', 'from'])) {
             return console.log('missing fields on Notification.push');
         }
 

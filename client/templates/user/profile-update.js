@@ -103,7 +103,7 @@ Template.profileUpdate.events({
             var file = $('[name=profilePic]')[0].files[0];
 
             if (file) {
-                internals.profilePicUpload(file, function(error, result) {
+                Utility.profilePicUpload(file, function(error, result) {
                     if (error) {
                         $('.response').addClass('error').text(error);
                         return;

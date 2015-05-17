@@ -86,7 +86,7 @@ UI.registerHelper('profilePic', function(username, size) {
     // fix this @see #84
     if (user && user.profile && user.profile.profilePic) {
         var profilePic = (size === 'thumb' && user.profile.profilePicThumb) ? user.profile.profilePicThumb : user.profile.profilePic;
-        return "https://d6gyptuog2clr.cloudfront.net/" + profilePic;
+        return new Handlebars.SafeString("https://d6gyptuog2clr.cloudfront.net/" + profilePic);
     }
 
     return false;
@@ -166,6 +166,14 @@ UI.registerHelper('messageDirection', function(from) {
  */
 UI.registerHelper('elapsedDays', function(date) {
     return moment().diff(date, 'days');
+});
+
+UI.registerHelper('sortDirection', function(dir) {
+    return dir > 0 ? 'asc': 'desc';
+});
+
+UI.registerHelper('equals', function(a, b) {
+    return a == b;
 });
 
 /**

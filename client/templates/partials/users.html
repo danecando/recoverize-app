@@ -1,32 +1,35 @@
 <template name="usersp">
   <div class="user-box">
-    <section class="profile-pic">
+    <aside class="profile-pic">
       <a href="/users/{{this.username}}">
-        <div class="thumb-container" style="background: url('{{profilePic this.username 'thumb'}}') no-repeat; background-position: center;"></div>
+        <div class="thumb-container" style="background: url('https://d6gyptuog2clr.cloudfront.net/{{this.profile.profilePicThumb}}') no-repeat; background-position: center;"></div>
       </a>
-    </section>
+    </aside>
     <section class="profile-info">
-      <div class="names">
-        <h3 class="username">{{this.profile.name}} <small><a href="/users/{{this.username}}">@{{this.username}}</a></small> <span class="user-connection {{presenceOf username}}"></span></h3>
+      <div class="names box-top">
+        <h3 class="username">{{this.profile.name}} <small><a href="/users/{{this.username}}">@{{this.username}}</a></small></h3>
+        <span class="user-connection {{presenceOf username}}"></span>
       </div>
-      <div class="flex-container">
+      <div class="box-bottom">
         <div class="more-info">
-            {{#if this.profile.location}}
-              <div class="location">{{this.profile.location}}</div>
-            {{/if}}
+          {{#if this.profile.location}}
+            <div class="location">{{this.profile.location}}</div>
+          {{/if}}
           <div class="sober-time">{{relativeTime this.profile.soberDate}} {{cleanOrSober this.profile.program}}</div>
         </div>
         <div class="social-buttons">
+          <div class="button-container">
             {{#if currentUserFollows this.username}}
-              <a href="#" class="btn btn-unfollow unfollowBtn"><i class="fa fa-user-times"></i></a>
+              <a href="#" class="btn btn-unfollow unfollowBtn"><i class="fa fa-minus-square-o"></i></a>
             {{else}}
-              <a href="#" class="btn btn-follow followBtn"><i class="fa fa-user-plus"></i></a>
+              <a href="#" class="btn btn-follow followBtn"><i class="fa fa-plus-square-o"></i></a>
             {{/if}}
-          <a class="btn messages-link" href="/messages/{{this.username}}"><i class="fa fa-envelope-o"></i></a>
+          </div>
+          <div class="button-container">
+            <a class="btn messages-link" href="/messages/{{this.username}}"><i class="fa fa-envelope-o"></i></a>
+          </div>
         </div>
       </div>
     </section>
   </div>
-
-
 </template>

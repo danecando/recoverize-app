@@ -1,5 +1,3 @@
-
-
 Template.dashboard.created = function() {
     this.annis = new ReactiveVar([]);
 
@@ -9,7 +7,6 @@ Template.dashboard.created = function() {
             self.annis.set(annis);
         }
     });
-
 };
 
 Template.dashboard.helpers({
@@ -46,9 +43,9 @@ Template.dashboard.helpers({
 
 Template.dashboard.events({
     'click .btn-welcome': function(e, template) {
-        properties.greetUser = $(e.target).attr('data-username');
+        Props.greetUser = $(e.target).attr('data-username');
     },
     'click .btn-congrats': function(e, template) {
-        properties.congratulateUser = $(e.target).attr('data-username')
+        Props.congratulateUser = $(e.target).attr('data-username')
     }
 });

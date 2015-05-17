@@ -23,7 +23,6 @@ miro:mailchimp
 sacha:spin
 matb33:collection-hooks
 reactive-var
-accolver:twilio-meteor
 ccorcos:clientside-image-manipulation
 percolate:synced-cron
 reywood:iron-router-ga
@@ -31,3 +30,5 @@ raix:push
 meteorhacks:kadira@2.20.1
 fastclick
 meteorhacks:aggregate
+manuel:reactivearray
+percolate:find-from-publication

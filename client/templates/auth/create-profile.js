@@ -93,10 +93,10 @@ Template.createProfile.events({
             var file = template.cordovaFile.get();
             var reader = new FileReader();
             reader.onloadend = function(e) {
-                var fileBlob = internals.dataURItoBlob(e.target.result);
+                var fileBlob = Utility.dataURItoBlob(e.target.result);
                 if (fileBlob) {
                     fileBlob.name = $('.file-name').text();
-                    internals.profilePicUpload(fileBlob, function(error, result) {
+                    Utility.profilePicUpload(fileBlob, function(error, result) {
                         if (error) {
                             $('#step-two .response').addClass('error').text(error.reason);
                             $('[type=file]').css('border-color', 'red');
@@ -121,7 +121,7 @@ Template.createProfile.events({
             var file = $('[name=profilePic]')[0].files[0];
 
             if (file) {
-                internals.profilePicUpload(file, function(error, result) {
+                Utility.profilePicUpload(file, function(error, result) {
                     if (error) {
                         $('#step-two .response').addClass('error').text(error.reason);
                         $('[type=file]').css('border-color', 'red');
