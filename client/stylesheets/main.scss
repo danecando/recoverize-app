@@ -2597,7 +2597,9 @@
   max-width: 600px;
   background: white;
   margin-bottom: 10px;
-  box-shadow: 0 0 2px 1px rgba(50, 50, 50, .05);
+  border: 1px solid #f0f0f0;
+  //box-shadow: 0 0 2px 1px rgba(50, 50, 50, .05);
+  box-shadow: 0 0 3px 1px rgba(50, 50, 50, .015);
 
   @include media($mobile-screen-down) {
     @include flex-wrap(wrap);
