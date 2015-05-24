@@ -1551,11 +1551,12 @@
   width: 95%;
   max-width: 600px;
   padding: em(15);
-  border: 1px solid #eee;
+  border: 1px solid #f0f0f0;
   border-radius: em(3);
   background: white;
-  margin: em(20) 0 em(5);
-  box-shadow: 0 0 10px 0 rgba(50, 50, 50, .05);
+  margin: 10px 0 5px;
+  //box-shadow: 0 0 5px 0 rgba(50, 50, 50, .15);
+  box-shadow: 0 0 3px 1px rgba(50, 50, 50, .015);
 }
 
 .status-image {
@@ -2340,7 +2341,6 @@
  *  Timeline Page
  * =========================== */
 #timeline {
-  background: #fafafa;
 
   .cordova & {
     @include calc(height, '100vh - 40px');
@@ -2401,8 +2401,7 @@
   width: 100%;
   height: 40px;
   background: white;
-  box-shadow: 0px 1px 2px rgba(50, 50, 50, .25);
-
+  box-shadow: 0px 1px 2px rgba(50, 50, 50, .1);
 
   .header-bar {
     @include display(flex);
@@ -2413,7 +2412,8 @@
 
   .filter {
     button {
-      font-size: em(17);
+      @include display(flex);
+      @include align-items(center);
       padding: 10px 15px;
       background: white;
       color: $brand-blue;
@@ -2421,6 +2421,16 @@
       small {
         margin-left: 5px;
         vertical-align: center;
+      }
+
+      i {
+        font-size: em(17);
+      }
+
+      .name {
+        font-size: em(13);
+        font-weight: normal;
+        margin-left: 7px;
       }
     }
 
@@ -2490,6 +2500,19 @@
   background: #f3f6f9;
   @include calc(height, '100% - 40px');
   min-height: 0 !important;
+}
+
+.timeline-filters .filter {
+  button {
+    padding: 12px 12px;
+  }
+  i {
+    font-size: em(13) !important;
+  }
+  .name {
+    letter-spacing: em(-.5);
+    font-size: em(15) !important;
+  }
 }
 
 /* ===========================
