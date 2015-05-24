@@ -46,4 +46,5 @@ native
 
 main.css.map
 
-env.json
+.env
+settings.json
