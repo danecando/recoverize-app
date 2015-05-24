@@ -1,11 +1,18 @@
 <template name="timeline">
-  <div id="timeline" class="page-container">
-
-    <section class="timeline-filter">
-      <button id="recent-timeline" class="active"><i class="fa fa-list"></i> Recent</button>
-      <button id="popular-timeline"><i class="fa fa-fire"></i> Popular</button>
-      <button id="following-timeline"><i class="fa fa-users"></i> Following</button>
-    </section>
+  <header class="page-header">
+    <nav class="header-bar timeline-filters">
+      <div class="recent-filter filter">
+        <button id="recent-timeline" class="active"><i class="fa fa-list"></i> <span class="name">Recent</span></button>
+      </div>
+      <div class="popular-filter filter">
+        <button id="popular-timeline"><i class="fa fa-fire"></i> <span class="name">Popular</span></button>
+      </div>
+      <div class="following-filter filter">
+        <button id="following-timeline"><i class="fa fa-users"></i> <span class="name">Following</span></button>
+      </div>
+    </nav>
+  </header>
+  <div id="timeline" class="page-container has-header">
     <section id="status-scroll" class="status-scroll">
       <div class="status-list">
           {{#each status}}

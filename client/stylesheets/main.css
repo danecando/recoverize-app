@@ -4038,11 +4038,11 @@ body,
   width: 95%;
   max-width: 600px;
   padding: 0.9375em;
-  border: 1px solid #eee;
+  border: 1px solid #f0f0f0;
   border-radius: 0.1875em;
   background: white;
-  margin: 1.25em 0 0.3125em;
-  box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.05); }
+  margin: 10px 0 5px;
+  box-shadow: 0 0 3px 1px rgba(50, 50, 50, 0.015); }
 
 .status-image {
   text-align: center;
@@ -4836,20 +4836,18 @@ body,
 /* ===========================
  *  Timeline Page
  * =========================== */
-#timeline {
-  background: #fafafa; }
-  .cordova #timeline {
-    height: -webkit-calc(100vh - 40px);
-    height: calc(100vh - 40px); }
-  #timeline .status-scroll {
-    height: -webkit-calc(100vh - 83px);
-    height: calc(100vh - 83px);
-    overflow-y: scroll;
-    webkit-overflow-scrolling: touch; }
-    @media screen and (min-width: 48em) {
-      #timeline .status-scroll {
-        height: -webkit-calc(100vh - 40px);
-        height: calc(100vh - 40px); } }
+.cordova #timeline {
+  height: -webkit-calc(100vh - 40px);
+  height: calc(100vh - 40px); }
+#timeline .status-scroll {
+  height: -webkit-calc(100vh - 83px);
+  height: calc(100vh - 83px);
+  overflow-y: scroll;
+  webkit-overflow-scrolling: touch; }
+  @media screen and (min-width: 48em) {
+    #timeline .status-scroll {
+      height: -webkit-calc(100vh - 40px);
+      height: calc(100vh - 40px); } }
 
 .timeline-filter {
   display: -webkit-box;
@@ -4904,7 +4902,7 @@ body,
   width: 100%;
   height: 40px;
   background: white;
-  box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.25); }
+  box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.1); }
   .page-header .header-bar {
     display: -webkit-box;
     display: -moz-box;
@@ -4933,13 +4931,34 @@ body,
     -ms-flex-pack: justify;
     height: 100%; }
   .page-header .filter button {
-    font-size: 1.0625em;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
     padding: 10px 15px;
     background: white;
     color: #123865; }
     .page-header .filter button small {
       margin-left: 5px;
       vertical-align: center; }
+    .page-header .filter button i {
+      font-size: 1.0625em; }
+    .page-header .filter button .name {
+      font-size: 0.8125em;
+      font-weight: normal;
+      margin-left: 7px; }
   .page-header .filter.active {
     border-bottom: 2px solid #123865; }
   .page-header .filter button:hover,
@@ -5002,6 +5021,14 @@ body,
   height: -webkit-calc(100% - 40px);
   height: calc(100% - 40px);
   min-height: 0 !important; }
+
+.timeline-filters .filter button {
+  padding: 12px 12px; }
+.timeline-filters .filter i {
+  font-size: 0.8125em !important; }
+.timeline-filters .filter .name {
+  letter-spacing: -0.03125em;
+  font-size: 0.9375em !important; }
 
 /* ===========================
  *  User List Page

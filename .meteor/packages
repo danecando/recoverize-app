@@ -32,3 +32,5 @@ fastclick
 meteorhacks:aggregate
 manuel:reactivearray
 percolate:find-from-publication
+meteorhacks:kadira-profiler
+raix:eventemitter
