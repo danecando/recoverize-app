@@ -11,8 +11,7 @@ Meteor.methods({
         skip = skip || 0;
 
         return {
-            users: Meteor.users.find(filter,
-                {
+            users: Meteor.users.find(filter, {
                     sort: sort,
                     limit: limit,
                     skip: skip

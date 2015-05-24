@@ -5115,7 +5115,8 @@ body,
   max-width: 600px;
   background: white;
   margin-bottom: 10px;
-  box-shadow: 0 0 2px 1px rgba(50, 50, 50, 0.05); }
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 0 3px 1px rgba(50, 50, 50, 0.015); }
   @media screen and (max-width: 20em) {
     .user-box {
       -webkit-box-lines: multiple;

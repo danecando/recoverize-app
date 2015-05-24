@@ -2,10 +2,7 @@
  * File storage configurations
  */
 
-
-/**
- * Image upload rules
- */
+// Generic image upload rules
 Slingshot.createDirective('image', Slingshot.S3Storage, {
     bucket: 'recoverize-app',
     allowedFileTypes: ['image/png', 'image/jpeg'],
@@ -13,7 +10,7 @@ Slingshot.createDirective('image', Slingshot.S3Storage, {
     acl: 'public-read',
 
     authorize: function () {
-        //Deny uploads if user is not logged in.
+        // Deny uploads if user is not logged in.
         if (!this.userId) {
             var message = 'Please login before posting files';
             throw new Meteor.Error('Login Required', message);
@@ -23,7 +20,7 @@ Slingshot.createDirective('image', Slingshot.S3Storage, {
     },
 
     key: function (file) {
-        //Store file into a directory by the user's username.
+        // Store file into a directory by the user's username.
         var user = Meteor.users.findOne(this.userId);
         return user.username + '/' + file.name;
     }
