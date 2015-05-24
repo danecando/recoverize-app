@@ -34,3 +34,5 @@ manuel:reactivearray
 percolate:find-from-publication
 meteorhacks:kadira-profiler
 raix:eventemitter
+mike:mocha
+velocity:console-reporter
