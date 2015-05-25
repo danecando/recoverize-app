@@ -105,7 +105,7 @@ Meteor.methods({
    * @returns {*|any} number of documents affected
    */
   setProfileCreated: function setProfileCreated() {
-    var id = getUserId();
+    var id = Utility.getUserId();
     check(id, String);
 
     return Meteor.users.update({ _id: id }, {
@@ -122,7 +122,7 @@ Meteor.methods({
    */
   banUser: function banUser(id) {
     var userId = id;
-    var adminId = getUserId();
+    var adminId = Utility.getUserId();
     check(userId, String);
     check(adminId, String);
 
@@ -170,7 +170,7 @@ Meteor.methods({
    * @returns {boolean}
    */
   updateEmail: function updateEmail(user) {
-    var id = getUserId();
+    var id = Utility.getUserId();
     var updated = 0;
 
     check(id, String);
@@ -202,7 +202,7 @@ Meteor.methods({
    * @param username
    */
   createUsername: function createUsername(username) {
-    var id = getUserId();
+    var id = Utility.getUserId();
     check(id, String);
 
     if (!Meteor.users.findOne({ username: username })) {
@@ -228,7 +228,7 @@ Meteor.methods({
    * @returns {*}
    */
   updateProfile: function updateProfile(fields) {
-    var id = getUserId();
+    var id = Utility.getUserId();
     check(id, String);
 
     var updated = {};
@@ -253,7 +253,7 @@ Meteor.methods({
    * @returns {boolean}
    */
   follow: function follow(usernameToFollow) {
-    var id = getUserId();
+    var id = Utility.getUserId();
     check(id, String);
     check(usernameToFollow, String);
 
@@ -300,7 +300,7 @@ Meteor.methods({
    * @param usernameToUnfollow
    */
   unfollow: function unfollow(usernameToUnfollow) {
-    var id = getUserId();
+    var id = Utility.getUserId();
     check(id, String);
     check(usernameToUnfollow, String);
 
@@ -331,22 +331,3 @@ Meteor.methods({
   }
 
 });
-
-/**
- * Make sure we get a valid ID
- * @returns {*}
- */
-function getUserId() {
-  var id;
-  try {
-    id = Meteor.userId();
-    check(id, String);
-  } catch(e) {
-    if (typeof this.userId === 'string') {
-      id = this.userId;
-    } else {
-      throw new Meteor.Error(403, 'Error getting userId');
-    }
-  }
-  return id;
-}

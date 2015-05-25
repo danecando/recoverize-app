@@ -7,16 +7,16 @@ Meteor.methods({
     skip = skip || 0;
 
     var statuses = Status.find(filter, {
-        sort: sort,
-        limit: limit,
-        skip: skip
-      }).fetch();
+      sort: sort,
+      limit: limit,
+      skip: skip
+    }).fetch();
 
     var count = Status.find(filter).count();
 
     return {
       statuses: statuses,
-      count: count
+      statusCount: count
     };
   },
 
@@ -55,48 +55,55 @@ Meteor.methods({
     return true;
   },
 
-  statusSerenityUp: function(statusId) {
-    check(Meteor.userId(), String);
+  /**
+   * Increase status serenity & user serenity count
+   * @param statusId
+   */
+  statusSerenityUp: function statusSerenityUp(statusId) {
+    var id = Utility.getUserId();
+    check(id, String);
     check(statusId, String);
 
-    var status = Status.findOne({ _id: statusId });
-    if (!status) {
-      return;
-    }
-
-    var affected = Status.update(
-      {_id: statusId, serenityList: {$ne: Meteor.user().username}},
-      {$addToSet: {serenityList: Meteor.user().username}, $inc: {serenity: 1}}
-    );
-
-    if (affected) {
-      Meteor.users.update(
-        {username: status.username},
-        {$inc: {serenity: 1}}
-      );
-    }
+    Status.update({
+      _id: statusId,
+      serenityList: { $ne: Meteor.user().username }
+    }, {
+      $addToSet: { serenityList: Meteor.user().username },
+      $inc: { serenity: 1 }
+    }, function(err) {
+      if (err) {
+        throw new Meteor.Error(500, 'Failed to increase post serenity count');
+      }
+      Meteor.users.update({ username: status.username }, {
+        $inc: { serenity: 1 }
+      }, function() {
+        // async
+      });
+    });
   },
 
-  statusSerenityDown: function(statusId){
-    check(Meteor.userId(), String);
+  /**
+   * Decrease status serenity & user serenity count
+   * @param statusId
+   */
+  statusSerenityDown: function statusSerenityDown(statusId){
+    var id = Utility.getUserId();
+    check(id, String);
     check(statusId, String);
 
-    var status = Status.findOne({ _id: statusId });
-    if (!status) {
-      return;
-    }
-
-    var affected = Status.update(
-      {_id: statusId, serenityList: Meteor.user().username},
-      {$pull: {serenityList: Meteor.user().username}, $inc: {serenity: -1}}
-    );
-
-    if (affected) {
-      Meteor.users.update(
-        {username: status.username},
-        {$inc: {serenity: -1}}
-      );
-    }
+    Status.update({ _id: statusId, serenityList: Meteor.user().username }, {
+      $pull: { serenityList: Meteor.user().username },
+      $inc: { serenity: -1 }
+    }, function(err) {
+      if (err) {
+        throw new Meteor.Error(500, 'Failed to decrease serenity count');
+      }
+      Meteor.users.update({ username: status.username }, {
+        $inc: { serenity: -1 }
+      }, function() {
+        // async
+      });
+    });
   },
 
   shareStatus: function(statusId) {
