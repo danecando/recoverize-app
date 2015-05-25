@@ -1,7 +1,7 @@
 /**
  * matches @mentions in a chunk of text and replaces them with a link
  */
-UI.registerHelper('linkMentions', function(context){
+Template.registerHelper('linkMentions', function(context){
     if (context) {
         var str = context.replace(/\B@[a-z0-9_-]+/gi, function(match) {
             return '<a class="at-mention" style="color: ' + getColor(match.slice(1)) + '" href="/users/' + match.slice(1).toLowerCase() + '">' + match.toLowerCase() + '</a>';
@@ -17,21 +17,21 @@ UI.registerHelper('linkMentions', function(context){
 /**
  * returns currentUser's notification count
  */
-UI.registerHelper('notificationCount', function(){
+Template.registerHelper('notificationCount', function(){
     return Notification.find({type: {$not: 'message'}}).count();
 });
 
 /**
  * returns currentUser's message notification count
  */
-UI.registerHelper('messageNotificationCount', function(){
+Template.registerHelper('messageNotificationCount', function(){
     return Notification.find({type: 'message'}).count();
 });
 
 /**
  * returns true if currentUser follows @username
  */
-UI.registerHelper('currentUserFollows', function(username){
+Template.registerHelper('currentUserFollows', function(username){
     if (username) {
         return Meteor.user().follows.indexOf(username) !== -1;
     } else {
@@ -42,7 +42,7 @@ UI.registerHelper('currentUserFollows', function(username){
 /**
  * return true if @username follows currentUser
  */
-UI.registerHelper('followsCurrentUser', function(username){
+Template.registerHelper('followsCurrentUser', function(username){
     if (username) {
         return Meteor.user().followers.indexOf(usernme) !== -1;
     } else {
@@ -53,18 +53,18 @@ UI.registerHelper('followsCurrentUser', function(username){
 /**
  * return current users username or 'Guest' as fallback
  */
-UI.registerHelper('currentUserUsername', function(){
+Template.registerHelper('currentUserUsername', function(){
     return Meteor.user() ? Meteor.user().username : 'Guest';
 });
 
 /**
  * return serenity points of currentUser
  */
-UI.registerHelper('currentUserSerenity', function(){
+Template.registerHelper('currentUserSerenity', function(){
     return Meteor.user() ? Meteor.user().serenity : 0;
 });
 
-UI.registerHelper('presenceOf', function(username){
+Template.registerHelper('presenceOf', function(username){
     var user = Presences.findOne({username: username});
     return user ? user.state : 'offline';
 });
@@ -72,7 +72,7 @@ UI.registerHelper('presenceOf', function(username){
 /**
  * get profilePic of currentUser (by default) or specified @username
  */
-UI.registerHelper('profilePic', function(username, size) {
+Template.registerHelper('profilePic', function(username, size) {
     var user;
 
     if (!username && Meteor.user()) {
@@ -95,14 +95,14 @@ UI.registerHelper('profilePic', function(username, size) {
 /**
  * generate color for users
  */
-UI.registerHelper('userColor', function(username) {
+Template.registerHelper('userColor', function(username) {
     if (username) return getColor(username.toLowerCase());
 });
 
 /**
  * Program intro
  */
-UI.registerHelper('programIntro', function(program) {
+Template.registerHelper('programIntro', function(program) {
     var PROGRAMS = {
         'aa': 'alcoholic',
         'na': 'addict'
@@ -114,14 +114,14 @@ UI.registerHelper('programIntro', function(program) {
 /**
  * Append base url to image paths
  */
-UI.registerHelper('getImgURL', function(path) {
+Template.registerHelper('getImgURL', function(path) {
     return "https://d6gyptuog2clr.cloudfront.net/" + path;
 });
 
 /**
  * Clean or sober
  */
-UI.registerHelper('cleanOrSober', function(program) {
+Template.registerHelper('cleanOrSober', function(program) {
     var PROGRAMS = {
         'aa': 'sober',
         'na': 'clean'
@@ -133,7 +133,7 @@ UI.registerHelper('cleanOrSober', function(program) {
 /**
  * Format notification message
  */
-UI.registerHelper('notification', function(type, from) {
+Template.registerHelper('notification', function(type, from) {
 
     switch(type) {
         case 'follow':
@@ -153,7 +153,7 @@ UI.registerHelper('notification', function(type, from) {
 /**
  * Message direction
  */
-UI.registerHelper('messageDirection', function(from) {
+Template.registerHelper('messageDirection', function(from) {
     if (from == Meteor.user().username) {
         return 'to';
     } else {
@@ -164,15 +164,15 @@ UI.registerHelper('messageDirection', function(from) {
 /**
  * Elapsed time
  */
-UI.registerHelper('elapsedDays', function(date) {
+Template.registerHelper('elapsedDays', function(date) {
     return moment().diff(date, 'days');
 });
 
-UI.registerHelper('sortDirection', function(dir) {
-    return dir > 0 ? 'asc': 'desc';
+Template.registerHelper('sortDirection', function(dir) {
+    return dir < 0 ? 'asc': 'desc';
 });
 
-UI.registerHelper('equals', function(a, b) {
+Template.registerHelper('equals', function(a, b) {
     return a == b;
 });
 
@@ -191,7 +191,7 @@ UI.registerHelper('equals', function(a, b) {
         return mmt.fromNow(true);
     }
 
-    UI.registerHelper('relativeTime', function(context) {
+    Template.registerHelper('relativeTime', function(context) {
         return reactive(moment(context));
     });
 })();

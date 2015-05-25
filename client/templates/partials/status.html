@@ -7,9 +7,7 @@
           <div class="profile-pic" style="background-image: url({{#if currentUser.profile.profilePicThumb}}{{getImgURL currentUser.profile.profilePicThumb}}{{else}}{{getImgURL currentUser.profile.profilePic}}{{/if}});"></div>
         </a>
         {{#if currentUser.profile.name}}
-          <h3 class="username">{{currentUser.profile.name}} <small><a href="/users/{{currentUser.username}}">@{{currentUser.username}}</a></small></h3>
-        {{else}}
-          <h3 class="username">{{currentUser.username}}</h3>
+          <h3 class="username">{{currentUser.profile.name}} <small><a style="color: {{userColor currentUser.username}};" href="/users/{{currentUser.username}}">@{{currentUser.username}}</a></small></h3>
         {{/if}}
       <time class="status-time">{{relativeTime this.timestamp}}</time>
     </header>

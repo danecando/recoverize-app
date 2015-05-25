@@ -2787,6 +2787,11 @@ body,
 .capitalize {
   text-transform: capitalize; }
 
+.scroll {
+  padding: 10px 0 0;
+  width: 95%;
+  margin: 0 auto; }
+
 .branding {
   margin: 10px 0; }
 
@@ -4078,10 +4083,11 @@ body,
     line-height: 0.9375em;
     marigin-right: 0.9375em; }
     .status-meta h3 small {
-      font-size: 0.6875em;
+      font-size: 0.8125em;
       color: #999;
       font-weight: normal;
-      text-transform: lowercase; }
+      text-transform: lowercase;
+      text-overflow: hidden; }
   .status-meta time {
     font-size: 0.6875em;
     -webkit-flex-grow: 1;
@@ -4098,26 +4104,29 @@ body,
   .status-content .original {
     font-size: 0.8125em; }
 
-.status-actions .action-buttons {
-  margin: 0.625em 0 0; }
-  .status-actions .action-buttons li {
-    display: inline-block;
-    margin-right: 0.625em; }
-  .status-actions .action-buttons i {
-    padding: 0.1875em; }
-  .status-actions .action-buttons .shares-count,
-  .status-actions .action-buttons .serenity-count {
-    font-size: 0.75em;
-    color: #666;
-    position: relative;
-    right: 3px;
-    bottom: 1px; }
-  .status-actions .action-buttons .delete {
-    float: right; }
-    .status-actions .action-buttons .delete a {
-      color: #ff0033; }
-  .status-actions .action-buttons .link {
-    float: right; }
+.status-actions {
+  margin-top: 10px; }
+  .status-actions .action-buttons {
+    margin: 0.625em 0 0; }
+    .status-actions .action-buttons li {
+      display: inline-block;
+      margin-right: 0.625em; }
+    .status-actions .action-buttons i {
+      font-size: 1.125em;
+      padding: 0.1875em; }
+    .status-actions .action-buttons .shares-count,
+    .status-actions .action-buttons .serenity-count {
+      font-size: 0.9375em;
+      color: #666;
+      position: relative;
+      right: 3px;
+      bottom: 1px; }
+    .status-actions .action-buttons .delete {
+      float: right; }
+      .status-actions .action-buttons .delete a {
+        color: #ff0033; }
+    .status-actions .action-buttons .link {
+      float: right; }
 
 /* ===========================
  *  Login Page
@@ -4839,15 +4848,6 @@ body,
 .cordova #timeline {
   height: -webkit-calc(100vh - 40px);
   height: calc(100vh - 40px); }
-#timeline .status-scroll {
-  height: -webkit-calc(100vh - 83px);
-  height: calc(100vh - 83px);
-  overflow-y: scroll;
-  webkit-overflow-scrolling: touch; }
-  @media screen and (min-width: 48em) {
-    #timeline .status-scroll {
-      height: -webkit-calc(100vh - 40px);
-      height: calc(100vh - 40px); } }
 
 .timeline-filter {
   display: -webkit-box;
@@ -4931,6 +4931,7 @@ body,
     -ms-flex-pack: justify;
     height: 100%; }
   .page-header .filter button {
+    position: relative;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -4959,10 +4960,9 @@ body,
       font-size: 0.8125em;
       font-weight: normal;
       margin-left: 7px; }
-  .page-header .filter.active {
-    border-bottom: 2px solid #123865; }
   .page-header .filter button:hover,
-  .page-header .filter button:active {
+  .page-header .filter button:active,
+  .page-header .filter button.active {
     border-bottom: 2px solid #123865;
     -webkit-transition: border-bottom 100ms ease-in-out;
     -moz-transition: border-bottom 100ms ease-in-out;
@@ -5023,20 +5023,24 @@ body,
   min-height: 0 !important; }
 
 .timeline-filters .filter button {
-  padding: 12px 12px; }
+  padding: 11px 12px; }
 .timeline-filters .filter i {
   font-size: 0.8125em !important; }
 .timeline-filters .filter .name {
-  letter-spacing: -0.03125em;
+  letter-spacing: -0.01563em;
   font-size: 0.9375em !important; }
+.timeline-filters .filter small i {
+  position: relative;
+  margin-left: 5px;
+  font-size: 1.375em !important; }
+  .timeline-filters .filter small i.fa-sort-asc {
+    top: 4px; }
+  .timeline-filters .filter small i.fa-sort-desc {
+    bottom: 2px; }
 
 /* ===========================
  *  User List Page
  * =========================== */
-#user-list .user-scroll {
-  padding: 10px 0 0;
-  width: 95%;
-  margin: 0 auto; }
 #user-list .fixed-header {
   position: relative; }
 #user-list .page-head {
@@ -5133,7 +5137,8 @@ body,
       width: 60px;
       height: 60px;
       background-size: cover !important;
-      background-position: center; }
+      background-position: center;
+      border-radius: 2px; }
     .user-box .profile-pic img {
       max-width: 45px;
       height: auto;

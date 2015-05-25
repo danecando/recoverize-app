@@ -2,8 +2,8 @@
 Template.userlist.onCreated(function() {
   var instance = this;
 
-  if (!Session.get('sortDirections')) {
-    Session.set('sortDirections', {
+  if (!Session.get('userListSort')) {
+    Session.set('userListSort', {
       status: -1,
       serenity: -1,
       'profile.soberDate': 1,
@@ -16,7 +16,7 @@ Template.userlist.onCreated(function() {
   instance.userCount = new ReactiveVar();
   instance.userList = new ReactiveVar([]);
   instance.filter = new ReactiveVar({});
-  instance.sort = new ReactiveVar(Session.get('sortDirections'));
+  instance.sort = new ReactiveVar(Session.get('userListSort'));
   instance.page = new ReactiveVar(0);
   instance.skip = new ReactiveVar(instance.page.get() * instance.limit);
 
@@ -29,6 +29,7 @@ Template.userlist.onCreated(function() {
     if (!_.isEqual(prevFilter, instance.filter.get()) ||
       !_.isEqual(prevSort, instance.sort.get())) {
       instance.page.set(0);
+      instance.userCount.set(0);
       instance.userList.set([]);
       prevSort = instance.sort.get();
       prevFilter = instance.filter.get();
@@ -130,39 +131,39 @@ Template.userlist.events({
   },
   'click .serenity-filter button': function(e, template) {
     e.preventDefault();
-    var directions = Session.get('sortDirections');
+    var directions = Session.get('userListSort');
     var dir = directions.serenity;
     directions.serenity = dir > 0 ? dir *= -1 : Math.abs(dir);
     var sorted = template.reorderSort(directions, 'serenity');
-    Session.set('sortDirections', sorted);
+    Session.set('userListSort', sorted);
     template.sort.set(sorted);
   },
   'click .time-filter button': function(e, template) {
     e.preventDefault();
-    var directions = Session.get('sortDirections');
+    var directions = Session.get('userListSort');
     var dir = directions['profile.soberDate'];
     directions['profile.soberDate'] = dir > 0 ? dir *= -1 : Math.abs(dir);
     var sorted = template.reorderSort(directions, 'profile.soberDate');
-    Session.set('sortDirections', sorted);
+    Session.set('userListSort', sorted);
     template.sort.set(sorted);
   },
   'click .follower-filter button': function(e, template) {
     e.preventDefault();
-    var directions = Session.get('sortDirections');
+    var directions = Session.get('userListSort');
     console.log(directions);
     var dir = directions.followersCount;
     directions.followersCount = dir > 0 ? dir *= -1 : Math.abs(dir);
     var sorted = template.reorderSort(directions, 'followersCount');
-    Session.set('sortDirections', sorted);
+    Session.set('userListSort', sorted);
     template.sort.set(sorted);
   },
   'click .gender-filter button': function(e, template) {
     e.preventDefault();
-    var directions = Session.get('sortDirections');
+    var directions = Session.get('userListSort');
     var dir = directions['profile.gender'];
     directions['profile.gender'] = dir > 0 ? dir *= -1 : Math.abs(dir);
     var sorted = template.reorderSort(directions, 'profile.gender');
-    Session.set('sortDirections', sorted);
+    Session.set('userListSort', sorted);
     template.sort.set(sorted);
   }
 });

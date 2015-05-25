@@ -141,6 +141,16 @@
   text-transform: capitalize;
 }
 
+.scroll {
+  padding: 10px 0 0;
+  width: 95%;
+  margin: 0 auto;
+
+  @include media($tablet-screen-up) {
+    //@include calc(height, '100vh - 34px');
+  }
+}
+
 //.response {
 //  padding: 5px;
 //  background: #fafafa;
@@ -1589,10 +1599,11 @@
     marigin-right: em(15);
 
     small {
-      font-size: em(11);
+      font-size: em(13);
       color: #999;
       font-weight: normal;
       text-transform: lowercase;
+      text-overflow: hidden;
     }
   }
 
@@ -1616,6 +1627,7 @@
   }
 }
 .status-actions {
+  margin-top: 10px;
 
   .action-buttons {
     margin: em(10) 0 0;
@@ -1624,11 +1636,12 @@
       margin-right: em(10);
     }
     i {
+      font-size: em(18);
       padding: em(3);
     }
     .shares-count,
     .serenity-count {
-      font-size: em(12);
+      font-size: em(15);
       color: #666;
       position: relative;
       right: 3px;
@@ -2341,21 +2354,9 @@
  *  Timeline Page
  * =========================== */
 #timeline {
-
   .cordova & {
     @include calc(height, '100vh - 40px');
   }
-
-  .status-scroll {
-    @include calc(height, '100vh - 83px');
-    overflow-y: scroll;
-    webkit-overflow-scrolling: touch;
-
-    @include media($tablet-screen-up) {
-      @include calc(height, '100vh - 40px');
-    }
-  }
-
 }
 
 .timeline-filter {
@@ -2412,6 +2413,7 @@
 
   .filter {
     button {
+      position: relative;
       @include display(flex);
       @include align-items(center);
       padding: 10px 15px;
@@ -2433,15 +2435,12 @@
         margin-left: 7px;
       }
     }
-
-    &.active {
-      border-bottom: 2px solid $brand-blue;
-    }
   }
 
 
   .filter button:hover,
-  .filter button:active {
+  .filter button:active,
+  .filter button.active {
     border-bottom: 2px solid $brand-blue;
     @include transition(border-bottom 100ms ease-in-out);
   }
@@ -2504,14 +2503,26 @@
 
 .timeline-filters .filter {
   button {
-    padding: 12px 12px;
+    padding: 11px 12px;
   }
   i {
     font-size: em(13) !important;
   }
   .name {
-    letter-spacing: em(-.5);
+    letter-spacing: em(-.25);
     font-size: em(15) !important;
+  }
+  small i {
+    position: relative;
+    margin-left: 5px;
+    font-size: em(22) !important;
+
+    &.fa-sort-asc {
+      top: 4px;
+    }
+    &.fa-sort-desc {
+      bottom: 2px;
+    }
   }
 }
 
@@ -2520,16 +2531,6 @@
  * =========================== */
 
 #user-list {
-
-  .user-scroll {
-    padding: 10px 0 0;
-    width: 95%;
-    margin: 0 auto;
-
-    @include media($tablet-screen-up) {
-      //@include calc(height, '100vh - 34px');
-    }
-  }
 
   .fixed-header {
     position: relative;
@@ -2614,6 +2615,7 @@
       height: 60px;
       background-size: cover !important;
       background-position: center;
+      border-radius: 2px;
     }
     img {
       max-width: 45px;
