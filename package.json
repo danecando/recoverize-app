@@ -1,0 +1,19 @@
+{
+  "name": "recoverize-app",
+  "version": "0.3.0",
+  "description": "recoverize mobile app",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danecando/recoverize-app.git"
+  },
+  "author": "Dane Grant",
+  "license": "© 2015 Recoverize 2.0, LLC. All Rights Reserved",
+  "bugs": {
+    "url": "https://github.com/danecando/recoverize-app/issues"
+  },
+  "homepage": "https://github.com/danecando/recoverize-app#readme"
+}
