@@ -7,21 +7,16 @@ Template.statusp.helpers({
       return false;
     }
   },
-  currentUserSerenityList: function(statusId, override) {
-    if (override !== undefined) {
-      return override;
-    }
-
-    var status = Status.findOne(statusId);
+  currentUserSerenityList: function() {
+    var status = Template.parentData(0);
     if (status && status.serenityList) {
       return status.serenityList.indexOf(Meteor.user().username) !== -1;
     } else {
       return false;
     }
   },
-  currentUserShareList: function(statusId) {
-    var status = Status.findOne(statusId);
-
+  currentUserShareList: function() {
+    var status = Template.parentData(0);
     if (this.username === Meteor.user().username) {
       return true;
     }
