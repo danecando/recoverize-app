@@ -4382,7 +4382,7 @@ body,
       #create-profile .actions .submit:disabled {
         background: #333; }
     #create-profile .actions .skip {
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.4);
       padding: 0.75em 1.875em; }
   #create-profile .step-list {
     position: relative;

@@ -64,7 +64,7 @@ Template.createProfile.events({
   'submit #step-one form': function(e, template) {
     e.preventDefault();
 
-    var username = $('[name=username]').val();
+    var username = $('[name=username]').val().trim();
     var validUsername = new RegExp(/^[a-zA-Z0-9]+$/);
     var reason;
 
@@ -97,7 +97,7 @@ Template.createProfile.events({
 
     // upload profile pic from cordova
     if (template.cordovaFile.get()) {
-      $('#save-changes').text('Uploading picture...');
+      $('#step-two .submit').text('Uploading...');
 
       var file = template.cordovaFile.get();
       var reader = new FileReader();
@@ -241,24 +241,34 @@ Template.createProfile.events({
 
   'click #cordova-upload': function(e, template) {
     navigator.camera.getPicture(function(imageUri) {
-      var fileNameIndex = imageUri.lastIndexOf('/') + 1;
-      var filename = imageUri.substr(fileNameIndex);
-      $('.file-name').text(filename);
 
       window.resolveLocalFileSystemURL(imageUri, function(fileEntry) {
+
         fileEntry.file(function(file) {
-          file.name = filename;
+          var imageName = Utility.getFileName(file.localURL);
+
+          if (!Utility.hasFileExt(imageName)) {
+            var ext = Utility.getImageExt(file.type);
+
+            // android gives weird file names...
+            // adding file size to make name unique
+            imageName += file.size + ext;
+          }
+
+          $('.file-name').text(imageName);
+          file.name = imageName;
+
           template.stepStatus.set(true);
           template.cordovaFile.set(file);
         });
+
       });
 
     }, function(err) {
-      console.log(err);
-    }, { quality: 50,
+      // ?
+    }, { quality: 75,
       destinationType: Camera.DestinationType.FILE_URI,
       sourceType : Camera.PictureSourceType.PHOTOLIBRARY
     });
   }
-
 });

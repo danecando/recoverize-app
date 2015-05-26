@@ -20,6 +20,11 @@ Meteor.methods({
     };
   },
 
+  getStatus: function getStatus(filter) {
+    if (!filter) return;
+    else return Status.findOne(filter)
+  },
+
   createStatus: function(share) {
     check(Meteor.userId(), String);
     check(share, Object);
@@ -70,7 +75,7 @@ Meteor.methods({
     }, {
       $addToSet: { serenityList: Meteor.user().username },
       $inc: { serenity: 1 }
-    }, function(err) {
+    }, function(err, status) {
       if (err) {
         throw new Meteor.Error(500, 'Failed to increase post serenity count');
       }
@@ -94,7 +99,7 @@ Meteor.methods({
     Status.update({ _id: statusId, serenityList: Meteor.user().username }, {
       $pull: { serenityList: Meteor.user().username },
       $inc: { serenity: -1 }
-    }, function(err) {
+    }, function(err, status) {
       if (err) {
         throw new Meteor.Error(500, 'Failed to decrease serenity count');
       }
