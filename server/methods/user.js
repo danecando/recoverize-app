@@ -85,7 +85,7 @@ Meteor.methods({
    */
   setUserRole: function setUserRole(id, roles) {
     check(id, String);
-    check(roles, [Array]);
+    check(roles, [String]);
     Roles.addUsersToRoles(id, roles, Roles.GLOBAL_GROUP);
   },
 
