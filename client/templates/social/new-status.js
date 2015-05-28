@@ -6,7 +6,7 @@ Template.newStatus.onCreated(function() {
 
 
 Template.newStatus.onRendered(function() {
-  charsLeft();
+  charsLeft.call(this);
 });
 
 
