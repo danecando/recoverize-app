@@ -70,21 +70,6 @@ Meteor.publish('newUsers', function() {
     );
 });
 
-//Meteor.publish('anniversaries', function() {
-//
-//
-//
-//    console.log(results);
-//    //return results;
-//});
-
-/**
- * Total user count
- */
-Meteor.publish('userCount', function() {
-    return Meteor.users.find({}, { fields: { id: true } });
-});
-
 /**
  * Chat messages
  */
