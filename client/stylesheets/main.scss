@@ -23,6 +23,12 @@
 //  font-size: 15px;
 //}
 
+.overflow-scroll {
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 .input-error {
   border: 1px solid red !important;
 }
@@ -216,7 +222,7 @@
  * =========================== */
 .top-bar {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 50px;
   z-index: 5;
 
@@ -1706,7 +1712,7 @@
   overflow: hidden;
 
   .flex-container {
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: em(40) 0;
     width: 450px;
   }
@@ -2865,7 +2871,6 @@
  * =========================== */
 
 #dashboard {
-  //@include texture(180deg, lighten($secondary-blue, 10), lighten($secondary-blue, 20), 82, 0);
   color: white;
   background: #fafafa;
 
