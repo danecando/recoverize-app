@@ -1,6 +1,6 @@
 <template name="messages">
 
-  <div id="messages" class="page-container">
+  <div id="messages" class="page-container static-header">
 
     <section class="page-head">
       <h2 class="title"><i class="fa fa-envelope-o"></i>  Messages</h2>
@@ -29,7 +29,7 @@
                   </div>
                 </div>
               {{/if}}
-              <time class="timestamp">{{relativeTime this.lastMessage.timestamp}} ago</time>
+              <time class="timestamp">{{relativeTime this.lastMessage.timestamp}}</time>
             </div>
           </div>
         {{/each}}

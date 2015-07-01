@@ -518,26 +518,30 @@
 .page-head {
   position: relative;
   z-index: 10;
-  height: 34px;
-  padding: 7px 10px;
-  background: $secondary-blue;
+  height: 36px;
+  padding: 5px 10px;
+  background: $light-blue;
+  color: $brand-blue;
+  border-bottom: 1px solid darken($light-blue, 7);
+
   //  background: linear-gradient(#fafafa, #e5e5e5);
   //  box-shadow: 0px 1px 2px rgba(50,50,50,.25);
 
   .title {
     position: relative;
     //    color: #333F57;
-    color: white;
     font-weight: normal;
     text-align: center;
-    font-size: em(17);
+    font-size: em(18);
+    letter-spacing: 1px;
     text-transform: none;
+    vertical-align: middle;
 
     i {
       position: absolute;
-      color: white;
       left: 2px;
       top: 3px;
+      font-size: em(18);
     }
   }
 
@@ -546,9 +550,9 @@
     z-index: 5;
     left: 0;
     top: 0;
-    padding: em(6);
-    font-size: em(15);
-    color: white;
+    padding: 3px 6px;
+    font-size: em(18);
+    color: $brand-blue;
 
     i {
       float: left;
@@ -583,21 +587,29 @@
   }
 
   .message-with {
-    text-align: center;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    position: static;
+    width: 100%;
+    height: 100%;
     font-weight: bold;
-    position: relative;
-    bottom: 3px;
+    letter-spacing: 0;
+    //position: relative;
+    //bottom: 3px;
 
-    img {
-      height: 20px;
-      position: relative;
-      top: 4px;
-      right: 5px;
-      border: 2px solid white;
+    .profile-picture {
+      width: 24px;
+      height: 24px;
+      float: left;
+      margin-right: 7px;
+      border-radius: 2px;
+      background-position: center;
+      background-size: cover;
     }
 
     a {
-      color: white;
+      color: $brand-blue;
     }
   }
 }
@@ -845,8 +857,8 @@
   @include clearfix;
   @include display(flex);
   @include align-items(center);
-  padding: 10px 5px;
-  border-bottom: 1px solid #eee;
+  padding: 12px 5px;
+  border-bottom: 1px solid $light-blue;
   @include transition(background 200ms ease-in-out);
 
   &:hover {
@@ -857,17 +869,18 @@
   .profile-picture {
     float: left;
     padding: 0 5px;
-    height: 38px;
-    width: 38px;
+    height: 45px;
+    width: 45px;
+    border-radius: 2px;
     background-size: cover;
     background-position: center;
 
-    img {
-      vertical-align: bottom;
-      border-radius: 2px;
-      width: 100%;
-      height: 100%;
-    }
+    //img {
+    //  vertical-align: bottom;
+    //  border-radius: 3px;
+    //  width: 100%;
+    //  height: 100%;
+    //}
 
     @include media($tablet-screen-up) {
       padding: 0 10px;
@@ -880,15 +893,15 @@
 
 .message-thread {
   float: left;
-  padding: 0 5px;
-  width: 55%;
+  padding: 0 10px;
+  width: 60%;
 
   h4 {
-    font-size: em(16);
+    font-size: em(18);
   }
 
   p {
-    font-size: em(13);
+    font-size: em(16);
     margin-bottom: 0;
     color: $dark-gray;
     overflow: hidden;
@@ -913,8 +926,7 @@
     padding: 0 15px;
 
     h4 {
-      font-size: em(21
-      );
+      font-size: em(21);
     }
 
     p {
@@ -925,7 +937,7 @@
 
 .message-meta {
   float: left;
-  width: 30%;
+  width: 25%;
   padding: 0 5px;
   text-align: right;
   font-size: em(12);
@@ -960,17 +972,16 @@
  * =========================== */
 
 .message-container {
-  @include calc(height, '100% - 34px');
+  @include calc(height, '100% - 39px');
 }
 
 .conversation {
   @include calc(height, '100% - 29px');
   @include texture(180deg, #eee, #ffffff, 83, 1);
-  background: linear-gradient(45deg, #f5f5f5 10%, #FFFFFF 90%);
+  background: white;
   overflow: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  //  background: linear-gradient(45deg, rgba(183, 207, 224, 0.64) 10%, #eef2f3 90%); /* W3C */
 }
 
 .older-messages {
@@ -988,12 +999,12 @@
 .message {
   @include clearfix;
   margin: em(15) 0 em(30);
+  color: #444;
 
   time {
     float: right;
-    margin: 5px 0 4px 15px;
+    margin: 2px 0 3px 15px;
     font-size: em(13);
-    color: $medium-gray;
   }
 
   &.to time {
@@ -1040,9 +1051,14 @@
   }
 
   &.from .bubble {
-    background-color: $bubble-grey;
-    color: #363636;
+    //background-color: $bubble-grey;
+    background-color: darken($light-blue, 0);
+    //border: 1px solid darken($light-blue, 2);
     margin-right: 10vw;
+
+    time {
+      color: darken($light-blue, 25);
+    }
 
     &:before {
       border-color: $bubble-grey;
@@ -1059,28 +1075,43 @@
 .message-input {
   position: absolute;
   bottom: 0;
+  @include display(flex);
+  @include align-items(space-between);
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+  @include flex-direction(column);
   width: 100%;
-  height: 35px;
+  height: 32px;
+  background: $base-link-color;
 
   textarea {
-    float: left;
-    height: 35px;
-    background: $light-blue;
-    border-top: 1px solid darken($light-blue, 3);
-    @include calc(width, '100% - 65px');
+    @include align-self(center);
+    @include calc(width, '100% - 58px');
+    height: 28px;
+    background: #ffffff;
+    border-radius: 2px;
+    margin-left: 2px;
+    padding: 0 8px;
+    font-size: em(17);
+    line-height: em(25);
+
+    &:before {
+      content: "";
+      width: 10px;
+    }
 
     &:focus {
-      @include calc(width, '100% - 65px');
+      //@include calc(width, '100% - 65px');
 
     }
   }
 
   #send-message {
-    background: $secondary-blue;
-    float: left;
-    width: 65px;
-    height: 100%;
-    padding: em(8);
+    @include align-self(flex-end);
+    background: $base-link-color;
+    width: 58px;
+    padding: 6.5px 0;
+    margin-right: 2px;
     font-weight: normal;
     font-size: em(15);
   }
