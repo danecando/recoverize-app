@@ -25,6 +25,12 @@ body,
   left: 0;
   width: auto;
   height: auto;
+}
+
+body,
+#container,
+#app,
+#page-overlay {
   overflow: hidden;
 }
 
@@ -41,8 +47,9 @@ body,
 #menu {
   width: 270px;
   left: -270px;
-  overflow-y: auto;
-  webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   @include transition(all 200ms ease-out);
 
   .menu-open & {
@@ -60,7 +67,7 @@ body,
   opacity: 1;
   overflow-x: hidden;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  //-webkit-overflow-scrolling: touch;
 
   @include media($tablet-screen-up) {
     left: 270px;
