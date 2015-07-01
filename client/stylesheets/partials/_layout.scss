@@ -58,8 +58,9 @@ body,
   @include transition(all 200ms ease-out);
   @include transform(translate3d(0, 0, 0));
   opacity: 1;
-  overflow-y: auto;
-  webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 
   @include media($tablet-screen-up) {
     left: 270px;
