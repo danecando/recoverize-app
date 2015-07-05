@@ -151,6 +151,16 @@ Meteor.publish('profilePic', function(usernames) {
     );
 });
 
+//FindFromPublication.publish('messageSessions', function() {
+//  if (!this.userId) return this.ready();
+//  return MessageSessions.myMessages(this.userId);
+//});
+//
+//FindFromPublication.publish('messageBuckets', function(username, page) {
+//  if (!this.userId) return this.ready();
+//  return MessageBuckets.myMessagesWith(this.userId, username, page);
+//});
+
 Meteor.publish('message', function(username, page){
     if (this.userId && username) {
         return MessageBuckets.myMessagesWith(this.userId, username, page);
