@@ -1,5 +1,5 @@
 <template name="newStatus">
-    {{queryString}}
+  {{queryString}}
   <div id="new-status" class="page-container">
     <section class="share-form">
       <div class="flex-container">
@@ -8,7 +8,8 @@
         <div class="response"></div>
         <form action="">
           <div class="share-input">
-            <textarea id="newStatus" name="newStatus">{{#if replyData}}@{{replyData.user}}: {{replyData.status}} - {{/if}}</textarea>
+            <textarea id="newStatus" name="newStatus">{{#if replyData}}@{{replyData.user}}: {{replyData.status}}
+              - {{/if}}</textarea>
             <div class="below-status">
               <div class="image-upload">
                 <div class="add-image">
@@ -16,7 +17,9 @@
                   <input type="file" id="statusImage">
                 </div>
                 <div class="remove-image">
-                  <button id="removeImage"><i class="fa fa-times"></i></button>
+                  <button id="removeImage">
+                    <i class="fa fa-times"></i>
+                  </button>
                   <div class="file-name"></div>
                 </div>
               </div>
@@ -33,14 +36,14 @@
       </div>
     </section>
 
-  {{#if status}}
-    <section class="latest-share">
-      <h2>Your latest share</h2>
+    {{#if status}}
+      <section class="latest-share">
+        <h2>Your latest share</h2>
         {{#each status}}
-            {{> statusp}}
+          {{> statusp}}
         {{/each}}
-    </section>
-  {{/if}}
+      </section>
+    {{/if}}
 
   </div>
 </template>

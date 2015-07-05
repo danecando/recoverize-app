@@ -1,32 +1,48 @@
 <template name="timeline">
-  <header class="page-header">
+
+  <header class="page-header fixed-header">
     <nav class="header-bar timeline-filters">
       <div class="recent-filter filter">
-        <button data-direction="{{sortDirection recentDirection}}" id="recent-timeline"><i class="fa fa-list"></i> <span class="name">Recent</span><small><i class="fa fa-sort-{{sortDirection recentDirection}}"></i></small></button>
+        <button data-direction="{{sortDirection recentDirection}}" id="recent-timeline">
+          <i class="fa fa-list"></i>
+          <span class="name">Recent</span>
+          <small>
+            <i class="fa fa-sort-{{sortDirection recentDirection}}"></i>
+          </small>
+        </button>
       </div>
       <div class="popular-filter filter">
-        <button data-direction="{{sortDirection popularDirection}}" id="popular-timeline"><i class="fa fa-fire"></i> <span class="name">Popular</span><small><i class="fa fa-sort-{{sortDirection popularDirection}}"></i></small></button>
+        <button data-direction="{{sortDirection popularDirection}}" id="popular-timeline">
+          <i class="fa fa-fire"></i>
+          <span class="name">Popular</span>
+          <small>
+            <i class="fa fa-sort-{{sortDirection popularDirection}}"></i>
+          </small>
+        </button>
       </div>
       <div class="following-filter filter">
-        <button id="following-timeline"><i class="fa fa-users"></i> <span class="name">Following</span></button>
+        <button id="following-timeline">
+          <i class="fa fa-users"></i>
+          <span class="name">Following</span>
+        </button>
       </div>
     </nav>
   </header>
-  <div id="timeline" class="page-container has-header">
-    <section class="scroll">
+  <section id="timeline" class="page-container has-header">
+    <div class="scroll">
       <div class="status-list">
-          {{#each statuses}}
-              {{> statusp}}
-          {{/each}}
-          {{#if hasMore}}
-              {{#if cordova}}
-                <div class="load-btn-container">
-                  <button id="load-more">Load more shares</button>
-                </div>
-              {{/if}}
+        {{#each statuses}}
+          {{> statusp}}
+        {{/each}}
+        {{#if hasMore}}
+          {{#if cordova}}
+            <div class="load-btn-container">
+              <button id="load-more">Load more shares</button>
+            </div>
           {{/if}}
+        {{/if}}
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
 </template>

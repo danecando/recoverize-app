@@ -1,4 +1,3 @@
-
 Template.newStatus.onCreated(function() {
   this.charsLeft = new ReactiveVar(255);
   this.cordovaFile = null;
@@ -58,7 +57,7 @@ Template.newStatus.events({
   },
 
   'click #getImage': function(e, template) {
-    e.preventDefault();
+    e.stopPropagation();
     if (Meteor.isCordova) { // todo: fix cordova image uploading code
       navigator.camera.getPicture(function(imageUri) {
         var fileNameIndex = imageUri.lastIndexOf("/") + 1;
@@ -78,13 +77,16 @@ Template.newStatus.events({
 
       }, function(err) {
         console.log(err);
-      }, { quality: 50,
+      }, {
+        quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,
-        sourceType : Camera.PictureSourceType.PHOTOLIBRARY
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
       });
+
     } else {
       $('#statusImage').focus().trigger('click');
     }
+
   },
   'change #statusImage': function(e, template) {
     $('.add-image').fadeOut(100, function() {

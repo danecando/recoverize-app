@@ -2698,7 +2698,7 @@ body,
 /* ===========================
  *  Generic Classes
  * =========================== */
-.overflow-scroll {
+.overflow-scroll, .page-container {
   overflow: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
@@ -2747,8 +2747,9 @@ body,
   letter-spacing: 0.0625em; }
 
 .page-container {
-  min-height: 100%;
-  background: #fff; }
+  position: relative;
+  height: 100%;
+  background: #f3f6f9; }
 
 .text-input {
   float: left;
@@ -3249,7 +3250,7 @@ body,
 
 .account-settings h3,
 .profile-settings h3 {
-  background: #eee;
+  background: #f3f6f9;
   font-weight: normal;
   padding: 5px;
   font-size: 0.8125em;
@@ -3265,7 +3266,7 @@ body,
   .profile-settings .fields select,
   .profile-settings .fields textarea {
     margin-bottom: 0;
-    background: #f5f5f5;
+    background: #ffffff;
     border: 1px solid #f5f5f5;
     border: 0;
     color: #333;
@@ -5041,7 +5042,7 @@ body,
     background: white;
     color: #123865; }
     .page-header .filter button small {
-      margin-left: 5px;
+      font-size: 60%;
       vertical-align: center; }
     .page-header .filter button i {
       font-size: 1.0625em; }
@@ -5101,15 +5102,10 @@ body,
     transition: height 200ms ease; }
 
 .page-container.has-header {
-  position: relative;
   top: 40px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   background: #f3f6f9;
   height: -webkit-calc(100% - 40px);
-  height: calc(100% - 40px);
-  min-height: 0 !important; }
+  height: calc(100% - 40px); }
 
 .timeline-filters .filter button {
   padding: 11px 12px; }
@@ -5356,8 +5352,7 @@ body,
  *  New Status Page
  * =========================== */
 #new-status {
-  background: #2c5999;
-  min-height: 100vh; }
+  background: #2c5999; }
 
 .response {
   text-align: center;
@@ -5382,7 +5377,7 @@ body,
   justify-content: center;
   -ms-flex-pack: center;
   padding: 3.125em 0;
-  background: #fafafa; }
+  background: #f3f6f9; }
   .share-form .flex-container {
     width: 95%; }
     @media screen and (min-width: 48em) {
@@ -5394,7 +5389,7 @@ body,
     text-align: center;
     margin-bottom: 1.5625em; }
   .share-form .share-input {
-    border: 1px solid #eee;
+    border: 1px solid #ebecf0;
     border-radius: 0.1875em;
     background: white; }
     .share-form .share-input textarea {
@@ -5440,7 +5435,7 @@ body,
     justify-content: space-between;
     -ms-flex-pack: justify; }
   .share-form #getImage {
-    background: #eee;
+    background: #ebecf0;
     color: #123865; }
   .share-form #statusImage {
     position: absolute;
