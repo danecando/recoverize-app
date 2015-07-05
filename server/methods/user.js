@@ -145,7 +145,8 @@ Meteor.methods({
     check(user.email, String);
 
     var mailChimp = new MailChimp('1f89987ef6df82b9303cdc67887cdc0b-us9', {
-      version: '2.0' });
+      version: '2.0'
+    });
 
     try {
       return mailChimp.call(
@@ -158,7 +159,7 @@ Meteor.methods({
           },
           double_optin: false
         });
-    } catch(e) {
+    } catch (e) {
       throw new Meteor.Error(400, e.message);
     }
   },
@@ -210,7 +211,7 @@ Meteor.methods({
         $set: {
           username: username.toLowerCase()
         }
-      }, function (error) {
+      }, function(error) {
         if (error) {
           throw new Meteor.Error(400, 'Username can only contain letters & numbers')
         }
@@ -238,9 +239,9 @@ Meteor.methods({
       }
     }
 
-    return Meteor.users.update({_id: Meteor.userId()}, {
+    return Meteor.users.update({ _id: Meteor.userId() }, {
       $set: updated
-    }, function (error) {
+    }, function(error) {
       if (error) {
         throw new Meteor.Error(error.sanitizedError.error, error.sanitizedError.reason)
       }
@@ -328,6 +329,20 @@ Meteor.methods({
         return; // run async
       });
     }
+  },
+
+  /**
+   * Sets lastActive date for user by id
+   * @param userId
+   */
+  setLastActive: function setLastActive(userId) {
+    Meteor.users.update(userId, {
+      $set: {
+        lastActive: new Date()
+      }
+    }, function() {
+      return;
+    });
   }
 
 });
