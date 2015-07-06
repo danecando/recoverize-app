@@ -12,6 +12,7 @@
 // partials
 @import 'partials/layout';
 @import 'partials/splash';
+@import 'partials/messaging';
 
 /* ===========================
  *  Generic Classes
@@ -865,13 +866,14 @@
   @include clearfix;
   @include display(flex);
   @include align-items(center);
+  background: white;
   padding: 12px 5px;
   border-bottom: 1px solid $light-blue;
   @include transition(background 200ms ease-in-out);
 
   &:hover {
     @include transition(background 200ms ease-in-out);
-    background: #fcfcfc;
+    background: $light-blue;
   }
 
   .profile-picture {
@@ -979,9 +981,16 @@
  *  Message Thread
  * =========================== */
 
+#private-message {
+  .message-input textarea {
+    @include calc(width, '100% - 58px');
+  }
+}
+
 .message-container {
   @include calc(height, '100% - 39px');
 }
+
 
 .conversation {
   @include calc(height, '100% - 29px');
@@ -1078,51 +1087,6 @@
 
 .message-with {
   bottom: 2px;
-}
-
-.message-input {
-  position: absolute;
-  bottom: 0;
-  @include display(flex);
-  @include align-items(space-between);
-  @include justify-content(center);
-  @include flex-wrap(wrap);
-  @include flex-direction(column);
-  width: 100%;
-  height: 32px;
-  background: $base-link-color;
-
-  textarea {
-    @include align-self(center);
-    @include calc(width, '100% - 58px');
-    height: 28px;
-    background: #ffffff;
-    border-radius: 2px;
-    margin-left: 2px;
-    padding: 0 8px;
-    font-size: em(17);
-    line-height: em(25);
-
-    &:before {
-      content: "";
-      width: 10px;
-    }
-
-    &:focus {
-      //@include calc(width, '100% - 65px');
-
-    }
-  }
-
-  #send-message {
-    @include align-self(flex-end);
-    background: $base-link-color;
-    width: 58px;
-    padding: 6.5px 0;
-    margin-right: 2px;
-    font-weight: normal;
-    font-size: em(15);
-  }
 }
 
 .user-connection {
@@ -1253,7 +1217,7 @@
   width: 100%;
   left: 0;
   @include transition(left 350ms ease-in-out);
-  @include calc(height, '100% - 35px');
+  @include calc(height, '100% - 32px');
   overflow: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -1304,10 +1268,8 @@
 }
 
 .ul-btn {
-  background: #eee;
   color: white;
   padding: em(14) em(10) em(8);
-  background: $secondary-blue;
   font-size: em(10);
   font-weight: normal;
 
@@ -1318,7 +1280,7 @@
   }
 
   &:hover {
-    background: $secondary-blue;
+    background: $base-link-color;
     color: white;
   }
 }
@@ -1329,30 +1291,14 @@
   @include flex-direction(row);
   @include justify-content(center);
   bottom: 0;
-  height: 35px;
+  height: 32px;
   width: 100%;
-  .chat-input {
-    width: 100%;
-    z-index: 10;
+  .message-input {
+    position: relative;
+    left: 0;
 
-    button {
-      float: right;
-      padding: em(7) 0;
-      height: 35px;
-      width: 60px;
-      background: $secondary-blue;
-
-      &:disabled {
-        background: #999;
-
-        &:hover {
-          background: #999;
-        }
-      }
-
-      &:hover {
-        background: $brand-blue;
-      }
+    textarea {
+      @include calc(width, '100% - 87px');
     }
   }
 }
@@ -1360,10 +1306,6 @@
 /* ===========================
  *  User Profiles
  * =========================== */
-
-#user-profile {
-  background: #fafafa;
-}
 
 .user-profile {
 
@@ -2562,6 +2504,20 @@
 /* ===========================
  *  User List Page
  * =========================== */
+
+.member-filters {
+
+  .filter small i {
+    position: relative;
+    margin-left: 5px;
+    font-size: 1.375em !important;
+  }
+
+  .filter small i.fa-sort-asc {
+    top: 4px;
+  }
+
+}
 
 #user-list {
 

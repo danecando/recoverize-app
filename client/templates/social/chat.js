@@ -47,7 +47,7 @@ Template.chat.destroyed = function() {
 };
 
 Template.chat.events({
-    'keydown .chat-input textarea': function(e) {
+    'keydown .message-input textarea': function(e) {
         if(e.which === 13) {
             e.preventDefault();
             sendMessage();
@@ -77,7 +77,7 @@ Template.chat.helpers({
 });
 
 function sendMessage() {
-    var $input = $('.chat-input textarea');
+    var $input = $('.message-input textarea');
 
     if ($input.attr('data-greeting') == 'true') {
         Meteor.call('increaseSerenity', 5);
