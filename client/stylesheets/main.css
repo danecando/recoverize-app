@@ -2749,9 +2749,9 @@ body,
     background: #ffffff;
     border-radius: 2px;
     margin-left: 2px;
-    padding: 0 8px;
-    font-size: 1.0625em;
-    line-height: 1.5625em; }
+    padding: 2px 8px;
+    font-size: 1em;
+    line-height: 1.375em; }
     .message-input textarea:before {
       content: "";
       width: 10px; }
