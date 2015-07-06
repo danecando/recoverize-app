@@ -1,0 +1,43 @@
+.message-input {
+  position: absolute;
+  bottom: 0;
+  @include display(flex);
+  @include align-items(space-between);
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+  @include flex-direction(column);
+  width: 100%;
+  height: 32px;
+  background: $base-link-color;
+
+  textarea {
+    @include align-self(center);
+    height: 28px;
+    background: #ffffff;
+    border-radius: 2px;
+    margin-left: 2px;
+    padding: 0 8px;
+    font-size: em(17);
+    line-height: em(25);
+
+    &:before {
+      content: "";
+      width: 10px;
+    }
+
+    &:focus {
+      //@include calc(width, '100% - 65px');
+
+    }
+  }
+
+  .send {
+    @include align-self(flex-end);
+    background: $base-link-color;
+    width: 58px;
+    padding: 6.5px 0;
+    margin-right: 2px;
+    font-weight: normal;
+    font-size: em(15);
+  }
+}
