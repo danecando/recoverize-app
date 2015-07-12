@@ -5,7 +5,7 @@ Meteor.methods({
 
   /**
    * Get total user count
-   * @returns {any}
+   * @returns {Number}
    */
   getUserCount: function getUserCount() {
     return Meteor.users.find({}).count();
@@ -43,7 +43,7 @@ Meteor.methods({
   /**
    * Get a users profile picture
    * @param username
-   * @returns {any}
+   * @returns {Object}
    */
   getProfilePic: function getProfilePic(username) {
     check(username, String);
@@ -102,7 +102,7 @@ Meteor.methods({
 
   /**
    * Flag to indicate if an account has finished creating a profile
-   * @returns {*|any} number of documents affected
+   * @returns {Number} number of documents affected
    */
   setProfileCreated: function setProfileCreated() {
     var id = Utility.getUserId();
@@ -133,7 +133,6 @@ Meteor.methods({
       throw new Meteor.Error(401, 'User does not have ban authority');
     }
 
-    return false;
   },
 
   /**

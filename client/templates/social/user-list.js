@@ -4,7 +4,7 @@ Template.userlist.onCreated(function() {
 
   if (!Session.get('userListSort')) {
     Session.set('userListSort', {
-      status: -1,
+      lastActive: -1,
       serenity: -1,
       'profile.soberDate': 1,
       followersCount: 1,
