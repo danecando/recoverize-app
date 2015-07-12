@@ -1,7 +1,10 @@
+'use strict';
 
 Template.timeline.onCreated(function() {
+
   var instance = this;
 
+  // reset sort order on new session
   if (!Session.get('timelineSort')) {
     Session.set('timelineSort', {
       timestamp: -1,
@@ -23,8 +26,8 @@ Template.timeline.onCreated(function() {
   Tracker.autorun(function() {
 
     // if filters / sort have changed reset data
-    if (!_.isEqual(prevFilter, instance.filter.get()) ||
-      !_.isEqual(prevSort, instance.sort.get())) {
+    if (!_.isEqual(prevFilter, instance.filter.get())
+        || !_.isEqual(prevSort, instance.sort.get())) {
       instance.page.set(0);
       instance.statusCount.set(0);
       instance.statusList.set([]);
@@ -33,20 +36,20 @@ Template.timeline.onCreated(function() {
     }
 
     Meteor.call(
-      'getStatuses',
-      instance.filter.get(),
-      instance.sort.get(),
-      instance.limit,
-      instance.page.get() * instance.limit,
-      function(err, results) {
-        var statusList = instance.statusList.get();
-        var updated = statusList.concat(results.statuses);
-        updated = _.uniq(updated, function(item) {
-          return item._id;
+        'getStatuses',
+        instance.filter.get(),
+        instance.sort.get(),
+        instance.limit,
+        instance.page.get() * instance.limit,
+        function(err, results) {
+          var statusList = instance.statusList.get();
+          var updated = statusList.concat(results.statuses);
+          updated = _.uniq(updated, function(item) {
+            return item._id;
+          });
+          instance.statusList.set(updated);
+          instance.statusCount.set(results.statusCount);
         });
-        instance.statusList.set(updated);
-        instance.statusCount.set(results.statusCount);
-      });
 
   });
 

@@ -2749,9 +2749,9 @@ body,
     background: #ffffff;
     border-radius: 2px;
     margin-left: 2px;
-    padding: 0 8px;
-    font-size: 1.0625em;
-    line-height: 1.5625em; }
+    padding: 2px 8px;
+    font-size: 1em;
+    line-height: 1.375em; }
     .message-input textarea:before {
       content: "";
       width: 10px; }
@@ -3103,6 +3103,8 @@ body,
       content: '\f119'; }
     #menu .pages a.icon-settings:before {
       content: '\f085'; }
+    #menu .pages a.icon-plus:before {
+      content: '\f067'; }
     #menu .pages a:hover, #menu .pages a:active {
       -webkit-transition: all 600ms linear;
       -moz-transition: all 600ms linear;

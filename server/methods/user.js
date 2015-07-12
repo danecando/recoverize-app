@@ -5,11 +5,12 @@ Meteor.methods({
 
   /**
    * Get total user count
-   * @returns {any}
+   * @returns {Number}
    */
   getUserCount: function getUserCount() {
     return Meteor.users.find({}).count();
   },
+
 
   /**
    * Get a list of users based on filter / sort options
@@ -40,10 +41,11 @@ Meteor.methods({
     };
   },
 
+
   /**
    * Get a users profile picture
    * @param username
-   * @returns {any}
+   * @returns {Object}
    */
   getProfilePic: function getProfilePic(username) {
     check(username, String);
@@ -54,6 +56,7 @@ Meteor.methods({
       }
     });
   },
+
 
   /**
    * Creates a new user account
@@ -77,6 +80,7 @@ Meteor.methods({
     return id;
   },
 
+
   /**
    * Assign a user to a role
    * @todo take a look at these methods make sure they're secure
@@ -89,6 +93,7 @@ Meteor.methods({
     Roles.addUsersToRoles(id, roles, Roles.GLOBAL_GROUP);
   },
 
+
   /**
    * Update a users' roles
    * @param id
@@ -100,9 +105,10 @@ Meteor.methods({
     Roles.setUserRoles(id, roles, Roles.GLOBAL_GROUP);
   },
 
+
   /**
    * Flag to indicate if an account has finished creating a profile
-   * @returns {*|any} number of documents affected
+   * @returns {Number} number of documents affected
    */
   setProfileCreated: function setProfileCreated() {
     var id = Utility.getUserId();
@@ -114,6 +120,7 @@ Meteor.methods({
       }
     });
   },
+
 
   /**
    * Ban a user from the site
@@ -133,8 +140,8 @@ Meteor.methods({
       throw new Meteor.Error(401, 'User does not have ban authority');
     }
 
-    return false;
   },
+
 
   /**
    * Opt a user in to mailing list
@@ -163,6 +170,7 @@ Meteor.methods({
       throw new Meteor.Error(400, e.message);
     }
   },
+
 
   /**
    * Update own email address
@@ -248,6 +256,7 @@ Meteor.methods({
     });
   },
 
+
   /**
    * Follow another user
    * @param usernameToFollow
@@ -296,6 +305,7 @@ Meteor.methods({
     }
   },
 
+
   /**
    * Unfollow a user
    * @param usernameToUnfollow
@@ -331,6 +341,7 @@ Meteor.methods({
     }
   },
 
+
   /**
    * Sets lastActive date for user by id
    * @param userId
@@ -341,7 +352,7 @@ Meteor.methods({
         lastActive: new Date()
       }
     }, function() {
-      return;
+      return; // run async
     });
   }
 

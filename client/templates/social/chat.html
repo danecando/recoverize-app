@@ -1,47 +1,49 @@
 <template name="chat">
   <div class="chat-container">
-
     <div class="chat-sidebar">
       <ul class="user-list">
-        {{#each listOfUsers}}
-          <li>
-            <a style="color: {{userColor username}}" href="/users/{{this.username}}">
-              <div class="profile-picture" style="background-image: url({{profilePic username 'thumb'}});"></div>
-              <div class="username">
-                {{this.username}}
-              </div>
-              <span class="user-connection {{this.state}}"></span>
-            </a>
-          </li>
-        {{/each}}
+          {{#each listOfUsers}}
+            <li>
+              <a style="color: {{userColor username}}" href="/users/{{this.username}}">
+                <div class="profile-picture"
+                     style="background-image: url({{profilePic username 'thumb'}});"></div>
+                <div class="username">
+                    {{this.username}}
+                </div>
+                <span class="user-connection {{this.state}}"></span>
+              </a>
+            </li>
+          {{/each}}
       </ul>
     </div>
-
     <div class="chat-area">
       <ol class="chat-messages">
-        {{#each messages}}
-          <li style="border-left: 3px solid {{userColor this.username}}">
-            <div class="chat-message">
+          {{#each messages}}
+            <li style="border-left: 3px solid {{userColor this.username}}">
+              <div class="chat-message">
               <span class="user">
-                <a style="color: {{userColor this.username}}" href="/users/{{this.username}}" class="userLink">{{this.username}}</a>:
+                <a style="color: {{userColor this.username}}" href="/users/{{this.username}}"
+                   class="userLink">{{this.username}}</a>:
               </span>
               <span class="message">
-                {{linkMentions this.message}}
+                  {{linkMentions this.message}}
               </span>
-            </div>
-            <time>{{relativeTime this.timestamp}}</time>
-          </li>
-        {{/each}}
+              </div>
+              <time>{{relativeTime this.timestamp}}</time>
+            </li>
+          {{/each}}
       </ol>
     </div>
     <div class="bottom-bar">
       <div class="message-input">
         <button class="ul-btn"><i class="fa fa-users"></i> {{listOfUsers.length}}</button>
-        <textarea class="text-input" autocomplete="off" disabled="{{#unless currentUser}}disabled{{/unless}}" data-greeting="{{#if greeting}}true{{else}}false{{/if}}" data-congrats="{{#if congrats}}true{{else}}false{{/if}}" placeholder="{{#unless currentUser}}Create an account to chat!{{/unless}}">{{#if greeting}}@{{greeting}}{{/if}} {{#if congrats}}Happy anniversary @{{congrats}}! {{/if}}</textarea>
+                <textarea class="text-input" autocomplete="off" disabled="{{#unless currentUser}}disabled{{/unless}}"
+                          data-greeting="{{#if greeting}}true{{else}}false{{/if}}"
+                          data-congrats="{{#if congrats}}true{{else}}false{{/if}}"
+                          placeholder="{{#unless currentUser}}Create an account to chat!{{/unless}}">{{#if greeting}}
+                  @{{greeting}}{{/if}} {{#if congrats}}Happy anniversary @{{congrats}}! {{/if}}</textarea>
         <button id="send-chat" class="send" disabled="{{#unless currentUser}}disabled{{/unless}}">Send</button>
       </div>
     </div>
-
   </div>
-
 </template>

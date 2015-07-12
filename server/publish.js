@@ -23,12 +23,6 @@ Accounts.onCreateUser(function(options, user) {
         user.profileCreated = false;
     }
 
-    // no longer using identicons
-    //if (user.username) {
-    //    var crypto = Npm.require('crypto')
-    //    user.identicon = crypto.createHash('md5').update(user.username).digest('hex')
-    //}
-
     return user;
 });
 

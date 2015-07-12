@@ -503,6 +503,12 @@
       }
     }
 
+    &.icon-plus {
+      &:before {
+        content: '\f067';
+      }
+    }
+
     &:hover,
     &:active {
       @include transition(all 600ms linear);
