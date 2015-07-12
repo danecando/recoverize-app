@@ -1,51 +1,51 @@
 <template name="menu">
   <section class="user">
-      {{#if currentUser}}
-        <div class="user-pages">
-          <div class="row">
-            <div class="button profile">
-              <a href="/users/{{currentUserUsername}}">
-                <i class="fa fa-user fa-lg"></i>
-              </a>
-            </div>
-            <div class="button notifications">
-              <a href="/notifications">
-                <div class="badge-container">
-                  <div class="badge">
-                    <span class="badge-count">{{notificationCount}}</span>
-                  </div>
-                  <i class="fa fa-bell fa-lg"></i>
-                </div>
-              </a>
-            </div>
+    {{#if currentUser}}
+      <div class="user-pages">
+        <div class="row">
+          <div class="button profile">
+            <a href="/users/{{currentUserUsername}}">
+              <i class="fa fa-user fa-lg"></i>
+            </a>
           </div>
-          <div class="row">
-            <div class="button status">
-              <a href="/share">
-                <i class="fa fa-pencil fa-lg"></i>
-              </a>
-            </div>
-            <div class="button messages">
-              <a href="/messages">
-                <div class="badge-container">
-                  <span class="badge"> {{messageNotificationCount}} </span>
-                  <i class="fa fa-envelope fa-lg"></i>
+          <div class="button notifications">
+            <a href="/notifications">
+              <div class="badge-container">
+                <div class="badge">
+                  <span class="badge-count">{{notificationCount}}</span>
                 </div>
-              </a>
-            </div>
+                <i class="fa fa-bell fa-lg"></i>
+              </div>
+            </a>
           </div>
         </div>
-      {{else}}
-        <ul class="sign-in">
-          <li><a href="/signin">Sign In</a></li>
-          <li><a href="/join">Join</a></li>
-        </ul>
-      {{/if}}
+        <div class="row">
+          <div class="button status">
+            <a href="/share">
+              <i class="fa fa-pencil fa-lg"></i>
+            </a>
+          </div>
+          <div class="button messages">
+            <a href="/messages">
+              <div class="badge-container">
+                <span class="badge"> {{messageNotificationCount}} </span>
+                <i class="fa fa-envelope fa-lg"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <ul class="sign-in">
+        <li><a href="/signin">Sign In</a></li>
+        <li><a href="/join">Join</a></li>
+      </ul>
+    {{/if}}
   </section>
   <ul class="pages social">
-      {{#if currentUser}}
-        <li><a class="icon-dash" href="/">Dashboard</a></li>
-      {{/if}}
+    {{#if currentUser}}
+      <li><a class="icon-dash" href="/">Dashboard</a></li>
+    {{/if}}
     <li><a class="icon-timeline" href="/timeline">Timeline</a>
     </li>
     <li><a class="icon-chat" href="/chat">Chat Room</a></li>
@@ -60,7 +60,7 @@
   <ul class="pages bottom">
     {{#if currentUser}}
       <!--<li><a class="icon-help" href="/help">Still Struggling?</a></li>-->
-      <li><a class="icon-settings" href="/settings">Settings</a></li>
+      <li><a class="icon-plus" href="/more">More</a></li>
       <li><a class="icon-logout" href="/logout">Logout</a></li>
     {{/if}}
   </ul>

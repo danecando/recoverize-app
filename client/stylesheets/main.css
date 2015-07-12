@@ -3103,6 +3103,8 @@ body,
       content: '\f119'; }
     #menu .pages a.icon-settings:before {
       content: '\f085'; }
+    #menu .pages a.icon-plus:before {
+      content: '\f067'; }
     #menu .pages a:hover, #menu .pages a:active {
       -webkit-transition: all 600ms linear;
       -moz-transition: all 600ms linear;
