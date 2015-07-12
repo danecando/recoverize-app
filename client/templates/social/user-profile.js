@@ -53,6 +53,7 @@ Template.userProfile.helpers({
   }
 });
 
+
 Template.userProfile.events({
   'click #load-more': function(e, template) {
     e.preventDefault();
