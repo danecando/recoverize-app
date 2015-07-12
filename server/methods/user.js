@@ -11,6 +11,7 @@ Meteor.methods({
     return Meteor.users.find({}).count();
   },
 
+
   /**
    * Get a list of users based on filter / sort options
    * @param filter
@@ -40,6 +41,7 @@ Meteor.methods({
     };
   },
 
+
   /**
    * Get a users profile picture
    * @param username
@@ -54,6 +56,7 @@ Meteor.methods({
       }
     });
   },
+
 
   /**
    * Creates a new user account
@@ -77,6 +80,7 @@ Meteor.methods({
     return id;
   },
 
+
   /**
    * Assign a user to a role
    * @todo take a look at these methods make sure they're secure
@@ -89,6 +93,7 @@ Meteor.methods({
     Roles.addUsersToRoles(id, roles, Roles.GLOBAL_GROUP);
   },
 
+
   /**
    * Update a users' roles
    * @param id
@@ -99,6 +104,7 @@ Meteor.methods({
     check(roles, [String]);
     Roles.setUserRoles(id, roles, Roles.GLOBAL_GROUP);
   },
+
 
   /**
    * Flag to indicate if an account has finished creating a profile
@@ -114,6 +120,7 @@ Meteor.methods({
       }
     });
   },
+
 
   /**
    * Ban a user from the site
@@ -134,6 +141,7 @@ Meteor.methods({
     }
 
   },
+
 
   /**
    * Opt a user in to mailing list
@@ -162,6 +170,7 @@ Meteor.methods({
       throw new Meteor.Error(400, e.message);
     }
   },
+
 
   /**
    * Update own email address
@@ -247,6 +256,7 @@ Meteor.methods({
     });
   },
 
+
   /**
    * Follow another user
    * @param usernameToFollow
@@ -295,6 +305,7 @@ Meteor.methods({
     }
   },
 
+
   /**
    * Unfollow a user
    * @param usernameToUnfollow
@@ -330,6 +341,7 @@ Meteor.methods({
     }
   },
 
+
   /**
    * Sets lastActive date for user by id
    * @param userId
@@ -340,7 +352,7 @@ Meteor.methods({
         lastActive: new Date()
       }
     }, function() {
-      return;
+      return; // run async
     });
   }
 

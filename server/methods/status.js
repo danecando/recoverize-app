@@ -1,3 +1,5 @@
+'use strict';
+
 Meteor.methods({
 
   getStatuses: function getStatuses(filter, sort, limit, skip) {
@@ -22,7 +24,8 @@ Meteor.methods({
 
   getStatus: function getStatus(filter) {
     if (!filter) return;
-    else return Status.findOne(filter)
+
+    return Status.findOne(filter);
   },
 
   createStatus: function(share) {
@@ -30,12 +33,12 @@ Meteor.methods({
     check(share, Object);
     check(share.status, String);
 
-    share.username  = Meteor.user().username;
+    share.username = Meteor.user().username;
     share.timestamp = Date.now();
 
-    Status.insert(share, function(err, _id){
+    Status.insert(share, function(err, _id) {
       if (err) {
-        return new Meteor.Error(500, "Couldn't create status");
+        return new Meteor.Error(500, 'Couldn\'t create status');
       }
 
       if (share.status) {
@@ -91,7 +94,7 @@ Meteor.methods({
    * Decrease status serenity & user serenity count
    * @param statusId
    */
-  statusSerenityDown: function statusSerenityDown(statusId){
+  statusSerenityDown: function statusSerenityDown(statusId) {
     var id = Utility.getUserId();
     check(id, String);
     check(statusId, String);
@@ -122,8 +125,8 @@ Meteor.methods({
 
 
     var affected = Status.update(
-      {_id: statusId, shareList: {$ne: Meteor.user().username}},
-      {$addToSet: {shareList: Meteor.user().username}, $inc: {shares: 1}}
+        { _id: statusId, shareList: { $ne: Meteor.user().username } },
+        { $addToSet: { shareList: Meteor.user().username }, $inc: { shares: 1 } }
     );
 
     if (affected) {
@@ -150,8 +153,8 @@ Meteor.methods({
       });
 
       Meteor.users.update(
-        {username: status.username},
-        {$inc: {serenity: 1}}
+          { username: status.username },
+          { $inc: { serenity: 1 } }
       );
     }
   },
