@@ -3152,9 +3152,6 @@ body,
         -moz-transition: all 600ms linear;
         transition: all 600ms linear; }
 
-#page {
-  background: #f3f6f9; }
-
 .page-head {
   position: relative;
   z-index: 10;
