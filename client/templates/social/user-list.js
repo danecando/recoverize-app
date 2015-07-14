@@ -1,10 +1,11 @@
+'use strict';
 
 Template.userlist.onCreated(function() {
   var instance = this;
 
   if (!Session.get('userListSort')) {
     Session.set('userListSort', {
-      status: -1,
+      lastActive: -1,
       serenity: -1,
       'profile.soberDate': 1,
       followersCount: 1,
@@ -26,8 +27,8 @@ Template.userlist.onCreated(function() {
   Tracker.autorun(function() {
 
     // if filters / sort have changed reset data
-    if (!_.isEqual(prevFilter, instance.filter.get()) ||
-      !_.isEqual(prevSort, instance.sort.get())) {
+    if (!_.isEqual(prevFilter, instance.filter.get())
+        || !_.isEqual(prevSort, instance.sort.get())) {
       instance.page.set(0);
       instance.userCount.set(0);
       instance.userList.set([]);
@@ -36,20 +37,20 @@ Template.userlist.onCreated(function() {
     }
 
     Meteor.call(
-      'getUsers',
-      instance.filter.get(),
-      instance.sort.get(),
-      instance.limit,
-      instance.page.get() * instance.limit,
-      function(err, results) {
-        var userList = instance.userList.get();
-        var updated = userList.concat(results.users);
-        updated = _.uniq(updated, function(item) {
-          return item._id;
-        });
-        instance.userList.set(updated);
-        instance.userCount.set(results.userCount);
-      }
+        'getUsers',
+        instance.filter.get(),
+        instance.sort.get(),
+        instance.limit,
+        instance.page.get() * instance.limit,
+        function(err, results) {
+          var userList = instance.userList.get();
+          var updated = userList.concat(results.users);
+          updated = _.uniq(updated, function(item) {
+            return item._id;
+          });
+          instance.userList.set(updated);
+          instance.userCount.set(results.userCount);
+        }
     );
   });
 
@@ -115,7 +116,7 @@ Template.userlist.events({
     var page = template.page.get();
     template.page.set(page + 1);
   },
-  'keyup .userList-filter, keydown .userList-filter, keypress .userList-filter': function(e, template){
+  'keyup .userList-filter, keydown .userList-filter, keypress .userList-filter': function(e, template) {
     if (e.keyCode == 27) {
       $('.page-header').removeClass('search-open');
     }

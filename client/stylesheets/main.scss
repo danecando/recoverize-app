@@ -34,6 +34,11 @@
   border: 1px solid red !important;
 }
 
+.gradient-divide {
+  height: 10px;
+  background: linear-gradient(180deg, #eee, #f5f5f5);
+}
+
 .at-mention {
   //  color: $secondary-blue;
   font-size: em(15);
@@ -55,6 +60,20 @@
       position: relative;
       bottom: 1px;
     }
+  }
+}
+
+.style-two {
+  .content-container {
+    margin: 10px;
+  }
+  .content-head {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    padding: 5px;
+    background: white;
+    border-top: 2px solid $secondary-blue;
   }
 }
 
@@ -503,6 +522,12 @@
       }
     }
 
+    &.icon-plus {
+      &:before {
+        content: '\f067';
+      }
+    }
+
     &:hover,
     &:active {
       @include transition(all 600ms linear);
@@ -521,7 +546,7 @@
 
 
 #page {
-  //  background: #fff;
+    background: $light-blue;
 }
 
 .page-head {
@@ -3157,6 +3182,115 @@
       .right-icon {
         color: white;
       }
+    }
+  }
+}
+
+.style-two .content-container {
+  border: 1px solid #eee;
+  border-top: 2px solid $base-link-color;
+
+  .gradient-divide {
+    background: linear-gradient(180deg, $light-blue, lighten($light-blue, 3));
+  }
+}
+
+.content-head.points-head {
+  padding: 15px 5px;
+  border-top: 0;
+  border-bottom: 1px solid darken($light-blue, 1);
+  box-shadow: 0 4px 2px -2px $light-blue;
+
+  .left {
+    width: 100px;
+    padding: 10px;
+    margin-right: 8px;
+    i {
+      color: $secondary-blue;
+      font-size: em(32);
+    }
+  }
+
+  .title {
+    margin-bottom: 5px;
+  }
+  .page-description {
+    font-size: em(15);
+    line-height: em(19);
+  }
+}
+
+.points-container {
+  background: lighten($light-blue, 5);
+  padding: 0 5px 10px;
+
+  .inner-contain {
+    //border: 1px solid $light-blue;
+  }
+
+  .intro-content {
+    padding: 10px;
+    font-size: em(15);
+    line-height: em(19);
+    color: darken($medium-gray, 15);
+    text-align: left;
+    letter-spacing: .25px;
+  }
+}
+
+.points-list {
+  border-right: 1px solid $light-blue;
+  border-left: 1px solid $light-blue;
+
+  li {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    border-bottom: 1px solid $light-blue;
+    background: white;
+    padding: 10px;
+
+    &:first-of-type {
+      border-top: 1px solid $light-blue;
+    }
+
+    .col {
+      @include flex-shrink(0);
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    .count {
+      width: 30px;
+
+      .bg {
+        padding: 5px;
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background: $secondary-blue;
+        color: white;
+        font-size: em(14);
+      }
+
+      .count-num {
+        position: relative;
+        bottom: 1px;
+        left: 1px;
+
+        small {
+          font-size: 90%;
+          color: lighten($base-link-color, 15);
+        }
+      }
+    }
+    .action {
+      @include calc(width, '100% - 40px');
+      font-size: em(15);
+      line-height: em(19);
     }
   }
 }
